@@ -1,15 +1,15 @@
-@tailwind base;
+@import 'font.css';
+@import 'tailwind.css';
 
-/* Write your own custom base styles here */
-
-/* Start purging... */
-@tailwind components;
-/* Stop purging. */
-
-/* Write you own custom component styles here */
-
-/* Start purging... */
-@tailwind utilities;
-/* Stop purging. */
-
-/* Your own custom utilities */
+.text-gradient {
+  background: radial-gradient(
+    87.99% 87.99% at 82.56% 82.09%,
+    #ff5630 0,
+    #ff8b00 100%
+  );
+  background-size: 100%;
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
