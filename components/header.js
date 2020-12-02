@@ -1,15 +1,25 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+
+import { ListItemIcon } from '@material-ui/core';
 // import Drawer from '@material-ui/core/Drawer';
+import SunIcon from './Icons/Sun';
+import PersonIcon from './Icons/Person';
+import BookIcon from './Icons/Book';
+import DocIcon from './Icons/Doc';
+import BrowserIcon from './Icons/Browser';
 
 const style = {
-  height: 300,
+  // height: 300,
   borderTopLeftRadius: 10,
   borderTopRightRadius: 10,
   paddingTop: 12,
   paddingBottom: 12,
 };
+
 export default function Header() {
   const [open, setOpen] = useState(false);
 
@@ -59,17 +69,17 @@ export default function Header() {
           </Link>
           <div className='hidden md:block ml-12 space-x-10'>
             <Link href='/blog'>
-              <a className='text-gray-600 rounded-md hover:bg-gray-100 px-3 py-1 transition ease-in-out duration-300'>
+              <a className='text-gray-600 rounded-md hover:bg-gray-200 px-3 py-1 transition ease-in-out duration-300'>
                 Blog
               </a>
             </Link>
             <Link href='/projects'>
-              <a className='text-gray-600 rounded-md hover:bg-gray-100 px-3 py-1 transition ease-in-out duration-300'>
+              <a className='text-gray-600 rounded-md hover:bg-gray-200 px-3 py-1 transition ease-in-out duration-300'>
                 Projects
               </a>
             </Link>
             <Link href='/about'>
-              <a className='text-gray-600 rounded-md hover:bg-gray-100 px-3 py-1 transition ease-in-out duration-300'>
+              <a className='text-gray-600 rounded-md hover:bg-gray-200 px-3 py-1 transition ease-in-out duration-300'>
                 About
               </a>
             </Link>
@@ -80,7 +90,11 @@ export default function Header() {
           onClick={() => setOpen((prevState) => !prevState)}
         >
           <div className='h-8 w-8'>
-            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 24 24'
+              className='fill-current text-gray-800'
+            >
               <g data-name='Layer 2'>
                 <g data-name='menu'>
                   <rect
@@ -148,7 +162,40 @@ export default function Header() {
         }}
         onOpen={() => setOpen((prevState) => !prevState)}
         onClose={() => setOpen((prevState) => !prevState)}
-      ></SwipeableDrawer>
+      >
+        <Link href='/blog' passHref>
+          <ListItem button component='a'>
+            <ListItemIcon>
+              <BookIcon style={{ color: '#42526E' }} />
+            </ListItemIcon>
+            <ListItemText>Blog</ListItemText>
+          </ListItem>
+        </Link>
+        <Link href='/resume' passHref>
+          <ListItem button component='a'>
+            <ListItemIcon>
+              <DocIcon style={{ color: '#42526E' }} />
+            </ListItemIcon>
+            <ListItemText>Resume</ListItemText>
+          </ListItem>
+        </Link>
+        <Link href='/projects' passHref>
+          <ListItem button component='a'>
+            <ListItemIcon>
+              <BrowserIcon style={{ color: '#42526E' }} />
+            </ListItemIcon>
+            <ListItemText>Projects</ListItemText>
+          </ListItem>
+        </Link>
+        <Link href='/about' passHref>
+          <ListItem button component='a'>
+            <ListItemIcon>
+              <PersonIcon style={{ color: '#42526E' }} />
+            </ListItemIcon>
+            <ListItemText style={{ fontFamily: 'Inter' }}>About</ListItemText>
+          </ListItem>
+        </Link>
+      </SwipeableDrawer>
     </>
   );
 }
