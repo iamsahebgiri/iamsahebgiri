@@ -2,7 +2,7 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
   purge: ['./components/**/*.js', './pages/**/*.js'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -54,9 +54,6 @@ module.exports = {
           '"Courier New"',
           'monospace',
         ],
-      },
-      fontSize: {
-        '2rem': '2.1rem',
       },
     },
   },

@@ -3180,6 +3180,11 @@ npmlog@^4.0.1, npmlog@^4.1.2:
     gauge "~2.7.3"
     set-blocking "~2.0.0"
 
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha1-y480xTIT2JVyP8urkH6UIq28r7E=
+
 num2fraction@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
@@ -4669,6 +4674,11 @@ type@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/type/-/type-2.1.0.tgz#9bdc22c648cf8cf86dd23d32336a41cfb6475e3f"
   integrity sha512-G9absDWvhAWCV2gmF1zKud3OyC61nZDwWvBL2DApaVFogI07CprggiQAOOjvp2NRjYWFzPyu7vwtDrQFq8jeSA==
+
+typed.js@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/typed.js/-/typed.js-2.0.11.tgz#d298a91f959f11a3803bf48b841a6fadd29640d9"
+  integrity sha512-1ZORHalEyLob34q738mqmwp0pT6syMigB1SZuTItqdhovWBKFIt7I5uVALXAGQZCg2MCtihCt6uqkoqPJK+9iQ==
 
 typedarray@^0.0.6:
   version "0.0.6"

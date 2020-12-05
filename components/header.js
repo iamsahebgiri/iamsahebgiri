@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-
 import { ListItemIcon } from '@material-ui/core';
-// import Drawer from '@material-ui/core/Drawer';
+import Drawer from '@material-ui/core/Drawer';
+
 import SunIcon from './Icons/Sun';
 import PersonIcon from './Icons/Person';
 import BookIcon from './Icons/Book';
 import DocIcon from './Icons/Doc';
 import BrowserIcon from './Icons/Browser';
+import MoonIcon from './Icons/Moon';
 
 const style = {
   // height: 300,
@@ -20,12 +20,28 @@ const style = {
   paddingBottom: 12,
 };
 
+const CustomLink = React.forwardRef(({ onClick, href, children }, ref) => {
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      ref={ref}
+      className='text-gray-600 dark:text-gray-400 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 px-3 py-1 transition ease-in-out duration-300'
+    >
+      {children}
+    </a>
+  );
+});
+
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  const toggleDrawer = () => setOpen((prevState) => !prevState);
 
   return (
     <>
-      <div className='my-5 md:my-8 flex items-center justify-between'>
+      <div className='py-5 md:py-8 flex items-center justify-between'>
         <div className='flex items-center justify-between'>
           <Link href='/'>
             <a>
@@ -68,32 +84,26 @@ export default function Header() {
             </a>
           </Link>
           <div className='hidden md:block ml-12 space-x-10'>
-            <Link href='/blog'>
-              <a className='text-gray-600 rounded-md hover:bg-gray-200 px-3 py-1 transition ease-in-out duration-300'>
-                Blog
-              </a>
+            <Link href='/blog' passHref>
+              <CustomLink>Blog</CustomLink>
             </Link>
-            <Link href='/projects'>
-              <a className='text-gray-600 rounded-md hover:bg-gray-200 px-3 py-1 transition ease-in-out duration-300'>
-                Projects
-              </a>
+            <Link href='/projects' passHref>
+              <CustomLink>Projects</CustomLink>
             </Link>
-            <Link href='/about'>
-              <a className='text-gray-600 rounded-md hover:bg-gray-200 px-3 py-1 transition ease-in-out duration-300'>
-                About
-              </a>
+            <Link href='/about' passHref>
+              <CustomLink>About</CustomLink>
             </Link>
           </div>
         </div>
         <button
-          className='focus:outline-none menuIcon md:hidden'
-          onClick={() => setOpen((prevState) => !prevState)}
+          className='focus:outline-none menuIcon md:hidden '
+          onClick={toggleDrawer}
         >
           <div className='h-8 w-8'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 24 24'
-              className='fill-current text-gray-800'
+              className='fill-current text-gray-800 dark:text-gray-200'
             >
               <g data-name='Layer 2'>
                 <g data-name='menu'>
@@ -112,9 +122,13 @@ export default function Header() {
           </div>
         </button>
         <div className='hidden md:flex items-center justify-center space-x-3'>
-          <a className='menuIcon ' href='#' alt='Resume'>
+          {/* <a className='menuIcon ' href='#' alt='Resume'>
             <div className='h-5 w-5'>
-              <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 24 24'
+                className='fill-current text-gray-800 dark:text-gray-200'
+              >
                 <g data-name='Layer 2'>
                   <g data-name='file'>
                     <rect width='24' height='24' opacity='0' />
@@ -123,35 +137,60 @@ export default function Header() {
                 </g>
               </svg>
             </div>
-          </a>
-          <a className='menuIcon ' href='#' alt='Resume'>
+          </a> */}
+          <button
+            onClick={() => {
+              document.body.classList.toggle('dark');
+              setIsDarkMode((prevState) => !prevState);
+            }}
+            className='focus:outline-none'
+          >
             <div className='h-5 w-5'>
-              <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
-                <g data-name='Layer 2'>
-                  <g data-name='sun'>
-                    <rect
-                      width='24'
-                      height='24'
-                      transform='rotate(180 12 12)'
-                      opacity='0'
-                    />
-                    <path d='M12 6a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1z' />
-                    <path d='M21 11h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2z' />
-                    <path d='M6 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1z' />
-                    <path d='M6.22 5a1 1 0 0 0-1.39 1.47l1.44 1.39a1 1 0 0 0 .73.28 1 1 0 0 0 .72-.31 1 1 0 0 0 0-1.41z' />
-                    <path d='M17 8.14a1 1 0 0 0 .69-.28l1.44-1.39A1 1 0 0 0 17.78 5l-1.44 1.42a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.31z' />
-                    <path d='M12 18a1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-2a1 1 0 0 0-1-1z' />
-                    <path d='M17.73 16.14a1 1 0 0 0-1.39 1.44L17.78 19a1 1 0 0 0 .69.28 1 1 0 0 0 .72-.3 1 1 0 0 0 0-1.42z' />
-                    <path d='M6.27 16.14l-1.44 1.39a1 1 0 0 0 0 1.42 1 1 0 0 0 .72.3 1 1 0 0 0 .67-.25l1.44-1.39a1 1 0 0 0-1.39-1.44z' />
-                    <path d='M12 8a4 4 0 1 0 4 4 4 4 0 0 0-4-4z' />
+              {isDarkMode ? (
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  className='fill-current text-gray-800 dark:text-gray-200'
+                >
+                  <g data-name='Layer 2'>
+                    <g data-name='moon'>
+                      <rect width='24' height='24' opacity='0' />
+                      <path d='M12.3 22h-.1a10.31 10.31 0 0 1-7.34-3.15 10.46 10.46 0 0 1-.26-14 10.13 10.13 0 0 1 4-2.74 1 1 0 0 1 1.06.22 1 1 0 0 1 .24 1 8.4 8.4 0 0 0 1.94 8.81 8.47 8.47 0 0 0 8.83 1.94 1 1 0 0 1 1.27 1.29A10.16 10.16 0 0 1 19.6 19a10.28 10.28 0 0 1-7.3 3z' />
+                    </g>
                   </g>
-                </g>
-              </svg>
+                </svg>
+              ) : (
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  className='fill-current text-gray-800 dark:text-gray-200'
+                >
+                  <g data-name='Layer 2'>
+                    <g data-name='sun'>
+                      <rect
+                        width='24'
+                        height='24'
+                        transform='rotate(180 12 12)'
+                        opacity='0'
+                      />
+                      <path d='M12 6a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1z' />
+                      <path d='M21 11h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2z' />
+                      <path d='M6 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1z' />
+                      <path d='M6.22 5a1 1 0 0 0-1.39 1.47l1.44 1.39a1 1 0 0 0 .73.28 1 1 0 0 0 .72-.31 1 1 0 0 0 0-1.41z' />
+                      <path d='M17 8.14a1 1 0 0 0 .69-.28l1.44-1.39A1 1 0 0 0 17.78 5l-1.44 1.42a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.31z' />
+                      <path d='M12 18a1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-2a1 1 0 0 0-1-1z' />
+                      <path d='M17.73 16.14a1 1 0 0 0-1.39 1.44L17.78 19a1 1 0 0 0 .69.28 1 1 0 0 0 .72-.3 1 1 0 0 0 0-1.42z' />
+                      <path d='M6.27 16.14l-1.44 1.39a1 1 0 0 0 0 1.42 1 1 0 0 0 .72.3 1 1 0 0 0 .67-.25l1.44-1.39a1 1 0 0 0-1.39-1.44z' />
+                      <path d='M12 8a4 4 0 1 0 4 4 4 4 0 0 0-4-4z' />
+                    </g>
+                  </g>
+                </svg>
+              )}
             </div>
-          </a>
+          </button>
         </div>
       </div>
-      <SwipeableDrawer
+      <Drawer
         anchor='bottom'
         open={open}
         PaperProps={{ style }}
@@ -160,11 +199,10 @@ export default function Header() {
             style: { backgroundColor: 'rgba(9, 30, 66, 0.54)' },
           },
         }}
-        onOpen={() => setOpen((prevState) => !prevState)}
-        onClose={() => setOpen((prevState) => !prevState)}
+        onClose={toggleDrawer}
       >
         <Link href='/blog' passHref>
-          <ListItem button component='a'>
+          <ListItem button component='a' onClick={toggleDrawer}>
             <ListItemIcon>
               <BookIcon style={{ color: '#42526E' }} />
             </ListItemIcon>
@@ -172,7 +210,7 @@ export default function Header() {
           </ListItem>
         </Link>
         <Link href='/resume' passHref>
-          <ListItem button component='a'>
+          <ListItem button component='a' onClick={toggleDrawer}>
             <ListItemIcon>
               <DocIcon style={{ color: '#42526E' }} />
             </ListItemIcon>
@@ -180,7 +218,7 @@ export default function Header() {
           </ListItem>
         </Link>
         <Link href='/projects' passHref>
-          <ListItem button component='a'>
+          <ListItem button component='a' onClick={toggleDrawer}>
             <ListItemIcon>
               <BrowserIcon style={{ color: '#42526E' }} />
             </ListItemIcon>
@@ -188,14 +226,31 @@ export default function Header() {
           </ListItem>
         </Link>
         <Link href='/about' passHref>
-          <ListItem button component='a'>
+          <ListItem button component='a' onClick={toggleDrawer}>
             <ListItemIcon>
               <PersonIcon style={{ color: '#42526E' }} />
             </ListItemIcon>
-            <ListItemText style={{ fontFamily: 'Inter' }}>About</ListItemText>
+            <ListItemText>About</ListItemText>
           </ListItem>
         </Link>
-      </SwipeableDrawer>
+        <ListItem
+          button
+          onClick={() => {
+            document.body.classList.toggle('dark');
+            setIsDarkMode((prevState) => !prevState);
+            toggleDrawer();
+          }}
+        >
+          <ListItemIcon>
+            {isDarkMode ? (
+              <MoonIcon style={{ color: '#42526E' }} />
+            ) : (
+              <SunIcon style={{ color: '#42526E' }} />
+            )}
+          </ListItemIcon>
+          <ListItemText>{isDarkMode ? 'Dark' : 'Light'} Mode</ListItemText>
+        </ListItem>
+      </Drawer>
     </>
   );
 }
