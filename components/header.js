@@ -26,7 +26,7 @@ const CustomLink = React.forwardRef(({ onClick, href, children }, ref) => {
       href={href}
       onClick={onClick}
       ref={ref}
-      className='text-gray-600 dark:text-gray-400 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 px-3 py-1 transition ease-in-out duration-300'
+      className='text-gray-700 dark:text-gray-400 rounded-full hover:bg-gray-100 dark:hover:bg-gray-600 px-3 py-1 transition ease-in-out duration-300'
     >
       {children}
     </a>
@@ -143,7 +143,7 @@ export default function Header() {
               document.body.classList.toggle('dark');
               setIsDarkMode((prevState) => !prevState);
             }}
-            className='focus:outline-none'
+            className='focus:outline-none transform hover:scale-105'
           >
             <div className='h-5 w-5'>
               {isDarkMode ? (

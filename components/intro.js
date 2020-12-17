@@ -9,7 +9,7 @@ export default function Intro() {
         '$ npx create-react-app my-app \n$ cd my-app\n$ npm start',
         '$ npx create-nextjs-app my-awesome-app \n$ cd my-awesome-app\n$ yarn dev',
         '$ pip install tensorflow',
-        '$ pip install django \n$ django-admin startproject',
+        '$ pip install django \n$ django-admin startproject dj-shop',
         '$ expo init my-rn-project ',
         '$ git push --froce ^1000\n  `pushed to origin with option force`',
       ],
@@ -28,7 +28,7 @@ export default function Intro() {
     <div className='grid grid-cols-1 md:grid-cols-2 md:gap-x-8 lg:gap-x-10 md:my-12'>
       <div>
         <div className='mt-12 mb-6 md:mb-4'>
-          <h1 className='font-heading text-gray-800 dark:text-gray-100 font-semibold text-4xl sm:text-4xl md:text-4xl lg:text-5xl text-center md:text-left leading-snug lg:leading-tight'>
+          <h1 className='font-heading text-gray-800 dark:text-gray-100 font-bold text-4xl sm:text-4xl md:text-4xl lg:text-5xl text-center md:text-left leading-snug lg:leading-tight'>
             Building software
             <br />
             <span className='text-gradient'>that matters</span>

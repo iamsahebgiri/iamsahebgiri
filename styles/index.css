@@ -1,5 +1,6 @@
 @import 'font.css';
 @import 'tailwind.css';
+@import 'progressive-img.css';
 
 .text-gradient {
   background: radial-gradient(
@@ -12,4 +13,13 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.SvgLogo {
+  max-width: 160px;
+}
+
+.debug {
+  outline: 4px solid hsla(var(--debug-css, 207, 89.7436%, 54.1176%), 0.05) !important;
+  outline-offset: -2px !important;
 }
