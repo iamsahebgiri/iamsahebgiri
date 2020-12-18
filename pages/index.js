@@ -32,7 +32,7 @@ export default function Index({ allPosts }) {
 }
 
 export async function getStaticProps() {
-  const allPosts = getFeaturedPosts([
+  const allFeaturedPosts = getFeaturedPosts([
     'type',
     'title',
     'date',
@@ -43,6 +43,6 @@ export async function getStaticProps() {
   ]);
 
   return {
-    props: { allPosts },
+    props: { allPosts: allFeaturedPosts },
   };
 }

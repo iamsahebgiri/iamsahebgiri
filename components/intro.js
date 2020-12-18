@@ -29,14 +29,14 @@ export default function Intro() {
       <div>
         <div className='mt-12 mb-6 md:mb-4'>
           <h1 className='font-heading text-gray-800 dark:text-gray-100 font-bold text-4xl sm:text-4xl md:text-4xl lg:text-5xl text-center md:text-left leading-snug lg:leading-tight'>
-            Building software
+            Simplifying lifes
             <br />
-            <span className='text-gradient'>that matters</span>
+            <span className='text-gradient'>through coding</span>
           </h1>
         </div>
         <p className='leading-relaxed px-6 text-gray-500 text-center md:text-left md:w-9/12 md:px-0'>
-          I develop software for people with simplicity, scalability and ease of
-          use in mind while building.
+          I solve problems of people by creating applications and websites and
+          minimize their frustration of life.
         </p>
         <div className='mt-8 md:flex md:space-x-4'>
           <Button isPrimary>Get started</Button>

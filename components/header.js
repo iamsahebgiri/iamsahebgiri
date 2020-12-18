@@ -26,7 +26,7 @@ const CustomLink = React.forwardRef(({ onClick, href, children }, ref) => {
       href={href}
       onClick={onClick}
       ref={ref}
-      className='text-gray-700 dark:text-gray-400 rounded-full hover:bg-gray-100 dark:hover:bg-gray-600 px-3 py-1 transition ease-in-out duration-300'
+      className='text-gray-700 dark:text-gray-400 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 py-2 px-3 transition ease-in-out duration-300'
     >
       {children}
     </a>
