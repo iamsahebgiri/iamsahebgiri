@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { ListItemIcon } from '@material-ui/core';
@@ -11,6 +13,7 @@ import BookIcon from './Icons/Book';
 import DocIcon from './Icons/Doc';
 import BrowserIcon from './Icons/Browser';
 import MoonIcon from './Icons/Moon';
+import clsx from 'clsx';
 
 const style = {
   // height: 300,
@@ -20,22 +23,29 @@ const style = {
   paddingBottom: 12,
 };
 
-const CustomLink = React.forwardRef(({ onClick, href, children }, ref) => {
-  return (
-    <a
-      href={href}
-      onClick={onClick}
-      ref={ref}
-      className='text-gray-700 dark:text-gray-400 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 py-2 px-3 transition ease-in-out duration-300'
-    >
-      {children}
-    </a>
-  );
-});
+const CustomLink = React.forwardRef(
+  ({ onClick, href, children, isActive }, ref) => {
+    return (
+      <a
+        href={href}
+        onClick={onClick}
+        ref={ref}
+        className={clsx(
+          'text-gray-700 dark:text-gray-400 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 py-2 px-3 transition ease-in-out duration-300',
+          isActive && 'bg-gray-100 dark:bg-gray-600',
+        )}
+      >
+        {children}
+      </a>
+    );
+  },
+);
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
+
+  const router = useRouter();
 
   const toggleDrawer = () => setOpen((prevState) => !prevState);
 
@@ -85,13 +95,19 @@ export default function Header() {
           </Link>
           <div className='hidden md:block ml-12 space-x-10'>
             <Link href='/blog' passHref>
-              <CustomLink>Writings</CustomLink>
+              <CustomLink isActive={router.pathname === '/blog'}>
+                Writings
+              </CustomLink>
             </Link>
             <Link href='/projects' passHref>
-              <CustomLink>Projects</CustomLink>
+              <CustomLink isActive={router.pathname === '/projects'}>
+                Projects
+              </CustomLink>
             </Link>
             <Link href='/about' passHref>
-              <CustomLink>About</CustomLink>
+              <CustomLink isActive={router.pathname === '/about'}>
+                About
+              </CustomLink>
             </Link>
           </div>
         </div>
