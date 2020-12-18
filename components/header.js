@@ -85,7 +85,7 @@ export default function Header() {
           </Link>
           <div className='hidden md:block ml-12 space-x-10'>
             <Link href='/blog' passHref>
-              <CustomLink>Blog</CustomLink>
+              <CustomLink>Writings</CustomLink>
             </Link>
             <Link href='/projects' passHref>
               <CustomLink>Projects</CustomLink>
@@ -206,7 +206,7 @@ export default function Header() {
             <ListItemIcon>
               <BookIcon style={{ color: '#42526E' }} />
             </ListItemIcon>
-            <ListItemText>Blog</ListItemText>
+            <ListItemText>Writings</ListItemText>
           </ListItem>
         </Link>
         <Link href='/resume' passHref>
