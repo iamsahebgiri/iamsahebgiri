@@ -2,7 +2,7 @@
 title: 'Hacking android phone the easiest way'
 excerpt: 'ADB stands for Android Debug Bridge. The name itself self explanatory. It allows us to connect to android devices.'
 coverImage: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
-date: '2020-05-05T08:45:07.322Z'
+date: 'May 05, 2020'
 type: 'hacking'
 author:
   name: Saheb Giri

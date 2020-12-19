@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import React from 'react';
 import Container from './container';
 import Thumbnail from './thumbnail';
+import Title from './title';
 
 export default function blog({ blogs }) {
   const [isBlog, setIsBlog] = useState(false);
@@ -16,22 +17,24 @@ export default function blog({ blogs }) {
   }, []);
 
   return (
-    <div
-      className={clsx(
-        isBlog && 'bg-white dark:bg-gray-900 pb-12',
-        !isBlog && 'bg-gray-50 dark:bg-gray-800 py-12',
-      )}
-    >
-      <Container>
-        <h1 className='font-heading font-bold text-center text-gray-800 dark:text-gray-100 text-3xl md:text-4xl py-12'>
-          Overthought<span className='text-gradient'>.</span>
-        </h1>
-        <div className='container mx-auto py-6 grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3'>
-          {blogs.map((blog, index) => (
-            <Thumbnail key={blog.slug} blog={blog} index={index} />
-          ))}
-        </div>
-      </Container>
+    <div>
+      <div className='bg-gradient-to-b from-transparent to-gray-100 dark:to-gray-800'>
+        <Title
+          name='Overthought'
+          p='Thinking out loud about design, development, and building excellent
+            software.'
+        />
+      </div>
+
+      <div className='bg-gray-100 dark:bg-gray-800'>
+        <Container>
+          <div className='container mx-auto py-6 grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3'>
+            {blogs.map((blog, index) => (
+              <Thumbnail key={blog.slug} blog={blog} index={index} />
+            ))}
+          </div>
+        </Container>
+      </div>
     </div>
   );
 }

@@ -21,14 +21,12 @@ export default function Thumbnail({ blog }) {
     img_large.onload = () => {
       setIsLargeImgLoaded(true);
     };
-
-    console.log(blog);
   }, []);
 
   return (
     <Link href={`/posts/${slug}`}>
-      <a>
-        <div className='bg-white h-full p-3 rounded-lg shadow dark:bg-gray-700 transform hover:-translate-y-1 transition ease-in-out duration-300'>
+      <a className='thumbnail-link'>
+        <div className='bg-white h-full p-3 rounded-lg shadow-sm dark:bg-gray-700'>
           <div
             className='placeholder rounded-lg bg-gray-200 relative bg-cover bg-no-repeat overflow-hidden'
             data-large={`/_next/image?url=${coverImage}&w=1920&q=100`}
@@ -41,7 +39,10 @@ export default function Thumbnail({ blog }) {
             <img
               src={`/_next/image?url=${coverImage}&w=1920&q=100`}
               alt={title}
-              className={clsx('img-large', isLargeImgLoaded && 'loaded')}
+              className={clsx(
+                'img-large transition ease-in-out duration-300',
+                isLargeImgLoaded && 'loaded',
+              )}
             />
             <div className='intrinsic-placeholder' />
           </div>
@@ -49,9 +50,9 @@ export default function Thumbnail({ blog }) {
           <div className='flex flex-col justify-between py-5'>
             <div>
               <div className='text-green-500 uppercase text-sm'>{type}</div>
-              <p className='font-heading text-xl mt-2 text-gray-900 dark:text-gray-300'>
+              <h2 className='font-heading text-xl mt-2 text-gray-900 dark:text-gray-300'>
                 {title}
-              </p>
+              </h2>
             </div>
             <p className='text-sm text-gray-400 dark:text-gray-400 mt-2'>
               {date}

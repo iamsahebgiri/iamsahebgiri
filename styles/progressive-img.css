@@ -24,5 +24,10 @@
   margin: 0;
   top: 50% !important;
   left: 50% !important;
-  transform: translate(-50%, -50%) !important;
+  transform: translate(-50%, -50%) scale(1.001) !important;
+  transition: all ease-in-out 300ms !important;
+}
+
+a.thumbnail-link:hover .img-large {
+  transform: translate(-50%, -50%) scale(1.02) !important;
 }

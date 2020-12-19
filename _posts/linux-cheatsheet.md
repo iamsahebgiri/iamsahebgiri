@@ -2,7 +2,7 @@
 title: 'Top commands used in Linux'
 excerpt: 'Linux had been the operating system for geeks and hacker. And it is true that there are other distribution like Ubuntu, Linuxmint, zorin os, meant for the people who want to give it a try.'
 coverImage: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
-date: '2020-09-26T08:45:07.322Z'
+date: 'September 21, 2020'
 type: 'cheatsheet'
 author:
   name: Saheb Giri

@@ -2,7 +2,7 @@
 title: 'Top 3 concept of functional programming'
 excerpt: 'Javascript is a multiparadigm programming language. It is not purely functional. Currying is a technique named after Haskell Curry.'
 coverImage: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
-date: '2020-09-26T08:45:07.322Z'
+date: 'October 20, 2020'
 type: 'conceptual'
 author:
   name: Saheb Giri

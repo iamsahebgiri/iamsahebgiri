@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { getAllPosts } from '../lib/api';
+import { getAllProjects } from '../lib/api';
 import { CMS_NAME } from '../lib/constants';
 
 import Container from '../components/container';
@@ -9,7 +9,7 @@ import Layout from '../components/layout';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
-export default function projects({ allPosts }) {
+export default function projects({ allProjects }) {
   return (
     <>
       <Layout>
@@ -18,8 +18,8 @@ export default function projects({ allPosts }) {
         </Head>
         <Container>
           <Header />
-          <Projects />
         </Container>
+        <Projects allProjects={allProjects} />
         <Footer />
       </Layout>
     </>
@@ -27,17 +27,18 @@ export default function projects({ allPosts }) {
 }
 
 export async function getStaticProps() {
-  const allPosts = getAllPosts([
-    'type',
-    'title',
-    'date',
-    'slug',
-    'author',
+  const allProjects = getAllProjects([
+    'name',
+    'description',
     'coverImage',
-    'excerpt',
+    'type',
+    'dateStarted',
+    'techStack',
+    'githubLink',
+    'hostedLink',
   ]);
 
   return {
-    props: { allPosts },
+    props: { allProjects },
   };
 }
