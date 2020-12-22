@@ -2,7 +2,22 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 
-// import { SiNuxtDotJs, SiSpotify, SiSass, SiBootstrap } from 'react-icons/si';
+import {
+  SiNuxtDotJs,
+  SiSpotify,
+  SiSass,
+  SiBootstrap,
+  SiNextDotJs,
+  SiVueDotJs,
+  SiTailwindcss,
+  SiPython,
+  SiDjango,
+  SiD3DotJs,
+  SiCss3,
+  SiReact,
+  SiKotlin,
+  SiAndroid,
+} from 'react-icons/si';
 
 export default function Project({ project }) {
   const {
@@ -55,17 +70,17 @@ export default function Project({ project }) {
         <div className='intrinsic-placeholder' />
       </div>
 
-      <div className='flex flex-col justify-between content-between pt-5'>
+      <div className='flex flex-col justify-between content-between pt-5 px-2'>
         <div className='flex items-center justify-between'>
           <h2 className='font-heading text-xl mt-2 font-bold text-gray-900 dark:text-gray-300'>
             {name}
           </h2>
-          <a href={hostedLink}>
+          <a href={hostedLink} target='_blank'>
             <div className='h-5 w-5'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 viewBox='0 0 24 24'
-                className='fill-current text-gray-900 dark:text-gray-300'
+                className='fill-current text-gray-700 dark:text-gray-300 hover:text-primary'
               >
                 <g data-name='Layer 2'>
                   <g data-name='external-link'>
@@ -78,13 +93,120 @@ export default function Project({ project }) {
             </div>
           </a>
         </div>
-        <p className='mt-2 text-gray-600 dark:text-gray-400'>{description}</p>
+        <div className='h-16'>
+          <p className='mt-2 text-gray-600 dark:text-gray-400'>{description}</p>
+        </div>
         <div className='flex items-center justify-between mt-6'>
-          <p className='text-gray-500'>{dateStarted}</p>
+          <p className='text-sm text-gray-400 dark:text-gray-400 mt-2'>
+            {dateStarted}
+          </p>
+          <div className='flex space-x-2'>
+            {techStack.map((tech) => (
+              <div key={tech}>
+                {tech === 'next' ? (
+                  <SiNextDotJs
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'nuxt' ? (
+                  <SiNuxtDotJs
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'react' ? (
+                  <SiReact
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'vue' ? (
+                  <SiVueDotJs
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'css' ? (
+                  <SiCss3
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'tailwind' ? (
+                  <SiTailwindcss
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'bootstrap' ? (
+                  <SiBootstrap
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'sass' ? (
+                  <SiSass
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'spotify' ? (
+                  <SiSpotify
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'python' ? (
+                  <SiPython
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'django' ? (
+                  <SiDjango
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'd3' ? (
+                  <SiD3DotJs
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'kotlin' ? (
+                  <SiKotlin
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+
+                {tech === 'android' ? (
+                  <SiAndroid
+                    size='24'
+                    className='text-gray-400 dark:text-gray-400'
+                  />
+                ) : null}
+              </div>
+            ))}
+          </div>
         </div>
 
         <a href={githubLink} target='_blank'>
-          <button className='mt-8 rounded-lg my-2 px-4 w-full md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 md:text-lg xl:text-base font-semibold leading-tight transform hover:scale-95 hover:shadow-sm focus:outline-none transition ease-in-out duration-300 bg-primary text-white '>
+          <button className='mt-8 rounded-lg my-2 px-4 w-full md:px-5 xl:px-4 py-2 md:py-4 xl:py-2 xl:text-base font-semibold leading-tight transform hover:scale-95 hover:shadow-sm focus:outline-none transition ease-in-out duration-300 bg-primary text-white'>
             View at Github
           </button>
         </a>

@@ -1,7 +1,7 @@
 ---
 name: 'Soundsky'
 description: 'Download unlimited ringtone for free with best quality audio.'
-coverImage: '/assets/blog/cpp-stl/cover.jpg'
+coverImage: '/assets/projects/soundsky/soundsky.jpg'
 type: 'frontend'
 dateStarted: 'June 30, 2020'
 techStack: ['nuxt', 'vue', 'sass', 'bootstrap', 'spotify']

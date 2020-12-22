@@ -1,14 +1,12 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Container from '../../components/container';
-// import PostBody from '../../components/post-body';
-// import Header from '../../components/header';
-// import PostHeader from '../../components/post-header';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 import Layout from '../../components/layout';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
-// import PostTitle from '../../components/post-title';
-// import Head from 'next/head';
-// import { CMS_NAME } from '../../lib/constants';
+import Head from 'next/head';
+import { CMS_NAME } from '../../lib/constants';
 import markdownToHtml from '../../lib/markdownToHtml';
 import markdownStyles from '../../components/markdown-styles.module.css';
 
@@ -19,36 +17,28 @@ export default function Post({ post, morePosts, preview }) {
   }
   return (
     <Layout preview={preview}>
+      <Head>
+        <title>Home - {CMS_NAME}</title>
+      </Head>
       <Container>
-        {/* <Header />
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <article className="mb-32">
-              <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-              />
-              <PostBody content={post.content} />
-            </article>
-          </>
-        )} */}
-        <div className='max-w-prose'>
+        <Header />
+        <div className='max-w-prose mx-auto py-8 md:py-16'>
+          <div>
+            <p className='text-gray-500 font-semibold text-center mb-2'>
+              {post.date}
+            </p>
+            <h1 className='text-4xl font-bold text-center mb-16'>
+              {post.title}
+            </h1>
+          </div>
+
           <div
             className={markdownStyles['markdown']}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </div>
       </Container>
+      <Footer />
     </Layout>
   );
 }

@@ -1,7 +1,7 @@
 ---
 name: '30 Days 30 Projects'
 description: 'Learn to code by building projects with vanilla javascript.'
-coverImage: '/assets/blog/cpp-stl/cover.jpg'
+coverImage: '/assets/projects/30D30P/30D30P.jpg'
 type: 'frontend'
 dateStarted: 'Nov 14, 2020'
 techStack: ['next', 'react', 'tailwind']

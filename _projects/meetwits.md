@@ -1,7 +1,7 @@
 ---
 name: 'Meetwits'
-description: 'Catalog of movies and TV Series'
-coverImage: '/assets/blog/cpp-stl/cover.jpg'
+description: 'Catalog of movies and TV Series and download HD wallpaper.'
+coverImage: '/assets/projects/meetwits/meetwits.jpg'
 type: 'frontend'
 dateStarted: 'Jan 29, 2020'
 techStack: ['react', 'css', 'tailwind']
