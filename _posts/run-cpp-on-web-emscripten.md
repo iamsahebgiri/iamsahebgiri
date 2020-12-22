@@ -1,3 +1,16 @@
+---
+title: 'Run C++ in the browser - Emscripten'
+excerpt: 'What if I told you, C++ can used in browser itself, this might blows your mind. Because it is true through a tech called web assembly.'
+coverImage: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
+date: 'October 13, 2020'
+type: 'featured'
+author:
+  name: Saheb Giri
+  picture: '/assets/blog/authors/jj.jpeg'
+ogImage:
+  url: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
+---
+
 What if I told you, C++ can be used in the browser itself, this might blow your mind. Because it is true through a tech called web assembly.
 
 Webassembly is a relatively newer concept. The main idea behind this is to provide native like performance in browsers using so-called mature languages such as C/C++ or Rust.

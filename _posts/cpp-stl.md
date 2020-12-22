@@ -1,3 +1,16 @@
+---
+title: 'C++ STL in simple english please'
+excerpt: 'Standard Template Library in C++ is a library which contains a set of data structure and algorithms already built in.'
+coverImage: '/assets/blog/cpp-stl/cover.jpg'
+date: 'September 9, 2020'
+type: 'featured'
+author:
+  name: Saheb Giri
+  picture: '/assets/blog/authors/jj.jpeg'
+ogImage:
+  url: '/assets/blog/cpp-stl/cover.jpg'
+---
+
 Standard Template Library in C++ is a library which contains a set of data structure and algorithms already built in. You can use them as you like. It is based on template. So a little bit of template can be explained here.
 
 ## Template in C++
