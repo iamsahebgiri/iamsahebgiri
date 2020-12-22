@@ -1,22 +1,12 @@
----
-title: 'Run C++ in the browser - Emscripten'
-excerpt: 'What if I told you, C++ can used in browser itself, this might blows your mind. Because it is true through a tech called web assembly.'
-coverImage: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
-date: 'October 13, 2020'
-type: 'featured'
-author:
-  name: Saheb Giri
-  picture: '/assets/blog/authors/jj.jpeg'
-ogImage:
-  url: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
----
+What if I told you, C++ can be used in the browser itself, this might blow your mind. Because it is true through a tech called web assembly.
 
-What if I told you, C++ can used in browser itself, this might blows your mind. Because it is true through a tech called web assembly.
-Webassembly is relatively newer concept. The main idea behind this is to provide native like performance in browser using so called mature language such as C/C++ or Rust. This is really going to change the speed of the web apps and most importantly allowing developers to build high end games, in browser. As of now, V8 supports 4GB of RAM, which means with the combination of webassembly you can build pretty much anything you dream to build in native device.
+Webassembly is a relatively newer concept. The main idea behind this is to provide native like performance in browsers using so-called mature languages such as C/C++ or Rust.
+
+This is really going to change the speed of the web apps and most importantly allowing developers to build high end games in the browser. As of now, V8 supports 4GB of RAM, which means with the combination of webassembly you can build pretty much anything you dream to build in native device.
 
 ## How does it start? ⛳
 
-Back in the days when netscape captured the web browser market, java applet are the ways to make web site interactive. The problem with applets, is that your applet can't interact with web components like buttons, links, etc. In addition to that, it runs on virtualisation meaning the applet itself is independent.
+Back in the days when Netscape captured the web browser market, java applets were the ways to make websites interactive. The problem with applets, is that your applet can't interact with web components like buttons, links, etc. In addition to that, it runs on virtualisation meaning the applet itself is independent.
 
 ## Getting started
 
@@ -54,7 +44,7 @@ emsdk_env.bat
 
 ## Verify installation
 
-The above steps takes about 500MB of data, once you are ready now it’s better to verify the installation steps. To verify
+The above steps take about 500MB of data, once you are ready now it’s better to verify the installation steps. To verify
 
 ```bash
 # Verifying C compiler
@@ -66,9 +56,9 @@ em++ -v
 
 `emcc` is the compiler that compiles C code into wasm and some glue code so that you can run it in your browser. `em++` is the C++ version of the compiler.
 
-## Wrting C/C++ code
+## Writing/C++ code
 
-Now that you are all setup, go ahead and create a good old C/C++ program using your favourite Text Editor.
+Now that you are all set up, go ahead and create a good old C/C++ program using your favourite Text Editor.
 Here is the code -
 
 ```C
@@ -104,7 +94,7 @@ emcc hello.c
 em++ hello.cpp
 ```
 
-Behind the scene, it uses Clang compiler for compilation. On successful compilation, you will see two files **_a.out.js_** and **_a.out.wasm_**.
+Behind the scene, it uses the Clang compiler for compilation. On successful compilation, you will see two files **_a.out.js_** and **_a.out.wasm_**.
 
 ## Running Code
 

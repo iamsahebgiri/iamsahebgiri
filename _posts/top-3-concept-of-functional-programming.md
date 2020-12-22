@@ -1,23 +1,10 @@
----
-title: 'Top 3 concept of functional programming'
-excerpt: 'Javascript is a multiparadigm programming language. It is not purely functional. Currying is a technique named after Haskell Curry.'
-coverImage: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
-date: 'October 20, 2020'
-type: 'conceptual'
-author:
-  name: Saheb Giri
-  picture: '/assets/blog/authors/jj.jpeg'
-ogImage:
-  url: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
----
-
 ## Currying
 
-Javascript is a multiparadigm programming language. It is not purely functional. Currying is a technique named after Haskell Curry. The main idea behind this concept is that instead to taking multiple arguments, it takes a single argument in each function.
+Javascript is a multiparadigm programming language. It is not purely functional. Currying is a technique named after Haskell Curry. The main idea behind this concept is that instead of taking multiple arguments, it takes a single argument in each function.
 
-Javascript functions are first class citizen, which means it can be treated like any other data types, say string, boolean or may be be number. A variable can store a function like other.
+Javascript functions are first class citizens, which means it can be treated like any other data types, say string, boolean or may be number. A variable can store a function like other.
 
-Another thing to note that Javascript functions can return a function. Now coming to the topic of currying. It goes something like this. Let's say we have to number to add. How will solve this problem? Well pretty simple.
+Another thing to note that Javascript functions can return a function. Now coming to the topic of currying. It goes something like this. Let's say we have a number to add. How will I solve this problem? Well pretty simple.
 
 ```js
 function add(a, b) {
@@ -51,7 +38,7 @@ function fn(num) {
 }
 ```
 
-The above function is not pure because it changes everytime you call it.
+The above function is not pure because it changes every time you call it.
 
 ```js
 // pure function

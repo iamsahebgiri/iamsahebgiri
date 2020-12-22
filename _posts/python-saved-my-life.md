@@ -1,40 +1,28 @@
----
-title: 'Python and Javascript saved my life'
-excerpt: 'If you work with computer(which I do most of the time) and have people around you, it is possible that they will ask you for favour. I was no exception.'
-coverImage: '/assets/blog/python-saved-my-life/cover.jpg'
-date: 'September 26, 2020'
-type: 'featured'
-author:
-  name: Saheb Giri
-  picture: '/assets/blog/authors/jj.jpeg'
-ogImage:
-  url: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
----
+If you work with computers(which I do most of the time) and have people around you, it is possible that they will ask you for favour.
 
-If you work with computer(which I do most of the time) and have people around you, it is possible that they will ask you for favour.
+I was no exception. I had been constantly pestered for creating documents, pdf, dtp and all these stuff. And I kind of like that but again excess of doing it makes me feel sick.
 
-I was no exception. I had been constantly pester for creating documents, pdf, dtp and all these stuff. And I kinda of like that but again excess of doing it make me feel sick.
+Now it is during this COVID-19 pandemic, my sister had her projects to be done before deadlines.I did most of the things like creating documents and all these stuff.
 
-Now it is during this COVID-19 pandemic, my sister had her projects to be done before deadlines.I did most of the thing like creating documents and all these stuff.
-
-Like all other projects it contains same shit like acknowledgement, contents, blah blah blah! She asked me to start the page number from the chapter one and I have merged all the thing into one docs file. But I didn't know how to start the page number from different page other then starting page. And I was too lazy to google it. Yes I know to check the different
+Like all other projects it contains the same shit like acknowledgement, contents, blah blah blah! She asked me to start the page number from chapter one and I have merged all the things into one docs file. But I didn't know how to start the page number from a different page other than the starting page. And I was too lazy to google it.
 
 > Problem
 >
 > Create pdf from multiple docs file and images.
 
-How I solved the problem in a different way?
+How did I solve the problem in a different way?
 
 I have created two pdfs i.e. Original text and Index page including all other pages.
 
-Now all I did that I added the page no only on original text and saved it as PDF in Word. Simple enough?
-I repeated the same with other PDF but without page no because she said me so.
+Now all I did was add the page not only on original text and saved it as PDF in Word. Simple enough?
 
-I have the picture of front page in png format. I had to transform it into pdf as well. This time I didn’t use word but Python package Pillow.
+I repeated the same with another PDF but without page no because she said so to me so.
+
+I have the picture of the front page in png format. I had to transform it into pdf as well. This time I didn’t use MS Word but the Python package Pillow.
 
 ## Fun part begins
 
-I had to merge all the pdfs in to one and convert png to pdf.
+I had to merge all the pdfs into one and convert png to pdf.
 
 **Steps to convert png to pdf in Python**
 
