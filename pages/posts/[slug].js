@@ -8,7 +8,7 @@ import { getPostBySlug, getAllPosts } from '../../lib/api';
 import Head from 'next/head';
 import { CMS_NAME } from '../../lib/constants';
 import markdownToHtml from '../../lib/markdownToHtml';
-import markdownStyles from '../../components/markdown-styles.module.css';
+import PostBody from '../../components/post-body';
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter();
@@ -24,18 +24,15 @@ export default function Post({ post, morePosts, preview }) {
         <Header />
         <div className='max-w-prose mx-auto py-8 md:py-16'>
           <div>
-            <p className='text-gray-500 font-semibold text-center mb-2'>
+            <p className='text-gray-500 font-medium text-center mb-2'>
               {post.date}
             </p>
-            <h1 className='text-4xl font-bold text-center mb-16'>
+            <h1 className='text-gray-800 dark:text-gray-100 text-4xl font-bold text-center mb-16'>
               {post.title}
             </h1>
           </div>
 
-          <div
-            className={markdownStyles['markdown']}
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          <PostBody content={post.content} />
         </div>
       </Container>
       <Footer />

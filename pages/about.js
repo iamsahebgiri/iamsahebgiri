@@ -11,7 +11,7 @@ import Footer from '../components/footer';
 import Title from '../components/title';
 
 import markdownToHtml from '../lib/markdownToHtml';
-import markdownStyles from '../components/markdown-styles.module.css';
+import PostBody from '../components/post-body';
 
 export default function about({ post }) {
   console.log(post);
@@ -27,12 +27,7 @@ export default function about({ post }) {
             name='About Saheb'
             p='Little self bragging explanation about what I do and what I love most.'
           />
-          <div className='max-w-prose mx-auto py-8 md:py-16'>
-            <div
-              className={markdownStyles['markdown']}
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
-          </div>
+          <PostBody content={post.content} />
         </Container>
         <Footer />
       </Layout>
