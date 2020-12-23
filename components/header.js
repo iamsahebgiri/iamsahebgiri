@@ -41,6 +41,10 @@ const CustomLink = React.forwardRef(
   },
 );
 
+const getTheme = () => {
+  return localStorage.getItem('theme') || 'light';
+};
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -156,7 +160,7 @@ export default function Header() {
           </a> */}
           <button
             onClick={() => {
-              document.body.classList.toggle('dark');
+              document.querySelector('html').classList.toggle('dark');
               setIsDarkMode((prevState) => !prevState);
             }}
             className='focus:outline-none transform hover:scale-105'
