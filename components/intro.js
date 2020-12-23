@@ -29,7 +29,7 @@ export default function Intro() {
       <div>
         <div className='mt-12 mb-6 md:mb-4'>
           <h1 className='font-heading text-gray-800 dark:text-gray-100 font-bold text-4xl sm:text-4xl md:text-4xl lg:text-5xl text-center md:text-left leading-snug lg:leading-tight'>
-            I write codes
+            Build products
             <br />
             <span className='text-gradient'>that matter</span>
           </h1>
