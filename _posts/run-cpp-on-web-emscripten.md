@@ -6,7 +6,7 @@ date: 'October 13, 2020'
 type: 'featured'
 author:
   name: Saheb Giri
-  picture: '/assets/blog/authors/jj.jpeg'
+  picture: '/assets/blog/authors/sg.jpg'
 ogImage:
   url: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
 ---

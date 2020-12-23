@@ -6,9 +6,9 @@ date: 'September 26, 2020'
 type: 'featured'
 author:
   name: Saheb Giri
-  picture: '/assets/blog/authors/jj.jpeg'
+  picture: '/assets/blog/authors/sg.jpg'
 ogImage:
-  url: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
+  url: '/assets/blog/python-saved-my-life/cover.jpg'
 ---
 
 If you work with computers(which I do most of the time) and have people around you, it is possible that they will ask you for favour.
