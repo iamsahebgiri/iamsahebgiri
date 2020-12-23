@@ -229,14 +229,6 @@ export default function Header() {
             <ListItemText>Writings</ListItemText>
           </ListItem>
         </Link>
-        <Link href='/resume' passHref>
-          <ListItem button component='a' onClick={toggleDrawer}>
-            <ListItemIcon>
-              <DocIcon style={{ color: '#42526E' }} />
-            </ListItemIcon>
-            <ListItemText>Resume</ListItemText>
-          </ListItem>
-        </Link>
         <Link href='/projects' passHref>
           <ListItem button component='a' onClick={toggleDrawer}>
             <ListItemIcon>
