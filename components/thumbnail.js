@@ -17,7 +17,7 @@ export default function Thumbnail({ blog }) {
 
     // large image
     const img_large = new Image();
-    img_large.src = `/_next/image?url=${coverImage}&w=1920&q=100`;
+    img_large.src = `/_next/image?url=${coverImage}&w=640&q=100`;
     img_large.onload = () => {
       setIsLargeImgLoaded(true);
     };
@@ -29,7 +29,7 @@ export default function Thumbnail({ blog }) {
         <div className='bg-white h-full p-3 rounded-lg shadow-sm dark:bg-gray-700'>
           <div
             className='placeholder rounded-lg bg-gray-200 relative bg-cover bg-no-repeat overflow-hidden'
-            data-large={`/_next/image?url=${coverImage}&w=1920&q=100`}
+            data-large={`/_next/image?url=${coverImage}&w=640&q=100`}
           >
             <img
               src={`/_next/image?url=${coverImage}&w=640&q=1`}
@@ -37,7 +37,7 @@ export default function Thumbnail({ blog }) {
               className={clsx('img-small', isSmallImgLoaded && 'loaded')}
             />
             <img
-              src={`/_next/image?url=${coverImage}&w=1920&q=100`}
+              src={`/_next/image?url=${coverImage}&w=640&q=100`}
               alt={title}
               className={clsx(
                 'img-large transition ease-in-out duration-300',

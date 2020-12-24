@@ -42,7 +42,7 @@ export default function Project({ project }) {
 
     // large image
     const img_large = new Image();
-    img_large.src = `/_next/image?url=${coverImage}&w=1920&q=100`;
+    img_large.src = `/_next/image?url=${coverImage}&w=640&q=100`;
     img_large.onload = () => {
       setIsLargeImgLoaded(true);
     };
@@ -60,7 +60,7 @@ export default function Project({ project }) {
           className={clsx('img-small', isSmallImgLoaded && 'loaded')}
         />
         <img
-          src={`/_next/image?url=${coverImage}&w=1920&q=100`}
+          src={`/_next/image?url=${coverImage}&w=640&q=100`}
           alt={name}
           className={clsx(
             'img-large transition ease-in-out duration-300',
