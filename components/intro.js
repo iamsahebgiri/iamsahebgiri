@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import Typed from 'typed.js';
 import Button from './button';
@@ -39,8 +40,16 @@ export default function Intro() {
           minimize their frustration of life.
         </p>
         <div className='mt-8 md:flex md:space-x-4'>
-          <Button isPrimary>Get started</Button>
-          <Button isSecondary> View more </Button>
+          <Link href='/blog'>
+            <a>
+              <Button isPrimary>Watch blogs</Button>
+            </a>
+          </Link>
+          <Link href='/projects'>
+            <a>
+              <Button isSecondary> See Projects </Button>
+            </a>
+          </Link>
         </div>
       </div>
       <div className='md:flex md:flex-row-reverse overflow-hidden'>
