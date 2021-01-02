@@ -2,7 +2,7 @@
 title: 'C++ STL in simple english please'
 excerpt: 'Standard Template Library in C++ is a library which contains a set of data structure and algorithms already built in.'
 coverImage: '/assets/blog/cpp-stl/cover.jpg'
-date: 'September 9, 2020'
+date: 'Wed Sep 09 2020 00:00:00 GMT+0530 (India Standard Time)'
 type: 'featured'
 author:
   name: Saheb Giri

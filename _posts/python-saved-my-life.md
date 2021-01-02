@@ -2,7 +2,7 @@
 title: 'Python and Javascript saved my life'
 excerpt: 'If you work with computer(which I do most of the time) and have people around you, it is possible that they will ask you for favour. I was no exception.'
 coverImage: '/assets/blog/python-saved-my-life/cover.jpg'
-date: 'September 26, 2020'
+date: 'Sat Sep 26 2020 00:00:00 GMT+0530 (India Standard Time)'
 type: 'featured'
 author:
   name: Saheb Giri

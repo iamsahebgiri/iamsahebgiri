@@ -2,7 +2,7 @@
 title: 'Install Android Studio in Ubuntu 20.04 from a zip file'
 excerpt: 'Android studio, the brain child of Google and goto application for developing android application besides Eclipse with ADT plugins.'
 coverImage: '/assets/blog/android-studio-installation-ubuntu/cover.jpg'
-date: 'January 2, 2021'
+date: 'Sat Jan 02 2021 12:30:57 GMT+0530 (India Standard Time)'
 type: 'linux'
 author:
   name: Saheb Giri

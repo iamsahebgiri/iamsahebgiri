@@ -2,7 +2,7 @@
 title: 'Run C++ in the browser - Emscripten'
 excerpt: 'What if I told you, C++ can used in browser itself, this might blows your mind. Because it is true through a tech called web assembly.'
 coverImage: '/assets/blog/run-cpp-on-web-emscripten/cover.jpg'
-date: 'October 13, 2020'
+date: 'Tue Oct 13 2020 00:00:00 GMT+0530 (India Standard Time)'
 type: 'featured'
 author:
   name: Saheb Giri
