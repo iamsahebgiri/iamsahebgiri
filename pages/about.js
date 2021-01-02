@@ -1,6 +1,3 @@
-import Head from 'next/head';
-
-import { CMS_NAME } from '../lib/constants';
 import { getPostBySlug } from '../lib/api';
 import { join } from 'path';
 
@@ -17,10 +14,7 @@ export default function about({ post }) {
   console.log(post);
   return (
     <>
-      <Layout>
-        <Head>
-          <title>About - {CMS_NAME}</title>
-        </Head>
+      <Layout title='About' description='Little self bragging explanation about what I do and what I love most.'>
         <Container>
           <Header />
           <Title

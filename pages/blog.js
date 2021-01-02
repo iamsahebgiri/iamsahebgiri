@@ -12,10 +12,8 @@ import Footer from '../components/footer';
 export default function blog({ allPosts }) {
   return (
     <>
-      <Layout>
-        <Head>
-          <title>Blog - {CMS_NAME}</title>
-        </Head>
+      <Layout title='Overthought' description='Thinking out loud about design, development, and building excellent
+            software.'>
         <Container>
           <Header />
         </Container>

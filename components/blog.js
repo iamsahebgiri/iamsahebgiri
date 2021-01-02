@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import clsx from 'clsx';
 
 import React from 'react';
 import Container from './container';

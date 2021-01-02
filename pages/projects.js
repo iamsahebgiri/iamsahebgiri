@@ -12,10 +12,7 @@ import Footer from '../components/footer';
 export default function projects({ allProjects }) {
   return (
     <>
-      <Layout>
-        <Head>
-          <title>Projects - {CMS_NAME}</title>
-        </Head>
+      <Layout title='Projects'>
         <Container>
           <Header />
         </Container>

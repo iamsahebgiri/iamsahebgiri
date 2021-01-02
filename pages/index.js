@@ -15,10 +15,7 @@ import Footer from '../components/footer';
 export default function Index({ allPosts }) {
   return (
     <>
-      <Layout>
-        <Head>
-          <title>Home - {CMS_NAME}</title>
-        </Head>
+      <Layout title='Home'>
         <Container>
           <Header />
           <Intro />

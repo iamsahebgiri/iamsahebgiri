@@ -10,7 +10,6 @@ import Drawer from '@material-ui/core/Drawer';
 import SunIcon from './Icons/Sun';
 import PersonIcon from './Icons/Person';
 import BookIcon from './Icons/Book';
-import DocIcon from './Icons/Doc';
 import BrowserIcon from './Icons/Browser';
 import MoonIcon from './Icons/Moon';
 import clsx from 'clsx';

@@ -1,16 +1,14 @@
-import { useRouter } from 'next/router';
-import ErrorPage from 'next/error';
-import dayjs from 'dayjs';
+import { useRouter } from "next/router";
+import ErrorPage from "next/error";
+import dayjs from "dayjs";
 
-import Container from '../../components/container';
-import Header from '../../components/header';
-import Footer from '../../components/footer';
-import Layout from '../../components/layout';
-import { getPostBySlug, getAllPosts } from '../../lib/api';
-import Head from 'next/head';
-import { CMS_NAME } from '../../lib/constants';
-import markdownToHtml from '../../lib/markdownToHtml';
-import PostBody from '../../components/post-body';
+import Container from "../../components/container";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
+import Layout from "../../components/layout";
+import { getPostBySlug, getAllPosts } from "../../lib/api";
+import markdownToHtml from "../../lib/markdownToHtml";
+import PostBody from "../../components/post-body";
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter();
@@ -18,18 +16,15 @@ export default function Post({ post, morePosts, preview }) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout preview={preview}>
-      <Head>
-        <title>Home - {CMS_NAME}</title>
-      </Head>
+    <Layout preview={preview} title={post.title} description={post.description} image={post.coverImage}>
       <Container>
         <Header />
-        <div className='max-w-prose mx-auto py-8 md:py-16'>
+        <div className="max-w-prose mx-auto py-8 md:py-16">
           <div>
-            <p className='text-gray-500 font-medium text-center mb-2'>
+            <p className="text-gray-500 font-medium text-center mb-2">
               {dayjs(post.date).format("MMMM D, YYYY")}
             </p>
-            <h1 className='text-gray-800 dark:text-gray-100 text-4xl font-bold text-center mb-16'>
+            <h1 className="text-gray-800 dark:text-gray-100 text-4xl font-bold text-center mb-16">
               {post.title}
             </h1>
           </div>
@@ -44,15 +39,15 @@ export default function Post({ post, morePosts, preview }) {
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'author',
-    'content',
-    'ogImage',
-    'coverImage',
+    "title",
+    "date",
+    "slug",
+    "author",
+    "content",
+    "ogImage",
+    "coverImage",
   ]);
-  const content = await markdownToHtml(post.content || '');
+  const content = await markdownToHtml(post.content || "");
 
   return {
     props: {
@@ -65,7 +60,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug']);
+  const posts = getAllPosts(["slug"]);
 
   return {
     paths: posts.map((post) => {
