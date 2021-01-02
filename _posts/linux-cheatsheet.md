@@ -6,7 +6,7 @@ date: 'September 21, 2020'
 type: 'cheatsheet'
 author:
   name: Saheb Giri
-  picture: '/assets/blog/authors/sg.jpg'
+  picture: '/assets/blog/authors/sg.png'
 ogImage:
   url: '/assets/blog/linux-cheatsheet/cover.jpg'
 ---

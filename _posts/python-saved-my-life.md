@@ -6,7 +6,7 @@ date: 'September 26, 2020'
 type: 'featured'
 author:
   name: Saheb Giri
-  picture: '/assets/blog/authors/sg.jpg'
+  picture: '/assets/blog/authors/sg.png'
 ogImage:
   url: '/assets/blog/python-saved-my-life/cover.jpg'
 ---

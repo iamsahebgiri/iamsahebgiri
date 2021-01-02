@@ -6,7 +6,7 @@ date: 'May 05, 2020'
 type: 'hacking'
 author:
   name: Saheb Giri
-  picture: '/assets/blog/authors/sg.jpg'
+  picture: '/assets/blog/authors/sg.png'
 ogImage:
   url: '/assets/blog/hack-android-phone/cover.jpg'
 ---

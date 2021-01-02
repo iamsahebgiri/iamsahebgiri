@@ -6,7 +6,7 @@ date: 'October 20, 2020'
 type: 'conceptual'
 author:
   name: Saheb Giri
-  picture: '/assets/blog/authors/sg.jpg'
+  picture: '/assets/blog/authors/sg.png'
 ogImage:
   url: '/assets/blog/top-3-concept-of-functional-programming/cover.jpg'
 ---
