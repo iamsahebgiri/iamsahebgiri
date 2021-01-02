@@ -217,13 +217,13 @@ export default function Header() {
           <ListItemIcon>
             {isMounted &&
               (theme === "light" ? (
-                <MoonIcon className="fill-current text-gray-800 dark:text-gray-200" />
+                <MoonIcon style={{ color: "#42526E" }} />
               ) : (
-                <SunIcon className="fill-current text-gray-800 dark:text-gray-200" />
+                <SunIcon style={{ color: "#42526E" }} />
               ))}
           </ListItemIcon>
           <ListItemText>
-            {theme === "light" ? "Light" : "Dark"} Mode
+            {theme === "light" ? "Dark" : "Light"} Mode
           </ListItemText>
         </ListItem>
       </Drawer>

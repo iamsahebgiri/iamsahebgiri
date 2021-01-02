@@ -51,7 +51,7 @@ export default function Thumbnail({ blog }) {
           <div className='flex flex-col justify-between py-5'>
             <div>
               <div className='text-green-500 uppercase text-sm'>{type}</div>
-              <h2 className='font-heading text-xl mt-2 text-gray-900 dark:text-gray-300'>
+              <h2 className='font-heading text-lg lg:text-xl mt-2 text-gray-900 dark:text-gray-300'>
                 {title}
               </h2>
             </div>
