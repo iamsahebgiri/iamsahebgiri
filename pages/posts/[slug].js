@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
+import dayjs from 'dayjs';
+
 import Container from '../../components/container';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
@@ -25,7 +27,7 @@ export default function Post({ post, morePosts, preview }) {
         <div className='max-w-prose mx-auto py-8 md:py-16'>
           <div>
             <p className='text-gray-500 font-medium text-center mb-2'>
-              {post.date}
+              {dayjs(post.date).format("MMMM D, YYYY")}
             </p>
             <h1 className='text-gray-800 dark:text-gray-100 text-4xl font-bold text-center mb-16'>
               {post.title}

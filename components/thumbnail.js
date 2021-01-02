@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import dayjs from 'dayjs';
 
 export default function Thumbnail({ blog }) {
   const { coverImage, title, type, date, slug } = blog;
@@ -55,7 +56,7 @@ export default function Thumbnail({ blog }) {
               </h2>
             </div>
             <p className='text-sm text-gray-400 dark:text-gray-400 mt-2'>
-              {date}
+              {dayjs(date).format("MMMM D, YYYY")}
             </p>
           </div>
         </div>
