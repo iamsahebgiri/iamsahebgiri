@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "create-post": "node utils/create-post.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.1",
