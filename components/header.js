@@ -159,7 +159,7 @@ export default function Header() {
           </a> */}
           <button
             onClick={toggleTheme}
-            className="focus:outline-none transform hover:scale-105"
+            className="hidden focus:outline-none transform hover:scale-105"
           >
             <div className="h-5 w-5">
               {isMounted &&
@@ -207,7 +207,7 @@ export default function Header() {
             <ListItemText>About</ListItemText>
           </ListItem>
         </Link>
-        <ListItem
+        {/* <ListItem
           button
           onClick={() => {
             toggleDrawer();
@@ -225,7 +225,7 @@ export default function Header() {
           <ListItemText>
             {theme === "light" ? "Dark" : "Light"} Mode
           </ListItemText>
-        </ListItem>
+        </ListItem> */}
       </Drawer>
     </>
   );
