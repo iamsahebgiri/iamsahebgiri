@@ -10,9 +10,9 @@ I started my journey as a tech enthusiasts and find internet technology pretty i
 
 I started reading Java books while I was in class 7. I find the book interesting and build a couple of android applications before class 10. Before 10 I have learnt C++, Java, Android Development, HTML, CSS and Javascript(JQuery). I also learned graphics design and edited a couple of photos in Photoshop. You can check my social handle for that.
 
-After the tenth examination when results were yet to come when most people were busy finding their college I was learning Laravel, Vue, React. Eventually I ended up getting a college which was worse than I thought.It was a complete nightmare. I was done with studies <span role="img" aria-labelledby="sad">😭</span>.
+After the tenth examination when results were yet to come when most people were busy finding their college I was learning Laravel, Vue, React. Eventually I ended up getting a college which was worse than I thought. However, 12th was not that bad either. I passed with good percentage in boards but I could not make it to elite IIT. 
 
-While I was in that college, I had to balance my studies with the stuff I loved most. But failed miserably. This is where I am now. While the rest of my friends are busy making their career at Aakash Institute, Vikas, BJB.... I struggled... and it goes on.....
+Now I'm in Siksha O Anusandhan, doing my Btech CS. And waiting for college to reopen. By the time, I am doing cp and when got bored switching back to dev. 
 
 <h2>
     Areas of Interest
@@ -25,3 +25,17 @@ While I was in that college, I had to balance my studies with the stuff I loved 
     <li>AI/ML</li>
 </ol>
 </div>
+
+## Contact me:
+
+[<img align="left" alt="Saheb Giri | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
+[<img align="left" alt="Saheb Giri | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
+[<img align="left" alt="Saheb Giri | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
+[<img align="left" alt="Saheb Giri | Facebook" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/facebook.svg" />][facebook]
+[<img align="left" alt="Saheb Giri | YouTube" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/youtube.svg" />][youtube]
+
+[linkedin]: https://www.linkedin.com/in/iamsahebgiri/
+[twitter]: https://twitter.com/iamsahebgiri
+[instagram]: https://instagram.com/iamsahebgiri
+[facebook]: https://facebook.com/iamsahebgiri
+[youtube]: https://www.youtube.com/channel/UC9VTm-aiiHa4uUMWAgYtcHg
