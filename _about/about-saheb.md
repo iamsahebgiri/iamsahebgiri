@@ -14,28 +14,15 @@ After the tenth examination when results were yet to come when most people were 
 
 Now I'm in Siksha O Anusandhan, doing my Btech CS. And waiting for college to reopen. By the time, I am doing cp and when got bored switching back to dev. 
 
-<h2>
-    Areas of Interest
-</h2>
-<ol>
-    <li>Competitive Programming</li>
-    <li>Web Development</li>
-    <li>Mathematics</li>
-    <li>Design</li>
-    <li>AI/ML</li>
-</ol>
-</div>
+## Interests
+1. Competitive Programming
+2. Web Development
+3. Design
+4. AI/ML
+## Contacts
 
-## Contact me:
-
-[<img align="left" alt="Saheb Giri | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
-[<img align="left" alt="Saheb Giri | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
-[<img align="left" alt="Saheb Giri | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
-[<img align="left" alt="Saheb Giri | Facebook" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/facebook.svg" />][facebook]
-[<img align="left" alt="Saheb Giri | YouTube" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/youtube.svg" />][youtube]
-
-[linkedin]: https://www.linkedin.com/in/iamsahebgiri/
-[twitter]: https://twitter.com/iamsahebgiri
-[instagram]: https://instagram.com/iamsahebgiri
-[facebook]: https://facebook.com/iamsahebgiri
-[youtube]: https://www.youtube.com/channel/UC9VTm-aiiHa4uUMWAgYtcHg
+1. [linkedin](https://www.linkedin.com/in/iamsahebgiri/)
+2. [twitter](https://twitter.com/iamsahebgiri)
+3. [instagram](https://instagram.com/iamsahebgiri)
+4. [facebook](https://facebook.com/iamsahebgiri)
+5. [youtube](https://www.youtube.com/channel/UC9VTm-aiiHa4uUMWAgYtcHg)
