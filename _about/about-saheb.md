@@ -21,8 +21,9 @@ Now I'm in Siksha O Anusandhan, doing my Btech CS. And waiting for college to re
 4. AI/ML
 ## Contacts
 
-1. [linkedin](https://www.linkedin.com/in/iamsahebgiri/)
-2. [twitter](https://twitter.com/iamsahebgiri)
-3. [instagram](https://instagram.com/iamsahebgiri)
-4. [facebook](https://facebook.com/iamsahebgiri)
-5. [youtube](https://www.youtube.com/channel/UC9VTm-aiiHa4uUMWAgYtcHg)
+1. [Github](https://github.com/iamsahebgiri)
+2. [Linkedin](https://www.linkedin.com/in/iamsahebgiri/)
+3. [Twitter](https://twitter.com/iamsahebgiri)
+4. [Instagram](https://instagram.com/iamsahebgiri)
+5. [Facebook](https://facebook.com/iamsahebgiri)
+6. [Youtube](https://www.youtube.com/channel/UC9VTm-aiiHa4uUMWAgYtcHg)
