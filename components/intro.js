@@ -15,7 +15,7 @@ export default function Intro() {
         I’m a developer, student, and creator. You’ve found my personal slice of
         the internet.
       </p>
-      <div className="mt-8 md:flex md:space-x-4">
+      <div className="mt-8 md:flex md:space-x-4 w-full md:w-auto">
         <Link href="/blog">
           <a>
             <Button isPrimary>View blogs</Button>

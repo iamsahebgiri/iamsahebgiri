@@ -1,8 +1,7 @@
-import { SvgIcon } from '@material-ui/core';
-
 export default function SunIcon(props) {
   return (
-    <SvgIcon {...props}>
+    
+    <svg {...props}>
       <g data-name='Layer 2'>
         <g data-name='sun'>
           <rect
@@ -22,6 +21,6 @@ export default function SunIcon(props) {
           <path d='M12 8a4 4 0 1 0 4 4 4 4 0 0 0-4-4z' />
         </g>
       </g>
-    </SvgIcon>
+    </svg>
   );
 }
