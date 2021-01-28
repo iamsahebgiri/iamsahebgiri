@@ -18,7 +18,7 @@ export default function Thumbnail({ blog }) {
 
     // large image
     const img_large = new Image();
-    img_large.src = `/_next/image?url=${coverImage}&w=640&q=100`;
+    img_large.src = `/_next/image?url=${coverImage}&w=640&q=60`;
     img_large.onload = () => {
       setIsLargeImgLoaded(true);
     };
@@ -38,7 +38,7 @@ export default function Thumbnail({ blog }) {
               className={clsx('img-small', isSmallImgLoaded && 'loaded')}
             />
             <img
-              src={`/_next/image?url=${coverImage}&w=640&q=100`}
+              src={`/_next/image?url=${coverImage}&w=640&q=60`}
               alt={title}
               className={clsx(
                 'img-large transition ease-in-out duration-300',
@@ -50,8 +50,8 @@ export default function Thumbnail({ blog }) {
 
           <div className='flex flex-col justify-between py-5'>
             <div>
-              <div className='text-green-500 uppercase text-sm'>{type}</div>
-              <h2 className='font-heading text-lg lg:text-xl mt-2 text-gray-900 dark:text-gray-300'>
+              <div className='text-green-500 uppercase font-medium text-sm'>{type}</div>
+              <h2 className='font-heading font-semibold mt-2 text-gray-900 dark:text-gray-300'>
                 {title}
               </h2>
             </div>

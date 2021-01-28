@@ -32,8 +32,8 @@ const CustomLink = React.forwardRef(
         onClick={onClick}
         ref={ref}
         className={clsx(
-          "text-gray-700 dark:text-gray-400 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 py-2 px-3 transition ease-in-out duration-300",
-          isActive && "bg-gray-100 dark:bg-gray-600"
+          "text-gray-700 dark:text-gray-400 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 py-2 px-3 transition ease-in-out duration-300",
+          isActive && "bg-gray-200 dark:bg-gray-600"
         )}
       >
         {children}
@@ -99,7 +99,7 @@ export default function Header() {
           <div className="hidden md:block ml-12 space-x-10">
             <Link href="/blog" passHref>
               <CustomLink isActive={router.pathname === "/blog"}>
-                Writings
+                Overthought
               </CustomLink>
             </Link>
             <Link href="/projects" passHref>
@@ -140,36 +140,30 @@ export default function Header() {
             </svg>
           </div>
         </button>
-        <div className="hidden md:flex items-center justify-center space-x-3">
-          {/* <a className='menuIcon ' href='#' alt='Resume'>
-            <div className='h-5 w-5'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                viewBox='0 0 24 24'
-                className='fill-current text-gray-800 dark:text-gray-200'
-              >
-                <g data-name='Layer 2'>
-                  <g data-name='file'>
-                    <rect width='24' height='24' opacity='0' />
-                    <path d='M19.74 8.33l-5.44-6a1 1 0 0 0-.74-.33h-7A2.53 2.53 0 0 0 4 4.5v15A2.53 2.53 0 0 0 6.56 22h10.88A2.53 2.53 0 0 0 20 19.5V9a1 1 0 0 0-.26-.67zM17.65 9h-3.94a.79.79 0 0 1-.71-.85V4h.11zm-.21 11H6.56a.53.53 0 0 1-.56-.5v-15a.53.53 0 0 1 .56-.5H11v4.15A2.79 2.79 0 0 0 13.71 11H18v8.5a.53.53 0 0 1-.56.5z' />
-                  </g>
-                </g>
-              </svg>
-            </div>
-          </a> */}
-          <button
-            onClick={toggleTheme}
-            className="hidden focus:outline-none transform hover:scale-105"
-          >
-            <div className="h-5 w-5">
-              {isMounted &&
-                (theme === "light" ? (
-                  <MoonIcon className="fill-current text-gray-800 dark:text-gray-200" />
-                ) : (
-                  <SunIcon className="fill-current text-gray-800 dark:text-gray-200" />
-                ))}
-            </div>
-          </button>
+        <div className="hidden md:flex items-center justify-center space-x-6">
+          <div>
+            <a className="menuIcon" href="#" alt="Resume">
+              <div className="h-6 w-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  className="fill-current text-gray-800 dark:text-gray-200"
+                >
+                  <rect width="24" height="24" opacity="0" />
+                  <path d="M19.74 8.33l-5.44-6a1 1 0 0 0-.74-.33h-7A2.53 2.53 0 0 0 4 4.5v15A2.53 2.53 0 0 0 6.56 22h10.88A2.53 2.53 0 0 0 20 19.5V9a1 1 0 0 0-.26-.67zM17.65 9h-3.94a.79.79 0 0 1-.71-.85V4h.11zm-.21 11H6.56a.53.53 0 0 1-.56-.5v-15a.53.53 0 0 1 .56-.5H11v4.15A2.79 2.79 0 0 0 13.71 11H18v8.5a.53.53 0 0 1-.56.5z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+
+          <div onClick={toggleTheme}>
+            {isMounted &&
+              (theme === "light" ? (
+                <MoonIcon className="fill-current text-gray-800 dark:text-gray-200" />
+              ) : (
+                <SunIcon className="fill-current text-gray-800 dark:text-gray-200" />
+              ))}
+          </div>
         </div>
       </div>
       <Drawer
@@ -188,7 +182,7 @@ export default function Header() {
             <ListItemIcon>
               <BookIcon style={{ color: "#42526E" }} />
             </ListItemIcon>
-            <ListItemText>Writings</ListItemText>
+            <ListItemText>Overthought</ListItemText>
           </ListItem>
         </Link>
         <Link href="/projects" passHref>

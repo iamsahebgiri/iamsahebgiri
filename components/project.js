@@ -42,7 +42,7 @@ export default function Project({ project }) {
 
     // large image
     const img_large = new Image();
-    img_large.src = `/_next/image?url=${coverImage}&w=640&q=100`;
+    img_large.src = `/_next/image?url=${coverImage}&w=640&q=60`;
     img_large.onload = () => {
       setIsLargeImgLoaded(true);
     };
@@ -60,7 +60,7 @@ export default function Project({ project }) {
           className={clsx('img-small', isSmallImgLoaded && 'loaded')}
         />
         <img
-          src={`/_next/image?url=${coverImage}&w=640&q=100`}
+          src={`/_next/image?url=${coverImage}&w=640&q=60`}
           alt={name}
           className={clsx(
             'img-large transition ease-in-out duration-300',
@@ -207,7 +207,7 @@ export default function Project({ project }) {
 
         <a href={githubLink} target='_blank'>
           <button className='mt-8 rounded-lg my-2 px-4 w-full md:px-5 xl:px-4 py-2 md:py-4 xl:py-2 xl:text-base font-semibold leading-tight transform hover:scale-95 hover:shadow-sm focus:outline-none transition ease-in-out duration-300 bg-primary text-white'>
-            View at Github
+            See Github
           </button>
         </a>
       </div>

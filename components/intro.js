@@ -4,9 +4,9 @@ import Button from "./button";
 
 export default function Intro() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center py-12 md:py-28 ">
       <div className="mt-12 mb-6 md:mb-4">
-        <h1 className="font-heading text-gray-800 dark:text-gray-100 font-bold text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-center md:text-left leading-snug lg:leading-tight">
+        <h1 className="font-heading text-gray-800 dark:text-gray-100 font-bold text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-center">
           Hey, I am
           <span className="text-gradient">{" Saheb Giri"}</span>
         </h1>

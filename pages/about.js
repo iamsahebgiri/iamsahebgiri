@@ -11,7 +11,6 @@ import markdownToHtml from '../lib/markdownToHtml';
 import PostBody from '../components/post-body';
 
 export default function about({ post }) {
-  console.log(post);
   return (
     <>
       <Layout title='About' description='Little self bragging explanation about what I do and what I love most.'>

@@ -2,7 +2,7 @@ import SEO from './seo';
 
 export default function Layout({ children, title, description, image }) {
   return (
-    <div className='dark:bg-gray-900'>
+    <div className='bg-gray-50 dark:bg-gray-900'>
       <SEO
         title={`${(title
           ? title
