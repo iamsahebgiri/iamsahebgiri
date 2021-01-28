@@ -31,7 +31,7 @@ module.exports = {
           '"Noto Color Emoji"',
         ],
         heading: [
-          '"Product Sans"',
+          'Manrope',
           '"Segoe UI"',
           'Roboto',
           '"Helvetica Neue"',
