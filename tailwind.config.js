@@ -32,6 +32,7 @@ module.exports = {
         ],
         heading: [
           'Manrope',
+          'Inter',
           '"Segoe UI"',
           'Roboto',
           '"Helvetica Neue"',

@@ -91,7 +91,7 @@ export default function Header() {
       </div>
       <div className="hidden md:flex items-center justify-center space-x-6">
         <div>
-          <a className="menuIcon" href="#" alt="Resume">
+          <a className="menuIcon" target="_blank" href="https://docs.google.com/document/d/135XdFRBiKadLyHH2k5wN9fanflPzGwHmhIHwviUxay8/edit?usp=sharing" alt="Resume">
             <div className="h-6 w-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -105,14 +105,14 @@ export default function Header() {
           </a>
         </div>
 
-        <div onClick={toggleTheme} className="h-6 w-6">
+        {/* <div onClick={toggleTheme} className="h-6 w-6">
           {isMounted &&
             (theme === "light" ? (
               <MoonIcon className="fill-current text-gray-800 dark:text-gray-200" />
             ) : (
               <SunIcon className="fill-current text-gray-800 dark:text-gray-200" />
             ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
