@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import Container from '../components/container';
+import { Container } from "@chakra-ui/react"
 import Layout from '../components/layout';
 import Head from 'next/head';
 
@@ -16,13 +16,13 @@ export default function Index({ allPosts }) {
   return (
     <>
       <Layout title='Home'>
-        <Container>
-          <Header />
+        <Header />
+        <Container py={12}>
           <Intro />
           {/* <Tools /> */}
+          <Footer />
         </Container>
-        <Blog blogs={allPosts} />
-        <Footer />
+        {/* <Blog blogs={allPosts} /> */}
       </Layout>
     </>
   );

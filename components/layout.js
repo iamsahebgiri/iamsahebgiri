@@ -1,18 +1,19 @@
 import SEO from './seo';
+import { Box } from '@chakra-ui/react';
 
 export default function Layout({ children, title, description, image }) {
   return (
-    <div className='bg-gray-50 dark:bg-gray-900'>
+    <Box bgColor="gray.50">
       <SEO
         title={`${(title
           ? title
-          : 'Home') + ' ・ Saheb Giri'}`}
+          : 'Home') + ' - Saheb Giri'}`}
         description={description}
         image={image}
       />
-      <div className='min-h-screen'>
+      <div>
         <main>{children}</main>
       </div>
-    </div>
+    </Box>
   );
 }

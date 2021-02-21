@@ -9,7 +9,7 @@ import Header from '../components/header';
 import Blog from '../components/blog';
 import Footer from '../components/footer';
 
-export default function blog({ allPosts }) {
+export default function Overthought({ allPosts }) {
   return (
     <>
       <Layout title='Overthought' description='Thinking out loud about design, development, and building excellent
