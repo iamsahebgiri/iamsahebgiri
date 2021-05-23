@@ -1,0 +1,129 @@
+---
+title: 'Run C++ in the browser using emscripten'
+summary: 'C++ can used in browser itself, this might blows your mind. Because it is true through a tech called web assembly.'
+publishedAt: '2020-10-13'
+image: '/assets/overthoughts/run-cpp-on-web-emscripten/cover.jpg'
+---
+
+What if I told you, C++ can be used in the browser itself, this might blow your mind. Because it is true through a tech called web assembly.
+
+Webassembly is a relatively newer concept. The main idea behind this is to provide native like performance in browsers using so-called mature languages such as C/C++ or Rust.
+
+This is really going to change the speed of the web apps and most importantly allowing developers to build high end games in the browser. As of now, V8 supports 4GB of RAM, which means with the combination of webassembly you can build pretty much anything you dream to build in native device.
+
+## How does it start? ⛳
+
+Back in the days when Netscape captured the web browser market, java applets were the ways to make websites interactive. The problem with applets, is that your applet can't interact with web components like buttons, links, etc. In addition to that, it runs on virtualisation meaning the applet itself is independent.
+
+## Getting started
+
+To get started with web assembly you need to have Emscripten SDK installed into your computer.
+
+Emscripten SDK or emsdk is a python script at its core. To get started clone the emsdk repo using git.
+
+```bash
+# Get the emsdk repo
+git clone https://github.com/emscripten-core/emsdk.git
+
+# Enter that directory
+cd emsdk
+```
+
+Now run get the latest code by pulling from the git repository if not cloned.
+
+```bash
+git pull
+```
+
+Now it’s time to install the SDK.
+
+```bash
+# Install it
+emsdk install latest
+
+# Activate it
+emsdk activate latest
+
+# Add the current directory to PATH
+emsdk_env.bat
+
+```
+
+## Verify installation
+
+The above steps take about 500MB of data, once you are ready now it’s better to verify the installation steps. To verify
+
+```bash
+# Verifying C compiler
+emcc -v
+
+# Verifying C++ compiler
+em++ -v
+```
+
+`emcc` is the compiler that compiles C code into wasm and some glue code so that you can run it in your browser. `em++` is the C++ version of the compiler.
+
+## Writing/C++ code
+
+Now that you are all set up, go ahead and create a good old C/C++ program using your favourite Text Editor.
+Here is the code -
+
+```C
+// hello.c
+#include <stdio.h>
+
+int main() {
+  printf("Hello world\n");
+  return 0;
+}
+```
+
+```cpp
+// hello.cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+  cout<<"Hello world\n";
+  return 0;
+}
+```
+
+## Compiling C/C++ Code
+
+To build the JavaScript version of this code, simply specify the C/C++ file after emcc (use em++ to force compilation as C++).
+
+```bash
+# Compiling C
+emcc hello.c
+
+# Compiling C++
+em++ hello.cpp
+```
+
+Behind the scene, it uses the Clang compiler for compilation. On successful compilation, you will see two files **_a.out.js_** and **_a.out.wasm_**.
+
+## Running Code
+
+To check if it really works, use Node.js to check the output.
+
+```bash
+node a.out.js
+```
+
+This prints `Hello world` to the console, as expected.
+
+## Converting the WASM file to HTML
+
+Now it’s time run code in the browser.
+
+```bash
+# generating HTML using C compiler
+emcc hello.c -o hello.html
+
+# generating HTML using C++ compiler
+
+em++ hello.cpp -o hello.html
+```
+
+There you go, now you can open the file in a browser.

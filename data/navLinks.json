@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Home",
+    "href": "/"
+  },
+  {
+    "name": "Overthoughts",
+    "href": "/overthoughts"
+  },
+  {
+    "name": "Projects",
+    "href": "/projects"
+  },
+  {
+    "name": "CP Algo",
+    "href": "/cp"
+  },
+  {
+    "name": "About",
+    "href": "/about"
+  }
+]

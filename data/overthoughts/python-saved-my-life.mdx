@@ -1,0 +1,89 @@
+---
+title: 'Creating PDFs using NodeJS and Python'
+summary: 'If you work with computer(which I do most of the time) and have people around you, it is possible that they will ask you for favour. I was no exception.'
+publishedAt: '2020-09-29'
+image: '/assets/overthoughts/python-saved-my-life/cover.jpg'
+---
+
+If you work with computers(which I do most of the time) and have people around you, it is possible that they will ask you for favour.
+
+I was no exception. I had been constantly pestered for creating documents, pdf, dtp and all these stuff. And I kind of like that but again excess of doing it makes me feel sick.
+
+Now it is during this COVID-19 pandemic, my sister had her projects to be done before deadlines.I did most of the things like creating documents and all these stuff.
+
+Like all other projects it contains the same shit like acknowledgement, contents, blah blah blah! She asked me to start the page number from chapter one and I have merged all the things into one docs file. But I didn't know how to start the page number from a different page other than the starting page. And I was too lazy to google it.
+
+> Problem
+>
+> Create pdf from multiple docs file and images.
+
+How did I solve the problem in a different way?
+
+I have created two pdfs i.e. Original text and Index page including all other pages.
+
+Now all I did was add the page not only on original text and saved it as PDF in Word. Simple enough?
+
+I repeated the same with another PDF but without page no because she said so to me so.
+
+I have the picture of the front page in png format. I had to transform it into pdf as well. This time I didn’t use MS Word but the Python package Pillow.
+
+## Fun part begins
+
+I had to merge all the pdfs into one and convert png to pdf.
+
+**Steps to convert png to pdf in Python**
+
+1. Install Pillow
+
+```python
+pip install pillow
+```
+
+2. Write code and run
+
+```python
+from PIL import Image
+frontPageImg = Image.open(r'./1.png')
+frontPage = frontPageImg.convert('RGB')
+frontPage.save(r'./front_page.pdf')
+```
+
+Finally I have my `front_page.pdf` done to rock.
+
+**Steps to merge all the pdf into single pdf in Javascript(Nodejs)**
+
+This time I choose Nodejs to get shit done quickly.
+Here are the steps…
+
+Create a folder say, `pdf_work`
+
+```js
+npm init –y
+```
+
+```js
+npm install pdfmerge
+```
+
+And write the code as below.
+
+```js
+let PDFMerge = require('pdfmerge');
+
+PDFMerge(
+  ['./front_page.pdf', './acknowlege.pdf', './original_text.pdf'],
+  'output.pdf',
+)
+  .then((done) => {
+    console.log(done); // success
+  })
+  .catch(function (error) {
+    console.error(error.code); // Logs error code if an error occurs
+  });
+```
+
+And voila! We are good to go.
+
+> Notes
+>
+> Orders of the file are important and the file path should be exact.

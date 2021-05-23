@@ -1,0 +1,70 @@
+---
+title: 'Functional programming made easy'
+summary: 'Javascript is a multiparadigm programming language. It is not purely functional. Currying is a technique named after Haskell Curry.'
+publishedAt: '2021-04-12'
+image: '/assets/overthoughts/top-3-concept-of-functional-programming/cover.jpg'
+---
+
+## Currying
+
+Javascript is a multiparadigm programming language. It is not purely functional. Currying is a technique named after Haskell Curry. The main idea behind this concept is that instead of taking multiple arguments, it takes a single argument in each function.
+
+Javascript functions are first class citizens, which means it can be treated like any other data types, say string, boolean or may be number. A variable can store a function like other.
+
+Another thing to note that Javascript functions can return a function. Now coming to the topic of currying. It goes something like this. Let's say we have a number to add. How will I solve this problem? Well pretty simple.
+
+```js
+function add(a, b) {
+  return a + b;
+}
+// calling the function
+add(5 + 8);
+```
+
+On applying currying technique it can be rewritten as follows
+
+```js
+function add(a) {
+  return function (b) {
+    return a + b;
+  };
+}
+
+// calling the function
+add(5)(8);
+```
+
+## Pure Function
+
+A function that always gives the same result when a same argument is passed into it.
+
+```js
+// Not a pure function
+function fn(num) {
+  return num * Math.random();
+}
+```
+
+The above function is not pure because it changes every time you call it.
+
+```js
+// pure function
+function fun(num) {
+  return num * 2;
+}
+```
+
+The above function is pure because the return value is never going to change as long as you provide the same argument.
+
+## Higher order function
+
+The function which takes another function as argument is called Higher order function. Eg. map(), filter() , setTimeout(), etc.
+
+```js
+const numbers = [65, 44, 12, 4];
+const newarray = numbers.map(myFunction);
+
+function myFunction(num) {
+  return num * 10;
+}
+```
