@@ -4,16 +4,16 @@
     "href": "/"
   },
   {
+    "name": "Algorithms",
+    "href": "/cp"
+  },
+  {
     "name": "Overthoughts",
     "href": "/overthoughts"
   },
   {
     "name": "Projects",
     "href": "/projects"
-  },
-  {
-    "name": "CP Algo",
-    "href": "/cp"
   },
   {
     "name": "About",

@@ -45,8 +45,6 @@ const OverthoughtCard = ({ overthought }) => {
 };
 
 export default function Overthought({ overthoughts }) {
-  console.log(overthoughts);
-  const posts = [];
   return (
     <>
       <Layout

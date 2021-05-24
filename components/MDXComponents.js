@@ -220,7 +220,9 @@ const MDXComponents = {
     />
   ),
   blockquote: Quote,
-  table: (props) => <Table size="sm" variant="striped" colorScheme="blueGray" {...props} />,
+  table: (props) => (
+    <Table size="sm" variant="striped" colorScheme="blueGray" {...props} />
+  ),
   thead: Thead,
   tbody: Tbody,
   tfoot: Tfoot,
