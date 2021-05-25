@@ -29,13 +29,13 @@ During the algorithm $D$ will be stored inside the quad-edge data structure. Thi
 
 In the algorithm we will use the following functions on edges:
 
-  1. `make_edge(a, b)`<br>
+  1. `make_edge(a, b)`
     This function creates an isolated edge from point `a` to point `b` together with its' reverse edge and both dual edges.
-  2. `splice(a, b)`<br>
+  2. `splice(a, b)`
     This is a key function of the algorithm. It swaps `a->Onext` with `b->Onext` and `a->Onext->Rot->Onext` with `b->Onext->Rot->Onext`.
-  3. `delete_edge(e)`<br>
+  3. `delete_edge(e)`
     This function deletes e from the triangulation. To delete `e`, we may simply call `splice(e, e->Oprev)` and `splice(e->Rev, e->Rev->Oprev)`.
-  4. `connect(a, b)`<br>
+  4. `connect(a, b)`
     This function creates a new edge `e` from `a->Dest` to `b->Org` in such a way that `a`, `b`, `e` all have the same left face. To do this, we call `e = make_edge(a->Dest, b->Org)`, `splice(e, a->Lnext)` and `splice(e->Rev, b)`.
 
 ## Algorithm

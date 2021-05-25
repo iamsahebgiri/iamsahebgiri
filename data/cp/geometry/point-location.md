@@ -2,7 +2,7 @@
 # Point location in O(log n)
 Consider the following problem: you are given a [planar subdivision](https://en.wikipedia.org/wiki/Planar_straight-line_graph) without no vertices of degree one and zero, and a lot of queries.
 Each query is a point, for which we should determine the face of the subdivision it belongs to.
-We will answer each query in $O(\log n)$ offline.<br>
+We will answer each query in $O(\log n)$ offline.<br />
 This problem may arise when you need to locate some points in a Voronoi diagram or in some simple polygon.
 
 ## Algorithm
@@ -38,13 +38,14 @@ To do this, we again make a binary search.
 In order to handle some degenerate cases (e.g. in case of the triangle $(0,~0)$, $(0,~2)$, $(1, 1)$ when we query the point $(0,~0)$), we must answer all _get_ events again after we processed all the events for this x-coordinate and choose the best of two answers.
 
 Now let's choose a comparator for the set $t$.
-This comparator should check if one edge doesn't lie above other for every x-coordinate they both cover. Suppose that we have two edges $(a, b)$ and $(c, d)$. Then the comparator is (in pseudocode):<br>
+This comparator should check if one edge doesn't lie above other for every x-coordinate they both cover. Suppose that we have two edges $(a, b)$ and $(c, d)$. Then the comparator is (in pseudocode):<br />
 
-$val = sgn((b - a)\times(c - a)) + sgn((b - a)\times(d - a))$<br>
-<b>if</b> $val \neq 0$<br>
-<b>then return</b> $val > 0$<br>
-$val = sgn((d - c)\times(a - c)) + sgn((d - c)\times(b - c))$<br>
-<b>return</b> $val < 0$<br>
+$val = sgn((b - a)\times(c - a)) + sgn((b - a)\times(d - a))$ <br />
+if $val \neq 0$ <br />
+then return $val > 0$ <br />
+$val = sgn((d - c)\times(a - c)) + sgn((d - c)\times(b - c))$ <br />
+return $val < 0$
+
 
 Now for every query we have the corresponding edge.
 How to find the face?
@@ -64,7 +65,7 @@ Actually, with persistent trees this approach can be used to answer the queries 
 ## Implementation
 
 The following code is implemented for integers, but it can be easily modified to work with doubles (by changing the compare methods and the point type).
-This implementation assumes that the subdivision is correctly stored inside a [DCEL](https://en.wikipedia.org/wiki/Doubly_connected_edge_list) and the outer face is numbered $-1$.<br>
+This implementation assumes that the subdivision is correctly stored inside a [DCEL](https://en.wikipedia.org/wiki/Doubly_connected_edge_list) and the outer face is numbered $-1$.<br />
 For each query a pair $(1, i)$ is returned if the point lies strictly inside the face number $i$, and a pair $(0, i)$ is returned if the point lies on the edge number $i$.
 
 ```cpp point-location

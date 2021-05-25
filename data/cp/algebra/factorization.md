@@ -161,7 +161,7 @@ E.g. the prime factorization of $4817191$ are is $1303 \cdot 3697$.
 And the factors are $31$-powersmooth and $16$-powersmooth respectably, because $1303 - 1 = 2 \cdot 3 \cdot 7 \cdot 31$ and $3697 - 1 = 2^4 \cdot 3 \cdot 7 \cdot 11$.
 In 1974 John Pollard invented a method to extracts $B$-powersmooth factors from a composite number.
 
-The idea comes from [Fermat's little theorem](./algebra/phi-function.html#application).
+The idea comes from [Fermat's little theorem](./algebra/phi-function.html).
 Let a factorization of $n$ be $n = p \cdot q$.
 It says that if $a$ is coprime to $p$, the following statement holds:
 

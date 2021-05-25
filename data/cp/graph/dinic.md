@@ -5,7 +5,7 @@ Dinic's algorithm solves the maximum flow problem in $O(V^2E)$. The maximum flow
 
 ## Definitions
 
-A **residual network** $G^R$ of network $G$ is a network which contains two edges for each edge $(v, u)\in G$:<br>
+A **residual network** $G^R$ of network $G$ is a network which contains two edges for each edge $(v, u)\in G$:<br />
 
 - $(v, u)$ with capacity $c_{vu}^R = c_{vu} - f_{vu}$
 - $(u, v)$ with capacity $c_{uv}^R = f_{vu}$

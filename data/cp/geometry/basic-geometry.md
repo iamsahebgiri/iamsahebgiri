@@ -199,7 +199,7 @@ Some notable properties of cross and triple products:
 
 1. $\mathbf a\times \mathbf b = -\mathbf b\times \mathbf a$
 2. $(\alpha \cdot \mathbf a)\times \mathbf b = \alpha \cdot (\mathbf a\times \mathbf b)$
-3. For any $\mathbf b$ and $\mathbf c$ there is exactly one vector $\mathbf r$ such that $\mathbf a\cdot (\mathbf b\times \mathbf c) = \mathbf a\cdot\mathbf r$ for any vector $\mathbf a$. <br>Indeed if there are two such vectors $\mathbf r_1$ and $\mathbf r_2$ then $\mathbf a\cdot (\mathbf r_1 - \mathbf r_2)=0$ for all vectors $\mathbf a$ which is possible only when $\mathbf r_1 = \mathbf r_2$.
+3. For any $\mathbf b$ and $\mathbf c$ there is exactly one vector $\mathbf r$ such that $\mathbf a\cdot (\mathbf b\times \mathbf c) = \mathbf a\cdot\mathbf r$ for any vector $\mathbf a$. <br/>Indeed if there are two such vectors $\mathbf r_1$ and $\mathbf r_2$ then $\mathbf a\cdot (\mathbf r_1 - \mathbf r_2)=0$ for all vectors $\mathbf a$ which is possible only when $\mathbf r_1 = \mathbf r_2$.
 4. $\mathbf a\cdot (\mathbf b\times \mathbf c) = \mathbf b\cdot (\mathbf c\times \mathbf a) = -\mathbf a\cdot( \mathbf c\times \mathbf b)$
 5. $(\mathbf a + \mathbf b)\times \mathbf c = \mathbf a\times \mathbf c + \mathbf b\times \mathbf c$.
 Indeed for all vectors $\mathbf r$ the chain of equations holds:

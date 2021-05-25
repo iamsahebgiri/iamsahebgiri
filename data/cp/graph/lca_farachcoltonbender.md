@@ -18,11 +18,12 @@ The LCA of two nodes $u$ and $v$ is the node between the occurrences of $u$ and 
 In the following picture you can see a possible Euler-Tour of a graph and in the list below you can see the visited nodes and their heights.
 
 <center>![LCA_Euler_Tour](&imgroot&/LCA_Euler.png)</center>
-$$\begin{array}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+
+$$\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
 \text{Nodes:}   & 1 & 2 & 5 & 2 & 6 & 2 & 1 & 3 & 1 & 4 & 7 & 4 & 1 \\\\ \hline
 \text{Heights:} & 1 & 2 & 3 & 2 & 3 & 2 & 1 & 2 & 1 & 2 & 3 & 2 & 1 \\\\ \hline
-\end{array}$$
+\end{tabular}$$
 
 You can read more about this reduction in the article [Lowest Common Ancestor](./graph/lca.html).
 In that article the minimum of a range was either found by sqrt-decomposition in $O(\sqrt{N})$ or in $O(\log N)$ using a Segment tree.

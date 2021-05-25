@@ -16,6 +16,7 @@ import {
   Thead,
   Tr,
   useColorMode,
+  Flex,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
@@ -223,6 +224,29 @@ const MDXComponents = {
   table: (props) => (
     <Table size="sm" variant="striped" colorScheme="blueGray" {...props} />
   ),
+  center: (props) => {
+    const regex = /\[([^\[]+)\]\((.*)\)/gm;
+    const str = props.children;
+    let m;
+    while ((m = regex.exec(str)) !== null) {
+      // This is necessary to avoid infinite loops with zero-width matches
+      if (m.index === regex.lastIndex) {
+        regex.lastIndex++;
+      }
+
+      try {
+        const alt = m[1];
+        const src = m[2].replace('&imgroot&', '/img');
+        return (
+          <Flex mb="4" justifyContent="center">
+            <img src={src} alt={alt} />
+          </Flex>
+        );
+      } catch {}
+      console.log(m);
+    }
+    return <Flex mb="4" justifyContent="center" {...props} />;
+  },
   thead: Thead,
   tbody: Tbody,
   tfoot: Tfoot,
