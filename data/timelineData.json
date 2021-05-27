@@ -1,0 +1,47 @@
+[
+  {
+    "id": "3zv4rv9h7vt",
+    "title": "Birth at Kuliana",
+    "color": "yellow",
+    "icon": "cake",
+    "date": "2001-09-19",
+    "cardTitle": "Birth at Kulipal, Kuliana",
+    "cardDescription": "I was born at Kulipal, a small village in the outskirts of Kuliana, northern path of Odisha."
+  },
+  {
+    "id": "laxmc1igr4p",
+    "title": "Became 2 * in CodeChef",
+    "color": "teal",
+    "icon": "star",
+    "date": "2021-03-28",
+    "cardTitle": "Became 2 * in CodeChef",
+    "cardDescription": "I had account in codechef and practiced a couple questions here and there but never appear for competition. I did and secured global rank of 404."
+  },
+  {
+    "id": "rh9uaxzydzk",
+    "title": "Started B. Tech. CSIT",
+    "color": "green",
+    "icon": "academic",
+    "date": "2020-10-08",
+    "cardTitle": "Took admission in ITER",
+    "cardDescription": "Not everyone is lucky enough to get into elite IIT. So I got into one of the renowned university of Odisha, SOA University."
+  },
+  {
+    "id": "j1sh6lr7igg",
+    "title": "Completed Class 12 with flying colours",
+    "color": "green",
+    "icon": "academic",
+    "date": "2020-06-25",
+    "cardTitle": "I was done with Class 12",
+    "cardDescription": "I was the head boy of DAV from 2018 to 2020. I was honoured with the award of disciplined boy and student of the year. I secured 94% in CBSE Board Exam and was class Topper."
+  },
+  {
+    "id": "j1sh6lr7igg",
+    "title": "Finished Class 10",
+    "color": "green",
+    "icon": "academic",
+    "date": "2018-04-13",
+    "cardTitle": "Class 10 done and dusted",
+    "cardDescription": "I was the class Topper of SVS with 96% of marks in CBSE class 10 Board examination. I was the computer geek of my school. I spent nearly 6 years of my life and made couple of friends there."
+  }
+]

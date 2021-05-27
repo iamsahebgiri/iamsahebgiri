@@ -14,7 +14,7 @@ export default function Layout(props) {
     ...customMeta,
   };
   return (
-    <Box bgColor="gray.50">
+    <Box bgColor="blueGray.50">
       <Head>
         <title>{`${meta.title} / Saheb Giri`}</title>
         <meta name="robots" content="follow, index" />

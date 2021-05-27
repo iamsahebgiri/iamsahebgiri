@@ -1,29 +1,32 @@
 [
   {
     "id": "ret8co1628q",
-    "image_url": "password.png",
+    "image_url": "add-readme.png",
     "title": "Add Readme",
     "description": "An npm package to create beautiful readme by running just one CLI command.",
     "tags": ["NPM", "package", "node"],
-    "theme": "yellow",
-    "slug": "password-generator"
+    "theme": "cyan",
+    "link": "https://www.npmjs.com/package/add-readme",
+    "status": "active"
   },
   {
     "id": "uqta3330bwg",
-    "image_url": "chrome.png",
+    "image_url": "30days30projects.png",
     "title": "30 Days 30 Projects",
     "description": "A project built to help students and my friends who are new to code.",
     "tags": ["entry level", "cakewalk"],
-    "theme": "green",
-    "slug": "chrome-extension"
+    "theme": "amber",
+    "link": "https://30days30projects.vercel.app/",
+    "status": "active"
   },
   {
-    "id": "w82ux30wjoq",
-    "image_url": "apple-watch.png",
-    "title": "Smartwatch",
-    "description": "A smartwatch showing date and time with rotating animation.",
-    "tags": ["luxon"],
-    "theme": "messenger",
-    "slug": "smartwatch-js"
+    "id": "gcpiar2n5tc",
+    "image_url": "soundsky.png",
+    "title": "SoundSky",
+    "description": "SoundSky is a online music service that gives you access to millions of 30s songs.",
+    "tags": ["spotify", "vue", "nuxt"],
+    "theme": "lightBlue",
+    "link": "https://soundsky.vercel.app/",
+    "status": "active"
   }
 ]

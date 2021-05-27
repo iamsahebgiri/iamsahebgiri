@@ -1,77 +1,106 @@
+import dayjs from 'dayjs';
+import _ from 'underscore';
+import timelineData from '@/data/timelineData.json';
+import { Box, Flex, HStack, Icon, Text } from '@chakra-ui/react';
 import {
-  Box,
-  Divider,
-  Flex,
-  Text,
-  Icon,
-  HStack,
-  VStack,
-} from "@chakra-ui/react";
-import { HiOutlinePencil } from "react-icons/hi";
-import dayjs from "dayjs";
-import Link from "next/link";
+  HiPencil,
+  HiBadgeCheck,
+  HiCake,
+  HiStar,
+  HiAcademicCap,
+} from 'react-icons/hi';
 
-const NewPost = ({ blog }) => (
-  <>
-    <HStack spacing={4}>
-      <Flex
-        alignItems="center"
-        justifyContent="center"
-        h={10}
-        w={10}
-        bgColor="green.100"
-        rounded="full"
-      >
-        <Icon color="green.700" boxSize={5} as={HiOutlinePencil} />
+const Timeline = ({ timeline, isEnd }) => {
+  const iconMap = {
+    badge: HiBadgeCheck,
+    pencil: HiPencil,
+    cake: HiCake,
+    star: HiStar,
+    academic: HiAcademicCap,
+  };
+
+  return (
+    <Box>
+      <HStack spacing={4}>
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          h="10"
+          w="10"
+          bgColor={`${timeline.color}.100`}
+          rounded="full"
+        >
+          <Icon
+            color={`${timeline.color}.700`}
+            boxSize={5}
+            as={iconMap[timeline.icon]}
+          />
+        </Flex>
+        <Flex flexDirection="column">
+          <Text m={0} fontWeight="medium">
+            {timeline.title}
+          </Text>
+          <Text m={0} fontSize="sm" color="gray.600">
+            {dayjs(timeline.date).format('MMMM D, YYYY')}
+          </Text>
+        </Flex>
+      </HStack>
+
+      <Flex my="2">
+        <Box
+          borderLeft={isEnd ? '0' : [0, 0, '1px']}
+          borderLeftColor="#e2e8f0 !important"
+          mx={[0, 0, '5']}
+          py="4"
+          pb="12"
+          pl={[0, 0, '6']}
+          width="full"
+        >
+          <Box shadow="sm" p="4" rounded="md" bgColor="white">
+            <Text fontWeight="semibold">{timeline.cardTitle}</Text>
+            <Text mt={2} color="gray.600">
+              {timeline.cardDescription}
+            </Text>
+          </Box>
+        </Box>
       </Flex>
-      <Flex flexDirection="column">
-        <Text m={0} fontWeight="medium">
-          Published new post
-        </Text>
-        <Text m={0} fontSize="sm" color="gray.600">
-          {dayjs(blog.date).format("MMMM D, YYYY")}
-        </Text>
-      </Flex>
-    </HStack>
+    </Box>
+  );
+};
 
-    <Link href={`/posts/${blog.slug}`}>
-      <a href={`/posts/${blog.slug}`}>
-      <Box
-        ml={[0, 0, 16]}
-        shadow="sm"
-        _hover={{ shadow: "md", cursor: "pointer" }}
-        p={3}
-        mt={3}
-        mb={12}
-        rounded="md"
-        bgColor="white"
-      >
-        <Text fontWeight="semibold">{blog.title}</Text>
-        <Text mt={2} color="gray.600">
-          {blog.excerpt}
-        </Text>
-      </Box>
-      </a>
-    </Link>
-  </>
-);
-
-const Timeline = ({ data }) => {
+const TimelinePage = () => {
+  const groupedTimelineData = _.chain(timelineData)
+    .sortBy((timeline) => timeline.date)
+    .reverse()
+    .groupBy((timeline) =>
+      dayjs(timeline.date).startOf('year').format('YYYY')
+    )._wrapped;
+  const groupedTimelineDataKeys = Object.keys(groupedTimelineData).reverse();
   return (
     <Box my={12}>
-      <Flex alignItems="center" mb={8}>
-        <Box pr={3}>
-          <Text fontWeight="bold" fontSize="md">
-            September, 2020
-          </Text>
+      {groupedTimelineDataKeys.map((timelineDataKey) => (
+        <Box key={timelineDataKey}>
+          <Flex alignItems="center" mb={8}>
+            <Box pr={3}>
+              <Text fontWeight="bold" fontSize="md">
+                {timelineDataKey}
+              </Text>
+            </Box>
+            <Box bgColor="blueGray.200" flex="1" h="1px" />
+          </Flex>
+          <Box>
+            {groupedTimelineData[timelineDataKey].map((timeline, i) => (
+              <Timeline
+                key={timeline.id}
+                timeline={timeline}
+                isEnd={i === groupedTimelineData[timelineDataKey].length - 1}
+              />
+            ))}
+          </Box>
         </Box>
-        <Box bgColor="gray.200" flex="1" h="1px" />
-      </Flex>
-      {data.map((blog) => (
-        <NewPost blog={blog} key={blog.slug} />
       ))}
     </Box>
   );
 };
 
-export default Timeline;
+export default TimelinePage;

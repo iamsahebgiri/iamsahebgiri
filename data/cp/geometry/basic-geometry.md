@@ -109,7 +109,7 @@ The dot (or scalar) product $\mathbf a \cdot \mathbf b$ for vectors $\mathbf a$ 
 Geometrically it is product of the length of the first vector by the length of the projection of the second vector onto the first one.
 As you may see from the image below this projection is nothing but $|\mathbf a| \cos \theta$ where $\theta$ is the angle between $\mathbf a$ and $\mathbf b$. Thus $\mathbf a\cdot  \mathbf b = |\mathbf a| \cos \theta \cdot |\mathbf b|$.
 
-<center>![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Dot_Product.svg/300px-Dot_Product.svg.png)</center>
+<center>![Dot Product](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Dot_Product.svg/300px-Dot_Product.svg.png)</center>
 
 The dot product holds some notable properties:
 

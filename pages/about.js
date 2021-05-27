@@ -108,12 +108,8 @@ export default function AboutPage() {
   ];
   return (
     <Layout title="About" description="Code less, think more.">
-      <Box py="12">
-        <Avatar
-          size="2xl"
-          name="Saheb Giri"
-          src="https://bit.ly/sage-adebayo"
-        />
+      <Box pt="12">
+        <Avatar size="2xl" name="Saheb Giri" src="/assets/iamsahebgiri.jpg" />
 
         <Flex alignItems="center" mt="4">
           <Heading fontSize="2xl">Saheb Giri</Heading>
@@ -135,13 +131,12 @@ export default function AboutPage() {
           </Wrap>
         </Flex>
         <Stack mt="8">
-          <Text fontSize="md" lineHeight="tall" color="blueGray.700">
-            I'm a product designer, currently working on the native mobile apps
-            at GitHub. Before that, I co-founded Spectrum, worked on payments at
-            Facebook, and built social media tools for small businesses at
-            Buffer.
+          <Text fontSize="md" lineHeight="tall" color="blueGray.600">
+            I'm a student and a developer, currently studying Computer Science
+            at Institute of Technical Education and Research.
+            Before that, I was studying in DAV Public School and SVS Residential School.
           </Text>
-          <Text fontSize="md" lineHeight="tall" color="blueGray.700">
+          {/* <Text fontSize="md" lineHeight="tall" color="blueGray.700">
             On the side, I co-host the Design Details podcast, a weekly
             conversation about design process and culture. I also tinker with
             side projects here and there, like Staff Design where I interviewed
@@ -150,7 +145,7 @@ export default function AboutPage() {
           </Text>
           <Text fontSize="md" lineHeight="tall" color="blueGray.700">
             I love writing and tweeting about design, technology, and startups.
-          </Text>
+          </Text> */}
         </Stack>
         <HStack spacing="6" mt="6">
           {socialLinks.map((socialLink) => (

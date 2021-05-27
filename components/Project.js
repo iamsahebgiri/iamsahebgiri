@@ -10,13 +10,20 @@ import {
   useColorModeValue,
   Wrap,
   WrapItem,
+  Box,
 } from '@chakra-ui/react';
 
 const Project = ({ project }) => {
-  const { image_url, title, tags, theme, slug, description } = project;
+  const { image_url, title, tags, theme, link, description, status } = project;
   const bg = useColorModeValue('white', 'blueGray.700');
   const colorHeading = useColorModeValue('blueGray.700', 'blueGray.200');
   const colorSubtitle = useColorModeValue('blueGray.600', 'blueGray.300');
+
+  const statusMap = {
+    active: 'green',
+    dead: 'red',
+    unmaintained: 'yellow',
+  };
   return (
     <LinkBox
       as="article"
@@ -41,38 +48,41 @@ const Project = ({ project }) => {
           _groupHover={{ boxSize: '16' }}
         />
       </Flex>
-      <Stack p="4" spacing="4">
-        <Heading
-          as="h3"
-          fontSize="lg"
-          color={colorHeading}
-          fontWeight="semibold"
-        >
-          <LinkOverlay href={`project/${slug}/index.html`}>{title}</LinkOverlay>
-          <Badge ml="1" colorScheme="red">
-            Dead
+      <Stack p="4">
+        <Flex alignItems="center">
+          <Heading
+            as="h3"
+            fontSize="lg"
+            color={colorHeading}
+            fontWeight="semibold"
+          >
+            <LinkOverlay isExternal href={link}>
+              {title}
+            </LinkOverlay>
+          </Heading>
+          <Badge ml="2" colorScheme={statusMap[status.toLowerCase()]}>
+            {status}
           </Badge>
-        </Heading>
+        </Flex>
+        <Box>
+          <Wrap>
+            {tags?.map((tag) => (
+              <WrapItem key={tag}>
+                <Badge
+                  color={colorSubtitle}
+                  textTransform="capitalize"
+                  fontWeight="medium"
+                >
+                  {tag}
+                </Badge>
+              </WrapItem>
+            ))}
+          </Wrap>
+        </Box>
 
         <Text fontSize="sm" color={colorSubtitle}>
           {description}
         </Text>
-        <Text fontSize="xs" color={colorSubtitle}>
-          May, 2020
-        </Text>
-        <Wrap>
-          {tags?.map((tag) => (
-            <WrapItem key={tag}>
-              <Badge
-                color={colorSubtitle}
-                textTransform="capitalize"
-                fontWeight="medium"
-              >
-                {tag}
-              </Badge>
-            </WrapItem>
-          ))}
-        </Wrap>
       </Stack>
     </LinkBox>
   );

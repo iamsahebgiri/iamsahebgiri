@@ -22,6 +22,8 @@ export default function Intro() {
           as="a"
           target="_blank"
           rel="noopener noreferer"
+          backgroundColor="blueGray.200"
+          _hover={{ backgroundColor: 'blueGray.300' }}
           href="https://docs.google.com/document/d/135XdFRBiKadLyHH2k5wN9fanflPzGwHmhIHwviUxay8/edit?usp=sharing"
         >
           Resume
