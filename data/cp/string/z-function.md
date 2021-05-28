@@ -62,13 +62,13 @@ Then, if the current index (for which we have to compute the next value of the Z
 
     Here is **an example** of a similar scenario:
 
-    $$ s = "aaaabaa" $$
+    $$s = "aaaabaa"$$
 
     When we get to the last position ($i = 6$), the current match segment will be $[5, 6]$. Position $6$ will then match position $6 - 5 = 1$, for which the value of the Z-function is $z[1] = 3$. Obviously, we cannot initialize $z[6]$ to $3$, it would be completely incorrect. The maximum value we could initialize it to is $1$ -- because it's the largest value that doesn't bring us beyond the index $r$ of the match segment $[l, r]$.
 
     Thus, as an **initial approximation** for $z[i]$ we can safely take:
 
-    $$ z_0[i] = \min(r - i + 1,\; z[i-l]) $$
+    $$z_0[i] = \min(r - i + 1,\; z[i-l])$$
 
     After having $z[i]$ initialized to $z_0[i]$, we try to increment $z[i]$ by running the **trivial algorithm** -- because in general, after the border $r$, we cannot know if the segment will continue to match or not.
 

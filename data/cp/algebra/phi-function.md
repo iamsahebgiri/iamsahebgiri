@@ -87,7 +87,7 @@ void phi_1_to_n(int n) {
 
 This interesting property was established by Gauss:
 
-$$ \sum_{d|n} \phi{(d)} = n$$
+$$\sum_{d|n} \phi{(d)} = n$$
 
 Here the sum is over all positive divisors $d$ of $n$.
 
@@ -156,7 +156,7 @@ $$x^n \bmod m = x^k\left(x^{n-k \bmod \phi(\frac{m}{a})} \bmod \frac{m}{a}\right
 This formula is difficult to apply, but we can use it to analyze the behavior of $x^n \bmod m$. We can see that the sequence of powers $(x^1 \bmod m, x^2 \bmod m, x^3 \bmod m, \dots)$ enters a cycle of length $\phi\left(\frac{m}{a}\right)$ after the first $k$ (or less) elements. 
 $\phi\left(\frac{m}{a}\right)$ divides $\phi(m)$ (because $a$ and $\frac{m}{a}$ are coprime we have $\phi(a) \cdot \phi\left(\frac{m}{a}\right) = \phi(m)$), therefore we can also say that the period has length $\phi(m)$.
 And since $\phi(m) \ge \log_2 m \ge k$, we can conclude the desired, much simpler, formula:
-$$ x^n \equiv x^{\phi(m)} x^{(n - \phi(m)) \bmod \phi(m)} \bmod m \equiv x^{\phi(m)+[n \bmod \phi(m)]} \mod m.$$
+$$x^n \equiv x^{\phi(m)} x^{(n - \phi(m)) \bmod \phi(m)} \bmod m \equiv x^{\phi(m)+[n \bmod \phi(m)]} \mod m.$$
 
 ## Practice Problems  
 

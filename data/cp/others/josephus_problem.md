@@ -109,7 +109,7 @@ int josephus(int n, int k) {
 
 Let us estimate the **complexity** of this algorithm. Immediately note that the case $n < k$ is analyzed by the old solution, which will work in this case for $O(k)$. Now consider the algorithm itself. In fact, after every iteration, instead of $n$ numbers, we are left with $n \left( 1 - \frac{1}{k} \right)$ numbers, so the total number of iterations $x$ of the algorithm can be found roughly from the following equation:
 
-$$ n \left(1 - \frac{1}{k} \right) ^ x = 1, $$
+$$n \left(1 - \frac{1}{k} \right) ^ x = 1, $$
 
 on taking logarithm on both sides, we obtain:
 
@@ -128,11 +128,11 @@ In this particular case (in which this task was set by Josephus Flavius) the pro
 
 In the case of even $n$ we get that all even numbers will be crossed out, and then there will be a problem remaining for $\frac{n}{2}$, then the answer for $n$ will be obtained from the answer for $\frac{n}{2}$ by multiplying by two and subtracting one (by shifting positions):
 
-$$ J_{2n, 2} = 2 J_{n, 2} - 1 $$
+$$J_{2n, 2} = 2 J_{n, 2} - 1$$
 
 Similarly, in the case of an odd $n$, all even numbers will be crossed out, then the first number, and the problem for $\frac{n-1}{2}$ will remain, and taking into account the shift of positions, we obtain the second formula:
 
-$$J_{2n+1,2} = 2 J_{n, 2} + 1 $$
+$$J_{2n+1,2} = 2 J_{n, 2} + 1$$
 
 We can use this recurrent dependency directly in our implementation. This pattern can be translated into another form: $J_{n, 2}$ represents a sequence of all odd numbers, "restarting" from one whenever $n$ turns out to be a power of two. This can be written as a single formula:
 

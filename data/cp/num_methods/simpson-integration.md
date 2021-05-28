@@ -31,7 +31,7 @@ $$\int_a ^ b f (x) dx \approx \left(f (x_0) + 4 f (x_1) + 2 f (x_2) + 4f(x_3) + 
 ## Error
 The error in approximating an integral by Simpson's formula is
 
-$$ -\tfrac{1}{90} \left(\tfrac{b-a}{2}\right)^5 f^{(4)}(\xi)$$
+$$-\tfrac{1}{90} \left(\tfrac{b-a}{2}\right)^5 f^{(4)}(\xi)$$
 
 where $\xi$ is some number between $a$ and $b$.
 

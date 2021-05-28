@@ -157,3 +157,14 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+@media screen and (min-width: 0em) {
+  .math.math-display {
+    overflow: scroll;
+  }
+}
+@media screen and (min-width: 30em) {
+  .math.math-display {
+    overflow: inherit;
+  }
+}

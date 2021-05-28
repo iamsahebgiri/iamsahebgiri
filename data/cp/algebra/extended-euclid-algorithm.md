@@ -27,15 +27,15 @@ $$b \cdot x_1 + (a \bmod b) \cdot y_1 = g$$
 
 and we want to find the pair $(x, y)$ for $(a, b)$:
 
-$$ a \cdot x + b \cdot y = g$$
+$$a \cdot x + b \cdot y = g$$
 
 We can represent $a \bmod b$ as:
 
-$$ a \bmod b = a - \left\lfloor \frac{a}{b} \right\rfloor \cdot b$$
+$$a \bmod b = a - \left\lfloor \frac{a}{b} \right\rfloor \cdot b$$
 
 Substituting this expression in the coefficient equation of $(x_1, y_1)$ gives:
 
-$$ g = b \cdot x_1 + (a \bmod b) \cdot y_1 = b \cdot x_1 + \left(a - \left\lfloor \frac{a}{b} \right\rfloor \cdot b \right) \cdot y_1$$
+$$g = b \cdot x_1 + (a \bmod b) \cdot y_1 = b \cdot x_1 + \left(a - \left\lfloor \frac{a}{b} \right\rfloor \cdot b \right) \cdot y_1$$
 
 and after rearranging the terms:
 

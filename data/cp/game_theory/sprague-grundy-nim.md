@@ -87,7 +87,7 @@ All bits at positions greater than $d$ in $x$ and $y$ match and bit $d$ is set i
 Therefore, $y < x$, which is all we need for a move to be legal.
 Now we have:
 
-$$ t = s \oplus x \oplus y = s \oplus x \oplus (s \oplus x) = 0$$
+$$t = s \oplus x \oplus y = s \oplus x \oplus (s \oplus x) = 0$$
 
 This means we found a reachable losing state (by the assumption of induction) and the current state is winning.
 
@@ -120,7 +120,7 @@ The number $x$ is called the Grundy value or nim-value of state $v$.
 
 Moreover, this number can be found in the following recursive way:
 
-$$ x = \text{mex}\ \\{ x_1, \ldots, x_k \\}, $$
+$$x = \text{mex}\ \\{ x_1, \ldots, x_k \\},$$
 
 where $x_i$ is the Grundy value for state $v_i$ and the function $\text{mex}$ (*minimum excludant*) is the smallest non-negative integer not found in the given set.
 

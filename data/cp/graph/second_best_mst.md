@@ -49,10 +49,11 @@ The final time complexity of this approach is $O(E \log V)$.
 
 For example:
 
-<center>![MST](&imgroot&/second_best_mst_1.png) ![Second best MST](&imgroot&/second_best_mst_2.png) <br />
+![MST](/img/second_best_mst_1.png)
+
+![Second best MST](/img/second_best_mst_2.png)
 
 *In the image left is the MST and right is the second best MST.*
-</center>
 
 
 In the given graph suppose we root the MST at the blue vertex on the top, and then run our algorithm by start picking the edges not in MST.
