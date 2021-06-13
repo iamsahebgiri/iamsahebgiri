@@ -1,0 +1,37 @@
+---
+title: 'Manage services in linux'
+publishedAt: '2020-12-02'
+type: 'linux'
+---
+
+Use systemctl command to manage postgresql service:
+
+- stop service:
+
+```bash
+systemctl stop postgresql
+```
+
+- start service:
+
+```bash
+systemctl start postgresql
+```
+
+- show status of service:
+
+```bash
+systemctl status postgresql
+```
+
+- disable service(not auto-start any more)
+
+```bash
+systemctl disable postgresql
+```
+
+- enable service postgresql(auto-start)
+
+```bash
+systemctl enable postgresql
+```

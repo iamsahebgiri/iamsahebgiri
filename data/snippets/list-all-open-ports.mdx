@@ -1,0 +1,29 @@
+---
+title: 'List all open ports'
+publishedAt: '2020-09-22'
+type: 'linux'
+---
+
+View a list of different applications and port/protocol combination in `/etc/services`
+
+```bash
+cat /etc/services 
+```
+
+list all open ports
+
+```bash
+netstat -lntu
+
+# install net-tools if command not found
+```
+
+Where,
+
+`l` – prints only listening sockets
+
+`n` – shows port number
+
+`t` – enables listing of tcp ports
+
+`u` – enables listing of udp ports

@@ -8,15 +8,19 @@ import {
   HiCake,
   HiStar,
   HiAcademicCap,
+  HiDeviceMobile,
+  HiDesktopComputer,
 } from 'react-icons/hi';
 
 const Timeline = ({ timeline, isEnd }) => {
   const iconMap = {
-    badge: HiBadgeCheck,
-    pencil: HiPencil,
-    cake: HiCake,
-    star: HiStar,
     academic: HiAcademicCap,
+    badge: HiBadgeCheck,
+    cake: HiCake,
+    desktop: HiDesktopComputer,
+    mobile: HiDeviceMobile,
+    pencil: HiPencil,
+    star: HiStar,
   };
 
   return (

@@ -1,0 +1,26 @@
+---
+title: 'Kill a specific port'
+publishedAt: '2020-12-02'
+type: 'linux'
+---
+
+`lsof` (List of Open files)
+
+The `-i` flag selects the lists of files any of whose Internet address matches the address specified in it.
+
+```bash
+lsof -i tcp:3000
+```
+
+***Ouput***
+```bash
+COMMAND   PID         USER
+node    33092         johndoe
+```
+
+Kill a specific port
+
+Pass the -9 flag to `SIGKILL` the process (This will tell the OS to stop running the process)
+```bash
+kill -9 33092
+```

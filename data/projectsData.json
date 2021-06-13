@@ -14,7 +14,7 @@
     "image_url": "30days30projects.png",
     "title": "30 Days 30 Projects",
     "description": "A project built to help students and my friends who are new to code.",
-    "tags": ["entry level", "cakewalk"],
+    "tags": ["NextJS", "Chakra UI"],
     "theme": "amber",
     "link": "https://30days30projects.vercel.app/",
     "status": "active"
@@ -27,6 +27,16 @@
     "tags": ["spotify", "vue", "nuxt"],
     "theme": "lightBlue",
     "link": "https://soundsky.vercel.app/",
+    "status": "active"
+  },
+  {
+    "id": "d16ig5mv976",
+    "image_url": "a2oj.png",
+    "title": "A2OJ",
+    "description": "Get started with competitive programming with curated problems from A2OJ.",
+    "tags": ["NextJS", "SWR", "Chakra UI"],
+    "theme": "purple",
+    "link": "https://the-a2oj.vercel.app/",
     "status": "active"
   }
 ]

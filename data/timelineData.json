@@ -1,11 +1,11 @@
 [
   {
     "id": "3zv4rv9h7vt",
-    "title": "Birth at Kuliana",
-    "color": "yellow",
+    "title": "Born at Kuliana",
+    "color": "gray",
     "icon": "cake",
     "date": "2001-09-19",
-    "cardTitle": "Birth at Kulipal, Kuliana",
+    "cardTitle": "This is where it all began",
     "cardDescription": "I was born at Kulipal, a small village in the outskirts of Kuliana, northern path of Odisha."
   },
   {
@@ -28,20 +28,47 @@
   },
   {
     "id": "j1sh6lr7igg",
-    "title": "Completed Class 12 with flying colours",
+    "title": "Completed Class 12",
     "color": "green",
     "icon": "academic",
-    "date": "2020-06-25",
-    "cardTitle": "I was done with Class 12",
-    "cardDescription": "I was the head boy of DAV from 2018 to 2020. I was honoured with the award of disciplined boy and student of the year. I secured 94% in CBSE Board Exam and was class Topper."
+    "date": "2020-07-30",
+    "cardTitle": "Secured 94% in AISSCE",
+    "cardDescription": "I was the head boy of DAV from 2018 to 2020. I was honoured with the award of disciplined boy and student of the year. I secured 94% in CBSE Board Exam and was class Topper too."
   },
   {
     "id": "j1sh6lr7igg",
-    "title": "Finished Class 10",
+    "title": "Completed Class 10",
     "color": "green",
     "icon": "academic",
     "date": "2018-04-13",
-    "cardTitle": "Class 10 done and dusted",
+    "cardTitle": "Secured 96% in AISSE",
     "cardDescription": "I was the class Topper of SVS with 96% of marks in CBSE class 10 Board examination. I was the computer geek of my school. I spent nearly 6 years of my life and made couple of friends there."
+  },
+  {
+    "id": "eixykrd3w0l",
+    "title": "Built my first app",
+    "color": "indigo",
+    "icon": "mobile",
+    "date": "2018-01-25",
+    "cardTitle": "Built TicTacToe in class 10",
+    "cardDescription": "Built my first app Captain aka TicTacToe. However, with no mini max algorithm unfortunately. But it has multiplayer support."
+  },
+  {
+    "id": "ws9c1a7zln",
+    "title": "Won first Hackathon",
+    "color": "orange",
+    "icon": "desktop",
+    "date": "2020-07-28",
+    "cardTitle": "Won HackBenchers #4 in Hackerearth",
+    "cardDescription": "I worked on the project more than two weeks start from design to development. It was a great experience after all."
+  },
+  {
+    "id": "n3eulwxuep",
+    "title": "Got my first client",
+    "color": "orange",
+    "icon": "desktop",
+    "date": "2020-08-28",
+    "cardTitle": "Built website and apps for a coaching institute",
+    "cardDescription": "Rank 1 in google search. Developed Android app and CMS for internal use also focused in user experience and interface with proper competitive analysis."
   }
 ]
