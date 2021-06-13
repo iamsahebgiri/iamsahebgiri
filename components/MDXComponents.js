@@ -177,49 +177,78 @@ const MDXComponents = {
     <Text as="p" color="blueGray.800" mb="4" lineHeight="tall" {...props} />
   ),
   ul: (props) => (
-    <Box as="ul" listStyleType="none" pt={2} mb="4" pl={4} ml={2} {...props} />
-  ),
-  ol: (props) => (
     <Box
-      as="ol"
+      as="ul"
       listStyleType="none"
-      sx={{ counterReset: 'customCounter' }}
-      pt={2}
-      pl={4}
-      ml={2}
-      mb="4"
-      {...props}
-    />
-  ),
-  li: (props) => (
-    <Box
-      as="li"
-      pb="2"
+      my="5"
       sx={{
-        'ul &::before': {
-          content: '"\\2022"',
-          color: 'var(--chakra-colors-blueGray-500)',
-          fontWeight: 'bold',
-          display: 'inline-block',
-          width: '1em',
-          marginLeft: '-1em',
+        li: {
+          paddingLeft: '5',
+          position: 'relative',
         },
-        'ol &': {
-          counterIncrement: 'customCounter',
+        'li::before': {
+          width: '6px',
+          height: '6px',
+          top: '9px',
+          left: '4px',
+          content: '""',
+          position: 'absolute',
+          backgroundColor: 'var(--chakra-colors-blueGray-400)',
+          borderRadius: '50%',
         },
-        'ol &::before': {
-          content: "counter(customCounter) '.  '",
-          color: 'var(--chakra-colors-blueGray-500)',
-          fontWeight: 'semibold',
-          display: 'inline-block',
-          width: '1em',
-          marginRight: '0.5em',
-          marginLeft: '-1em',
+        'li p': {
+          marginY: '3',
+        },
+        'li > *:first-of-type': {
+          marginTop: '5',
+        },
+        'li > *:last-of-type': {
+          marginBottom: '5',
+        },
+        ul: {
+          marginY: '3',
+        },
+        ol: {
+          marginY: '3',
         },
       }}
       {...props}
     />
   ),
+  ol: (props) => (
+    <Box
+      as="ol"
+      my="5"
+      listStyleType="none"
+      sx={{
+        li: {
+          paddingLeft: '7',
+          position: 'relative',
+        },
+        'li::before': {
+          left: '0',
+          content: 'counter(list-item, var(--list-counter-style, decimal)) "."',
+          position: 'absolute',
+          fontWeight: "semibold",
+          color: 'var(--chakra-colors-blueGray-400)',
+        },
+        'li > *:first-of-type': {
+          marginTop: '5',
+        },
+        'li > *:last-of-type': {
+          marginBottom: '5',
+        },
+        ul: {
+          marginY: '3',
+        },
+        ol: {
+          marginY: '3',
+        },
+      }}
+      {...props}
+    />
+  ),
+  li: (props) => <Box as="li" my="2" {...props} />,
   blockquote: Quote,
   table: (props) => (
     <Table size="sm" variant="striped" colorScheme="blueGray" {...props} />
