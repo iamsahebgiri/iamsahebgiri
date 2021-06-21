@@ -8,6 +8,13 @@ import NextLink from 'next/link';
 
 const SnippetCard = ({ snippet }) => {
   const { title, publishedAt, slug, type } = snippet;
+  
+  const typeColors = {
+    javascript: 'yellow',
+    python: 'blue',
+    linux: 'cyan',
+  };
+
   return (
     <Box bg="white" mb="2" p="4" rounded="md" shadow="sm">
       <Text color="gray.500">{dayjs(publishedAt).format('MMMM D, YYYY')}</Text>
@@ -23,9 +30,10 @@ const SnippetCard = ({ snippet }) => {
         </Link>
       </NextLink>
       <Box mt="4">
-        <Tag variant="subtle" colorScheme="cyan">{type}</Tag>
+        <Tag variant="subtle" colorScheme={`${typeColors[type]}`}>
+          {type}
+        </Tag>
       </Box>
-      
     </Box>
   );
 };
