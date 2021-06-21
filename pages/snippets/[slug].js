@@ -7,7 +7,7 @@ import Layout from '@/components/Layout';
 
 export default function SnippetPage({ mdxSource, frontMatter }) {
   return (
-    <Layout>
+    <Layout title={frontMatter.title}>
       <Box my={24}>
         <Heading py={2} textAlign="center">
           {frontMatter.title}

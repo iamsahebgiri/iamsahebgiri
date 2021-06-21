@@ -1,14 +1,14 @@
 import Layout from '@/components/Layout';
 import Title from '@/components/Title';
 import { getAllFilesFrontMatter } from '@/lib/mdx';
-import { Box, Link, Text } from '@chakra-ui/layout';
+import { Box, Link, Text, LinkBox, LinkOverlay } from '@chakra-ui/layout';
 import { Tag } from '@chakra-ui/tag';
 import dayjs from 'dayjs';
 import NextLink from 'next/link';
 
 const SnippetCard = ({ snippet }) => {
   const { title, publishedAt, slug, type } = snippet;
-  
+
   const typeColors = {
     javascript: 'yellow',
     python: 'blue',
@@ -16,30 +16,38 @@ const SnippetCard = ({ snippet }) => {
   };
 
   return (
-    <Box bg="white" mb="2" p="4" rounded="md" shadow="sm">
+    <LinkBox
+      as="article"
+      bg="white"
+      mb="2"
+      p="4"
+      rounded="md"
+      shadow="sm"
+      role="group"
+      _hover={{ shadow: 'md' }}
+    >
       <Text color="gray.500">{dayjs(publishedAt).format('MMMM D, YYYY')}</Text>
       <NextLink as={`/snippets/${slug}`} href={`/snippets/[slug]`} passHref>
-        <Link display="inline-block" mt="2">
+        <LinkOverlay display="inline-block" mt="2">
           <Text
             fontWeight="medium"
             color="blueGray.600"
-            _hover={{ color: 'blueGray.700' }}
+            _groupHover={{ color: 'blueGray.800' }}
           >
             {title}
           </Text>
-        </Link>
+        </LinkOverlay>
       </NextLink>
       <Box mt="4">
         <Tag variant="subtle" colorScheme={`${typeColors[type]}`}>
           {type}
         </Tag>
       </Box>
-    </Box>
+    </LinkBox>
   );
 };
 
 export default function SnippetsPage({ snippets }) {
-  console.log(snippets);
   return (
     <Layout
       title="Snippets"

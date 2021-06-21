@@ -7,7 +7,12 @@ import Layout from '@/components/Layout';
 
 export default function PostPage({ mdxSource, frontMatter }) {
   return (
-    <Layout>
+    <Layout
+      title={frontMatter.title}
+      description={frontMatter.summary}
+      image={frontMatter.image}
+      type="article"
+    >
       <Box my={24}>
         <Heading py={2} textAlign="center">
           {frontMatter.title}

@@ -272,7 +272,6 @@ const MDXComponents = {
           </Flex>
         );
       } catch {}
-      console.log(m);
     }
     return <Flex mb="4" justifyContent="center" {...props} />;
   },
