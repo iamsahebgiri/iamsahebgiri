@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Figma",
+    "url": "https://figma.com/@iamsahebgiri",
+    "image": "figma.png",
+    "description": "Figma is my design tool of choice. Features like Auto Layout v3 and Variants make it really fast to iterate and explore while designing interfaces."
+  },
+  {
+    "name": "Vercel",
+    "url": "https://vercel.com",
+    "image": "vercel.jpg",
+    "description": "Everything I make on the internet lives on Vercel. Vercel is the gold standard of developer tools."
+  },
+  {
+    "name": "Next.js",
+    "url": "https://nextjs.org",
+    "image": "nextjs.png",
+    "oss": true,
+    "description": "The best way to build modern React websites."
+  },
+  {
+    "name": "Dependabot",
+    "url": "https://dependabot.com",
+    "image": "dependabot.png",
+    "description": "Dependabot keeps all of my project dependencies up to date every week, saving me time and frustration."
+  },
+  {
+    "name": "Chakra UI",
+    "url": "https://chakra-ui.com/",
+    "image": "chakra-ui.svg",
+    "independent": true,
+    "oss": true,
+    "description": "Chakra UI is a simple, modular and accessible component library for building UIs in react."
+  },
+  {
+    "name": "Chakra View",
+    "url": "https://chakra-view.vercel.app/",
+    "image": "chakra-view.svg",
+    "independent": true,
+    "oss": true,
+    "description": "Collections of UI components, created with Chakra UI. It's like Tailwind UI but for Chakra ecosystem."
+  },
+  {
+    "name": "Heroicons",
+    "url": "https://heroicons.com/",
+    "image": "hero-icons.svg",
+    "independent": true,
+    "oss": true,
+    "description": "A gorgeous open source icon set – easily grab SVGs, or integrate it directly into your React project."
+  },
+  {
+    "name": "VSCode",
+    "url": "https://code.visualstudio.com",
+    "image": "vscode.png",
+    "oss": true,
+    "independent": false,
+    "description": "My code editor of choice."
+  },
+  {
+    "name": "Hasura",
+    "url": "https://hasura.io/",
+    "image": "hasura.png",
+    "oss": true,
+    "independent": false,
+    "description": "Instant realtime GraphQL APIs for rapidly building apps without having to build, operate & scale a GraphQL server."
+  },
+  {
+    "name": "Docker",
+    "url": "https://www.docker.com/",
+    "image": "docker.png",
+    "oss": true,
+    "independent": false,
+    "description": "I use docker to avoid environment setup while deployment, just pull the container and it just works."
+  },
+  {
+    "name": "Github",
+    "url": "https://www.docker.com/",
+    "image": "github.png",
+    "oss": true,
+    "independent": false,
+    "description": "I use github every single day to keep my work and to explore smart people of the world."
+  },
+  {
+    "name": "Laravel",
+    "url": "https://laravel.com/",
+    "image": "laravel.png",
+    "oss": true,
+    "independent": false,
+    "description": "You can build apps in weeks. Just get started with no time full of boilerplate nd best practices."
+  },
+  {
+    "name": "Spotify",
+    "url": "https://open.spotify.com/",
+    "image": "spotify.png",
+    "oss": false,
+    "independent": false,
+    "description": "As far as I can tell, the best music discovery and recommendation service available. I basically live in Spotify’s personal playlists."
+  },
+  {
+    "name": "Simplenote",
+    "url": "https://simplenote.com/",
+    "image": "simplenote.png",
+    "oss": false,
+    "independent": false,
+    "description": "This is one of best note taking apps with no frills. Access from any device Linux, Android, iOS, you name it."
+  }
+]

@@ -4,12 +4,16 @@
     "href": "/"
   },
   {
-    "name": "Snippets",
-    "href": "/snippets"
+    "name": "Blog",
+    "href": "/overthoughts"
   },
   {
-    "name": "Overthoughts",
-    "href": "/overthoughts"
+    "name": "Stacks",
+    "href": "/stacks"
+  },
+  {
+    "name": "Snippets",
+    "href": "/snippets"
   },
   {
     "name": "Projects",

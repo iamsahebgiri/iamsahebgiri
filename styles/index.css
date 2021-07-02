@@ -158,6 +158,10 @@
   -webkit-text-fill-color: transparent;
 }
 
+.rounded-lg {
+  border-radius: 0.6rem;
+}
+
 @media screen and (min-width: 0em) {
   .math.math-display {
     overflow: scroll;

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {
   Badge,
   Flex,
@@ -6,7 +7,6 @@ import {
   LinkOverlay,
   Stack,
   Text,
-  Image,
   useColorModeValue,
   Wrap,
   WrapItem,
@@ -43,9 +43,12 @@ const Project = ({ project }) => {
       >
         <Image
           src={`/assets/img/${image_url}`}
-          boxSize="12"
-          transition="all 0.2s ease-in-out"
-          _groupHover={{ boxSize: '16' }}
+          width="48"
+          height="48"
+          layout="fixed"
+          placeholder="blur"
+          blurDataURL={`/assets/img/${image_url}?w=10&q=10`}
+          alt={title}
         />
       </Flex>
       <Stack p="4">

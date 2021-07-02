@@ -19,22 +19,23 @@ export default ArticlePage;
 export async function getStaticProps({ params }) {
   const article = await getFileBySlug('cp', params.slug.join('/'));
 
-  return { props: article };
+  return { props: article, revalidate: 3600 };
 }
 
 export async function getStaticPaths() {
   const articles = await getSubDirectoryFiles('cp');
+  const articlePaths = articles.map((article) => {
+    const [topic, fileName] = article.split('/').slice(-2);
+
+    return {
+      params: {
+        slug: [topic, fileName.replace(/\.mdx?/, '')],
+      },
+    };
+  });
 
   return {
-    paths: articles.map((article) => {
-      const [topic, fileName] = article.split('/').slice(-2);
-
-      return {
-        params: {
-          slug: [topic, fileName.replace(/\.mdx?/, '')],
-        },
-      };
-    }),
-    fallback: false,
+    paths: articlePaths,
+    fallback: 'blocking',
   };
 }
