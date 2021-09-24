@@ -1,28 +1,24 @@
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { Box, Container } from '@chakra-ui/react';
-import Header from './Header';
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { Box, Container } from '@chakra-ui/react'
+import Header from './Header'
 
 export default function Layout(props) {
-  const { children, ...customMeta } = props;
-  const router = useRouter();
+  const { children, ...customMeta } = props
+  const router = useRouter()
   const meta = {
     title: 'Saheb Giri',
     description: `Student and Developer`,
     image: 'https://iamsahebgiri.vercel.app/assets/banner.jpg',
     type: 'website',
     ...customMeta,
-  };
+  }
   return (
     <Box bgColor="blueGray.50">
       <Head>
         <title>{`${meta.title} / Saheb Giri`}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
-          rel="stylesheet"
-        />
         <meta
           property="og:url"
           content={`https://iamsahebgiri.vercel.app${router.asPath}`}
@@ -50,5 +46,5 @@ export default function Layout(props) {
         <Box>{children}</Box>
       </Container>
     </Box>
-  );
+  )
 }
