@@ -1,7 +1,7 @@
-import Layout from '@/components/Layout';
-import Project from '@/components/Project';
-import Title from '@/components/Title';
-import projectsData from '@/data/projectsData';
+import Layout from 'components/Layout';
+import Project from 'components/Project';
+import Title from 'components/Title';
+import projectsData from 'data/projectsData.json';
 import { Box } from '@chakra-ui/react';
 
 const ProjectsPage = () => {

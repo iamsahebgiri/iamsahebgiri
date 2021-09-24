@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import _ from 'underscore';
-import timelineData from '@/data/timelineData.json';
+import timelineData from 'data/timelineData.json';
 import { Box, Flex, HStack, Icon, Text } from '@chakra-ui/react';
 import {
   HiPencil,
@@ -80,6 +80,7 @@ const TimelinePage = () => {
       dayjs(timeline.date).startOf('year').format('YYYY')
     )._wrapped;
   const groupedTimelineDataKeys = Object.keys(groupedTimelineData).reverse();
+
   return (
     <Box my={12}>
       {groupedTimelineDataKeys.map((timelineDataKey) => (

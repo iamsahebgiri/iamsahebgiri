@@ -1,4 +1,4 @@
-import Layout from '@/components/Layout';
+import Layout from 'components/Layout';
 import { Avatar } from '@chakra-ui/avatar';
 import Icon from '@chakra-ui/icon';
 import {
@@ -53,7 +53,7 @@ const Pill = (props) => {
 const SocialLink = ({ socialLink }) => {
   const { href, icon } = socialLink;
   return (
-    <a target="_blank" rel="noopener noreferer" href={href}>
+    <a target="_blank" rel="noopener noreferer noreferrer" href={href}>
       <Circle size="10" _hover={{ bg: 'blueGray.200' }} color="blueGray.800">
         <Icon as={icon} w="4" h="4" />
       </Circle>

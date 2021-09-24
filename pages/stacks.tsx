@@ -1,6 +1,6 @@
-import Layout from '@/components/Layout';
-import Title from '@/components/Title';
-import Stacks from '@/components/Stacks';
+import Layout from 'components/Layout';
+import Title from 'components/Title';
+import Stacks from 'components/Stacks';
 
 export default function StacksPage() {
   return (

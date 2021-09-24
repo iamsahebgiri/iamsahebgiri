@@ -1,4 +1,11 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ColorModeScript } from '@chakra-ui/react';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import dynamic from 'next/dynamic';
+
+const ProgressBar = dynamic(() => import('../components/ProgressBar'), {
+  ssr: false
+});
+
 export default class MyDocument extends Document {
   render() {
     return (
@@ -32,12 +39,15 @@ export default class MyDocument extends Document {
             integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
             crossOrigin="anonymous"
           />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
         </Head>
         <body>
+          <ColorModeScript />
+          <ProgressBar />
           <Main />
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }

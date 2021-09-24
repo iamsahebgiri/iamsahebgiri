@@ -1,6 +1,5 @@
 import {
   Alert,
-  Button,
   Box,
   Code,
   Divider,
@@ -15,8 +14,7 @@ import {
   Th,
   Thead,
   Tr,
-  useColorMode,
-  Flex,
+  useColorMode
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
@@ -24,7 +22,7 @@ const CustomLink = (props) => {
   const { colorMode } = useColorMode();
   const color = {
     light: 'blue.500',
-    dark: 'blue.500',
+    dark: 'blue.500'
   };
 
   const href = props.href;
@@ -45,7 +43,7 @@ const Quote = (props) => {
   const { colorMode } = useColorMode();
   const bgColor = {
     light: 'blue.50',
-    dark: 'blue.900',
+    dark: 'blue.900'
   };
 
   return (
@@ -59,8 +57,8 @@ const Quote = (props) => {
       status="info"
       sx={{
         '> *:first-of-type': {
-          mb: '0',
-        },
+          mb: '0'
+        }
       }}
       {...props}
     />
@@ -73,16 +71,16 @@ const DocsHeading = (props) => (
       scrollMarginTop: '0',
       scrollSnapMargin: '0', // Safari
       '&[id]': {
-        pointerEvents: 'none',
+        pointerEvents: 'none'
       },
       '&[id]:before': {
         display: 'block',
         height: ' 6rem',
         marginTop: '-6rem',
         visibility: 'hidden',
-        content: `""`,
+        content: `""`
       },
-      '&[id]:hover a': { opacity: 1 },
+      '&[id]:hover a': { opacity: 1 }
     }}
     {...props}
     mb="1em"
@@ -99,7 +97,7 @@ const DocsHeading = (props) => (
           outline="none"
           _focus={{
             opacity: 1,
-            boxShadow: 'outline',
+            boxShadow: 'outline'
           }}
           opacity="0"
           ml="0.375rem"
@@ -116,7 +114,7 @@ const Hr = () => {
   const { colorMode } = useColorMode();
   const borderColor = {
     light: 'gray.200',
-    dark: 'gray.600',
+    dark: 'gray.600'
   };
 
   return <Divider borderColor={borderColor[colorMode]} my={4} w="100%" />;
@@ -184,7 +182,7 @@ const MDXComponents = {
       sx={{
         li: {
           paddingLeft: '5',
-          position: 'relative',
+          position: 'relative'
         },
         'li::before': {
           width: '6px',
@@ -194,23 +192,23 @@ const MDXComponents = {
           content: '""',
           position: 'absolute',
           backgroundColor: 'var(--chakra-colors-blueGray-400)',
-          borderRadius: '50%',
+          borderRadius: '50%'
         },
         'li p': {
-          marginY: '3',
+          marginY: '3'
         },
         'li > *:first-of-type': {
-          marginTop: '5',
+          marginTop: '5'
         },
         'li > *:last-of-type': {
-          marginBottom: '5',
+          marginBottom: '5'
         },
         ul: {
-          marginY: '3',
+          marginY: '3'
         },
         ol: {
-          marginY: '3',
-        },
+          marginY: '3'
+        }
       }}
       {...props}
     />
@@ -223,27 +221,27 @@ const MDXComponents = {
       sx={{
         li: {
           paddingLeft: '7',
-          position: 'relative',
+          position: 'relative'
         },
         'li::before': {
           left: '0',
           content: 'counter(list-item, var(--list-counter-style, decimal)) "."',
           position: 'absolute',
-          fontWeight: "semibold",
-          color: 'var(--chakra-colors-blueGray-400)',
+          fontWeight: 'semibold',
+          color: 'var(--chakra-colors-blueGray-400)'
         },
         'li > *:first-of-type': {
-          marginTop: '5',
+          marginTop: '5'
         },
         'li > *:last-of-type': {
-          marginBottom: '5',
+          marginBottom: '5'
         },
         ul: {
-          marginY: '3',
+          marginY: '3'
         },
         ol: {
-          marginY: '3',
-        },
+          marginY: '3'
+        }
       }}
       {...props}
     />
@@ -253,35 +251,13 @@ const MDXComponents = {
   table: (props) => (
     <Table size="sm" variant="striped" colorScheme="blueGray" {...props} />
   ),
-  center: (props) => {
-    const regex = /\[([^\[]+)\]\((.*)\)/gm;
-    const str = props.children;
-    let m;
-    while ((m = regex.exec(str)) !== null) {
-      // This is necessary to avoid infinite loops with zero-width matches
-      if (m.index === regex.lastIndex) {
-        regex.lastIndex++;
-      }
-
-      try {
-        const alt = m[1];
-        const src = m[2].replace('&imgroot&', '/img');
-        return (
-          <Flex mb="4" justifyContent="center">
-            <img src={src} alt={alt} />
-          </Flex>
-        );
-      } catch {}
-    }
-    return <Flex mb="4" justifyContent="center" {...props} />;
-  },
   thead: Thead,
   tbody: Tbody,
   tfoot: Tfoot,
   tr: Tr,
   th: Th,
   td: Td,
-  caption: TableCaption,
+  caption: TableCaption
 };
 
 export { CustomLink };

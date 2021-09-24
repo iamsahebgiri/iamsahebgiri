@@ -1,6 +1,6 @@
-import Layout from '@/components/Layout';
-import Title from '@/components/Title';
-import { getAllFilesFrontMatter } from '@/lib/mdx';
+import Layout from 'components/Layout';
+import Title from 'components/Title';
+import { getAllFilesFrontMatter } from 'lib/mdx';
 import { Box, Link, Text, LinkBox, LinkOverlay } from '@chakra-ui/layout';
 import { Tag } from '@chakra-ui/tag';
 import dayjs from 'dayjs';

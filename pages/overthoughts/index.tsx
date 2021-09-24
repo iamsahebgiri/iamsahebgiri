@@ -1,12 +1,13 @@
 import { Text, Box, Tag, Link } from '@chakra-ui/react';
-import Layout from '@/components/Layout';
+import Layout from 'components/Layout';
 import NextLink from 'next/link';
 import dayjs from 'dayjs';
-import { getAllFilesFrontMatter } from '@/lib/mdx';
-import Title from '@/components/Title';
+import { getAllFilesFrontMatter } from 'lib/mdx';
+import Title from 'components/Title';
 
 const OverthoughtCard = ({ overthought }) => {
   const { title, publishedAt, slug, summary } = overthought;
+  
   return (
     <Box mb="14">
       <Text color="gray.500">{dayjs(publishedAt).format('MMMM D, YYYY')}</Text>

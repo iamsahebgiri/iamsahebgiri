@@ -18,8 +18,8 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { HiMenuAlt4 } from 'react-icons/hi';
-import SiteLogo from './Icons/SiteLogo';
-import navLinks from '@/data/navLinks.json';
+import SiteLogo from './Logo';
+import navLinks from 'data/navLinks.json';
 
 const HeaderLink = ({ name, href }) => {
   const router = useRouter();

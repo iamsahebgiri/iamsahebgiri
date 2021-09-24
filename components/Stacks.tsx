@@ -1,4 +1,4 @@
-import stacksData from '@/data/stacksData.json';
+import stacksData from 'data/stacksData.json';
 import {
   Box,
   Flex,
@@ -7,13 +7,16 @@ import {
   LinkOverlay,
   Text,
   useColorModeValue,
-  VStack,
+  VStack
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import _ from 'underscore';
 
 export default function Timeline() {
   const sortedStacksData = _.sortBy(stacksData, 'name');
+  const headingColor = useColorModeValue('blueGray.700', 'blueGray.200');
+  const descriptionColor = useColorModeValue('blueGray.600', 'blueGray.300');
+
   return (
     <Box>
       <VStack spacing="4">
@@ -46,16 +49,13 @@ export default function Timeline() {
                   <Heading
                     as="h3"
                     fontSize="lg"
-                    color={useColorModeValue('blueGray.700', 'blueGray.200')}
+                    color={headingColor}
                     fontWeight="semibold"
                   >
                     {stack.name}
                   </Heading>
                 </LinkOverlay>
-                <Text
-                  mt="1"
-                  color={useColorModeValue('blueGray.600', 'blueGray.300')}
-                >
+                <Text mt="1" color={descriptionColor}>
                   {stack.description}
                 </Text>
               </Box>
