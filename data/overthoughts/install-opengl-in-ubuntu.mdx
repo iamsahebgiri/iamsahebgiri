@@ -1,0 +1,73 @@
+---
+title: 'Install OpenGL in Ubuntu'
+publishedAt: '2020-12-02'
+summary: 'OpenGL is a Graphics rendering API which is operating system independent, window system independent and has high-quality color images composed of geometric and image primitives.'
+image: '/assets/overthoughts/android-studio-installation-ubuntu/cover.jpg'
+---
+
+## What Is OpenGL?
+OpenGL is a Graphics rendering API which is operating system independent, window system independent and has high-quality color images composed of geometric and image primitives.
+OpenGL APIs can use following …
+
++ Gl
+  - OpenGL API implementation (http://www.opengl.org)
++ Glu
+  - OpenGL Utility
++ Glut – GLUT (OpenGL Utility Toolkit) – Glut is portable windowing API and it is not officially part of OpenGL.
+  - OpenGL Utility Toolkit (http://www.opengl.org/resources/libraries/glut/)
++ FLTK
+ - FlashLight ToolKit (http://www.fltk.org/)
++ GLEW
+
+
+Now lets see How to install OpenGL on out Ubuntu OS.
+
+Now because GLUT (OpenGL Utility Toolkit) depends upon OpenGL and a number of other related libraries, if we install GLUT then OpenGL will be automatically be installed.
+
+Run the following commands to install OpenGL.
+
+```bash
+$ sudo apt-get update
+$ sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev
+```
+Now to test if OpenGl libraries are working fine on our Linux, we will create a C++ program and test it.
+
+So create a following C++ Program.
+
+```cpp
+#include <GL/glut.h>
+ 
+void displayMe(void)
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+    glBegin(GL_POLYGON);
+        glVertex3f(0.5, 0.0, 0.5);
+        glVertex3f(0.5, 0.0, 0.0);
+        glVertex3f(0.0, 0.5, 0.0);
+        glVertex3f(0.0, 0.0, 0.5);
+    glEnd();
+    glFlush();
+}
+ 
+int main(int argc, char** argv)
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE);
+    glutInitWindowSize(400, 300);
+    glutInitWindowPosition(100, 100);
+    glutCreateWindow("Hello world!");
+    glutDisplayFunc(displayMe);
+    glutMainLoop();
+    return 0;
+}
+```
+Now give the command below to compile your code.
+
+```bash
+$ g++ main.cpp -o firstOpenGlApp -lglut -lGLU -lGL
+```
+Now run your OpenGl program with following command
+
+```bash
+$ ./firstOpenGlApp
+```
