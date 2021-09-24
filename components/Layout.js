@@ -19,6 +19,10 @@ export default function Layout(props) {
         <title>{`${meta.title} / Saheb Giri`}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
+          rel="stylesheet"
+        />
         <meta
           property="og:url"
           content={`https://iamsahebgiri.vercel.app${router.asPath}`}
