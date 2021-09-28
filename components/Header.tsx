@@ -13,30 +13,36 @@ import {
   useDisclosure,
   VStack,
   Link,
+  useColorModeValue,
+  Divider
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { HiMenuAlt4 } from 'react-icons/hi';
+import { HiOutlineMenu } from 'react-icons/hi';
 import SiteLogo from './Logo';
 import navLinks from 'data/navLinks.json';
+import DarkModeButton from './DarkModeButton';
 
 const HeaderLink = ({ name, href }) => {
   const router = useRouter();
   const isActive = `/${router.pathname.split('/')[1]}` === href;
 
+  const bgColor = useColorModeValue('blueGray.100', 'blueGray.700');
+  const textColorLight = useColorModeValue('blueGray.900', 'blueGray.300');
+  const textColorDark = useColorModeValue('blueGray.700', 'blueGray.400');
+
   return (
     <NextLink href={href} passHref>
       <Link>
-        <Text
-          mb={isActive ? 3 : 4}
-          px={2}
-          color={isActive ? 'blueGray.900' : 'blueGray.700'}
-          fontWeight={isActive ? 'medium' : 'normal'}
-        >
-          {name}
-        </Text>
-        {isActive && <Box h="1" roundedTop="md" bgColor="myOrange.800" />}
+        <Box bg={isActive && bgColor} py={1} px={3} rounded="md">
+          <Text
+            color={isActive ? textColorLight : textColorDark}
+            fontWeight={isActive ? 'medium' : 'normal'}
+          >
+            {name}
+          </Text>
+        </Box>
       </Link>
     </NextLink>
   );
@@ -47,7 +53,7 @@ const MobileHeaderLink = ({ name, href }) => {
   const isActive = `/${router.pathname.split('/')[1]}` === href;
   return (
     <NextLink href={href} passHref>
-      <Link width="full" _focus={{ boxShadow: 'none' }}>
+      <Link width="full">
         <Flex
           bgColor={isActive && 'orange.200'}
           color={isActive && 'orange.700'}
@@ -66,19 +72,23 @@ const MobileHeaderLink = ({ name, href }) => {
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const bgColor = useColorModeValue('white', 'blueGray.800');
+
   return (
     <Flex
-      bgColor="white"
-      pt="3"
+      bgColor={bgColor}
       shadow="sm"
       position="fixed"
       width="100%"
       zIndex="1"
     >
-      <Container maxW="3xl">
-        <Flex justifyContent="space-between">
-          <Flex alignItems="flex-end">
-            <Flex alignItems="center" mr="12" pb="3">
+      <Container maxW="4xl">
+        <Flex justifyContent="space-between" alignItems="center">
+          <Flex alignItems="center" display={['flex', 'flex', 'none']}>
+            <Icon boxSize="6" onClick={onOpen} as={HiOutlineMenu} />
+          </Flex>
+          <Flex alignItems="center" py="3">
+            <Flex alignItems="center">
               <NextLink href="/">
                 <Link>
                   <SiteLogo />
@@ -86,15 +96,13 @@ export default function Header() {
               </NextLink>
             </Flex>
 
-            <HStack spacing="6" display={['none', 'none', 'flex']}>
+            <HStack ml="10" spacing="3" display={['none', 'none', 'flex']}>
               {navLinks.map((link) => (
                 <HeaderLink key={link.href} href={link.href} name={link.name} />
               ))}
             </HStack>
           </Flex>
-          <Flex alignItems="center" display={['flex', 'flex', 'none']}>
-            <Icon boxSize="6" onClick={onOpen} as={HiMenuAlt4} mb="3" />
-          </Flex>
+          <DarkModeButton />
         </Flex>
       </Container>
 
@@ -106,7 +114,9 @@ export default function Header() {
               <SiteLogo />
             </DrawerHeader>
 
-            <DrawerBody>
+            <Divider />
+
+            <DrawerBody mt="3">
               <VStack spacing="1" alignItems="flex-start">
                 {navLinks.map((link) => (
                   <MobileHeaderLink

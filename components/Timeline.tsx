@@ -1,7 +1,14 @@
 import dayjs from 'dayjs';
 import _ from 'underscore';
 import timelineData from 'data/timelineData.json';
-import { Box, Flex, HStack, Icon, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  HStack,
+  Icon,
+  Text,
+  useColorModeValue
+} from '@chakra-ui/react';
 import {
   HiPencil,
   HiBadgeCheck,
@@ -9,7 +16,7 @@ import {
   HiStar,
   HiAcademicCap,
   HiDeviceMobile,
-  HiDesktopComputer,
+  HiDesktopComputer
 } from 'react-icons/hi';
 
 const Timeline = ({ timeline, isEnd }) => {
@@ -20,8 +27,12 @@ const Timeline = ({ timeline, isEnd }) => {
     desktop: HiDesktopComputer,
     mobile: HiDeviceMobile,
     pencil: HiPencil,
-    star: HiStar,
+    star: HiStar
   };
+
+  const cardBgColor = useColorModeValue('white', 'blueGray.800');
+  const borderLeftColor = useColorModeValue('blueGray.200', 'blueGray.700');
+  const subtleColor = useColorModeValue('blueGray.600', 'blueGray.400');
 
   return (
     <Box>
@@ -44,7 +55,7 @@ const Timeline = ({ timeline, isEnd }) => {
           <Text m={0} fontWeight="medium">
             {timeline.title}
           </Text>
-          <Text m={0} fontSize="sm" color="gray.600">
+          <Text m={0} fontSize="sm" color={subtleColor}>
             {dayjs(timeline.date).format('MMMM D, YYYY')}
           </Text>
         </Flex>
@@ -52,17 +63,17 @@ const Timeline = ({ timeline, isEnd }) => {
 
       <Flex my="2">
         <Box
-          borderLeft={isEnd ? '0' : [0, 0, '1px']}
-          borderLeftColor="#e2e8f0 !important"
+          borderLeftWidth={isEnd ? '0' : [0, 0, '1px']}
+          borderLeftColor={borderLeftColor}
           mx={[0, 0, '5']}
           py="4"
           pb="12"
           pl={[0, 0, '6']}
           width="full"
         >
-          <Box shadow="sm" p="4" rounded="md" bgColor="white">
+          <Box shadow="sm" p="4" rounded="md" bgColor={cardBgColor}>
             <Text fontWeight="semibold">{timeline.cardTitle}</Text>
-            <Text mt={2} color="gray.600">
+            <Text mt={2} color={subtleColor}>
               {timeline.cardDescription}
             </Text>
           </Box>
@@ -73,6 +84,8 @@ const Timeline = ({ timeline, isEnd }) => {
 };
 
 const TimelinePage = () => {
+  const hrColor = useColorModeValue('blueGray.200', 'blueGray.700');
+
   const groupedTimelineData = _.chain(timelineData)
     .sortBy((timeline) => timeline.date)
     .reverse()
@@ -91,7 +104,7 @@ const TimelinePage = () => {
                 {timelineDataKey}
               </Text>
             </Box>
-            <Box bgColor="blueGray.200" flex="1" h="1px" />
+            <Box bgColor={hrColor} flex="1" h="1px" />
           </Flex>
           <Box>
             {groupedTimelineData[timelineDataKey].map((timeline, i) => (

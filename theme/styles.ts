@@ -3,8 +3,8 @@ import { mode } from '@chakra-ui/theme-tools';
 const styles = {
   global: (props) => ({
     body: {
-      color: mode('gray.900', 'white')(props),
-      bg: mode('gray.50', 'gray.900')(props)
+      color: mode('blueGray.900', 'white')(props),
+      bg: mode('blueGray.50', 'blueGray.900')(props)
     }
   })
 };

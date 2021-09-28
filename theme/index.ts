@@ -5,11 +5,11 @@ import foundations from "./foundations"
 import styles from "./styles"
 
 const theme = extendTheme({
-  styles,
-  foundations,
+  ...foundations,
   components,
+  styles,
   config: {
-    initialColorMode: 'light',
+    initialColorMode: 'dark',
     useSystemColorMode: false,
     cssVarPrefix: 'ck'
   }

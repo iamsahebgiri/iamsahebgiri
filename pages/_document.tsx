@@ -1,20 +1,11 @@
 import { ColorModeScript } from '@chakra-ui/react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import dynamic from 'next/dynamic';
-
-const ProgressBar = dynamic(() => import('../components/ProgressBar'), {
-  ssr: false
-});
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
-            rel="stylesheet"
-          />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -39,11 +30,9 @@ export default class MyDocument extends Document {
             integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
             crossOrigin="anonymous"
           />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
         </Head>
         <body>
           <ColorModeScript />
-          <ProgressBar />
           <Main />
           <NextScript />
         </body>

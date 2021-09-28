@@ -15,7 +15,7 @@ import {
 
 const Project = ({ project }) => {
   const { image_url, title, tags, theme, link, description, status } = project;
-  const bg = useColorModeValue('white', 'blueGray.700');
+  const bg = useColorModeValue('white', 'blueGray.800');
   const colorHeading = useColorModeValue('blueGray.700', 'blueGray.200');
   const colorSubtitle = useColorModeValue('blueGray.600', 'blueGray.300');
 

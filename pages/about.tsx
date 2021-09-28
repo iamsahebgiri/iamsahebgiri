@@ -21,13 +21,15 @@ import {
   HiLink,
 } from 'react-icons/hi';
 import { SiGithub, SiInstagram, SiLinkedin } from 'react-icons/si';
+import { useColorModeValue } from '@chakra-ui/color-mode';
 
 const Pill = (props) => {
   const { label, icon, color } = props.pill;
+  const pillColor = useColorModeValue('blurGray.200', 'blueGray.800');
   return (
     <Flex
       borderWidth="1px"
-      borderColor="blueGray.200"
+      borderColor={pillColor}
       role="group"
       _hover={{ bg: 'blueGray.100', cursor: 'pointer' }}
       py="2"
@@ -40,7 +42,6 @@ const Pill = (props) => {
       <Text
         fontWeight="semibold"
         fontSize="sm"
-        color="blueGray.600"
         _groupHover={{ color: color }}
         transition="all 0.3s ease-in-out"
       >
@@ -52,9 +53,11 @@ const Pill = (props) => {
 
 const SocialLink = ({ socialLink }) => {
   const { href, icon } = socialLink;
+  const iconColor = useColorModeValue('blueGray.800', 'blueGray.300')
+  const iconHoverColor = useColorModeValue('blueGray.200', 'blueGray.800')
   return (
     <a target="_blank" rel="noopener noreferer noreferrer" href={href}>
-      <Circle size="10" _hover={{ bg: 'blueGray.200' }} color="blueGray.800">
+      <Circle size="10" _hover={{ bg: iconHoverColor }} color={iconColor}>
         <Icon as={icon} w="4" h="4" />
       </Circle>
     </a>
@@ -62,6 +65,8 @@ const SocialLink = ({ socialLink }) => {
 };
 
 export default function AboutPage() {
+  const headingColor = useColorModeValue('blueGray.700', 'blueGray.200');
+  const descriptionColor = useColorModeValue('blueGray.500', 'blueGray.300');
   const pills = [
     {
       label: 'Student',
@@ -116,7 +121,7 @@ export default function AboutPage() {
           <Icon as={HiBadgeCheck} w="6" h="6" ml="2" color="messenger.500" />
         </Flex>
         <Flex alignItems="center" mt="1">
-          <Text fontSize="sm" color="blueGray.600">
+          <Text fontSize="sm" color={headingColor}>
             @iamsahebgiri &#183; CSIT Student, SOA &#183; he/him &#183;
             Bhubaneswar
           </Text>
@@ -131,7 +136,7 @@ export default function AboutPage() {
           </Wrap>
         </Flex>
         <Stack mt="8">
-          <Text fontSize="md" lineHeight="tall" color="blueGray.600">
+          <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
             I'm a student and a developer, currently studying Computer Science
             at Institute of Technical Education and Research.
             Before that, I was studying in DAV Public School and SVS Residential School.

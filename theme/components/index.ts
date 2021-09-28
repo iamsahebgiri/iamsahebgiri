@@ -2,10 +2,16 @@ import Button from './button';
 import Card from './card';
 import Heading from './heading';
 import Link from './link';
+import SubHeading from './sub-heading';
+import Text from './text';
 
-export default {
+const components = {
   Button,
   Card,
   Heading,
-  Link
+  Link,
+  SubHeading,
+  Text
 };
+
+export default components;

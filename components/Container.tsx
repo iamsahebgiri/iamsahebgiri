@@ -1,20 +1,24 @@
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { Box, Container } from '@chakra-ui/react'
-import Header from './Header'
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { Box, Container } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
+
+const ProgressBar = dynamic(() => import('../components/ProgressBar'), {
+  ssr: false
+});
 
 export default function Layout(props) {
-  const { children, ...customMeta } = props
-  const router = useRouter()
+  const { children, ...customMeta } = props;
+  const router = useRouter();
   const meta = {
     title: 'Saheb Giri',
     description: `Student and Developer`,
     image: 'https://iamsahebgiri.vercel.app/assets/banner.jpg',
     type: 'website',
-    ...customMeta,
-  }
+    ...customMeta
+  };
   return (
-    <Box>
+    <>
       <Head>
         <title>{`${meta.title} / Saheb Giri`}</title>
         <meta name="robots" content="follow, index" />
@@ -41,10 +45,8 @@ export default function Layout(props) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <Header />
-      <Container py={16} maxW="3xl" minH="100vh">
-        <Box>{children}</Box>
-      </Container>
-    </Box>
-  )
+      <ProgressBar />
+      <Box>{children}</Box>
+    </>
+  );
 }

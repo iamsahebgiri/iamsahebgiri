@@ -16,6 +16,7 @@ export default function Timeline() {
   const sortedStacksData = _.sortBy(stacksData, 'name');
   const headingColor = useColorModeValue('blueGray.700', 'blueGray.200');
   const descriptionColor = useColorModeValue('blueGray.600', 'blueGray.300');
+  const bgColor = useColorModeValue('white', 'blueGray.800');
 
   return (
     <Box>
@@ -28,7 +29,7 @@ export default function Timeline() {
             transition="all 0.2s ease-in-out"
             _hover={{ shadow: 'md' }}
             rounded="md"
-            bgColor="white"
+            bgColor={bgColor}
             width="full"
           >
             <Flex flexDirection={['column', 'row']}>

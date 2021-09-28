@@ -1,4 +1,4 @@
-import { Text, Box, Tag, Link } from '@chakra-ui/react';
+import { Text, Box, Tag, Link, useColorModeValue } from '@chakra-ui/react';
 import Layout from 'components/Layout';
 import NextLink from 'next/link';
 import dayjs from 'dayjs';
@@ -6,24 +6,25 @@ import { getAllFilesFrontMatter } from 'lib/mdx';
 import Title from 'components/Title';
 
 const OverthoughtCard = ({ overthought }) => {
+  const subtleColor = useColorModeValue('blueGray.600', 'blueGray.400')
   const { title, publishedAt, slug, summary } = overthought;
   
   return (
     <Box mb="14">
-      <Text color="gray.500">{dayjs(publishedAt).format('MMMM D, YYYY')}</Text>
+      <Text color={subtleColor}>{dayjs(publishedAt).format('MMMM D, YYYY')}</Text>
       <NextLink
         as={`/overthoughts/${slug}`}
         href={`/overthoughts/[slug]`}
         passHref
       >
         <Link display="inline-block" mt="1">
-          <Text as="h2" fontWeight="semibold" fontSize="xl" color="gray.900">
+          <Text as="h2" fontWeight="semibold" fontSize="xl">
             {title}
           </Text>
         </Link>
       </NextLink>
 
-      <Text color="gray.600" mt="3">
+      <Text mt="3" color={subtleColor}>
         {summary}
       </Text>
       <NextLink

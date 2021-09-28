@@ -1,34 +1,59 @@
-import NextLink from 'next/link';
+import { Box, Button, Heading, Tag, Text } from '@chakra-ui/react';
 import React from 'react';
-import { Button, Heading, Flex, Text, HStack } from '@chakra-ui/react';
+import SubHeading from './SubHeading';
 
-export default function Intro() {
+export default function Hero() {
   return (
-    <Flex flexDir="column" alignItems="center" py={[20]}>
-      <Heading mb="3" as="h1">
-        Hey, I am
-        <span className="text-gradient">{' Saheb Giri'}</span>
-      </Heading>
-      <Text textAlign="center" maxW="xl" color="gray.600">
-        I’m a developer and a student reading CSIT in SOA University at
-        Bhubaneswar. You’ve found my personal slice of the internet.
-      </Text>
-      <HStack mt="6" spacing="3" zIndex="0">
-        <NextLink href="/about">
-          <Button colorScheme="orange">More about me</Button>
-        </NextLink>
-
-        <Button
-          as="a"
-          target="_blank"
-          rel="noopener noreferer"
-          backgroundColor="blueGray.200"
-          _hover={{ backgroundColor: 'blueGray.300' }}
-          href="https://docs.google.com/document/d/135XdFRBiKadLyHH2k5wN9fanflPzGwHmhIHwviUxay8/edit?usp=sharing"
+    <>
+      <Box as="section">
+        <Box
+          maxW="3xl"
+          mx="auto"
+          px={{ base: '6', lg: '4' }}
+          py={{ base: '16', sm: '32' }}
+          textAlign="center"
         >
-          Resume
-        </Button>
-      </HStack>
-    </Flex>
+          <Tag colorScheme="teal" variant="subtle" mb="8">
+            Student and Developer
+          </Tag>
+          <Heading as="h1" size="2xl">
+            Namaskar, I am{' '}
+            <Text
+              as="span"
+              bgGradient="linear(to-r, orange.500, orange.600)"
+              bgClip="text"
+            >
+              Saheb Giri
+            </Text>
+          </Heading>
+          <SubHeading mt="6" maxW="lg" mx="auto">
+            I write code, build infrastructure, and create digital experiences.
+            Currently an Engineering Undergrad doing B. Tech in Computer Science
+            at Institute of Technical Education and Research.
+          </SubHeading>
+
+          <Box my="10">
+            <Button
+              as="a"
+              href="https://docs.google.com/document/d/135XdFRBiKadLyHH2k5wN9fanflPzGwHmhIHwviUxay8/edit?usp=sharing"
+              colorScheme="orange"
+              target="_blank"
+              rel="noopener noreferer"
+            >
+              Download CV
+            </Button>
+            <Button
+              ml="4"
+              as="a"
+              href="https://github.com/iamsahebgiri"
+              target="_blank"
+              rel="noopener noreferer"
+            >
+              Github
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+    </>
   );
 }
