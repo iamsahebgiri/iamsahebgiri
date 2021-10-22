@@ -9,8 +9,7 @@ const theme = extendTheme({
   components,
   styles,
   config: {
-    initialColorMode: 'dark',
-    useSystemColorMode: false,
+    useSystemColorMode: true,
     cssVarPrefix: 'ck'
   }
 });
