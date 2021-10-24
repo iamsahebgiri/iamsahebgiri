@@ -5,7 +5,7 @@ export default function LinkedHeading(props: HTMLChakraProps<any>) {
   return (
     <Heading
       data-group=""
-      css={{ scrollMarginBlock: '6.875rem' }}
+      css={{ scrollMarginBlock: '4.5rem' }}
       my="6"
       {...props}
     >

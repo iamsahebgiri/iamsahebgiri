@@ -4,11 +4,11 @@ import { bundleMDX } from 'mdx-bundler';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
 
+import { remarkMdxCodeMeta } from 'remark-mdx-code-meta';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypePrism from 'rehype-prism-plus';
 
 export async function getFiles(type) {
   return readdirSync(join(process.cwd(), 'data', type));
@@ -21,12 +21,15 @@ export async function getFileBySlug(type, slug?) {
 
   const { code, frontmatter } = await bundleMDX(source, {
     xdmOptions(options) {
-      options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm];
+      options.remarkPlugins = [
+        ...(options?.remarkPlugins ?? []),
+        remarkGfm,
+        remarkMdxCodeMeta
+      ];
       options.rehypePlugins = [
         ...(options?.rehypePlugins ?? []),
         rehypeSlug,
         rehypeCodeTitles,
-        rehypePrism,
         [
           rehypeAutolinkHeadings,
           {

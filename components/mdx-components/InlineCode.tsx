@@ -1,6 +1,13 @@
-import { Code } from '@chakra-ui/react';
+import { Code, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
-export default function InlineCode(props: any) {
-  return <Code colorScheme="orange" {...props} />;
+export default function InlineCode(props) {
+  return (
+    <Code
+      bg={useColorModeValue('blue.50', 'blue.900')}
+      color={useColorModeValue('blue.600', 'blue.200')}
+      rounded="lg"
+      {...props}
+    />
+  );
 }
