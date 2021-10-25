@@ -1,4 +1,6 @@
-const prismLight = {
+import { PrismTheme } from "prism-react-renderer";
+
+const prismLight: PrismTheme = {
   plain: {
     color: '#4A5568',
     backgroundColor: 'white'
@@ -92,7 +94,7 @@ const prismLight = {
   ]
 };
 
-const prismDark = {
+const prismDark: PrismTheme = {
   plain: {
     color: '#F7FAFC',
     backgroundColor: '#1A202C'

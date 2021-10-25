@@ -1,6 +1,6 @@
 import { chakra, useColorMode, useColorModeValue } from "@chakra-ui/react";
-import BaseHighlight, { defaultProps } from "prism-react-renderer";
-import { prismDark, prismLight } from "./Themes";
+import BaseHighlight, { defaultProps, PrismTheme } from "prism-react-renderer";
+import { prismDark, prismLight } from "./themes";
 
 import React from "react";
 
@@ -36,7 +36,7 @@ function Highlight({
 
   const { colorMode } = useColorMode();
 
-  const customTheme = {
+  const customTheme: PrismTheme = {
     ...baseTheme,
     plain: {
       ...baseTheme.plain,
@@ -62,6 +62,7 @@ function Highlight({
               const lineProps = getLineProps({ line, key: i });
               return (
                 <chakra.div
+                  key={i}
                   px={4}
                   mr={4}
                   bg={
@@ -79,7 +80,7 @@ function Highlight({
                       : undefined
                   }
                   _hover={{
-                    bg: colorMode === "light" ? "gray.50" : "gray.700",
+                    bg: colorMode === "light" ? "gray.50" : "blueGray.700",
                   }}
                   {...lineProps}
                 >
@@ -89,7 +90,7 @@ function Highlight({
                     </chakra.span>
                   )}
                   {line.map((token, key) => (
-                    <chakra.span {...getTokenProps({ token, key })} />
+                    <chakra.span {...getTokenProps({ token, key })} key={key} />
                   ))}
                 </chakra.div>
               );
