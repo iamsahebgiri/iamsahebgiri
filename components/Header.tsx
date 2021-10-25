@@ -34,8 +34,8 @@ const HeaderLink = ({ name, href }) => {
 
   return (
     <NextLink href={href} passHref>
-      <Link>
-        <Box bg={isActive && bgColor} py={1} px={3} rounded="md">
+      <Link borderRadius="md" p="0.5">
+        <Box bg={isActive && bgColor} py={1} px={2} rounded="md">
           <Text
             color={isActive ? textColorLight : textColorDark}
             fontWeight={isActive ? 'medium' : 'normal'}
@@ -51,18 +51,21 @@ const HeaderLink = ({ name, href }) => {
 const MobileHeaderLink = ({ name, href }) => {
   const router = useRouter();
   const isActive = `/${router.pathname.split('/')[1]}` === href;
+
+  const bgColor = useColorModeValue('orange.100', 'orange.300');
+  const textColorActive = useColorModeValue('blueGray.900', 'orange.600');
+  const textColorDark = useColorModeValue('blueGray.700', 'blueGray.400');
+
   return (
     <NextLink href={href} passHref>
-      <Link width="full">
-        <Flex
-          bgColor={isActive && 'orange.200'}
-          color={isActive && 'orange.700'}
-          fontWeight={isActive && 'semibold'}
-          px="4"
-          py="2"
-          rounded="md"
-        >
-          <Text>{name}</Text>
+      <Link width="full" borderRadius="md">
+        <Flex bgColor={isActive && bgColor} px="4" py="2" rounded="md">
+          <Text
+            color={isActive ? textColorActive : textColorDark}
+            fontWeight={isActive && 'semibold'}
+          >
+            {name}
+          </Text>
         </Flex>
       </Link>
     </NextLink>
@@ -109,8 +112,8 @@ export default function Header() {
       {/* __________________Mobile Drawer__________________ */}
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay>
-          <DrawerContent maxW="2xs">
-            <DrawerHeader>
+          <DrawerContent maxW="2xs" bg={bgColor}>
+            <DrawerHeader h="14" py="2.5">
               <SiteLogo />
             </DrawerHeader>
 

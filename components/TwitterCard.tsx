@@ -15,11 +15,11 @@ const TwitterCard = ({ title, slug }) => {
   return (
     <VStack
       p={4}
-      bg={useColorModeValue('blue.50', 'blue.100')}
+      bg={useColorModeValue('blue.50', 'blueGray.800')}
       rounded="xl"
       borderWidth="1px"
       color={useColorModeValue('blue.800', 'blue.800')}
-      borderColor={useColorModeValue('blue.100', 'blue.200')}
+      borderColor={useColorModeValue('blue.100', 'blueGray.600')}
       textAlign="left"
       align="stretch"
       spacing={4}
@@ -36,7 +36,7 @@ const TwitterCard = ({ title, slug }) => {
         <LightMode>
           <Button
             leftIcon={<FaTwitter />}
-            colorScheme="blue"
+            colorScheme="twitter"
             transition="all 0.25s"
             transition-timing-function="spring(1 100 10 10)"
             _hover={{ transform: 'translateY(-4px)', shadow: 'sm' }}
