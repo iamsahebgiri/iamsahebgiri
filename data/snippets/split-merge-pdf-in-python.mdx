@@ -4,9 +4,7 @@ publishedAt: '2021-06-21'
 type: 'python'
 ---
 
-### Splitting PDFs based on range of pages
-
-```py
+```py title="Splitting pdf based on range of pages"
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
 path = "in.pdf"
@@ -25,9 +23,7 @@ with open(outputFileName, 'wb') as out:
 print ("PDF file has been split")
 ```
 
-### Merging two or more PDFs into one
-
-```py
+```py title="Merging two or more PDFs into one"
 from PyPDF2 import PdfFileReader, PdfFileMerger
 
 pdfFile1 = PdfFileReader("Output1.pdf")

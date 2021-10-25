@@ -4,11 +4,11 @@ publishedAt: '2020-12-02'
 type: 'linux'
 ---
 
-`lsof` (List of Open files)
+
 
 The `-i` flag selects the lists of files any of whose Internet address matches the address specified in it.
 
-```bash
+```bash title="List of open files"
 lsof -i tcp:3000
 ```
 
@@ -18,9 +18,8 @@ COMMAND   PID         USER
 node    33092         johndoe
 ```
 
-Kill a specific port
 
 Pass the -9 flag to `SIGKILL` the process (This will tell the OS to stop running the process)
-```bash
+```bash title="Kill a specific port"
 kill -9 33092
 ```
