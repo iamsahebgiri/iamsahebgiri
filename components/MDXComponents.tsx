@@ -1,6 +1,6 @@
 import { Box, Heading, List, ListItem } from '@chakra-ui/react';
 import BlockQuote from 'components/mdx-components/BlockQuote';
-import InlineCode from 'components/mdx-components/InlineCode';
+import InlineCode from 'components/mdx-components/codeblock/InlineCode';
 import LinkedHeading from 'components/mdx-components/LinkedHeading';
 import Hr from 'components/mdx-components/Hr';
 import Link from 'components/mdx-components/Link';

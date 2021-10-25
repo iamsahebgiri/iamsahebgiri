@@ -10,13 +10,12 @@ import {
 } from '@chakra-ui/react';
 import Highlight from './highlight';
 import { HiCheck, HiOutlineDuplicate } from 'react-icons/hi';
+import InlineCode from './InlineCode';
 
 const Codeblock = (props) => {
   const showLines = true;
 
-  console.log(props)
-
-  const { className, children, viewlines, metastring, ln, ...rest } = props;
+  const { className, children, viewlines, title, metastring, ln, ...rest } = props;
 
   const [editorCode] = useState(children);
 
@@ -24,8 +23,9 @@ const Codeblock = (props) => {
 
   const language = className?.replace(/language-/, '');
 
-  // const title = metastring?.match(/title="(.*?)"/)[1];
-  const title = "Hello world";
+  if(!className) {
+    return <InlineCode children={children} />;
+  }
 
   return (
     <Box
