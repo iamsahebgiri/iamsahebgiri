@@ -21,7 +21,6 @@ import dayjs from 'dayjs';
 import React from 'react';
 
 function Blog({ frontMatter, children }) {
-  console.log(frontMatter);
   return (
     <Layout
       title={frontMatter.title}

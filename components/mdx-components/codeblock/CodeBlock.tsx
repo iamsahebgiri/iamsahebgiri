@@ -1,4 +1,4 @@
-/* eslint react-hooks/rules-of-hooks: 0 */ 
+/* eslint react-hooks/rules-of-hooks: 0 */
 import React, { useState } from 'react';
 import {
   Box,
@@ -15,7 +15,8 @@ import InlineCode from './InlineCode';
 const Codeblock = (props) => {
   const showLines = true;
 
-  const { className, children, viewlines, title, metastring, ln, ...rest } = props;
+  const { className, children, viewlines, title, metastring, ln, ...rest } =
+    props;
 
   const [editorCode] = useState(children);
 
@@ -23,8 +24,8 @@ const Codeblock = (props) => {
 
   const language = className?.replace(/language-/, '');
 
-  if(!className) {
-    return <InlineCode children={children} />;
+  if (!className) {
+    return <InlineCode> {children} </InlineCode>;
   }
 
   return (
