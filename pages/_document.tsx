@@ -24,12 +24,7 @@ export default class MyDocument extends Document {
             href="/favicon/favicon-16x16.png"
           />
           <link rel="manifest" href="/favicon/site.webmanifest" />
-          {/* <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-            integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
-            crossOrigin="anonymous"
-          /> */}
+          <script async defer data-website-id="e30292b5-a44d-4a7a-92d5-33951bed406b" src="https://countly.vercel.app/umami.js"></script>
         </Head>
         <body>
           <ColorModeScript />
