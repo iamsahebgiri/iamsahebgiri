@@ -9,7 +9,7 @@ const DarkModeButton = () => {
       rounded="full"
       variant="ghost"
       aria-label="Toggle dark mode"
-      icon={<Icon h="6" w="6" as={colorMode === 'light' ? HiMoon : HiSun} />}
+      icon={<Icon h="5" w="5" as={colorMode === 'light' ? HiMoon : HiSun} />}
       _focus={{ boxShadow: 'none' }}
     />
   );

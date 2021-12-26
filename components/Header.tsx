@@ -35,10 +35,11 @@ const HeaderLink = ({ name, href }) => {
   return (
     <NextLink href={href} passHref>
       <Link borderRadius="md" p="0.5">
-        <Box bg={isActive && bgColor} py={1} px={2} rounded="md">
+        <Box py={1} px={2} rounded="md">
           <Text
+            fontSize="sm"
             color={isActive ? textColorLight : textColorDark}
-            fontWeight={isActive ? 'medium' : 'normal'}
+            fontWeight={isActive ? 'semibold' : 'normal'}
           >
             {name}
           </Text>
@@ -98,13 +99,12 @@ export default function Header() {
                 </Link>
               </NextLink>
             </Flex>
-
-            <HStack ml="10" spacing="3" display={['none', 'none', 'flex']}>
-              {navLinks.map((link) => (
-                <HeaderLink key={link.href} href={link.href} name={link.name} />
-              ))}
-            </HStack>
           </Flex>
+          <HStack ml="10" spacing="3" display={['none', 'none', 'flex']}>
+            {navLinks.map((link) => (
+              <HeaderLink key={link.href} href={link.href} name={link.name} />
+            ))}
+          </HStack>
           <DarkModeButton />
         </Flex>
       </Container>

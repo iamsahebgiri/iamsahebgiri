@@ -1,9 +1,5 @@
 [
   {
-    "name": "Home",
-    "href": "/"
-  },
-  {
     "name": "Blog",
     "href": "/overthoughts"
   },
