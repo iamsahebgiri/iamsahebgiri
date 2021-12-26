@@ -66,7 +66,7 @@ const SocialLink = ({ socialLink }) => {
 
 export default function AboutPage() {
   const headingColor = useColorModeValue('blueGray.700', 'blueGray.200');
-  const descriptionColor = useColorModeValue('blueGray.500', 'blueGray.300');
+  const descriptionColor = useColorModeValue('blueGray.600', 'blueGray.300');
   const pills = [
     {
       label: 'Student',
@@ -137,20 +137,29 @@ export default function AboutPage() {
         </Flex>
         <Stack mt="8">
           <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
-            I'm a student and a developer, currently studying Computer Science
-            at Institute of Technical Education and Research.
-            Before that, I was studying in DAV Public School and SVS Residential School.
+            Hey, I'm Saheb. I'm a student and a developer.
           </Text>
-          {/* <Text fontSize="md" lineHeight="tall" color="blueGray.700">
-            On the side, I co-host the Design Details podcast, a weekly
-            conversation about design process and culture. I also tinker with
-            side projects here and there, like Staff Design where I interviewed
-            high-level individual contributors, or Spec.fm, a podcast network I
-            co-founded in 2015.
+          <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
+            I'm currently studying Computer Science at Institute of Technical Education and Research.
           </Text>
-          <Text fontSize="md" lineHeight="tall" color="blueGray.700">
-            I love writing and tweeting about design, technology, and startups.
-          </Text> */}
+          <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
+            I take joy in solving complex problems with elegant solutions by simplifying and distilling core concepts.
+          </Text>
+          <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
+            I'm proficient in full stack development and DevOps in cloud environments with a track record of owning the full cycle from idea to production and owning operating services using many of the SRE principles.
+          </Text>
+          <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
+            I'm an effective communicator and thrive in cross-functional teams. I enjoy learning and see it as an integral part of team work. I combine those skills with teamwork and a strong understanding of the organizational structure to work efficiently and pragmatically in alignment with business goals.
+          </Text>
+          <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
+            I take an active interest in technology, arts, business, and how their conflation impacts society.
+          </Text>
+          <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
+            I'm a proponent of the open-source software and have contributed to several projects in addition to maintaining several open-source projects.
+          </Text>
+          <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
+            When I'm not working in front of screen, I enjoy cooking, reading and nature 🌳⛵️⛰.
+          </Text>
         </Stack>
         <HStack spacing="6" mt="6">
           {socialLinks.map((socialLink) => (
