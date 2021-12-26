@@ -35,7 +35,7 @@ export default function Hero() {
           <Box my="10">
             <Button
               as="a"
-              href="https://docs.google.com/document/d/135XdFRBiKadLyHH2k5wN9fanflPzGwHmhIHwviUxay8/edit?usp=sharing"
+              href="./assets/resume_25_12_21.pdf"
               colorScheme="orange"
               target="_blank"
               rel="noopener noreferer"
