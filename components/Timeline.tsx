@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import dayjs from 'dayjs';
 import _ from 'underscore';
 import timelineData from 'data/timelineData.json';
@@ -7,7 +8,9 @@ import {
   HStack,
   Icon,
   Text,
-  useColorModeValue
+  useColorMode,
+  useColorModeValue,
+  useToken
 } from '@chakra-ui/react';
 import {
   HiPencil,
@@ -19,7 +22,7 @@ import {
   HiDesktopComputer
 } from 'react-icons/hi';
 
-const Timeline = ({ timeline, isEnd }) => {
+const TimelineCard = ({ timeline, isEnd }) => {
   const iconMap = {
     academic: HiAcademicCap,
     badge: HiBadgeCheck,
@@ -33,6 +36,25 @@ const Timeline = ({ timeline, isEnd }) => {
   const cardBgColor = useColorModeValue('white', 'blueGray.800');
   const borderLeftColor = useColorModeValue('blueGray.200', 'blueGray.700');
   const subtleColor = useColorModeValue('blueGray.600', 'blueGray.400');
+
+  const exactCardBgColor = useToken('colors', cardBgColor)
+  const exactThemeColor = useToken('colors', useColorModeValue(`${timeline.color}.100`, `${timeline.color}.800`));
+
+  const timelineCardRef = useRef(null);
+  const { colorMode } = useColorMode()
+
+  function mouseMoveHandler(e) {
+    const { left, top } = timelineCardRef.current.getBoundingClientRect()
+    timelineCardRef.current.style.background = `radial-gradient(circle at ${e.clientX - left}px ${e.clientY - top}px, ${exactThemeColor} 0%, ${exactCardBgColor} calc(0% + 120px)) no-repeat border-box border-box`;
+  }
+
+  useEffect(() => {
+    timelineCardRef.current.style.background = exactCardBgColor;
+  }, [colorMode])
+
+  function mouseLeaveHandler(e) {
+    timelineCardRef.current.style.background = exactCardBgColor;
+  }
 
   return (
     <Box>
@@ -71,7 +93,7 @@ const Timeline = ({ timeline, isEnd }) => {
           pl={[0, 0, '6']}
           width="full"
         >
-          <Box shadow="sm" p="4" rounded="md" bgColor={cardBgColor}>
+          <Box shadow="sm" p="4" rounded="md" bgColor={cardBgColor} userSelect="none" ref={timelineCardRef} onMouseMove={mouseMoveHandler} onMouseLeave={mouseLeaveHandler}>
             <Text fontWeight="semibold">{timeline.cardTitle}</Text>
             <Text mt={2} color={subtleColor}>
               {timeline.cardDescription}
@@ -108,7 +130,7 @@ const TimelinePage = () => {
           </Flex>
           <Box>
             {groupedTimelineData[timelineDataKey].map((timeline, i) => (
-              <Timeline
+              <TimelineCard
                 key={timeline.id}
                 timeline={timeline}
                 isEnd={i === groupedTimelineData[timelineDataKey].length - 1}
