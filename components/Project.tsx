@@ -15,22 +15,19 @@ import {
 
 const Project = ({ project }) => {
   const { image_url, title, tags, theme, link, description, status } = project;
-  const bg = useColorModeValue('white', 'blueGray.800');
-  const colorHeading = useColorModeValue('blueGray.700', 'blueGray.200');
-  const colorSubtitle = useColorModeValue('blueGray.600', 'blueGray.300');
-
   const statusMap = {
     active: 'green',
     dead: 'red',
     unmaintained: 'yellow',
   };
+
   return (
     <LinkBox
       as="article"
       shadow="sm"
       transition="all 0.2s ease-in-out"
       _hover={{ shadow: 'md' }}
-      bg={bg}
+      bg={useColorModeValue('white', 'blueGray.800')}
       rounded="md"
       role="group"
     >
@@ -56,7 +53,7 @@ const Project = ({ project }) => {
           <Heading
             as="h3"
             fontSize="lg"
-            color={colorHeading}
+            color={useColorModeValue('blueGray.700', 'blueGray.200')}
             fontWeight="semibold"
           >
             <LinkOverlay isExternal href={link}>
@@ -72,7 +69,7 @@ const Project = ({ project }) => {
             {tags?.map((tag) => (
               <WrapItem key={tag}>
                 <Badge
-                  color={colorSubtitle}
+                  color={useColorModeValue('blueGray.600', 'blueGray.300')}
                   textTransform="capitalize"
                   fontWeight="medium"
                 >
@@ -83,7 +80,7 @@ const Project = ({ project }) => {
           </Wrap>
         </Box>
 
-        <Text fontSize="sm" color={colorSubtitle}>
+        <Text fontSize="sm" color={useColorModeValue('blueGray.600', 'blueGray.300')}>
           {description}
         </Text>
       </Stack>
