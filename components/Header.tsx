@@ -14,7 +14,7 @@ import {
   VStack,
   Link,
   useColorModeValue,
-  Divider
+  Divider,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -28,17 +28,13 @@ const HeaderLink = ({ name, href }) => {
   const router = useRouter();
   const isActive = `/${router.pathname.split('/')[1]}` === href;
 
-  const bgColor = useColorModeValue('blueGray.100', 'blueGray.700');
-  const textColorLight = useColorModeValue('blueGray.900', 'blueGray.300');
-  const textColorDark = useColorModeValue('blueGray.700', 'blueGray.400');
-
   return (
     <NextLink href={href} passHref>
       <Link borderRadius="md" p="0.5">
         <Box py={1} px={2} rounded="md">
           <Text
             fontSize="sm"
-            color={isActive ? textColorLight : textColorDark}
+            color={isActive ? useColorModeValue('blueGray.900', 'blueGray.300') : useColorModeValue('blueGray.700', 'blueGray.400')}
             fontWeight={isActive ? 'semibold' : 'normal'}
           >
             {name}
@@ -52,17 +48,12 @@ const HeaderLink = ({ name, href }) => {
 const MobileHeaderLink = ({ name, href }) => {
   const router = useRouter();
   const isActive = `/${router.pathname.split('/')[1]}` === href;
-
-  const bgColor = useColorModeValue('orange.100', 'orange.300');
-  const textColorActive = useColorModeValue('blueGray.900', 'orange.600');
-  const textColorDark = useColorModeValue('blueGray.700', 'blueGray.400');
-
   return (
     <NextLink href={href} passHref>
       <Link width="full" borderRadius="md">
-        <Flex bgColor={isActive && bgColor} px="4" py="2" rounded="md">
+        <Flex bgColor={isActive && useColorModeValue('orange.100', 'orange.300')} px="4" py="2" rounded="md">
           <Text
-            color={isActive ? textColorActive : textColorDark}
+            color={isActive ? useColorModeValue('blueGray.900', 'orange.600') : useColorModeValue('blueGray.700', 'blueGray.400')}
             fontWeight={isActive && 'semibold'}
           >
             {name}
@@ -81,7 +72,9 @@ export default function Header() {
   return (
     <Flex
       bgColor={bgColor}
-      shadow="sm"
+      backdropFilter="saturate(180%) blur(20px)"
+      borderBottom="1px"
+      borderBottomColor={useColorModeValue("blueGray.100", "blueGray.700")}
       position="fixed"
       width="100%"
       zIndex="1"

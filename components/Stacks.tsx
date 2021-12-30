@@ -14,9 +14,6 @@ import _ from 'underscore';
 
 export default function Timeline() {
   const sortedStacksData = _.sortBy(stacksData, 'name');
-  const headingColor = useColorModeValue('blueGray.700', 'blueGray.200');
-  const descriptionColor = useColorModeValue('blueGray.600', 'blueGray.300');
-  const bgColor = useColorModeValue('white', 'blueGray.800');
 
   return (
     <Box>
@@ -29,7 +26,7 @@ export default function Timeline() {
             transition="all 0.2s ease-in-out"
             _hover={{ shadow: 'md' }}
             rounded="md"
-            bgColor={bgColor}
+            bgColor={useColorModeValue('white', 'blueGray.800')}
             width="full"
           >
             <Flex flexDirection={['column', 'row']}>
@@ -50,13 +47,13 @@ export default function Timeline() {
                   <Heading
                     as="h3"
                     fontSize="lg"
-                    color={headingColor}
+                    color={useColorModeValue('blueGray.700', 'blueGray.200')}
                     fontWeight="semibold"
                   >
                     {stack.name}
                   </Heading>
                 </LinkOverlay>
-                <Text mt="1" color={descriptionColor}>
+                <Text mt="1" color={useColorModeValue('blueGray.600', 'blueGray.300')}>
                   {stack.description}
                 </Text>
               </Box>
