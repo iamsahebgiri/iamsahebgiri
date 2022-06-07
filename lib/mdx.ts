@@ -19,12 +19,10 @@ export async function getFileBySlug(type, slug?) {
     ? readFileSync(join(process.cwd(), 'data', type, `${slug}.mdx`), 'utf8')
     : readFileSync(join(process.cwd(), 'data', `${type}.mdx`), 'utf8');
 
-  const { code, frontmatter } = await bundleMDX(source, {
-    xdmOptions(options) {
-      options.remarkPlugins = [
-        ...(options?.remarkPlugins ?? []),
-        remarkGfm,
-      ];
+  const { code, frontmatter } = await bundleMDX({
+    source,
+    mdxOptions(options) {
+      options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm];
       options.rehypePlugins = [
         ...(options?.rehypePlugins ?? []),
         rehypeSlug,

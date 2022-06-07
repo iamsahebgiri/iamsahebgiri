@@ -37,7 +37,7 @@ function Blog({ frontMatter, children }) {
             <PopoverTrigger>
               <Avatar
                 _hover={{ cursor: 'pointer' }}
-                name="Dan Abrahmov"
+                name="Saheb Giri"
                 size="sm"
                 src="/assets/iamsahebgiri.jpg"
               />
@@ -49,7 +49,7 @@ function Blog({ frontMatter, children }) {
                 <Box>
                   <Flex alignItems="center">
                     <Avatar
-                      name="Dan Abrahmov"
+                      name="Saheb Giri"
                       size="sm"
                       src="/assets/iamsahebgiri.jpg"
                     />
@@ -68,13 +68,13 @@ function Blog({ frontMatter, children }) {
                   <Divider py="1" />
                   <Flex alignItems="center" mt="2">
                     <Text ml="2" fontSize="sm" color="blueGray.600">
-                      2230 Followers
+                      343 Followers
                     </Text>
                     <Spacer />
                     <a
                       href="https://www.instagram.com/iamsahebgiri/"
                       target="_blank"
-                      rel="noopener"
+                      rel="noopener noreferrer"
                     >
                       <Button size="sm" colorScheme="twitter">
                         Follow
