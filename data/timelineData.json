@@ -24,7 +24,7 @@
     "icon": "academic",
     "date": "2020-10-08",
     "cardTitle": "Took admission in ITER",
-    "cardDescription": "Not everyone is lucky enough to get into elite IIT. So I got into one of the renowned university of Odisha, SOA University."
+    "cardDescription": "Not everyone is lucky enough to get into elite IIT. So I got into one of the recognised university of Odisha, SOA University."
   },
   {
     "id": "j1sh6lr7igg",
@@ -79,5 +79,14 @@
     "date": "2021-11-17",
     "cardTitle": "Released a simple website for bidirectional pasting",
     "cardDescription": "There are times when I need to visit some site on a desktop which I dont't own. I am too lazy to type link. So I built this little website for bidirectional copy and pasting from PC to Mobile and vice versa. It was built with vite and firebase."
+  },
+  {
+    "id": "pcqhp6apjg",
+    "title": "Appointed as coordinator of Codex",
+    "color": "orange",
+    "icon": "star",
+    "date": "2022-05-07",
+    "cardTitle": "Coordinator in Codex coding club",
+    "cardDescription": "Codex is one of the coding club in ITER. I am currently coodinator of it. Looking forward to it. Built codex website with other fellow coordinators."
   }
 ]
