@@ -10,11 +10,11 @@ import {
   useColorModeValue,
   Wrap,
   WrapItem,
-  Box,
+  Box
 } from '@chakra-ui/react';
 
 const Project = ({ project }) => {
-  const { image_url, title, tags, theme, link, description, status } = project;
+  const { image, title, tags, theme, link, description, status } = project;
   const bg = useColorModeValue('white', 'blueGray.800');
   const colorHeading = useColorModeValue('blueGray.700', 'blueGray.200');
   const colorSubtitle = useColorModeValue('blueGray.600', 'blueGray.300');
@@ -22,7 +22,7 @@ const Project = ({ project }) => {
   const statusMap = {
     active: 'green',
     dead: 'red',
-    unmaintained: 'yellow',
+    unmaintained: 'yellow'
   };
   return (
     <LinkBox
@@ -42,12 +42,12 @@ const Project = ({ project }) => {
         roundedTop="md"
       >
         <Image
-          src={`/assets/img/${image_url}`}
-          width="48"
-          height="48"
+          src={`/assets/img/${image.url}`}
+          height={image.height}
+          width={image.width}
           layout="fixed"
           placeholder="blur"
-          blurDataURL={`/assets/img/${image_url}?w=10&q=10`}
+          blurDataURL={`/assets/img/${image.url}?w=10&q=10`}
           alt={title}
         />
       </Flex>

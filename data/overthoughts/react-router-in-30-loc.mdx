@@ -1,0 +1,57 @@
+---
+title: 'Building simple react router in 45 LOC (WIP)'
+summary: 'It is a simple client side routing library in React. It swaps the components based on the current pathname.'
+publishedAt: '2022-06-08'
+image: '/assets/overthoughts/top-3-concept-of-functional-programming/cover.jpg'
+---
+
+React has always been the de facto choice for building single page applications. React doesn’t update the dom by itself. It uses React DOM for accomplishing it. Similarly there is no one solution for managing state or handling routes unlike Vue JS. Which is a good thing also a bad thing depending upon how you see it.
+
+When it comes to client side routing, react router dom comes to mind. Thanks to [Ryan Florence](https://github.com/ryanflorence), [Michael Jackson](https://github.com/mjackson) and teams for building such a library. What most people forget is that there exists other client side routing solutions in the react ecosystem. For example -
+
+- molefrog/wouter: 🥢 A minimalist-friendly ~1.5KB routing for React and Preact. Nothing else but HOOKS.
+- krasimir/navigo: A simple vanilla JavaScript router.
+- franciscop/crossroad: A React library to handle navigation in your webapp.
+
+So I thought of building a simple react routing library by myself as a challenge to dig deeper and to learn the internals.
+
+I tried to mimic React Router's best practices by providing familiar Route and Link components.
+
+Create a `lib/router.js` file which will contain all our routing logic. Import `useState` and `useEffect` from react.
+
+```js
+import React, { useState, useEffect } from 'react';
+```
+
+Let’s first create a navigate function that will manipulate the browser’s history and then I will explain what it does.
+
+```js
+export const navigate = (href) => {
+  window.history.pushState({}, '', href);
+
+  const navEvent = new PopStateEvent('popstate');
+  window.dispatchEvent(navEvent);
+};
+```
+
+The `window.history.pushState()` method adds an entry to the browser's session history stack. It takes three arguments i.e. `state`, `unused` and `url`. 
+
+State is a javascript object that contains a copy of the history entry's state object. Unused is there for historical reasons, an empty string won’t hurt. The third parameter takes a url string of the same origin that you want to navigate to. Calling `pushState()` is similar to setting `window.location = "#foo"`, in that both will create and activate another history entry.
+
+Now `Link` is one of the components that you use most frequently instead of `a` tag. It uses `a` tag behind the scenes.
+
+```js
+export const Link = ({ className, href, children }) => {
+  const onClick = (e) => {
+    if (e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    navigate(href);
+  };
+  return (
+    <a className={className} href={href} onClick={onClick}>
+      {children}
+    </a>
+  );
+};
+```
+

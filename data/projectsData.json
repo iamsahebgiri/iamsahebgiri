@@ -1,7 +1,11 @@
 [
   {
     "id": "ret8co1628q",
-    "image_url": "add-readme.png",
+    "image": {
+      "url": "add-readme.png",
+      "height": "48",
+      "width": "48"
+    },
     "title": "Add Readme",
     "description": "An npm package to create beautiful readme by running just one CLI command.",
     "tags": ["NPM", "package", "node"],
@@ -11,7 +15,11 @@
   },
   {
     "id": "uqta3330bwg",
-    "image_url": "30days30projects.png",
+    "image": {
+      "url": "30days30projects.png",
+      "height": "48",
+      "width": "48"
+    },
     "title": "30 Days 30 Projects",
     "description": "A project built to help students and my friends who are new to code.",
     "tags": ["NextJS", "Chakra UI"],
@@ -21,22 +29,86 @@
   },
   {
     "id": "gcpiar2n5tc",
-    "image_url": "soundsky.png",
+    "image": {
+      "url": "soundsky.png",
+      "height": "48",
+      "width": "48"
+    },
     "title": "SoundSky",
     "description": "SoundSky is a online music service that gives you access to millions of 30s songs.",
     "tags": ["spotify", "vue", "nuxt"],
-    "theme": "lightBlue",
+    "theme": "indigo",
     "link": "https://soundsky.vercel.app/",
     "status": "active"
   },
   {
     "id": "d16ig5mv976",
-    "image_url": "a2oj.png",
+    "image": {
+      "url": "a2oj.png",
+      "height": "48",
+      "width": "48"
+    },
     "title": "A2OJ",
     "description": "Get started with competitive programming with curated problems from A2OJ.",
     "tags": ["NextJS", "SWR", "Chakra UI"],
     "theme": "purple",
     "link": "https://the-a2oj.vercel.app/",
+    "status": "active"
+  },
+  {
+    "id": "5xo0kbez1zo",
+    "image": {
+      "url": "meetwits.png",
+      "height": "30",
+      "width": "178"
+    },
+    "title": "Meetwits",
+    "description": "Catalog of movies and TV Series and download HD wallpaper.",
+    "tags": ["react", "css", "tailwind"],
+    "theme": "gray",
+    "link": "https://meetwits.netlify.app/",
+    "status": "active"
+  },
+  {
+    "id": "f05qlmfr45",
+    "image": {
+      "url": "golden-ratio.png",
+      "height": "30",
+      "width": "220"
+    },
+    "title": "Golden Ratio",
+    "description": "Visualize golden ratio interactively demos and web editor.",
+    "tags": ["next", "konva", "framer motion"],
+    "theme": "lightBlue",
+    "link": "https://goldenratio.vercel.app/",
+    "status": "active"
+  },
+  {
+    "id": "toaou3v25h",
+    "image": {
+      "url": "linctree.png",
+      "height": "42",
+      "width": "167"
+    },
+    "title": "Linctree",
+    "description": "The only link you'll ever need. Connect audiences to all of your content with just one link.",
+    "tags": ["next", "firebase", "Chakra UI"],
+    "theme": "green",
+    "link": "https://linctree.vercel.app/",
+    "status": "active"
+  },
+  {
+    "id": "ymydea0r6qn",
+    "image": {
+      "url": "orion.png",
+      "height": "48",
+      "width": "48"
+    },
+    "title": "Orion",
+    "description": "Never forget your password again.",
+    "tags": ["next", "firebase", "Chakra UI"],
+    "theme": "blue",
+    "link": "https://linctree.vercel.app/",
     "status": "active"
   }
 ]
