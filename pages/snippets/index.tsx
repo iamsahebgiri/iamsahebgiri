@@ -3,13 +3,12 @@ import Title from 'components/Title';
 import { getAllFilesFrontMatter } from 'lib/mdx';
 import {
   Box,
-  Link,
   Text,
   LinkBox,
   LinkOverlay,
   useColorModeValue
 } from '@chakra-ui/react';
-import { Tag } from '@chakra-ui/tag';
+import { Tag } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 import NextLink from 'next/link';
 

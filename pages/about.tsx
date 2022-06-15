@@ -1,7 +1,6 @@
 import Layout from 'components/Layout';
-import { Avatar } from '@chakra-ui/avatar';
-import Icon from '@chakra-ui/icon';
 import {
+  Avatar,
   Box,
   Circle,
   Flex,
@@ -11,17 +10,18 @@ import {
   Text,
   Wrap,
   WrapItem,
-} from '@chakra-ui/layout';
+  Icon,
+  useColorModeValue
+} from '@chakra-ui/react';
 import {
   HiAcademicCap,
   HiBadgeCheck,
   HiCode,
   HiColorSwatch,
   HiLightBulb,
-  HiLink,
+  HiLink
 } from 'react-icons/hi';
 import { SiGithub, SiInstagram, SiLinkedin } from 'react-icons/si';
-import { useColorModeValue } from '@chakra-ui/color-mode';
 
 const Pill = (props) => {
   const { label, icon, color } = props.pill;
@@ -53,8 +53,8 @@ const Pill = (props) => {
 
 const SocialLink = ({ socialLink }) => {
   const { href, icon } = socialLink;
-  const iconColor = useColorModeValue('blueGray.800', 'blueGray.300')
-  const iconHoverColor = useColorModeValue('blueGray.200', 'blueGray.800')
+  const iconColor = useColorModeValue('blueGray.800', 'blueGray.300');
+  const iconHoverColor = useColorModeValue('blueGray.200', 'blueGray.800');
   return (
     <a target="_blank" rel="noopener noreferer noreferrer" href={href}>
       <Circle size="10" _hover={{ bg: iconHoverColor }} color={iconColor}>
@@ -71,45 +71,45 @@ export default function AboutPage() {
     {
       label: 'Student',
       icon: HiAcademicCap,
-      color: 'indigo.500',
+      color: 'indigo.500'
     },
     {
       label: 'Software Engineer',
       icon: HiCode,
-      color: 'red.500',
+      color: 'red.500'
     },
     {
       label: 'Competitive Programmer',
       icon: HiLightBulb,
-      color: 'purple.500',
+      color: 'purple.500'
     },
     {
       label: 'Product Designer',
       icon: HiColorSwatch,
-      color: 'green.500',
-    },
+      color: 'green.500'
+    }
   ];
   const socialLinks = [
     {
       site: 'LinkedIn',
       href: 'https://www.linkedin.com/in/iamsahebgiri',
-      icon: SiLinkedin,
+      icon: SiLinkedin
     },
     {
       site: 'Github',
       href: 'https://github.com/iamsahebgiri',
-      icon: SiGithub,
+      icon: SiGithub
     },
     {
       site: 'Instagram',
       href: 'https://instagram.com/iamsahebgiri',
-      icon: SiInstagram,
+      icon: SiInstagram
     },
     {
       site: 'Linktree',
       href: 'https://linktr.ee/iamsahebgiri',
-      icon: HiLink,
-    },
+      icon: HiLink
+    }
   ];
   return (
     <Layout title="About" description="Code less, think more.">
@@ -140,25 +140,38 @@ export default function AboutPage() {
             Hey, I'm Saheb. I'm a student and a developer.
           </Text>
           <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
-            I'm currently studying Computer Science at Institute of Technical Education and Research.
+            I'm currently studying Computer Science at Institute of Technical
+            Education and Research.
           </Text>
           <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
-            I take joy in solving complex problems with elegant solutions by simplifying and distilling core concepts.
+            I take joy in solving complex problems with elegant solutions by
+            simplifying and distilling core concepts.
           </Text>
           <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
-            I'm proficient in full stack development and DevOps in cloud environments with a track record of owning the full cycle from idea to production and owning operating services using many of the SRE principles.
+            I'm proficient in full stack development and DevOps in cloud
+            environments with a track record of owning the full cycle from idea
+            to production and owning operating services using many of the SRE
+            principles.
           </Text>
           <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
-            I'm an effective communicator and thrive in cross-functional teams. I enjoy learning and see it as an integral part of team work. I combine those skills with teamwork and a strong understanding of the organizational structure to work efficiently and pragmatically in alignment with business goals.
+            I'm an effective communicator and thrive in cross-functional teams.
+            I enjoy learning and see it as an integral part of team work. I
+            combine those skills with teamwork and a strong understanding of the
+            organizational structure to work efficiently and pragmatically in
+            alignment with business goals.
           </Text>
           <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
-            I take an active interest in technology, arts, business, and how their conflation impacts society.
+            I take an active interest in technology, arts, business, and how
+            their conflation impacts society.
           </Text>
           <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
-            I'm a proponent of the open-source software and have contributed to several projects in addition to maintaining several open-source projects.
+            I'm a proponent of the open-source software and have contributed to
+            several projects in addition to maintaining several open-source
+            projects.
           </Text>
           <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
-            When I'm not working in front of screen, I enjoy cooking, reading and nature 🌳⛵️⛰.
+            When I'm not working in front of screen, I enjoy cooking, reading
+            and nature 🌳⛵️⛰.
           </Text>
         </Stack>
         <HStack spacing="6" mt="6">
