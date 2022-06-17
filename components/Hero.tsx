@@ -52,12 +52,12 @@ export default function Hero() {
           <Box my="10">
             <Button
               as="a"
-              href="./assets/resume_25_12_21.pdf"
+              href="./assets/resume-06-22.pdf"
               colorScheme="orange"
               target="_blank"
               rel="noopener noreferer"
             >
-              Download CV
+              Resume
             </Button>
             <Button
               ml="4"
