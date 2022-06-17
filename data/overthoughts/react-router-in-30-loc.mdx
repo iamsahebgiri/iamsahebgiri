@@ -1,5 +1,5 @@
 ---
-title: 'Building simple react router in 45 LOC (WIP)'
+title: 'Building simple react router in 45 LOC'
 summary: 'It is a simple client side routing library in React. It swaps the components based on the current pathname.'
 publishedAt: '2022-06-08'
 image: '/assets/overthoughts/top-3-concept-of-functional-programming/cover.jpg'
@@ -34,7 +34,7 @@ export const navigate = (href) => {
 };
 ```
 
-The `window.history.pushState()` method adds an entry to the browser's session history stack. It takes three arguments i.e. `state`, `unused` and `url`. 
+The `window.history.pushState()` method adds an entry to the browser's session history stack. It takes three arguments i.e. `state`, `unused` and `url`.
 
 State is a javascript object that contains a copy of the history entry's state object. Unused is there for historical reasons, an empty string won’t hurt. The third parameter takes a url string of the same origin that you want to navigate to. Calling `pushState()` is similar to setting `window.location = "#foo"`, in that both will create and activate another history entry.
 
@@ -55,3 +55,75 @@ export const Link = ({ className, href, children }) => {
 };
 ```
 
+`ctrl/cmd` + click on a link opens in new tab. Since react is a single page application we do noting. On the other hand, at first we prevent the default behavior of link by calling `preventDefault` on event object e. And then we call the navigate function manually.
+
+The big elephant in the room is Router component.
+
+```js
+const Router = ({ routes, defaultComponent }) => {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const onLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', onLocationChange);
+
+    return () => {
+      window.removeEventListener('popstate', onLocationChange);
+    };
+  }, []);
+
+  return (
+    routes.find(({ path }) => currentPath == path)?.component ||
+    defaultComponent
+  );
+};
+```
+
+Router takes routes and defaultComponent. When there is a change in URL by Router returns the required component or else return the default component if it doesn’t match with any listed components. We also have a clean up function in the useEffect the remove the event listener on unmount of the Router component.
+
+### Usage
+
+```js
+import React from 'react';
+import Router, { Link } from './lib/router';
+import Counter from './components/Counter';
+import Hello from './components/Hello';
+import './style.css';
+
+const NotFound = () => {
+  return <h1> 404! Not found</h1>;
+};
+
+export default function App() {
+  const routes = [
+    {
+      path: '/hello',
+      component: <Hello />
+    },
+    {
+      path: '/counter',
+      component: <Counter />
+    }
+  ];
+  const defaultComponent = <NotFound />;
+  return (
+    <div>
+      <ul>
+        <li>
+          <Link href="/counter">Counter</Link>
+        </li>
+        <li>
+          <Link href="/hello">Hello</Link>
+        </li>
+      </ul>
+
+      <Router routes={routes} defaultComponent={defaultComponent} />
+    </div>
+  );
+}
+```
+
+Full code is available in [here](https://gist.github.com/iamsahebgiri/31198e1e3cc11bf91337fdfeab98d2a3) and [here](https://stackblitz.com/edit/react-w1nagb?file=src%2FApp.js).
