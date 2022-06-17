@@ -26,11 +26,11 @@ export default function Hero() {
                 overflow="hidden"
               >
                 <ul className="flip5">
-                  <li>Namaste</li>
-                  <li>Hello</li>
+                  <li>Salve</li>
                   <li>Hola</li>
                   <li>Bonjour</li>
-                  <li>Salve</li>
+                  <li>Namaste</li>
+                  <li>Hello</li>
                 </ul>
               </Box>
               I am{' '}
