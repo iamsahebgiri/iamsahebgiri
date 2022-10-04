@@ -1,5 +1,9 @@
 [
   {
+    "name": "About",
+    "href": "/about"
+  },
+  {
     "name": "Blog",
     "href": "/overthoughts"
   },
@@ -14,9 +18,5 @@
   {
     "name": "Projects",
     "href": "/projects"
-  },
-  {
-    "name": "About",
-    "href": "/about"
   }
 ]
