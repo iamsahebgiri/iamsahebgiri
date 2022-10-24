@@ -91,19 +91,35 @@ export default function Header() {
 
   return (
     <>
-      <Flex width="100%" position="sticky">
+      <Flex width="100%">
         <Container maxW="4xl" padding={2} my={4}>
           <Flex justifyContent="space-between" alignItems="center">
+            <Box
+              bg={bgColor}
+              rounded="full"
+              display={['flex', 'flex', 'none']}
+              py={2}
+              px={3}
+              shadow="sm"
+            >
+              <Flex alignItems="center" display={['flex', 'flex', 'none']}>
+                <Icon boxSize="6" onClick={onOpen} as={HiOutlineMenu} />
+              </Flex>
+            </Box>
             <NextLink href="/">
               <Link>
                 <SiteLogo />
               </Link>
             </NextLink>
-            <Box bg={bgColor} rounded="full" py={2} px={3} shadow="sm">
-              <Flex alignItems="center" display={['flex', 'flex', 'none']}>
-                <Icon boxSize="6" onClick={onOpen} as={HiOutlineMenu} />
-              </Flex>
-              <HStack spacing="3" display={['none', 'none', 'flex']}>
+            <Box
+              bg={bgColor}
+              rounded="full"
+              display={['none', 'none', 'flex']}
+              py={2}
+              px={3}
+              shadow="sm"
+            >
+              <HStack spacing="3">
                 {navLinks.map((link) => (
                   <HeaderLink
                     key={link.href}
@@ -144,61 +160,61 @@ export default function Header() {
     </>
   );
 
-  return (
-    <Flex
-      bgColor={bgColor}
-      shadow="sm"
-      position="fixed"
-      width="100%"
-      zIndex="1"
-    >
-      <Container maxW="4xl">
-        <Flex justifyContent="space-between" alignItems="center">
-          <Flex alignItems="center" display={['flex', 'flex', 'none']}>
-            <Icon boxSize="6" onClick={onOpen} as={HiOutlineMenu} />
-          </Flex>
-          <Flex alignItems="center" py="3">
-            <Flex alignItems="center">
-              <NextLink href="/">
-                <Link>
-                  <SiteLogo />
-                </Link>
-              </NextLink>
-            </Flex>
-          </Flex>
-          <HStack ml="10" spacing="3" display={['none', 'none', 'flex']}>
-            {navLinks.map((link) => (
-              <HeaderLink key={link.href} href={link.href} name={link.name} />
-            ))}
-          </HStack>
-          <DarkModeButton />
-        </Flex>
-      </Container>
+  // return (
+  //   <Flex
+  //     bgColor={bgColor}
+  //     shadow="sm"
+  //     position="fixed"
+  //     width="100%"
+  //     zIndex="1"
+  //   >
+  //     <Container maxW="4xl">
+  //       <Flex justifyContent="space-between" alignItems="center">
+  //         <Flex alignItems="center" display={['flex', 'flex', 'none']}>
+  //           <Icon boxSize="6" onClick={onOpen} as={HiOutlineMenu} />
+  //         </Flex>
+  //         <Flex alignItems="center" py="3">
+  //           <Flex alignItems="center">
+  //             <NextLink href="/">
+  //               <Link>
+  //                 <SiteLogo />
+  //               </Link>
+  //             </NextLink>
+  //           </Flex>
+  //         </Flex>
+  //         <HStack ml="10" spacing="3" display={['none', 'none', 'flex']}>
+  //           {navLinks.map((link) => (
+  //             <HeaderLink key={link.href} href={link.href} name={link.name} />
+  //           ))}
+  //         </HStack>
+  //         <DarkModeButton />
+  //       </Flex>
+  //     </Container>
 
-      {/* __________________Mobile Drawer__________________ */}
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
-        <DrawerOverlay>
-          <DrawerContent maxW="2xs" bg={bgColor}>
-            <DrawerHeader h="14" py="2.5">
-              <SiteLogo />
-            </DrawerHeader>
+  //     {/* __________________Mobile Drawer__________________ */}
+  //     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+  //       <DrawerOverlay>
+  //         <DrawerContent maxW="2xs" bg={bgColor}>
+  //           <DrawerHeader h="14" py="2.5">
+  //             <SiteLogo />
+  //           </DrawerHeader>
 
-            <Divider />
+  //           <Divider />
 
-            <DrawerBody mt="3">
-              <VStack spacing="1" alignItems="flex-start">
-                {navLinks.map((link) => (
-                  <MobileHeaderLink
-                    key={link.href}
-                    href={link.href}
-                    name={link.name}
-                  />
-                ))}
-              </VStack>
-            </DrawerBody>
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
-    </Flex>
-  );
+  //           <DrawerBody mt="3">
+  //             <VStack spacing="1" alignItems="flex-start">
+  //               {navLinks.map((link) => (
+  //                 <MobileHeaderLink
+  //                   key={link.href}
+  //                   href={link.href}
+  //                   name={link.name}
+  //                 />
+  //               ))}
+  //             </VStack>
+  //           </DrawerBody>
+  //         </DrawerContent>
+  //       </DrawerOverlay>
+  //     </Drawer>
+  //   </Flex>
+  // );
 }
