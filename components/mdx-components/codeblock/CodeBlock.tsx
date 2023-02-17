@@ -13,7 +13,7 @@ import { HiCheck, HiOutlineDuplicate } from 'react-icons/hi';
 import InlineCode from './InlineCode';
 
 const Codeblock = (props) => {
-  const showLines = true;
+  const showLines = false;
 
   const { className, children, viewlines, title, metastring, ln, ...rest } =
     props;

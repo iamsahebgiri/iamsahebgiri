@@ -28,11 +28,11 @@ function Blog({ frontMatter, children }) {
       image={frontMatter.image}
       type="article"
     >
-      <Box my={12}>
-        <Heading fontSize={['4xl', '5xl']} py={2}>
+      <Box my={3}>
+        <Heading py={2}>
           {frontMatter.title}
         </Heading>
-        <Flex alignItems="center" mt="2">
+        <Flex alignItems="center" mt={3}>
           <Popover trigger="hover" placement="bottom-start">
             <PopoverTrigger>
               <Avatar
@@ -99,16 +99,20 @@ function Blog({ frontMatter, children }) {
             </Text>
           </Flex>
         </Flex>
-        <AspectRatio ratio={16 / 9}>
-          <Image
-            mt="6"
-            borderRadius="md"
-            src={frontMatter.image}
-            alt="Segun Adebayo"
-            objectFit="cover"
-          />
-        </AspectRatio>
       </Box>
+      {frontMatter.image ? (
+        <Box mt="6">
+          <AspectRatio ratio={16 / 9}>
+            <Image
+              borderRadius="md"
+              src={frontMatter.image}
+              alt={frontMatter.title}
+              objectFit="cover"
+            />
+          </AspectRatio>
+        </Box>
+      ) : null}
+
       <Box as="main">{children}</Box>
       <TwitterCard title={frontMatter.title} slug={frontMatter.slug} />
     </Layout>

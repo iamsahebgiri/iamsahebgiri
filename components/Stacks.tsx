@@ -1,69 +1,56 @@
+import { Box, Flex, Stack, Text, useColorModeValue } from '@chakra-ui/react';
 import stacksData from 'data/stacksData.json';
-import {
-  Box,
-  Flex,
-  Heading,
-  LinkBox,
-  LinkOverlay,
-  Text,
-  useColorModeValue,
-  VStack
-} from '@chakra-ui/react';
-import Image from 'next/image';
 import _ from 'underscore';
 
-export default function Timeline() {
-  const sortedStacksData = _.sortBy(stacksData, 'name');
+const StackDataDisplay = (props) => {
+  const { data, title } = props;
   const headingColor = useColorModeValue('blueGray.700', 'blueGray.200');
   const descriptionColor = useColorModeValue('blueGray.600', 'blueGray.300');
+  const pillColor = useColorModeValue('blueGray.100', 'blueGray.800');
+  return (
+    <Box>
+      <Text fontWeight="semibold" color={headingColor}>
+        {title}
+      </Text>
+      <Flex flexWrap="wrap" gap={2} mt={3}>
+        {data.map((d) => (
+          <Box key={d.name} px={2} py={1} bg={pillColor} rounded="md">
+            <Text color={descriptionColor}>{d.name}</Text>
+          </Box>
+        ))}
+      </Flex>
+    </Box>
+  );
+};
+
+export default function Timeline() {
   const bgColor = useColorModeValue('white', 'blueGray.800');
 
   return (
     <Box>
-      <VStack spacing="4">
-        {sortedStacksData.map((stack) => (
-          <LinkBox
-            shadow="sm"
-            p="4"
-            key={stack.name}
-            transition="all 0.2s ease-in-out"
-            _hover={{ shadow: 'md' }}
-            rounded="md"
-            bgColor={bgColor}
-            width="full"
-          >
-            <Flex flexDirection={['column', 'row']}>
-              <Box>
-                <Image
-                  src={`/assets/stacks/${stack.image}`}
-                  width={64}
-                  height={64}
-                  layout="fixed"
-                  placeholder="blur"
-                  blurDataURL={`/assets/stacks/${stack.image}?w=10&q=10`}
-                  alt={`${stack.name} icon`}
-                  className="rounded-lg"
-                />
-              </Box>
-              <Box ml={['0', '4']}>
-                <LinkOverlay isExternal href={stack.url}>
-                  <Heading
-                    as="h3"
-                    fontSize="lg"
-                    color={headingColor}
-                    fontWeight="semibold"
-                  >
-                    {stack.name}
-                  </Heading>
-                </LinkOverlay>
-                <Text mt="1" color={descriptionColor}>
-                  {stack.description}
-                </Text>
-              </Box>
-            </Flex>
-          </LinkBox>
-        ))}
-      </VStack>
+      <Stack spacing={4}>
+        <Box shadow="sm" p="4" rounded="md" bgColor={bgColor} userSelect="none">
+          <Stack spacing={4}>
+            <StackDataDisplay data={stacksData.langauges} title="Languages" />
+            <StackDataDisplay
+              data={_.sortBy(stacksData['libs-frameworks'], 'name')}
+              title="Frameworks and Libraries"
+            />
+            <StackDataDisplay
+              data={_.sortBy(stacksData.tools, 'name')}
+              title="Tools"
+            />
+            <StackDataDisplay
+              data={_.sortBy(stacksData.others, 'name')}
+              title="Others"
+            />
+            <StackDataDisplay
+              data={_.sortBy(stacksData.platforms, 'name')}
+              title="Platforms"
+            />
+          </Stack>
+        </Box>
+      </Stack>
     </Box>
   );
 }

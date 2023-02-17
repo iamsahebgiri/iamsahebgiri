@@ -88,5 +88,23 @@
     "date": "2022-05-07",
     "cardTitle": "Coordinator in Codex coding club",
     "cardDescription": "Codex is one of the coding club in ITER. I am currently coodinator of it. Looking forward to it. Built codex website with other fellow coordinators."
+  },
+  {
+    "id": "z8cv3s4k9x8",
+    "title": "Joined Vaizle as a Software Developer Intern",
+    "color": "indigo",
+    "icon": "star",
+    "date": "2022-07-01",
+    "cardTitle": "Joined Vaizle as a Software Developer Intern",
+    "cardDescription": "Developed Angular-based analytics tools for analyzing LinkedIn and YouTube accounts. Implemented a REST API for internal tools in NestJS that runs as a serverless function in GCP."
+  },
+  {
+    "id": "m2twv9eyube",
+    "title": "Joined MathonGo as a Frontend Developer Intern",
+    "color": "teal",
+    "icon": "star",
+    "date": "2022-09-15",
+    "cardTitle": "Joined MathonGo as a Frontend Developer Intern",
+    "cardDescription": "Improved performance by reducing redundant API calls, enabled client side caching with React Query and media assets. Ported legacy React project to NextJS and employed various data fetching methods"
   }
 ]

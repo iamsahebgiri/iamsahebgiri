@@ -7,8 +7,7 @@ function MainLayout({ children, frontMatter }) {
   return (
     <Container title={frontMatter.title}>
       <Header />
-      <Box h="58px" />
-      <ChakraContainer maxW="4xl">{children}</ChakraContainer>
+      <ChakraContainer maxW="3xl">{children}</ChakraContainer>
     </Container>
   );
 }
