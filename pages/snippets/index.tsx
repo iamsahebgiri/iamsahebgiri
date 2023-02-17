@@ -6,11 +6,44 @@ import {
   Text,
   LinkBox,
   LinkOverlay,
-  useColorModeValue
+  useColorModeValue,
+  useRadio,
+  HStack,
+  useRadioGroup,
+  Flex
 } from '@chakra-ui/react';
 import { Tag } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 import NextLink from 'next/link';
+import { useState } from 'react';
+
+function RadioCard(props) {
+  const { getInputProps, getCheckboxProps } = useRadio(props);
+
+  const input = getInputProps();
+  const checkbox = getCheckboxProps();
+
+  return (
+    <Box as="label">
+      <input {...input} />
+      <Box
+        {...checkbox}
+        cursor="pointer"
+        borderWidth="1px"
+        borderRadius="3xl"
+        _checked={{
+          bg: 'orange.500',
+          color: 'white',
+          borderColor: 'orange.500'
+        }}
+        px={6}
+        py={2}
+      >
+        {props.children}
+      </Box>
+    </Box>
+  );
+}
 
 const SnippetCard = ({ snippet }) => {
   const headingColor = useColorModeValue('blueGray.700', 'blueGray.200');
@@ -60,6 +93,26 @@ const SnippetCard = ({ snippet }) => {
 };
 
 export default function SnippetsPage({ snippets }) {
+  const [allSnippets, setAllSnippets] = useState(snippets);
+  const types = ['All', 'JavaScript', 'Python', 'Linux'];
+
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: 'topics',
+    defaultValue: 'All',
+    onChange: (type) => {
+      if (type === 'All') {
+        setAllSnippets(snippets);
+      } else {
+        const filteredSnippet = snippets.filter(
+          (snippet) => snippet.type === type.toLowerCase()
+        );
+        setAllSnippets(filteredSnippet);
+      }
+    }
+  });
+
+  const group = getRootProps();
+
   return (
     <Layout
       title="Snippets"
@@ -69,6 +122,22 @@ export default function SnippetsPage({ snippets }) {
         name="Snippets"
         p="Collection of code snippets I've used in the past and saved for references."
       />
+      <Flex
+        {...group}
+        pb={6}
+        flexWrap="wrap"
+        gap={3}
+        justifyContent={['left', 'center']}
+      >
+        {types.map((value) => {
+          const radio = getRadioProps({ value });
+          return (
+            <RadioCard key={value} {...radio}>
+              {value}
+            </RadioCard>
+          );
+        })}
+      </Flex>
       <Box
         maxW="container.lg"
         display="grid"
@@ -76,7 +145,7 @@ export default function SnippetsPage({ snippets }) {
         gridTemplateColumns="repeat(auto-fit, minmax(280px, 1fr))"
         gridGap="2"
       >
-        {snippets.map((snippet) => (
+        {allSnippets.map((snippet) => (
           <SnippetCard key={snippet.slug} snippet={snippet} />
         ))}
       </Box>

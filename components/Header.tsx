@@ -92,7 +92,7 @@ export default function Header() {
   return (
     <>
       <Flex width="100%">
-        <Container maxW="4xl" padding={2} my={4}>
+        <Container maxW="3xl" padding={2} my={4}>
           <Flex justifyContent="space-between" alignItems="center">
             <Box
               bg={bgColor}

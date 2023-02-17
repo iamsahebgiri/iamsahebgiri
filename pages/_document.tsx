@@ -24,7 +24,6 @@ export default class MyDocument extends Document {
             href="/favicon/favicon-16x16.png"
           />
           <link rel="manifest" href="/favicon/site.webmanifest" />
-          <script async defer data-website-id="e30292b5-a44d-4a7a-92d5-33951bed406b" src="https://countly.vercel.app/umami.js"></script>
         </Head>
         <body>
           <ColorModeScript />

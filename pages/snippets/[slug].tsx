@@ -9,7 +9,7 @@ export default function SnippetPage({ code, frontMatter }) {
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <Layout title={frontMatter.title}>
-      <Box my={24}>
+      <Box my={12}>
         <Heading py={2} textAlign="center">
           {frontMatter.title}
         </Heading>

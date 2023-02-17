@@ -40,7 +40,7 @@ function Highlight({
     ...baseTheme,
     plain: {
       ...baseTheme.plain,
-      fontFamily: `"IBM Plex Mono", monospace`,
+      fontFamily: `"Roboto Mono", monospace`,
       fontSize: "14px",
       lineHeight: "26px",
     },
@@ -79,9 +79,9 @@ function Highlight({
                         : "inset 3px 0px 0px 0px #90CDF4"
                       : undefined
                   }
-                  _hover={{
-                    bg: colorMode === "light" ? "gray.50" : "blueGray.700",
-                  }}
+                  // _hover={{
+                  //   bg: colorMode === "light" ? "gray.50" : "blueGray.700",
+                  // }}
                   {...lineProps}
                 >
                   {showLines && (
