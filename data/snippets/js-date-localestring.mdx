@@ -1,0 +1,15 @@
+---
+title: 'Get the day of week and month'
+publishedAt: '2023-05-10'
+type: 'web'
+---
+
+```js title="Get the day of week and month"
+// Wednesday, May 10, 2023
+new Date().toLocaleDateString("en-US", {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+}); 
+```

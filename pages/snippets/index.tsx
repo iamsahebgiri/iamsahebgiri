@@ -53,7 +53,7 @@ const SnippetCard = ({ snippet }) => {
   const { title, publishedAt, slug, type } = snippet;
 
   const typeColors = {
-    javascript: 'yellow',
+    web: 'yellow',
     python: 'blue',
     linux: 'cyan'
   };
@@ -94,7 +94,7 @@ const SnippetCard = ({ snippet }) => {
 
 export default function SnippetsPage({ snippets }) {
   const [allSnippets, setAllSnippets] = useState(snippets);
-  const types = ['All', 'JavaScript', 'Python', 'Linux'];
+  const types = ['All', 'Web', 'Python', 'Linux'];
 
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: 'topics',
