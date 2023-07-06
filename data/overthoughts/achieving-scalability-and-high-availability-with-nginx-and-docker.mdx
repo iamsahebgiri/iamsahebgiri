@@ -1,0 +1,250 @@
+---
+title: 'Achieving Scalability and High Availability with Nginx and Docker'
+summary: 'We will explore the powerful combination of Nginx as a load balancer and Docker Compose for orchestrating multiple Express-based apps.'
+publishedAt: '2023-07-06'
+image: '/assets/overthoughts/achieving-scalability-and-high-availability-with-nginx-and-docker/cover.jpg'
+---
+
+We'll explore the powerful combination of Nginx as a load balancer and Docker Compose for orchestrating multiple Express-based apps. By leveraging Nginx's proxy capabilities, we can ensure efficient load distribution, scalability, and high availability for our applications. Let's dive in!
+
+Load balancing plays a critical role in modern web applications, enabling the distribution of incoming traffic across multiple servers or instances. This technique offers numerous advantages, including improved scalability, enhanced performance, and high availability. By evenly distributing the workload, load balancers optimize resource utilization and prevent single points of failure.
+
+## Setting Up the Environment with Docker Compose
+
+To begin, let's establish our development environment using Docker Compose. Docker Compose simplifies the management of multi-container applications and allows us to define and coordinate our Express-based apps and Nginx load balancer seamlessly.
+
+Ensure that you have Docker and Docker Compose installed on your system. Next, create a new directory for our project and navigate into it. Inside the directory, create a file named `docker-compose.yml` and open it in your preferred text editor.
+
+In the `docker-compose.yml` file, we'll define our three Express-based apps as separate services. Each service represents an instance of the app, and we'll utilize Docker Compose's networking capabilities to connect them effortlessly. Here's the configuration:
+
+```yaml
+services:
+  container1:
+    restart: on-failure
+    build: ./app
+    hostname: container1
+    ports:
+      - '3001:3000'
+    environment:
+      - SERVER_NO=1
+
+  container2:
+    restart: on-failure
+    build: ./app
+    hostname: container2
+    ports:
+      - '3002:3000'
+    environment:
+      - SERVER_NO=2
+
+  container3:
+    restart: on-failure
+    build: ./app
+    hostname: container3
+    ports:
+      - '3003:3000'
+    environment:
+      - SERVER_NO=3
+
+  nginx:
+    build: ./nginx
+    ports:
+      - '80:80'
+    depends_on:
+      - container1
+      - container2
+      - container3
+```
+
+In this configuration, we have three services (container1, container2, and container3), each associated with its respective Docker build context. Make sure to adjust the build paths according to your project's structure.
+
+## Containerizing Express App with Docker
+
+Before configuring Nginx, let's create our Express app and dockerize it. This step ensures that each app is encapsulated within its own Docker container, making it easier to manage and deploy.
+
+Create a new directory called `app` within your project directory. In app directory, initialize a new Node.js project and install Express as a dependency:
+
+```sh
+mkdir app
+cd app
+npm init -y
+npm install express
+```
+
+Next, create an `index.js` file in app directory and add the following code:
+
+```js
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.json({
+    time: new Date(),
+    server: process.env.SERVER_NO ?? -1
+  });
+});
+
+app.listen(3000, () => {
+  console.log('Server listening on http://localhost:3000');
+});
+```
+
+This simple Express app respond with a current date and server number. The `SERVER_NO` environment variable is accessed using `process.env.SERVER_NO`.
+
+Let's add start script in `package.json` to run the server.
+
+```json
+"scripts": {
+    "start": "node index.js"
+},
+```
+
+Now that our Express app is ready, let's dockerize it. Create a new file named `Dockerfile` in the root directory of your express app.
+
+```Dockerfile
+# Use an official Node.js runtime as the base image
+FROM node:lts-alpine3.18
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json to the working directory
+COPY package.json package-lock.json ./
+
+# Install app dependencies
+RUN npm ci
+
+# Copy index.js to the working directory
+COPY index.js ./
+
+# Add environment variable for the container
+ENV SERVER_NO=1
+
+# Start the app
+CMD [ "npm", "start" ]
+```
+
+Here you can notice that we are not exposing the port. This is because we don't have to. Port will be assigned by docker compose later on.
+
+## Configuring Nginx as a Load Balancer and Proxy
+
+Now, let's configure Nginx as our load balancer and proxy server. Nginx will receive incoming requests and efficiently distribute them across our three app instances using a specified load balancing algorithm.
+
+Create a new file named `nginx.conf` in the a new directory called `nginx`.
+
+```sh
+mkdir nginx
+cd nginx
+touch nginx.conf
+```
+
+Open it in your text editor and add the following configuration:
+
+```nginx
+upstream loadbalancer {
+    server container1:3000;
+    server container2:3000;
+    server container3:3000;
+}
+
+server {
+    listen 80;
+    server_name localhost;
+    location / {
+        proxy_pass http://loadbalancer;
+    }
+}
+```
+
+This Nginx configuration sets up an upstream block named `loadbalancer`, which includes the URLs of our app instances. The `proxy_pass` directive ensures that incoming requests are efficiently forwarded to these instances in a load-balanced manner.
+
+The above nginx configuration use round robin by default where requests are distributed sequentially in a circular manner to the available backend servers.
+
+NGINX offers several load balancing algorithms that you can choose from based on your specific needs. Here is some of them:
+
+- **Least Connections:** Requests are sent to the server with the fewest active connections at the time of request.
+
+```nginx
+upstream loadbalancer {
+    least_conn;
+    ...
+}
+```
+
+- **IP Hash:** The client's IP address is used to determine which backend server should handle the request. Requests from the same IP address are consistently routed to the same backend server.
+
+```nginx
+upstream loadbalancer {
+    ip_hash;
+    ...
+}
+```
+
+- **Weighted Round Robin:** Allows you to assign weights to each backend server. Servers with higher weights receive more requests compared to servers with lower weights.
+
+```nginx
+upstream loadbalancer {
+    server container1:3000 weight=5;
+    server container2:3000 weight=3;
+    server container3:3000;
+}
+```
+
+## Bringing it All Together
+
+With our Docker Compose services and Nginx configuration in place, let's run our setup. Open your terminal, navigate to the project directory, and execute the following command:
+
+```bash
+docker-compose up
+```
+
+Docker Compose will now build the necessary images, create containers, and establish the network connections between them. Once the process completes, you should see the logs of your Express-based apps and Nginx load balancer.
+
+## Testing the Load Balancer and Scaling
+
+To validate the effectiveness of our load balancer, we can send requests to the Nginx server and observe how the traffic is distributed among our Express app instances. Open your browser or use a tool like cURL to make requests to http://localhost.
+
+You should notice that the date and server no alternates, indicating that the load balancer is effectively distributing requests among the instances. This demonstrates the scalability and high availability of our setup.
+
+```json
+{
+  "time": "2023-07-06T07:15:33.499Z",
+  "server": "1"
+}
+```
+
+```json
+{
+  "time": "2023-07-06T07:18:14.706Z",
+  "server": "2"
+}
+```
+
+To test scaling, we can increase the number of app instances. Open the `docker-compose.yml` file and add additional services, following the same pattern as before. For example, you can add app4:
+
+```yaml
+container4:
+  restart: on-failure
+  build: ./app
+  hostname: container4
+  ports:
+    - '3004:3000'
+  environment:
+    - SERVER_NO=4
+```
+
+also add the following line to `nginx.conf` to add new server:
+
+```nginx
+server container4:3000;
+```
+
+Save the file and run docker-compose up again. Docker Compose will create a new container for app4, and Nginx will automatically include it in the load-balancing rotation.
+
+## Conclusion
+
+In this blog post, we explored the power of using Nginx as a load balancer and Docker Compose to orchestrate multiple Express-based apps. By leveraging Nginx's proxy capabilities and Docker's containerization, we achieved efficient load distribution, scalability, and high availability for our applications.
+
+Load balancing is a crucial technique for modern web applications, ensuring optimal resource utilization and preventing single points of failure. With Docker Compose, we simplified the setup and management of our multi-container environment
+
+As always link to the code available at [https://github.com/iamsahebgiri/overthoughts/tree/main/nginx-load-balancer](https://github.com/iamsahebgiri/overthoughts/tree/main/nginx-load-balancer)

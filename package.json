@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "create-post": "node utils/create-post.js"
+    "post": "node utils/create-post.js"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.5.1",
