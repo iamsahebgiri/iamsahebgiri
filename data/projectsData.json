@@ -1,5 +1,61 @@
 [
   {
+    "id": "ret8co16224",
+    "image": {
+      "url": "byte.png",
+      "height": "48",
+      "width": "48"
+    },
+    "title": "Byte",
+    "description": "A programming language",
+    "tags": ["GoLang"],
+    "theme": "yellow",
+    "link": "https://github.com/iamsahebgiri/byte",
+    "status": "ongoing"
+  },
+  {
+    "id": "ret8co164",
+    "image": {
+      "url": "engage.png",
+      "height": "48",
+      "width": "48"
+    },
+    "title": "Engage",
+    "description": "A platform to host interactive presentations",
+    "tags": ["Spring Boot", "react"],
+    "theme": "lightBlue",
+    "link": "https://github.com/iamsahebgiri/engage",
+    "status": "ongoing"
+  },
+  {
+    "id": "ret8co16222",
+    "image": {
+      "url": "codefusion.png",
+      "height": "48",
+      "width": "48"
+    },
+    "title": "CodeFusion",
+    "description": "🔥Fusing Brilliance with Code",
+    "tags": ["NextJS", "react", "TRPC", "docker"],
+    "theme": "lightBlue",
+    "link": "https://github.com/iamsahebgiri/codefusion",
+    "status": "active"
+  },
+  {
+    "id": "ret8co1222",
+    "image": {
+      "url": "betabuzz.png",
+      "height": "48",
+      "width": "48"
+    },
+    "title": "BetzBuzz",
+    "description": "Creating a buzz around the latest beta products",
+    "tags": ["Express", "react", "AWS"],
+    "theme": "red",
+    "link": "https://github.com/iamsahebgiri/betabuzz",
+    "status": "ongoing"
+  },
+  {
     "id": "ret8co1628q",
     "image": {
       "url": "add-readme.png",
@@ -25,7 +81,7 @@
     "tags": ["NextJS", "Chakra UI"],
     "theme": "amber",
     "link": "https://30days30projects.vercel.app/",
-    "status": "active"
+    "status": "unmaintained"
   },
   {
     "id": "gcpiar2n5tc",
@@ -39,7 +95,7 @@
     "tags": ["spotify", "vue", "nuxt"],
     "theme": "indigo",
     "link": "https://soundsky.vercel.app/",
-    "status": "active"
+    "status": "unmaintained"
   },
   {
     "id": "d16ig5mv976",
@@ -67,7 +123,7 @@
     "tags": ["react", "css", "tailwind"],
     "theme": "gray",
     "link": "https://meetwits.netlify.app/",
-    "status": "active"
+    "status": "unmaintained"
   },
   {
     "id": "f05qlmfr45",
@@ -95,7 +151,7 @@
     "tags": ["next", "firebase", "Chakra UI"],
     "theme": "green",
     "link": "https://linctree.vercel.app/",
-    "status": "active"
+    "status": "unmaintained"
   },
   {
     "id": "ymydea0r6qn",
@@ -109,6 +165,6 @@
     "tags": ["next", "firebase", "Chakra UI"],
     "theme": "blue",
     "link": "https://the-orion.vercel.app/",
-    "status": "active"
+    "status": "unmaintained"
   }
 ]

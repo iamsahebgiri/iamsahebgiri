@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect } from 'react';
 import dayjs from 'dayjs';
 import _ from 'underscore';
 import timelineData from 'data/timelineData.json';
@@ -37,20 +37,27 @@ const TimelineCard = ({ timeline, isEnd }) => {
   const borderLeftColor = useColorModeValue('blueGray.200', 'blueGray.700');
   const subtleColor = useColorModeValue('blueGray.600', 'blueGray.400');
 
-  const exactCardBgColor = useToken('colors', cardBgColor)
-  const exactThemeColor = useToken('colors', useColorModeValue(`${timeline.color}.100`, `${timeline.color}.800`));
+  const exactCardBgColor = useToken('colors', cardBgColor);
+  const exactThemeColor = useToken(
+    'colors',
+    useColorModeValue(`${timeline.color}.100`, `${timeline.color}.800`)
+  );
 
   const timelineCardRef = useRef(null);
-  const { colorMode } = useColorMode()
+  const { colorMode } = useColorMode();
 
   function mouseMoveHandler(e) {
-    const { left, top } = timelineCardRef.current.getBoundingClientRect()
-    timelineCardRef.current.style.background = `radial-gradient(circle at ${e.clientX - left}px ${e.clientY - top}px, ${exactThemeColor} 0%, ${exactCardBgColor} calc(0% + 120px)) no-repeat border-box border-box`;
+    const { left, top } = timelineCardRef.current.getBoundingClientRect();
+    timelineCardRef.current.style.background = `radial-gradient(circle at ${
+      e.clientX - left
+    }px ${
+      e.clientY - top
+    }px, ${exactThemeColor} 0%, ${exactCardBgColor} calc(0% + 120px)) no-repeat border-box border-box`;
   }
 
   useEffect(() => {
     timelineCardRef.current.style.background = exactCardBgColor;
-  }, [colorMode])
+  }, [colorMode]);
 
   function mouseLeaveHandler(e) {
     timelineCardRef.current.style.background = exactCardBgColor;
@@ -73,7 +80,7 @@ const TimelineCard = ({ timeline, isEnd }) => {
             as={iconMap[timeline.icon]}
           />
         </Flex>
-        <Flex flexDirection="column">
+        <Flex flex={1} flexDirection="column">
           <Text m={0} fontWeight="medium">
             {timeline.title}
           </Text>
@@ -93,7 +100,16 @@ const TimelineCard = ({ timeline, isEnd }) => {
           pl={[0, 0, '6']}
           width="full"
         >
-          <Box shadow="sm" p="4" rounded="md" bgColor={cardBgColor} userSelect="none" ref={timelineCardRef} onMouseMove={mouseMoveHandler} onMouseLeave={mouseLeaveHandler}>
+          <Box
+            shadow="sm"
+            p="4"
+            rounded="md"
+            bgColor={cardBgColor}
+            userSelect="none"
+            ref={timelineCardRef}
+            onMouseMove={mouseMoveHandler}
+            onMouseLeave={mouseLeaveHandler}
+          >
             <Text fontWeight="semibold">{timeline.cardTitle}</Text>
             <Text mt={2} color={subtleColor}>
               {timeline.cardDescription}

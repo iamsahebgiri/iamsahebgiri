@@ -21,8 +21,9 @@ const Project = ({ project }) => {
 
   const statusMap = {
     active: 'green',
+    ongoing: 'blue',
     dead: 'red',
-    unmaintained: 'yellow'
+    unmaintained: 'yellow',
   };
   return (
     <LinkBox

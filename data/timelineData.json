@@ -91,20 +91,29 @@
   },
   {
     "id": "z8cv3s4k9x8",
-    "title": "Joined Vaizle as a Software Developer Intern",
+    "title": "Software Developer Intern Vaizle",
     "color": "indigo",
     "icon": "star",
     "date": "2022-07-01",
-    "cardTitle": "Joined Vaizle as a Software Developer Intern",
+    "cardTitle": "Vaizle is an ad analysis, social media benchmarking and reporting tool for startups",
     "cardDescription": "Developed Angular-based analytics tools for analyzing LinkedIn and YouTube accounts. Implemented a REST API for internal tools in NestJS that runs as a serverless function in GCP."
   },
   {
     "id": "m2twv9eyube",
-    "title": "Joined MathonGo as a Frontend Developer Intern",
+    "title": "Frontend Developer Intern at MathonGo",
     "color": "teal",
     "icon": "star",
     "date": "2022-09-15",
-    "cardTitle": "Joined MathonGo as a Frontend Developer Intern",
+    "cardTitle": "MathonGo - India's one of the most trusted Online Math Learning Platform ",
     "cardDescription": "Improved performance by reducing redundant API calls, enabled client side caching with React Query and media assets. Ported legacy React project to NextJS and employed various data fetching methods"
+  },
+  {
+    "id": "m2twv9eysure",
+    "title": "Fellow (Open Source Contributor) at Caravel",
+    "color": "red",
+    "icon": "star",
+    "date": "2023-03-15",
+    "cardTitle": "Plane - 🔥 Open Source JIRA, Linear and Height Alternative.",
+    "cardDescription": "Implemented custom theming functionality, allowing users to personalize the appearance and added custom theming functionality, allowing users to personalize the appearance."
   }
 ]
