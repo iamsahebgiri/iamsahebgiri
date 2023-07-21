@@ -8,7 +8,7 @@
     },
     "title": "Byte",
     "description": "A programming language",
-    "tags": ["GoLang"],
+    "tags": ["C"],
     "theme": "yellow",
     "link": "https://github.com/iamsahebgiri/byte",
     "status": "ongoing"
@@ -67,6 +67,20 @@
     "tags": ["NPM", "package", "node"],
     "theme": "cyan",
     "link": "https://www.npmjs.com/package/add-readme",
+    "status": "active"
+  },
+  {
+    "id": "gcpiar6n5tc",
+    "image": {
+      "url": "klip-it.svg",
+      "height": "48",
+      "width": "48"
+    },
+    "title": "KlipIt",
+    "description": "Pastebin but for single user",
+    "tags": ["firebase", "jQuery", "Vite"],
+    "theme": "blue",
+    "link": "https://klip-it.vercel.app/",
     "status": "active"
   },
   {

@@ -21,7 +21,13 @@ import {
   HiLightBulb,
   HiLink
 } from 'react-icons/hi';
-import { SiGithub, SiInstagram, SiLinkedin } from 'react-icons/si';
+import {
+  SiGithub,
+  SiInstagram,
+  SiLinkedin,
+  SiLeetcode,
+  SiTwitter
+} from 'react-icons/si';
 
 const Pill = (props) => {
   const { label, icon, color } = props.pill;
@@ -77,17 +83,17 @@ export default function AboutPage() {
       label: 'Software Engineer',
       icon: HiCode,
       color: 'red.500'
-    },
-    {
-      label: 'Competitive Programmer',
-      icon: HiLightBulb,
-      color: 'purple.500'
-    },
-    {
-      label: 'Product Designer',
-      icon: HiColorSwatch,
-      color: 'green.500'
     }
+    // {
+    //   label: 'Competitive Programmer',
+    //   icon: HiLightBulb,
+    //   color: 'purple.500'
+    // },
+    // {
+    //   label: 'Product Designer',
+    //   icon: HiColorSwatch,
+    //   color: 'green.500'
+    // }
   ];
   const socialLinks = [
     {
@@ -101,9 +107,14 @@ export default function AboutPage() {
       icon: SiGithub
     },
     {
-      site: 'Instagram',
-      href: 'https://instagram.com/iamsahebgiri',
-      icon: SiInstagram
+      site: 'LeetCode',
+      href: 'https://leetcode.com/iamsahebgiri',
+      icon: SiLeetcode
+    },
+    {
+      site: 'Twitter',
+      href: 'https://twitter.com/iamsahebgiri',
+      icon: SiTwitter
     },
     {
       site: 'Linktree',
