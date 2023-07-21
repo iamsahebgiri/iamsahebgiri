@@ -52,7 +52,7 @@ export default function Hero() {
           <Box my="10">
             <Button
               as="a"
-              href="./assets/saheb-giri-resume-02-2023.pdf"
+              href="./assets/resume.pdf"
               colorScheme="orange"
               target="_blank"
               rel="noopener noreferer"

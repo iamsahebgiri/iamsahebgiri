@@ -38,7 +38,7 @@
     "description": "🔥Fusing Brilliance with Code",
     "tags": ["NextJS", "react", "TRPC", "docker"],
     "theme": "lightBlue",
-    "link": "https://github.com/iamsahebgiri/codefusion",
+    "link": "https://github.com/iamsahebgiri/project-fermat",
     "status": "active"
   },
   {
@@ -95,7 +95,7 @@
     "tags": ["NextJS", "Chakra UI"],
     "theme": "amber",
     "link": "https://30days30projects.vercel.app/",
-    "status": "unmaintained"
+    "status": "active"
   },
   {
     "id": "gcpiar2n5tc",
