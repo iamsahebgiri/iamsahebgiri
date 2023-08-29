@@ -80,9 +80,14 @@ export default function AboutPage() {
       color: 'indigo.500'
     },
     {
-      label: 'Software Engineer',
+      label: 'Developer',
       icon: HiCode,
       color: 'red.500'
+    },
+    {
+      label: 'Tinkerer',
+      icon: HiLightBulb,
+      color: 'purple.500'
     }
     // {
     //   label: 'Competitive Programmer',
