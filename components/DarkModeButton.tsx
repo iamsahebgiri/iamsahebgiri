@@ -9,7 +9,7 @@ import { HiMoon, HiSun } from 'react-icons/hi';
 
 const DarkModeButton = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const bgColor = useColorModeValue('white', 'blueGray.800');
+  const bgColor = useColorModeValue('white', 'gray.800');
   return (
     <IconButton
       onClick={toggleColorMode}
@@ -19,7 +19,8 @@ const DarkModeButton = () => {
       icon={<Icon h="5" w="5" as={colorMode === 'light' ? HiMoon : HiSun} />}
       _focus={{ boxShadow: 'none' }}
       shadow="sm"
-      p={4}
+      height="auto"
+      p={3}
       bg={bgColor}
     />
   );

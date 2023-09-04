@@ -33,9 +33,9 @@ const TimelineCard = ({ timeline, isEnd }) => {
     star: HiStar
   };
 
-  const cardBgColor = useColorModeValue('white', 'blueGray.800');
-  const borderLeftColor = useColorModeValue('blueGray.200', 'blueGray.700');
-  const subtleColor = useColorModeValue('blueGray.600', 'blueGray.400');
+  const cardBgColor = useColorModeValue('white', 'gray.800');
+  const borderLeftColor = useColorModeValue('gray.200', 'gray.700');
+  const subtleColor = useColorModeValue('gray.600', 'gray.400');
 
   const exactCardBgColor = useToken('colors', cardBgColor);
   const exactThemeColor = useToken(
@@ -48,16 +48,14 @@ const TimelineCard = ({ timeline, isEnd }) => {
 
   function mouseMoveHandler(e) {
     const { left, top } = timelineCardRef.current.getBoundingClientRect();
-    timelineCardRef.current.style.background = `radial-gradient(circle at ${
-      e.clientX - left
-    }px ${
-      e.clientY - top
-    }px, ${exactThemeColor} 0%, ${exactCardBgColor} calc(0% + 120px)) no-repeat border-box border-box`;
+    const mouseX = e.clientX - left;
+    const mouseY = e.clientY - top;
+    timelineCardRef.current.style.background = `radial-gradient(650px circle at ${mouseX}px ${mouseY}px, ${exactThemeColor}, ${exactCardBgColor} 75%) no-repeat`;
   }
 
   useEffect(() => {
     timelineCardRef.current.style.background = exactCardBgColor;
-  }, [colorMode]);
+  }, [colorMode, exactCardBgColor]);
 
   function mouseLeaveHandler(e) {
     timelineCardRef.current.style.background = exactCardBgColor;
@@ -122,7 +120,7 @@ const TimelineCard = ({ timeline, isEnd }) => {
 };
 
 const TimelinePage = () => {
-  const hrColor = useColorModeValue('blueGray.200', 'blueGray.700');
+  const hrColor = useColorModeValue('gray.200', 'gray.700');
 
   const groupedTimelineData = _.chain(timelineData)
     .sortBy((timeline) => timeline.date)

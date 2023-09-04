@@ -46,10 +46,10 @@ function RadioCard(props) {
 }
 
 const SnippetCard = ({ snippet }) => {
-  const headingColor = useColorModeValue('blueGray.700', 'blueGray.200');
-  const hoverColor = useColorModeValue('blueGray.800', 'blueGray.100');
-  const descriptionColor = useColorModeValue('blueGray.500', 'blueGray.300');
-  const bgColor = useColorModeValue('white', 'blueGray.800');
+  const headingColor = useColorModeValue('gray.700', 'gray.200');
+  const hoverColor = useColorModeValue('gray.800', 'gray.100');
+  const descriptionColor = useColorModeValue('gray.500', 'gray.300');
+  const bgColor = useColorModeValue('white', 'gray.800');
   const { title, publishedAt, slug, type } = snippet;
 
   const typeColors = {

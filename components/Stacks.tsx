@@ -1,22 +1,23 @@
-import { Box, Flex, Stack, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, Stack, Tag, Text, useColorModeValue } from '@chakra-ui/react';
 import stacksData from 'data/stacksData.json';
 import _ from 'underscore';
 
 const StackDataDisplay = (props) => {
   const { data, title } = props;
-  const headingColor = useColorModeValue('blueGray.700', 'blueGray.200');
-  const descriptionColor = useColorModeValue('blueGray.600', 'blueGray.300');
-  const pillColor = useColorModeValue('blueGray.100', 'blueGray.800');
+  const headingColor = useColorModeValue('gray.700', 'gray.200');
   return (
     <Box>
       <Text fontWeight="semibold" color={headingColor}>
         {title}
       </Text>
-      <Flex flexWrap="wrap" gap={2} mt={3}>
+      <Flex flexWrap="wrap" gap={3} mt={3}>
         {data.map((d) => (
-          <Box key={d.name} px={2} py={1} bg={pillColor} rounded="md">
-            <Text color={descriptionColor}>{d.name}</Text>
-          </Box>
+          // <Box key={d.name} px={3} py={1} bg={pillColor} rounded="lg">
+          //   <Text fontSize="sm" color={descriptionColor}>{d.name}</Text>
+          // </Box>
+          <Tag size="md" key={d.name} variant="subtle" colorScheme="orange">
+            {d.name}
+          </Tag>
         ))}
       </Flex>
     </Box>
@@ -24,13 +25,13 @@ const StackDataDisplay = (props) => {
 };
 
 export default function Timeline() {
-  const bgColor = useColorModeValue('white', 'blueGray.800');
+  const bgColor = useColorModeValue('white', 'gray.800');
 
   return (
     <Box>
       <Stack spacing={4}>
-        <Box shadow="sm" p="4" rounded="md" bgColor={bgColor} userSelect="none">
-          <Stack spacing={4}>
+        <Box shadow="sm" p="6" rounded="md" bgColor={bgColor} userSelect="none">
+          <Stack spacing={6}>
             <StackDataDisplay data={stacksData.langauges} title="Languages" />
             <StackDataDisplay
               data={_.sortBy(stacksData['libs-frameworks'], 'name')}

@@ -15,9 +15,9 @@ import {
 
 const Project = ({ project }) => {
   const { image, title, tags, theme, link, description, status } = project;
-  const bg = useColorModeValue('white', 'blueGray.800');
-  const colorHeading = useColorModeValue('blueGray.700', 'blueGray.200');
-  const colorSubtitle = useColorModeValue('blueGray.600', 'blueGray.300');
+  const bg = useColorModeValue('white', 'gray.800');
+  const colorHeading = useColorModeValue('gray.700', 'gray.200');
+  const colorSubtitle = useColorModeValue('gray.600', 'gray.300');
 
   const statusMap = {
     active: 'green',

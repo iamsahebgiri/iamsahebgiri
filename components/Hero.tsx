@@ -2,6 +2,7 @@ import { Box, Button, Heading, Tag, Text } from '@chakra-ui/react';
 import React from 'react';
 import SubHeading from './SubHeading';
 
+
 export default function Hero() {
   return (
     <>
@@ -13,8 +14,8 @@ export default function Hero() {
           py={{ base: '16', sm: '32' }}
           textAlign="center"
         >
-          <Tag colorScheme="teal" variant="subtle" mb="8">
-            Student and Developer
+          <Tag colorScheme="orange" variant="solid" mb="8">
+            Developer and Tinkerer
           </Tag>
           <Heading className="wordCarousel" as="h1" size="2xl">
             <>
@@ -26,11 +27,11 @@ export default function Hero() {
                 overflow="hidden"
               >
                 <ul className="flip5">
+                  <li>Namaste</li>
+                  <li>Hello</li>
                   <li>Salve</li>
                   <li>Hola</li>
                   <li>Bonjour</li>
-                  <li>Namaste</li>
-                  <li>Hello</li>
                 </ul>
               </Box>
               I am{' '}

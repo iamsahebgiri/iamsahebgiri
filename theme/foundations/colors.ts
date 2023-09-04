@@ -227,7 +227,7 @@ const colors = {
     800: '#262626',
     900: '#171717'
   },
-  gray: {
+  notCoolGray: {
     50: '#fafafa',
     100: '#f4f4f5',
     200: '#e4e4e7',
@@ -239,7 +239,7 @@ const colors = {
     800: '#27272a',
     900: '#18181b'
   },
-  coolGray: {
+  gray: {
     50: '#f9fafb',
     100: '#f3f4f6',
     200: '#e5e7eb',

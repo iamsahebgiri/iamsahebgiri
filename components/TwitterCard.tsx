@@ -15,11 +15,11 @@ const TwitterCard = ({ title, slug }) => {
   return (
     <VStack
       p={4}
-      bg={useColorModeValue('blue.50', 'blueGray.800')}
+      bg={useColorModeValue('blue.50', 'gray.800')}
       rounded="xl"
       borderWidth="1px"
       color={useColorModeValue('blue.800', 'blue.800')}
-      borderColor={useColorModeValue('blue.100', 'blueGray.600')}
+      borderColor={useColorModeValue('blue.100', 'gray.600')}
       textAlign="left"
       align="stretch"
       spacing={4}

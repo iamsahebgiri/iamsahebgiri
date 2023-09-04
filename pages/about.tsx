@@ -11,13 +11,13 @@ import {
   Wrap,
   WrapItem,
   Icon,
-  useColorModeValue
+  useColorModeValue,
+  Tooltip
 } from '@chakra-ui/react';
 import {
   HiAcademicCap,
   HiBadgeCheck,
   HiCode,
-  HiColorSwatch,
   HiLightBulb,
   HiLink
 } from 'react-icons/hi';
@@ -31,13 +31,13 @@ import {
 
 const Pill = (props) => {
   const { label, icon, color } = props.pill;
-  const pillColor = useColorModeValue('blurGray.200', 'blueGray.800');
+  const pillColor = useColorModeValue('blurGray.200', 'gray.800');
   return (
     <Flex
       borderWidth="1px"
       borderColor={pillColor}
       role="group"
-      _hover={{ bg: 'blueGray.100', cursor: 'pointer' }}
+      _hover={{ bg: 'gray.100', cursor: 'pointer' }}
       py="2"
       px="3"
       alignItems="center"
@@ -58,21 +58,23 @@ const Pill = (props) => {
 };
 
 const SocialLink = ({ socialLink }) => {
-  const { href, icon } = socialLink;
-  const iconColor = useColorModeValue('blueGray.800', 'blueGray.300');
-  const iconHoverColor = useColorModeValue('blueGray.200', 'blueGray.800');
+  const { site, href, icon } = socialLink;
+  const iconColor = useColorModeValue('gray.800', 'gray.300');
+  const iconHoverColor = useColorModeValue('gray.200', 'gray.800');
   return (
-    <a target="_blank" rel="noopener noreferer noreferrer" href={href}>
-      <Circle size="10" _hover={{ bg: iconHoverColor }} color={iconColor}>
-        <Icon as={icon} w="4" h="4" />
-      </Circle>
-    </a>
+    <Tooltip label={site} fontSize="sm">
+      <a target="_blank" rel="noopener noreferer noreferrer" href={href}>
+        <Circle size="10" _hover={{ bg: iconHoverColor }} color={iconColor}>
+          <Icon as={icon} w="4" h="4" />
+        </Circle>
+      </a>
+    </Tooltip>
   );
 };
 
 export default function AboutPage() {
-  const headingColor = useColorModeValue('blueGray.700', 'blueGray.200');
-  const descriptionColor = useColorModeValue('blueGray.600', 'blueGray.300');
+  const headingColor = useColorModeValue('gray.700', 'gray.200');
+  const descriptionColor = useColorModeValue('gray.600', 'gray.300');
   const pills = [
     {
       label: 'Student',
@@ -80,14 +82,14 @@ export default function AboutPage() {
       color: 'indigo.500'
     },
     {
-      label: 'Developer',
+      label: 'Software Engineering',
       icon: HiCode,
       color: 'red.500'
     },
     {
       label: 'Tinkerer',
       icon: HiLightBulb,
-      color: 'purple.500'
+      color: 'green.500'
     }
     // {
     //   label: 'Competitive Programmer',
@@ -166,16 +168,15 @@ export default function AboutPage() {
           <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
             I'm proficient in full stack development and DevOps in cloud
             environments with a track record of owning the full cycle from idea
-            to production and owning operating services using many of the SRE
-            principles.
+            to production.
           </Text>
-          <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
+          {/* <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
             I'm an effective communicator and thrive in cross-functional teams.
             I enjoy learning and see it as an integral part of team work. I
             combine those skills with teamwork and a strong understanding of the
             organizational structure to work efficiently and pragmatically in
             alignment with business goals.
-          </Text>
+          </Text> */}
           <Text fontSize="md" lineHeight="tall" color={descriptionColor}>
             I take an active interest in technology, arts, business, and how
             their conflation impacts society.

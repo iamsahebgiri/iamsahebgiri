@@ -1,17 +1,17 @@
 import {
-  Avatar,
+  // Avatar,
   Box,
   Flex,
   Heading,
-  Popover,
-  PopoverArrow,
-  PopoverBody,
-  PopoverContent,
-  PopoverTrigger,
+  // Popover,
+  // PopoverArrow,
+  // PopoverBody,
+  // PopoverContent,
+  // PopoverTrigger,
   Text,
-  Spacer,
-  Divider,
-  Button,
+  // Spacer,
+  // Divider,
+  // Button,
   Image,
   AspectRatio
 } from '@chakra-ui/react';
@@ -29,11 +29,18 @@ function Blog({ frontMatter, children }) {
       type="article"
     >
       <Box my={3}>
-        <Heading py={2}>
-          {frontMatter.title}
-        </Heading>
+        <Flex>
+          <Text color="gray.500">
+            {dayjs(frontMatter.publishedAt).format('MMM D, YYYY')}
+          </Text>
+          <Text ml="2" color="gray.500">
+            {' · '}
+            {frontMatter.readingTime.text}
+          </Text>
+        </Flex>
+        <Heading py={2}>{frontMatter.title}</Heading>
         <Flex alignItems="center" mt={3}>
-          <Popover trigger="hover" placement="bottom-start">
+          {/* <Popover trigger="hover" placement="bottom-start">
             <PopoverTrigger>
               <Avatar
                 _hover={{ cursor: 'pointer' }}
@@ -57,7 +64,7 @@ function Blog({ frontMatter, children }) {
                       ml="2"
                       fontSize="xl"
                       fontWeight="semibold"
-                      color="blueGray.800"
+                      color="gray.800"
                     >
                       Saheb Giri
                     </Text>
@@ -67,7 +74,7 @@ function Blog({ frontMatter, children }) {
                   </Text>
                   <Divider py="1" />
                   <Flex alignItems="center" mt="2">
-                    <Text ml="2" fontSize="sm" color="blueGray.600">
+                    <Text ml="2" fontSize="sm" color="gray.600">
                       343 Followers
                     </Text>
                     <Spacer />
@@ -85,26 +92,17 @@ function Blog({ frontMatter, children }) {
               </PopoverBody>
             </PopoverContent>
           </Popover>
-          <Text ml="2" color="blueGray.500">
+          <Text ml="2" color="gray.500">
             Saheb Giri
           </Text>
-          <Spacer />
-          <Flex>
-            <Text ml="2" color="blueGray.500">
-              {dayjs(frontMatter.publishedAt).format('MMM D, YYYY')}
-            </Text>
-            <Text ml="2" color="blueGray.500">
-              {' · '}
-              {frontMatter.readingTime.text}
-            </Text>
-          </Flex>
+          <Spacer /> */}
         </Flex>
       </Box>
       {frontMatter.image ? (
         <Box mt="6">
           <AspectRatio ratio={16 / 9}>
             <Image
-              borderRadius="md"
+              borderRadius="xl"
               src={frontMatter.image}
               alt={frontMatter.title}
               objectFit="cover"

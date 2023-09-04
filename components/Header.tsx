@@ -1,5 +1,6 @@
 import {
   Box,
+  chakra,
   Container,
   Drawer,
   DrawerBody,
@@ -14,8 +15,11 @@ import {
   VStack,
   Link,
   useColorModeValue,
-  Divider
+  Divider,
+  IconButton,
+  shouldForwardProp
 } from '@chakra-ui/react';
+import { motion, isValidMotionProp } from 'framer-motion';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -24,12 +28,20 @@ import SiteLogo from './Logo';
 import navLinks from 'data/navLinks.json';
 import DarkModeButton from './DarkModeButton';
 
+const MotionBox = chakra(motion.div, {
+  /**
+   * Allow motion props and non-Chakra props to be forwarded.
+   */
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop)
+});
+
 const HeaderLink = ({ name, href }) => {
   const router = useRouter();
   const isActive = `/${router.pathname.split('/')[1]}` === href;
 
   const textColorLight = useColorModeValue('orange.600', 'orange.500');
-  const textColorDark = useColorModeValue('blueGray.700', 'blueGray.400');
+  const textColorDark = useColorModeValue('gray.700', 'gray.400');
 
   return (
     <NextLink href={href} passHref>
@@ -46,13 +58,16 @@ const HeaderLink = ({ name, href }) => {
             {name}
           </Text>
           {isActive && (
-            <Box
+            <MotionBox
+              layoutId="bubble"
+              // @ts-ignore
+              transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
               height="1px"
               width="70%"
               pos="absolute"
-              top="10"
-              bgGradient="linear(to-r, blackAlpha.50, orange.500, blackAlpha.50)"
-            ></Box>
+              top="38px"
+              bgGradient="linear(to-r, transparent, orange.500, transparent)"
+            />
           )}
         </Flex>
       </Link>
@@ -65,8 +80,8 @@ const MobileHeaderLink = ({ name, href }) => {
   const isActive = `/${router.pathname.split('/')[1]}` === href;
 
   const bgColor = useColorModeValue('orange.100', 'orange.300');
-  const textColorActive = useColorModeValue('blueGray.900', 'orange.600');
-  const textColorDark = useColorModeValue('blueGray.700', 'blueGray.400');
+  const textColorActive = useColorModeValue('gray.900', 'orange.600');
+  const textColorDark = useColorModeValue('gray.700', 'gray.400');
 
   return (
     <NextLink href={href} passHref>
@@ -87,25 +102,26 @@ const MobileHeaderLink = ({ name, href }) => {
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const bgColor = useColorModeValue('white', 'blueGray.800');
+  const bgColor = useColorModeValue('white', 'gray.800');
 
   return (
     <>
       <Flex width="100%">
         <Container maxW="3xl" padding={2} my={4}>
           <Flex justifyContent="space-between" alignItems="center">
-            <Box
-              bg={bgColor}
+            <IconButton
+              onClick={onOpen}
               rounded="full"
-              display={['flex', 'flex', 'none']}
-              py={2}
-              px={3}
+              variant="ghost"
+              aria-label="Toggle dark mode"
+              icon={<Icon h="5" w="5" as={HiOutlineMenu} />}
+              _focus={{ boxShadow: 'none' }}
               shadow="sm"
-            >
-              <Flex alignItems="center" display={['flex', 'flex', 'none']}>
-                <Icon boxSize="6" onClick={onOpen} as={HiOutlineMenu} />
-              </Flex>
-            </Box>
+              height="auto"
+              display={['flex', 'flex', 'none']}
+              p={3}
+              bg={bgColor}
+            />
             <NextLink href="/">
               <Link>
                 <SiteLogo />
@@ -115,7 +131,7 @@ export default function Header() {
               bg={bgColor}
               rounded="full"
               display={['none', 'none', 'flex']}
-              py={2}
+              py={1.5}
               px={3}
               shadow="sm"
             >

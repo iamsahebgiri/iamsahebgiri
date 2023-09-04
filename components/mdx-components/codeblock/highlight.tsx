@@ -80,7 +80,7 @@ function Highlight({
                       : undefined
                   }
                   // _hover={{
-                  //   bg: colorMode === "light" ? "gray.50" : "blueGray.700",
+                  //   bg: colorMode === "light" ? "gray.50" : "gray.700",
                   // }}
                   {...lineProps}
                 >

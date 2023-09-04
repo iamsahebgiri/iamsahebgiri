@@ -6,7 +6,7 @@ import { getAllFilesFrontMatter } from 'lib/mdx';
 import Title from 'components/Title';
 
 const OverthoughtCard = ({ overthought }) => {
-  const subtleColor = useColorModeValue('blueGray.600', 'blueGray.400')
+  const subtleColor = useColorModeValue('gray.600', 'gray.400')
   const { title, publishedAt, slug, summary } = overthought;
   
   return (
