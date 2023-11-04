@@ -27,10 +27,10 @@ export default function Hero() {
                 overflow="hidden"
               >
                 <ul className="flip5">
-                  <li>Namaste</li>
+                  <li>Namaskar</li>
                   <li>Hello</li>
-                  <li>Salve</li>
-                  <li>Hola</li>
+                  <li>Nǐn hǎo</li>
+                  <li>Zdravstvuyte</li>
                   <li>Bonjour</li>
                 </ul>
               </Box>

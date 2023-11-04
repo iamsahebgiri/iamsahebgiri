@@ -8,7 +8,7 @@
     },
     "title": "BetaBuzz",
     "description": "Creating a buzz around the latest beta products with startup community.",
-    "tags": ["Express", "react", "AWS"],
+    "tags": ["Express", "NextJS", "EC2", "S3"],
     "theme": "red",
     "link": "https://github.com/iamsahebgiri/betabuzz",
     "status": "active"
@@ -35,11 +35,25 @@
       "width": "48"
     },
     "title": "Byte",
-    "description": "An interpreted scripting language for fun.",
+    "description": "An interpreted scripting language just for fun.",
     "tags": ["C", "VM"],
     "theme": "yellow",
     "link": "https://github.com/iamsahebgiri/byte",
     "status": "wip"
+  },
+  {
+    "id": "ret4848frlk",
+    "image": {
+      "url": "magic-write.svg",
+      "height": "48",
+      "width": "48"
+    },
+    "title": "MagicWrite",
+    "description": "Craft professional resume points using AI.",
+    "tags": ["NextJS", "OpenAI"],
+    "theme": "purple",
+    "link": "https://github.com/iamsahebgiri/magic-write",
+    "status": "active"
   },
   {
     "id": "ret8co16222",
@@ -49,7 +63,7 @@
       "width": "48"
     },
     "title": "CodeFusion",
-    "description": "Solve computationally hard problems and get points.",
+    "description": "Solve computationally hard problems and earn points.",
     "tags": ["NextJS", "react", "TRPC", "docker"],
     "theme": "lightBlue",
     "link": "https://github.com/iamsahebgiri/project-fermat",
@@ -91,7 +105,7 @@
       "width": "48"
     },
     "title": "30 Days 30 Projects",
-    "description": "A project built to help students and my friends who are new to code.",
+    "description": "When you're super motivated but it doesn't stay long.",
     "tags": ["NextJS", "Chakra UI"],
     "theme": "amber",
     "link": "https://30days30projects.vercel.app/",
@@ -119,7 +133,7 @@
       "width": "48"
     },
     "title": "A2OJ",
-    "description": "Get started with competitive programming with curated problems from A2OJ.",
+    "description": "Curated CodeForces problems from A2OJ for newbie.",
     "tags": ["NextJS", "SWR", "Chakra UI"],
     "theme": "purple",
     "link": "https://the-a2oj.vercel.app/",
@@ -133,7 +147,7 @@
       "width": "178"
     },
     "title": "Meetwits",
-    "description": "Catalog of movies and TV Series and download HD wallpaper.",
+    "description": "Remember your movies app, this is my version of it.",
     "tags": ["react", "css", "tailwind"],
     "theme": "gray",
     "link": "https://meetwits.netlify.app/",
