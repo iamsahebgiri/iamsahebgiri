@@ -1,23 +1,18 @@
 ### Hi there 👋
 
-#### I'm a B.Tech CS Student.
+#### I'm a Tinkerer and a Developer
 
-- ⚙️ I use daily: `.js`, `.py`, `.c`, `.cpp`, `.java`, `.php`, `.sh`
-- 🌍 I'm mostly active on **Instagram**
-- 🌱 Learning all about **Compiler Design**
-- 💬 Ping me about **React**, **Vue**, **Node**, **Design**, **Django**, **App Development**, & **CP**
-- ⚡️ Hobbies: Photography, programming & music.
+- 👨‍💻 I'm currently building [**LinkPilot**](https://linkpilot.in)
+- ⚙️ I use daily: `.js`, `.ts`, `.py`, `.c`, `.cpp`, `.java`, `.php`, `.sh`
+- 🌍 I'm mostly active on [**Twitter**](https://twitter.com/iamsahebgiri)
+- 🌱 Learning all about **AI, ML, LLMs**
+- 💬 Ping me about **React**, **Web**, **UI/UX**, **Node JS**, **System Design**, **App Development**
+- ⚡️ Hobbies: **Generative Art**, **Music**, **Photography**.
 
-### Contact me:
+### Let's talk:
 
-[<img align="left" alt="Saheb Giri | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
-[<img align="left" alt="Saheb Giri | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
-[<img align="left" alt="Saheb Giri | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
-[<img align="left" alt="Saheb Giri | Facebook" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/facebook.svg" />][facebook]
-[<img align="left" alt="Saheb Giri | YouTube" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/youtube.svg" />][youtube]
-
-[linkedin]: https://www.linkedin.com/in/iamsahebgiri/
-[twitter]: https://twitter.com/iamsahebgiri
-[instagram]: https://instagram.com/iamsahebgiri
-[facebook]: https://facebook.com/iamsahebgiri
-[youtube]: https://www.youtube.com/channel/UC9VTm-aiiHa4uUMWAgYtcHg
+[![Twitter Saheb Giri](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/iamsahebgiri)
+[![LinkedIn Saheb Giri](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/iamsahebgiri/)
+[![Twitter Saheb Giri](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/iamsahebgiri)
+[![Dribbble Saheb Giri](https://img.shields.io/badge/Dribbble-EA4C89?style=for-the-badge&logo=dribbble&logoColor=white)](https://dribbble.com/iamsahebgiri)
+[![YouTube Saheb Giri](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/channel/UC9VTm-aiiHa4uUMWAgYtcHg)
