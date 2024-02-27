@@ -1,0 +1,18 @@
+{
+  "id": "rsecco1222",
+  "image": {
+    "url": "dinesh.png",
+    "height": "32",
+    "width": "163"
+  },
+  "title": "Dinesh",
+  "description": "DNS server with steroids providing useful utilities.",
+  "tags": [
+    "Python",
+    "UDP",
+    "Threading"
+  ],
+  "theme": "green",
+  "link": "https://github.com/iamsahebgiri/dinesh",
+  "status": "active"
+}

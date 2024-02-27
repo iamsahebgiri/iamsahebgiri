@@ -1,0 +1,18 @@
+{
+  "id": "toaou3v25h",
+  "image": {
+    "url": "linctree.png",
+    "height": "42",
+    "width": "167"
+  },
+  "title": "Linctree",
+  "description": "The only link you'll ever need. Connect audiences to all of your content with just one link.",
+  "tags": [
+    "next",
+    "firebase",
+    "Chakra UI"
+  ],
+  "theme": "green",
+  "link": "https://linctree.vercel.app/",
+  "status": "archived"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ret8co16224",
+  "image": {
+    "url": "byte.png",
+    "height": "48",
+    "width": "48"
+  },
+  "title": "Byte",
+  "description": "An interpreted scripting language just for fun.",
+  "tags": [
+    "C",
+    "VM"
+  ],
+  "theme": "yellow",
+  "link": "https://github.com/iamsahebgiri/byte",
+  "status": "wip"
+}

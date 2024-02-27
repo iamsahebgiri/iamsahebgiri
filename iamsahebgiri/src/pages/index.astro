@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Project from '../components/Project.astro';
+// import WobbleSphere from '../components/WobbleSphere.tsx';
+import Spotlight from '../components/Spotlight.astro';
+
+const featuredProjects = await getCollection('projects', ({ data }) => {
+  return data.featured === true;
+});
+---
+
+<BaseLayout>
+  <Spotlight
+    classx="left-30 -top-20 md:left-60 lg:left-96 lg:-top-20"
+    fill="orange"
+  />
+  <section class="my-16">
+    <div
+      class="h-[40rem] w-full rounded-md flex md:items-center md:justify-center antialiased bg-grid-white/[0.02] relative overflow-hidden"
+    >
+      <div
+        class="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0 text-center"
+      >
+        <span
+          class="mb-4 inline-flex h-full animate-background-shine cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-[linear-gradient(110deg,#000,45%,#4D4B4B,55%,#000)] bg-[length:250%_100%] px-3 py-1 text-xs font-medium text-gray-300"
+        >
+          Engineer and Tinkerer
+        </span>
+        <h1
+          class="text-4xl md:text-6xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-50 dark:to-neutral-400 from-neutral-400 to-neutral-800 bg-opacity-50"
+        >
+          Namaskar <br /> I am Saheb Giri
+        </h1>
+        <p
+          class="mt-4 font-normal text-base text-neutral-500 dark:text-neutral-300 max-w-lg text-center mx-auto"
+        >
+          Engineering undergrad specializing in tech-agnostic full-stack
+          engineering. Proficient in building scalable systems and crafting
+          engaging digital experiences.
+        </p>
+        <div class="mt-8">
+          <button class="group h-8 select-none rounded-lg bg-blue-600 px-3 text-sm leading-8 text-zinc-50 shadow-[0_-1px_0_1px_#1e3a8a_inset,0_0_0_1px_#1d4ed8_inset,0_0.5px_0_1.5px_#60a5fa_inset] hover:bg-blue-700 active:bg-blue-800 active:shadow-[-1px_0px_1px_0px_rgba(0,0,0,.2)_inset,1px_0px_1px_0px_rgba(0,0,0,.2)_inset,0px_0.125rem_0px_0px_rgba(0,0,0,.6)_inset]"><span class="block group-active:[transform:translate3d(0,1px,0)]">Click me</span></button>
+          <button
+            class="relative isolate inline-flex items-center justify-center gap-x-2 rounded-full border text-base/6 font-semibold px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing.3)-1px)] sm:py-[calc(theme(spacing[1.5])-1px)] sm:text-sm/6 focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500 data-[disabled]:opacity-50 [&>[data-slot=icon]]:-mx-0.5 [&>[data-slot=icon]]:my-0.5 [&>[data-slot=icon]]:size-5 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-[--btn-icon] [&>[data-slot=icon]]:sm:my-1 [&>[data-slot=icon]]:sm:size-4 forced-colors:[--btn-icon:ButtonText] forced-colors:data-[hover]:[--btn-icon:ButtonText] border-transparent bg-[--btn-border] dark:bg-[--btn-bg] before:absolute before:inset-0 before:-z-10 before:rounded-[calc(theme(borderRadius.full)-1px)] before:bg-[--btn-bg] before:shadow dark:before:hidden dark:border-white/5 after:absolute after:inset-0 after:-z-10 after:rounded-[calc(theme(borderRadius.full)-1px)] after:shadow-[shadow:inset_0_1px_theme(colors.white/15%)] after:data-[active]:bg-[--btn-hover-overlay] after:data-[hover]:bg-[--btn-hover-overlay] dark:after:-inset-px dark:after:rounded-full before:data-[disabled]:shadow-none after:data-[disabled]:shadow-none text-white [--btn-bg:theme(colors.zinc.900)] [--btn-border:theme(colors.zinc.950/90%)] [--btn-hover-overlay:theme(colors.white/10%)] dark:text-white dark:[--btn-bg:theme(colors.zinc.600)] dark:[--btn-hover-overlay:theme(colors.white/5%)] [--btn-icon:theme(colors.zinc.400)] data-[active]:[--btn-icon:theme(colors.zinc.300)] data-[hover]:[--btn-icon:theme(colors.zinc.300)] cursor-default"
+            type="button"
+            data-headlessui-state=""
+            >Resume<span
+              class="absolute left-1/2 top-1/2 size-[max(100%,2.75rem)] -translate-x-1/2 -translate-y-1/2 [@media(pointer:fine)]:hidden"
+              aria-hidden="true"></span></button
+          >
+          <button
+            class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-orange-600 px-6 font-semibold text-neutral-50 duration-500"
+            ><div
+              class="translate-y-0 opacity-100 transition group-hover:-translate-y-[150%] group-hover:opacity-0"
+            >
+              Resume
+            </div>
+            <div
+              class="absolute translate-y-[150%] opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"
+            >
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                ><path
+                  d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 11.2929L11.1464 8.14645C11.3417 7.95118 11.6583 7.95118 11.8536 8.14645C12.0488 8.34171 12.0488 8.65829 11.8536 8.85355L7.85355 12.8536C7.75979 12.9473 7.63261 13 7.5 13C7.36739 13 7.24021 12.9473 7.14645 12.8536L3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645C3.34171 7.95118 3.65829 7.95118 3.85355 8.14645L7 11.2929L7 2.5C7 2.22386 7.22386 2 7.5 2Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"></path></svg
+              >
+            </div></button
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="my-16">
+    <h1 class="text-4xl font-bold">Featured Projects</h1>
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+      {featuredProjects.map(({ data }) => <Project {...data} />)}
+    </div>
+  </section>
+</BaseLayout>

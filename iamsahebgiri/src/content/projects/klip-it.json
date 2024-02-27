@@ -1,0 +1,18 @@
+{
+  "id": "gcpiar6n5tc",
+  "image": {
+    "url": "klip-it.svg",
+    "height": "48",
+    "width": "48"
+  },
+  "title": "KlipIt",
+  "description": "Pastebin for everyone.",
+  "tags": [
+    "firebase",
+    "jQuery",
+    "Vite"
+  ],
+  "theme": "blue",
+  "link": "https://klip-it.vercel.app/",
+  "status": "active"
+}

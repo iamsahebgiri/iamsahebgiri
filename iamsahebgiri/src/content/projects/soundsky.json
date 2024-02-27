@@ -1,0 +1,18 @@
+{
+  "id": "gcpiar2n5tc",
+  "image": {
+    "url": "soundsky.png",
+    "height": "48",
+    "width": "48"
+  },
+  "title": "SoundSky",
+  "description": "SoundSky is a online music service that gives you access to millions of 30s songs.",
+  "tags": [
+    "spotify",
+    "vue",
+    "nuxt"
+  ],
+  "theme": "indigo",
+  "link": "https://soundsky.vercel.app/",
+  "status": "archived"
+}

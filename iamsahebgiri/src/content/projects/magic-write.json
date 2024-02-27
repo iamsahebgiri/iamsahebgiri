@@ -1,0 +1,17 @@
+{
+  "id": "ret4848frlk",
+  "image": {
+    "url": "magic-write.svg",
+    "height": "48",
+    "width": "48"
+  },
+  "title": "MagicWrite",
+  "description": "Craft professional resume points using AI.",
+  "tags": [
+    "NextJS",
+    "OpenAI"
+  ],
+  "theme": "purple",
+  "link": "https://github.com/iamsahebgiri/magic-write",
+  "status": "active"
+}

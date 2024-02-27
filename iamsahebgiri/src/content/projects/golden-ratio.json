@@ -1,0 +1,18 @@
+{
+  "id": "f05qlmfr45",
+  "image": {
+    "url": "golden-ratio.png",
+    "height": "30",
+    "width": "220"
+  },
+  "title": "Golden Ratio",
+  "description": "Visualize golden ratio interactively demos and web editor.",
+  "tags": [
+    "next",
+    "konva",
+    "framer motion"
+  ],
+  "theme": "blue",
+  "link": "https://goldenratio.vercel.app/",
+  "status": "active"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ret8co1222",
+  "image": {
+    "url": "betabuzz.png",
+    "height": "48",
+    "width": "48"
+  },
+  "title": "Vibe",
+  "description": "Vibe is an anonymous social media platform that allows users to praise their friends and cultivate bonds.",
+  "tags": [
+    "React Native",
+    "Expo",
+    "GraphQL",
+    "MongoDB"
+  ],
+  "theme": "green",
+  "link": "https://github.com/iamsahebgiri/vibe",
+  "status": "active",
+  "featured": true
+}

@@ -1,0 +1,18 @@
+{
+  "id": "ret8co1628q",
+  "image": {
+    "url": "add-readme.png",
+    "height": "48",
+    "width": "48"
+  },
+  "title": "Add Readme",
+  "description": "An npm package to create beautiful readme by running just one CLI command.",
+  "tags": [
+    "NPM",
+    "package",
+    "node"
+  ],
+  "theme": "cyan",
+  "link": "https://www.npmjs.com/package/add-readme",
+  "status": "active"
+}

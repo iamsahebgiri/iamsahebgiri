@@ -1,0 +1,39 @@
+---
+title: 'Split and merge PDFs in python'
+publishedAt: '2021-06-21'
+type: 'python'
+---
+
+```py title="Splitting pdf based on range of pages"
+from PyPDF2 import PdfFileReader, PdfFileWriter
+
+path = "in.pdf"
+pdf = PdfFileReader(path, "rb")
+
+pdfWriter = PdfFileWriter()
+
+for page in range(329, 346):
+    pdfWriter.addPage(pdf.getPage(page))
+
+outputFileName = "Output2.pdf"
+
+with open(outputFileName, 'wb') as out:
+    pdfWriter.write(out)
+
+print ("PDF file has been split")
+```
+
+```py title="Merging two or more PDFs into one"
+from PyPDF2 import PdfFileReader, PdfFileMerger
+
+pdfFile1 = PdfFileReader("Output1.pdf")
+pdfFile2 = PdfFileReader("Output2.pdf")
+
+output = PdfFileMerger()
+
+output.append(pdfFile1)
+output.append(pdfFile2)
+
+with open("final.pdf", "wb") as outputStream:
+    output.write(outputStream)
+```

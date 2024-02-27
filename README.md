@@ -3,9 +3,9 @@
 #### I'm a Tinkerer and a Developer
 
 - 👨‍💻 I'm currently building [**LinkPilot**](https://linkpilot.in)
-- ⚙️ I use daily: `.js`, `.ts`, `.py`, `.c`, `.cpp`, `.java`, `.php`, `.sh`
+- ⚙️ I use daily: `.js`, `.ts`, `.py`, `.c`, `.cpp`, `.java`, `.go`, `.sh`
 - 🌍 I'm mostly active on [**Twitter**](https://twitter.com/iamsahebgiri)
-- 🌱 Learning all about **AI, ML, LLMs**
+- 🌱 Learning all about **K8s, Helm, Jenkins, Argo**
 - 💬 Ping me about **React**, **Web**, **UI/UX**, **Node JS**, **System Design**, **App Development**
 - ⚡️ Hobbies: **Generative Art**, **Music**, **Photography**.
 

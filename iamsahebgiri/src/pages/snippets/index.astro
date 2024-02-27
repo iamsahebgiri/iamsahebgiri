@@ -1,0 +1,41 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = await getCollection('snippets');
+---
+
+<BaseLayout>
+  <header class="py-16 text-center">
+    <h1
+      class="mb-4 text-3xl sm:text-4xl tracking-tight text-neutral-900 font-bold dark:text-neutral-200"
+    >
+      Snippets
+    </h1>
+    <p class="text-lg text-neutral-700 dark:text-neutral-400">
+      A collection of frequently used code snippets.
+    </p>
+  </header>
+  <div class="prose dark:prose-invert mx-auto">
+    <>
+      {
+        posts?.map((post) => (
+          <article class="mb-12">
+            <h3 class="title">
+              {post.data.title} ({post.data.type})
+            </h3>
+            {async () => {
+              const { Content } = await post.render();
+              return <Content />;
+            }}
+          </article>
+        ))
+      }
+    </>
+  </div>
+</BaseLayout>

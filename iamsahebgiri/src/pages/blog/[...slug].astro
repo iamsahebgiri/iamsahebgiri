@@ -1,0 +1,34 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const {heroImage, pubDate, title, updatedDate} = post.data;
+const { Content } = await post.render();
+---
+
+<BaseLayout {...post.data}>
+	<article class="mx-auto">
+		<div class="mt-12 mx-auto prose prose-neutral dark:prose-invert">
+			<div class="">
+				<div class="date">
+					<time class="text-neutral-700 dark:text-neutral-400" datetime={pubDate.toISOString()}>{new Date(pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+				</div>
+				<h1 class="text-2xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-200 md:text-3xl ">{title}</h1>
+			</div>
+			<div class="hero-image">
+				{heroImage && <img width={1020} height={510} src={heroImage} alt={title} class="rounded-2xl ring-1 ring-inset ring-slate-900/10 dark:ring-white/10" />}
+			</div>
+			<Content />
+		</div>
+	</article>
+</BaseLayout>

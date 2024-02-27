@@ -1,0 +1,22 @@
+{
+  "id": "ret8co1222",
+  "image": {
+    "url": "betabuzz.png",
+    "height": "48",
+    "width": "48"
+  },
+  "title": "BetaBuzz",
+  "description": "Creating a buzz around the latest beta products with startup community.",
+  "tags": [
+    "Express",
+    "NextJS",
+    "EC2",
+    "S3",
+    "Docker",
+    "Stripe"
+  ],
+  "theme": "red",
+  "link": "https://github.com/iamsahebgiri/betabuzz",
+  "status": "active",
+  "featured": true
+}

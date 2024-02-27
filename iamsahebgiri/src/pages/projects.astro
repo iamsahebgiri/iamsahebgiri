@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Project from '../components/Project.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = await getCollection('projects');
+---
+
+<BaseLayout>
+  <header class="py-16 text-center">
+    <h1
+      class="mb-4 text-3xl sm:text-4xl tracking-tight text-neutral-900 font-bold dark:text-neutral-200"
+    >
+      From Idea to Reality
+    </h1>
+    <p class="text-lg text-neutral-700 dark:text-neutral-400">
+        I love to build things. Here are some notable mentions.
+    </p>
+  </header>
+  <div
+    class="grid grid-cols-1 gap-3 sm:grid-cols-3"
+    style="opacity:1;transform:none"
+  >
+    {projects.map((project) => <Project {...project.data} />)}
+  </div>
+</BaseLayout>

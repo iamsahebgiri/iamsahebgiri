@@ -1,0 +1,22 @@
+{
+  "id": "ret8co16222",
+  "image": {
+    "url": "codefusion.svg",
+    "height": "48",
+    "width": "48"
+  },
+  "title": "CodeFusion",
+  "description": "Solve computationally hard problems and earn points.",
+  "tags": [
+    "React",
+    "TRPC",
+    "Prisma",
+    "TailwindCSS",
+    "TypeScript",
+    "PostgreSQL"
+  ],
+  "theme": "blue",
+  "link": "https://github.com/iamsahebgiri/project-fermat",
+  "status": "active",
+  "featured": true
+}

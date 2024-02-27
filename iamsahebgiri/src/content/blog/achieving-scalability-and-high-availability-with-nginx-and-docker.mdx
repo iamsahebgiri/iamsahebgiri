@@ -1,8 +1,8 @@
 ---
-title: 'Scalable server setup with Nginx and Docker'
-summary: 'We will explore the powerful combination of Nginx as a load balancer and Docker Compose for orchestrating multiple Express-based apps.'
-publishedAt: '2023-07-06'
-image: '/assets/overthoughts/achieving-scalability-and-high-availability-with-nginx-and-docker/cover.jpg'
+title: 'Mastering Scalability: Nginx and Docker Unleashed'
+description: 'We will explore the powerful combination of Nginx as a load balancer and Docker Compose for orchestrating multiple Express-based apps.'
+pubDate: 'July 06 2023'
+image: '/achieving-scalability-and-high-availability-with-nginx-and-docker/cover.jpg'
 ---
 
 We'll explore the powerful combination of Nginx as a load balancer and Docker Compose for orchestrating multiple Express-based apps. By leveraging Nginx's proxy capabilities, we can ensure efficient load distribution, scalability, and high availability for our applications. Let's dive in!
@@ -140,7 +140,7 @@ touch nginx.conf
 
 Open it in your text editor and add the following configuration:
 
-```nginx
+```conf
 upstream loadbalancer {
     server container1:3000;
     server container2:3000;

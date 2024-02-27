@@ -1,0 +1,17 @@
+{
+  "id": "uqta3330bwg",
+  "image": {
+    "url": "30days30projects.png",
+    "height": "48",
+    "width": "48"
+  },
+  "title": "30 Days 30 Projects",
+  "description": "When you're super motivated but it doesn't stay long.",
+  "tags": [
+    "NextJS",
+    "Chakra UI"
+  ],
+  "theme": "amber",
+  "link": "https://30days30projects.vercel.app/",
+  "status": "active"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "5xo0kbez1zo",
+  "image": {
+    "url": "meetwits.png",
+    "height": "30",
+    "width": "178"
+  },
+  "title": "Meetwits",
+  "description": "Remember your movies app, this is my version of it.",
+  "tags": [
+    "react",
+    "css",
+    "tailwind"
+  ],
+  "theme": "gray",
+  "link": "https://meetwits.netlify.app/",
+  "status": "archived"
+}

@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'a'>;
+
+const { href, class: className, ...props } = Astro.props;
+
+const { pathname } = Astro.url;
+const subpath = pathname.match(/[^\/]+/g);
+const isActive = href === pathname || href === '/' + subpath?.[0];
+---
+
+<li>
+  <a
+    href={href}
+    class:list={[
+      className,
+      'relative block px-3 py-3 transition',
+      {
+        'text-orange-700 dark:text-orange-400': isActive,
+        'hover:text-orange-700 dark:hover:text-orange-400': !isActive
+      }
+    ]}
+    {...props}
+  >
+    <slot />
+    {
+      isActive && (
+        <span class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-orange-700/0 via-orange-700/40 to-orange-700/0 dark:from-orange-400/0 dark:via-orange-400/40 dark:to-orange-400/0" />
+      )
+    }
+  </a>
+</li>
