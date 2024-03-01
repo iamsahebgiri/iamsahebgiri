@@ -23,15 +23,15 @@ const posts = (await getCollection('blog')).sort(
       Sharing what I have learned with the world.
     </p>
   </header>
-  <section>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+  <section class="mt-16">
+    <div class="grid grid-cols-1 max-w-2xl mx-auto gap-16">
       {
         posts.map((post) => (
           <article class="group relative flex flex-col items-start">
             <>
-              <h2 class="text-lg font-semibold text-zinc-800 dark:text-zinc-100">
+              <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-100">
                 <>
-                  <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+                  <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-neutral-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-neutral-800/50 sm:-inset-x-6 sm:rounded-2xl" />
                   <a href={`/blog/${post.slug}/`}>
                     <>
                       <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
@@ -41,14 +41,14 @@ const posts = (await getCollection('blog')).sort(
                 </>
               </h2>
               <time
-                class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500 dark:text-zinc-500 pl-3.5"
+                class="relative z-10 order-first mb-3 flex items-center text-sm text-neutral-500 dark:text-neutral-500 pl-3.5"
                 datetime={post.data.pubDate.toISOString()}
               >
                 <span
                   class="absolute inset-y-0 left-0 flex items-center"
                   aria-hidden="true"
                 >
-                  <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
+                  <span class="h-4 w-0.5 rounded-full bg-neutral-200 dark:bg-neutral-500" />
                 </span>
                 {post.data.pubDate.toLocaleDateString('en-us', {
                   year: 'numeric',
@@ -56,7 +56,7 @@ const posts = (await getCollection('blog')).sort(
                   day: 'numeric'
                 })}
               </time>
-              <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              <p class="relative z-10 mt-2 text-sm text-neutral-600 dark:text-neutral-400">
                 {post.data.description}
               </p>
               <div

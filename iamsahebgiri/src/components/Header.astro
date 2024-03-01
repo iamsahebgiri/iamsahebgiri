@@ -52,12 +52,12 @@ import ThemeToggle from './ThemeToggle';
     >
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Articles</HeaderLink>
-      <HeaderLink href="/snippets">Snippets</HeaderLink>
-      <HeaderLink class="hidden md:flex" href="/projects">Projects</HeaderLink>
+      <HeaderLink class="hidden md:flex" href="/snippets">Snippets</HeaderLink>
+      <HeaderLink href="/projects">Projects</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>
     </ul>
-    <div class="hidden md:block">
-		<ThemeToggle client:only />
+    <div>
+		  <ThemeToggle client:only />
     </div>
   </nav>
 </header>
