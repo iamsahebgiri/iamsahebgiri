@@ -23,18 +23,15 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.4.4)(tailwindcss@3.4.1)
-  '@fontsource-variable/instrument-sans':
-    specifier: ^5.0.3
-    version: 5.0.3
-  '@react-spring/core':
-    specifier: ^9.7.3
-    version: 9.7.3(react@18.2.0)
+  '@fontsource-variable/inter':
+    specifier: ^5.0.16
+    version: 5.0.16
+  '@fontsource/geist-mono':
+    specifier: ^5.0.1
+    version: 5.0.1
   '@react-spring/three':
     specifier: ^9.7.3
     version: 9.7.3(@react-three/fiber@8.15.16)(react@18.2.0)(three@0.161.0)
-  '@react-three/fiber':
-    specifier: ^8.15.16
-    version: 8.15.16(react-dom@18.2.0)(react@18.2.0)(three@0.161.0)
   '@types/react':
     specifier: ^18.2.58
     version: 18.2.58
@@ -56,9 +53,6 @@ dependencies:
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
-  three:
-    specifier: ^0.161.0
-    version: 0.161.0
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
@@ -738,8 +732,12 @@ packages:
     dev: false
     optional: true
 
-  /@fontsource-variable/instrument-sans@5.0.3:
-    resolution: {integrity: sha512-HlObrvApp8qftNZOS3My3aVHrj0hOMLETJ11GKEyPUB1XQB5+Lkts2SdfYQjgOZOQqvhXtwpvWPrn+uk+lCpgw==}
+  /@fontsource-variable/inter@5.0.16:
+    resolution: {integrity: sha512-k+BUNqksTL+AN+o+OV7ILeiE9B5M5X+/jA7LWvCwjbV9ovXTqZyKRhA/x7uYv/ml8WQ0XNLBM7cRFIx4jW0/hg==}
+    dev: false
+
+  /@fontsource/geist-mono@5.0.1:
+    resolution: {integrity: sha512-fbLTXtnGagDEaKmRqAnjbqWZbZ3RR6RExvNikt3hLI/qJXxaBZZw8OH+Ve5rAxVxmKwz0a5GmPk2cqW0aapbfQ==}
     dev: false
 
   /@isaacs/cliui@8.0.2:

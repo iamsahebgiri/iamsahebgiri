@@ -1,10 +1,5 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const posts = (await getCollection('blog')).sort(
@@ -12,7 +7,7 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<BaseLayout>
+<BaseLayout title="Overthoughts" description="Sharing what I have learned with the world."> 
   <header class="py-16 text-center">
     <h1
       class="mb-4 text-3xl sm:text-4xl tracking-tight text-neutral-900 font-bold dark:text-neutral-200"
@@ -31,7 +26,7 @@ const posts = (await getCollection('blog')).sort(
             <>
               <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-100">
                 <>
-                  <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-neutral-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-neutral-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+                  <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-neutral-100 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-neutral-800/50 sm:-inset-x-6 sm:rounded-2xl" />
                   <a href={`/blog/${post.slug}/`}>
                     <>
                       <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />

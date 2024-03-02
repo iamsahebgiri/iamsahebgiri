@@ -7,7 +7,8 @@ export default {
 	theme: {
 		extend: {
 		  fontFamily: {
-			sans: ['Instrument Sans Variable', ...defaultTheme.fontFamily.sans],
+			sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
+			mono: ['Geist Mono', ...defaultTheme.fontFamily.mono],
 		  },
 		  animation: {
 			spotlight: "spotlight 2s ease .75s 1 forwards",

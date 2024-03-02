@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getRaindrops } from "../lib/raindrop";
+import { RAINDROP } from "../consts";
+
+const books = await getRaindrops(RAINDROP.BOOKS_COLLECTION_ID);
+const articles = await getRaindrops(RAINDROP.ARTICLES_COLLECTION_ID);
+const papers = await getRaindrops(RAINDROP.PAPERS_COLLECTION_ID);
+
+---
+
+<BaseLayout>
+  <header class="py-16 text-center">
+    <h1
+      class="mb-4 text-3xl sm:text-4xl tracking-tight text-neutral-900 font-bold dark:text-neutral-200"
+    >
+      Stash
+    </h1>
+    <p class="text-lg text-neutral-700 dark:text-neutral-400">
+      Save and revisit what matters most.
+    </p>
+  </header>
+  <section class="my-16 mx-auto max-w-2xl">
+    <h2
+      class="text-2xl font-bold text-neutral-900 dark:text-neutral-200"
+    >
+      Reading List
+    </h2>
+    <ul class="mt-4 mb-16">
+      {
+        articles.map((article) => (
+          <li class="mb-4">
+            <a
+              href={article.link}
+              class="text-md text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 transition"
+            >
+              {article.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <h2
+      class="text-2xl font-bold text-neutral-900 dark:text-neutral-200"
+    >
+      Papershelf
+    </h2>
+    <ul class="mt-4 mb-16">
+      {
+        papers.map((paper) => (
+          <li class="mb-4">
+            <a
+              href={paper.link}
+              class="text-md text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 transition"
+            >
+              {paper.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <h2
+      class="text-2xl font-bold text-neutral-900 dark:text-neutral-200"
+    >
+      Bookshelf
+    </h2>
+    <ul class="mt-4">
+      {
+        books.map((book) => (
+          <li class="mb-4">
+            <a
+              href={book.link}
+              class="text-md text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 transition"
+            >
+              {book.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

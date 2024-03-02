@@ -20,3 +20,9 @@ export const SEO = {
   linkedin: 'https://www.linkedin.com/in/iamsahebgiri',
   locale: 'en-US'
 };
+
+export const RAINDROP ={
+  BOOKS_COLLECTION_ID: '41443963',
+  ARTICLES_COLLECTION_ID: '42216867',
+  PAPERS_COLLECTION_ID: '42217452',
+}
