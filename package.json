@@ -3,14 +3,16 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "wrangler pages dev --proxy 3000 --kv IAMSAHEBGIRI_PAGE_VIEWS -- pnpm run start",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "deploy": "wrangler pages deploy dist",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.5",
+    "@astrojs/cloudflare": "^9.1.0",
     "@astrojs/mdx": "^2.1.1",
     "@astrojs/react": "^3.0.10",
     "@astrojs/rss": "^4.0.5",
@@ -23,6 +25,7 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240222.0",
     "@tailwindcss/typography": "^0.5.10",
     "prettier": "^3.2.5"
   }
