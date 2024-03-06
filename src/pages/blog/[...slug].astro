@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { type CollectionEntry, getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -26,7 +27,7 @@ const { Content } = await post.render();
 				<h1 class="text-2xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-200 md:text-3xl ">{title}</h1>
 			</div>
 			<div class="hero-image">
-				{heroImage && <img width={1020} height={510} src={heroImage} alt={title} class="rounded-2xl ring-1 ring-inset ring-slate-900/10 dark:ring-white/10" />}
+				{heroImage && <Image width={1020} height={510} src={heroImage} alt={title} class="rounded-2xl ring-1 ring-inset ring-slate-900/10 dark:ring-white/10" />}
 			</div>
 			<Content />
 		</div>

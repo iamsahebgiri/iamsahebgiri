@@ -1,48 +1,48 @@
 ---
-import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import { getCollection } from "astro:content";
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Project from '../components/Project.astro';
-// import WobbleSphere from '../components/WobbleSphere.tsx';
-import Spotlight from '../components/Spotlight.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Project from "../components/Project.astro";
+import Spotlight from "../components/Spotlight.astro";
 
-const featuredProjects = await getCollection('projects', ({ data }) => {
+const featuredProjects = await getCollection("projects", ({ data }) => {
   return data.featured === true;
 });
 
 const workExperience = [
   {
-    company: 'Groww',
-    role: 'SDE Intern',
-    description: 'Building infra and core tasks for the platform',
-    startDate: 'Dec. 2023',
-    endDate: 'Now',
-    img: '/logos/groww.webp'
+    company: "Groww",
+    role: "SDE Intern",
+    description: "Building infra and core tasks for the platform",
+    startDate: "Dec. 2023",
+    endDate: "Now",
+    img: "/logos/groww.webp",
   },
   {
-    company: 'Plane',
-    role: 'Fellow, Frontend',
-    description: 'Crafting open source project management tool',
-    startDate: 'Mar 2023',
-    endDate: 'Apr 2023',
-    img: '/logos/plane.png'
+    company: "Plane",
+    role: "Fellow, Frontend",
+    description: "Crafting open source project management tool",
+    startDate: "Mar 2023",
+    endDate: "Apr 2023",
+    img: "/logos/plane.png",
   },
   {
-    company: 'MathonGo',
-    role: 'Frontend Engineer, Intern',
-    description: 'Building online learning platform',
-    startDate: 'Sep 2022',
-    endDate: 'Dec 2022',
-    img: '/logos/mathongo.png'
+    company: "MathonGo",
+    role: "Frontend Engineer, Intern",
+    description: "Building online learning platform",
+    startDate: "Sep 2022",
+    endDate: "Dec 2022",
+    img: "/logos/mathongo.png",
   },
   {
-    company: 'Vaizle',
-    role: 'Software Developer, Intern',
-    description: 'Developing social media analytics tool',
-    startDate: 'Jul 2022',
-    endDate: 'Sep 2022',
-    img: '/logos/vaizle.jpeg'
-  }
+    company: "Vaizle",
+    role: "Software Developer, Intern",
+    description: "Developing social media analytics tool",
+    startDate: "Jul 2022",
+    endDate: "Sep 2022",
+    img: "/logos/vaizle.jpeg",
+  },
 ];
 ---
 
@@ -72,6 +72,7 @@ const workExperience = [
         <div class="mt-8">
           <a
             href="/resume.pdf"
+            rel="noreferrer noopener"
             target="_blank"
             class="mr-3 group relative inline-flex py-2 items-center justify-center overflow-hidden rounded-full bg-orange-600/90 backdrop-blur px-6 font-medium text-neutral-50 duration-500 ring-1 ring-orange-500/90"
           >
@@ -130,10 +131,12 @@ const workExperience = [
                   <div class="flex items-center">
                     <>
                       <div class="flex-shrink-0 w-10">
-                        <img
+                        <Image
                           class="w-10 h-10 rounded-md"
                           src={experience.img}
                           alt={experience.company}
+                          height="40"
+                          width="40"
                         />
                       </div>
                       <div class="ml-4">
@@ -157,7 +160,7 @@ const workExperience = [
                   </td>
                   <td class="px-6 py-4 whitespace-no-wrap text-neutral-600 dark:text-neutral-500 text-sm">
                     <span class="">{experience.startDate}</span> -
-                    <span class:list={[index === 0 && 'font-bold']}>
+                    <span class:list={[index === 0 && "font-bold"]}>
                       {experience.endDate}
                     </span>
                   </td>

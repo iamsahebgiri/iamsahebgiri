@@ -1,7 +1,7 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
-import ThemeToggle from './ThemeToggle';
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <header>
@@ -57,7 +57,7 @@ import ThemeToggle from './ThemeToggle';
       <HeaderLink href="/about">About</HeaderLink>
     </ul>
     <div class="hidden md:block">
-		  <ThemeToggle client:only />
+		  <ThemeToggle />
     </div>
   </nav>
 </header>

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import { getColor } from '../utils/colors';
 
@@ -31,10 +32,12 @@ const color = colorMap[theme] ?? "bg-gray-100 dark:bg-gray-200";
   <div
     class:list={["h-32 w-full flex justify-center items-center transition-all duration-200 transform", color]}
   >
-    <img
+    <Image
       class="transition-transform duration-500 transform group-hover:scale-110"
       src={`/logos/${image.url}`}
-      style={`height: ${image.height}px; width: ${image.width}px;`}
+      alt={title}
+      height={image.height}
+      width={image.width}
     />
   </div>
   <div class="p-4">
