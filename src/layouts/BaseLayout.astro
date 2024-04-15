@@ -1,32 +1,52 @@
 ---
-import '@fontsource-variable/inter'
-import '@fontsource/geist-mono';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-
+import "@fontsource-variable/inter";
+import "@fontsource/geist-mono";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const { title, description } = Astro.props;
 ---
 
 <script is:inline>
   const theme = (() => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme');
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
     }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
     }
-    return 'light';
+    return "light";
   })();
 
-  if (theme === 'light') {
-    document.documentElement.classList.remove('dark');
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
   } else {
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.add("dark");
   }
-  window.localStorage.setItem('theme', theme);
+  window.localStorage.setItem("theme", theme);
+
+  // all emojis
+  const emojRange = [
+    [128513, 128591],
+    [128640, 128704],
+  ];
+  const emojis = [];
+  for (let i = 0; i < emojRange.length; i++) {
+    let range = emojRange[i];
+    for (let x = range[0]; x < range[1]; x++) {
+      emojis.push(String.fromCodePoint(x));
+    }
+  }
+
+  // dynamically change favicon
+  let i = 0;
+  setInterval(() => {
+    const favicon = document.querySelector("link[rel=icon]");
+    favicon.href = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${emojis[i]}</text></svg>`;
+    i = (i + 1) % emojis.length;
+  }, 2000);
 </script>
 
 <html lang="en">
