@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import Project from "../components/Project.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ShowMoreProject from "../components/preact/ShowMoreProjects";
 
 const projects = await getCollection("projects");
 const featuredProjects: any[] = [];

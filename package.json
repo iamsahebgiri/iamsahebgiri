@@ -6,7 +6,7 @@
     "dev": "pnpm run start",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "deploy": "wrangler pages deploy",
+    "deploy": "npm run build && wrangler pages deploy",
     "preview": "astro preview",
     "astro": "astro"
   },

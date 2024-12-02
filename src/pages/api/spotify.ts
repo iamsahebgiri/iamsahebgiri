@@ -2,21 +2,24 @@ import type { APIRoute } from "astro";
 import { Buffer } from "node:buffer";
 
 export const GET: APIRoute = async () => {
-  return new Response(
-    JSON.stringify({
-      id: "0VpEX8ib3wE7u8NOw4szU6",
-      title: "Eyes Off You",
-      artist: "PRETTYMUCH",
-      thumbnail:
-        "https://i.scdn.co/image/ab67616d00004851d46d93ee7fb0589ef6973c5d",
-      previewUrl:
-        "https://p.scdn.co/mp3-preview/66056f42a4360b94ba012b31918dc538d8c791f9",
-    }),
-    {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    },
-  );
+  if (import.meta.env.MODE === "development") {
+    return new Response(
+      JSON.stringify({
+        id: "0VpEX8ib3wE7u8NOw4szU6",
+        title: "Eyes Off You",
+        artist: "PRETTYMUCH",
+        thumbnail:
+          "https://i.scdn.co/image/ab67616d00004851d46d93ee7fb0589ef6973c5d",
+        previewUrl:
+          "https://p.scdn.co/mp3-preview/66056f42a4360b94ba012b31918dc538d8c791f9",
+      }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  }
+
   const SPOTIFY_CLIENT_ID = import.meta.env.SPOTIFY_CLIENT_ID;
   const SPOTIFY_CLIENT_SECRET = import.meta.env.SPOTIFY_CLIENT_SECRET;
   const SPOTIFY_REFRESH_TOKEN = import.meta.env.SPOTIFY_REFRESH_TOKEN; // Generate this once with user consent
@@ -32,10 +35,10 @@ export const GET: APIRoute = async () => {
           Authorization: `Basic ${Buffer.from(SPOTIFY_CLIENT_ID + ":" + SPOTIFY_CLIENT_SECRET).toString("base64")}`,
         },
         body: `grant_type=refresh_token&refresh_token=${SPOTIFY_REFRESH_TOKEN}`,
-      },
+      }
     );
 
-    const tokenData = await tokenResponse.json();
+    const tokenData = await tokenResponse.json() as any;
 
     if (!tokenResponse.ok) {
       return new Response(
@@ -43,7 +46,7 @@ export const GET: APIRoute = async () => {
         {
           status: tokenResponse.status,
           headers: { "Content-Type": "application/json" },
-        },
+        }
       );
     }
 
@@ -57,10 +60,10 @@ export const GET: APIRoute = async () => {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
-      },
+      }
     );
 
-    const likedData = await likedResponse.json();
+    const likedData = await likedResponse.json() as any;
 
     if (!likedResponse.ok) {
       return new Response(
@@ -70,7 +73,7 @@ export const GET: APIRoute = async () => {
         {
           status: likedResponse.status,
           headers: { "Content-Type": "application/json" },
-        },
+        }
       );
     }
 
@@ -83,13 +86,13 @@ export const GET: APIRoute = async () => {
     const result = {
       id: latestTrack.id,
       title: latestTrack.name,
-      artist: latestTrack.artists.map((artist) => artist.name).join(", "),
+      artist: latestTrack.artists.map((artist: any) => artist.name).join(", "),
       thumbnail: smallestThumbnail,
       previewUrl: latestTrack.preview_url, // 30-second preview
     };
 
     // if preview url is not available then use the embed to find the preview url
-    if (!result.preview_url) {
+    if (!result.previewUrl) {
       const trackId = result.id;
       const SPOTIFY_EMBED_URL = `https://open.spotify.com/embed/track/${trackId}`;
 
@@ -103,7 +106,7 @@ export const GET: APIRoute = async () => {
           {
             status: embedResponse.status,
             headers: { "Content-Type": "application/json" },
-          },
+          }
         );
       }
 
@@ -111,7 +114,7 @@ export const GET: APIRoute = async () => {
 
       // Parse the HTML and extract the __NEXT_DATA__ JSON
       const nextDataMatch = html.match(
-        /<script id="__NEXT_DATA__" type="application\/json">(.+?)<\/script>/,
+        /<script id="__NEXT_DATA__" type="application\/json">(.+?)<\/script>/
       );
 
       if (!nextDataMatch || nextDataMatch.length < 2) {
@@ -119,7 +122,7 @@ export const GET: APIRoute = async () => {
           JSON.stringify({
             error: "__NEXT_DATA__ not found in the embed HTML",
           }),
-          { status: 404, headers: { "Content-Type": "application/json" } },
+          { status: 404, headers: { "Content-Type": "application/json" } }
         );
       }
 
@@ -134,7 +137,7 @@ export const GET: APIRoute = async () => {
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
+    return new Response(JSON.stringify({ error: (error as any).message }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     });
