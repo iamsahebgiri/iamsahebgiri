@@ -13,7 +13,6 @@
   canvas.width = width;
   canvas.height = height;
 
-  console.log(document.documentElement.classList);
   // Particle setup
   const noiseScale = 1 / 300;
   const noOfParticles = 300;
@@ -30,15 +29,15 @@
   // Animation loop
   function draw() {
     ctx.fillStyle = isDarkMode
-      ? "rgba(0, 0, 0, 0.1)"
+      ? "rgba(32, 32, 32, 0.1)"
       : "rgba(255, 255, 255, 0.1)";
     ctx.fillRect(0, 0, width, height);
 
     particles.forEach((p) => {
       const n = perlin2(p.x * noiseScale, p.y * noiseScale);
-      const hue = Math.floor(n * 300);
+      const hue = Math.floor(n * 360);
 
-      ctx.fillStyle = `hsla(${hue}, 95%, 20%, 5)`;
+      ctx.fillStyle = `hsla(${hue}, 95%, ${isDarkMode ? 50 : 20}%, 5)`;
       ctx.fillRect(p.x, p.y, 1, 1);
 
       const angle = 2 * Math.PI * n;

@@ -1,9 +1,20 @@
 ---
-import { getCollection } from 'astro:content';
-import Project from '../components/Project.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from "astro:content";
+import Project from "../components/Project.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ShowMoreProject from "../components/preact/ShowMoreProjects";
 
-const projects = await getCollection('projects');
+const projects = await getCollection("projects");
+const featuredProjects: any[] = [];
+const restProjects: any[] = [];
+
+projects.forEach((project) => {
+  if (project.data.featured) {
+    featuredProjects.push(project);
+  } else {
+    restProjects.push(project);
+  }
+});
 ---
 
 <BaseLayout>
@@ -11,7 +22,7 @@ const projects = await getCollection('projects');
     <h1
       class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200"
     >
-      Work 
+      Work
     </h1>
     <p class="text-base text-neutral-500 dark:text-neutral-400">
       A collection of projects I have worked on.
@@ -21,6 +32,57 @@ const projects = await getCollection('projects');
     class="grid grid-cols-1 gap-3 sm:grid-cols-2"
     style="opacity:1;transform:none"
   >
-    {projects.map((project) => <Project {...project.data} />)}
+    {
+      featuredProjects
+        .slice(0, projects.length)
+        .map((project) => <Project {...project.data} />)
+    }
   </div>
+  <div class="py-6 text-center">
+    <button
+      id="showBtn"
+      class="inline-flex py-2 px-6 items-center justify-center overflow-hidden rounded-full font-medium ring-1 ring-neutral-200 backdrop-blur dark:bg-neutral-800/90 dark:text-neutral-200 dark:ring-white/10"
+    >
+      Show more
+    </button>
+  </div>
+  <div
+    class="hidden grid-cols-1 gap-3 sm:grid-cols-2"
+    style="opacity:1;transform:none"
+    id="rest-projects"
+  >
+    {
+      restProjects
+        .slice(0, projects.length)
+        .map((project) => <Project {...project.data} />)
+    }
+  </div>
+  <script>
+    const restProjects = document.querySelector(
+      "#rest-projects"
+    ) as HTMLDivElement;
+    const showBtn = document.querySelector("#showBtn") as HTMLButtonElement;
+    let allVisible = false;
+
+    const showMore = () => {
+      allVisible = true;
+      showBtn.textContent = "Show less";
+      restProjects.classList.remove("hidden");
+      restProjects.classList.add("grid");
+    };
+
+    const showLess = () => {
+      allVisible = false;
+      showBtn.textContent = "Show more";
+      restProjects.classList.remove("grid");
+      restProjects.classList.add("hidden");
+    };
+    showBtn.addEventListener("click", () => {
+      if (allVisible) {
+        showLess();
+      } else {
+        showMore();
+      }
+    });
+  </script>
 </BaseLayout>

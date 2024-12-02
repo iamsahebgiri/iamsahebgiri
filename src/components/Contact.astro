@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+
+interface Link {
+  title: string;
+  link: string;
+  icon: string;
+}
+
+interface Props {
+  contacts: Link[];
+}
+
+const { contacts } = Astro.props;
+---
+
+<div
+  class="rounded-2xl h-[358px] col-span-12 sm:col-span-6 bg-gradient-to-r from-[#e93f0c] to-[#ffa51f] p-6 overflow-hidden relative"
+>
+  <Image
+    height={358}
+    width={358}
+    class="animate-float absolute bottom-0 left-20 will-change-transform z-20"
+    src={"/card-contact-memoji.png"}
+    alt="Contact me"
+  />
+  <div class="z-50 absolute">
+    <h1
+      class="text-xl font-serif font-semibold text-white dark:text-neutral-50"
+    >
+      Contact
+    </h1>
+    <p class="text-white/80">Let's make something happen!</p>
+    <div class="mt-3 flex gap-2 flex-wrap max-w-48">
+      {
+        contacts.map((contact) => (
+          <a
+            href={contact.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="border border-white/30 rounded-lg h-12 w-12 bg-white/10 flex items-center justify-center"
+          >
+            <Fragment set:html={contact.icon} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>
