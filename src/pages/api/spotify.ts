@@ -38,9 +38,10 @@ export const GET: APIRoute = async () => {
       }
     );
 
-    const tokenData = await tokenResponse.json() as any;
+    const tokenData = (await tokenResponse.json()) as any;
 
     if (!tokenResponse.ok) {
+      console.log("Failed to refresh token", tokenData);
       return new Response(
         JSON.stringify({ error: tokenData.error || "Failed to refresh token" }),
         {
@@ -63,9 +64,10 @@ export const GET: APIRoute = async () => {
       }
     );
 
-    const likedData = await likedResponse.json() as any;
+    const likedData = (await likedResponse.json()) as any;
 
     if (!likedResponse.ok) {
+      console.log("Failed to get liked tracks", likedData);
       return new Response(
         JSON.stringify({
           error: likedData.error || "Failed to get liked tracks",
@@ -91,14 +93,22 @@ export const GET: APIRoute = async () => {
       previewUrl: latestTrack.preview_url, // 30-second preview
     };
 
+    console.log("Result", result, result.previewUrl == null);
+
     // if preview url is not available then use the embed to find the preview url
-    if (!result.previewUrl) {
+    if (result.previewUrl == null) {
       const trackId = result.id;
       const SPOTIFY_EMBED_URL = `https://open.spotify.com/embed/track/${trackId}`;
 
-      const embedResponse = await fetch(SPOTIFY_EMBED_URL);
+      const embedResponse = await fetch(SPOTIFY_EMBED_URL, {
+        headers: {
+          "user-agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+        },
+      });
 
       if (!embedResponse.ok) {
+        console.log("Failed to fetch embed page", embedResponse);
         return new Response(
           JSON.stringify({
             error: `Failed to fetch embed page: ${embedResponse.statusText}`,
@@ -118,6 +128,7 @@ export const GET: APIRoute = async () => {
       );
 
       if (!nextDataMatch || nextDataMatch.length < 2) {
+        console.log("Failed to find __NEXT_DATA__ in the embed HTML");
         return new Response(
           JSON.stringify({
             error: "__NEXT_DATA__ not found in the embed HTML",
@@ -127,6 +138,7 @@ export const GET: APIRoute = async () => {
       }
 
       const nextData = JSON.parse(nextDataMatch[1]);
+      console.log("Next Data", nextData);
       const previewUrl =
         nextData?.props?.pageProps?.state?.data?.entity?.audioPreview?.url;
       result.previewUrl = previewUrl;
@@ -137,6 +149,7 @@ export const GET: APIRoute = async () => {
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
+    console.log("Error", error);
     return new Response(JSON.stringify({ error: (error as any).message }), {
       status: 500,
       headers: { "Content-Type": "application/json" },

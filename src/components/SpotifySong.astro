@@ -3,32 +3,41 @@ import { Image } from "astro:assets";
 import type { SpotifySong } from "../types";
 
 interface Props {
-  song: SpotifySong
+  song: SpotifySong;
 }
 
 const { song } = Astro.props;
 const { title, artist, previewUrl, thumbnail } = song;
 ---
+
 <div
   class="rounded-2xl h-32 p-6 bg-gradient-to-l from-green-200 to-white dark:from-green-700 dark:to-neutral-900 flex items-center gap-3.5 relative"
 >
-    <div class="relative">
-    <audio id="audio" src={previewUrl}></audio>
+  <div class="relative">
+    <audio id="audio" src={previewUrl} loop></audio>
     <Image
-        height={48}
-        width={48}
-        class="h-12 w-12 rounded-lg"
-        src={thumbnail}
-        alt="Move on up"
+      height={48}
+      width={48}
+      class="h-12 w-12 rounded-lg"
+      src={thumbnail}
+      alt="Move on up"
     />
     <button class="absolute top-3 left-3" id="playPauseBtn">
-<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M19.266 13.516a1.917 1.917 0 0 0 0-3.032A35.8 35.8 0 0 0 9.35 5.068l-.653-.232c-1.248-.443-2.567.401-2.736 1.69a42.5 42.5 0 0 0 0 10.948c.17 1.289 1.488 2.133 2.736 1.69l.653-.232a35.8 35.8 0 0 0 9.916-5.416"/></svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 text-white"
+        viewBox="0 0 24 24"
+        ><path
+          fill="currentColor"
+          d="M19.266 13.516a1.917 1.917 0 0 0 0-3.032A35.8 35.8 0 0 0 9.35 5.068l-.653-.232c-1.248-.443-2.567.401-2.736 1.69a42.5 42.5 0 0 0 0 10.948c.17 1.289 1.488 2.133 2.736 1.69l.653-.232a35.8 35.8 0 0 0 9.916-5.416"
+        ></path></svg
+      >
     </button>
   </div>
-  <div class="overflow-hidden">
-    <p class="text-sm text-neutral-400 dark:text-neutral-400 truncate"
-      >{artist}</p
-    >
+  <div class="overflow-hidden flex-1">
+    <p class="text-sm text-neutral-400 dark:text-neutral-400 truncate">
+      {artist}
+    </p>
     <p
       class="text-base font-semibold text-neutral-600 dark:text-neutral-50 truncate"
     >
@@ -49,21 +58,26 @@ const { title, artist, previewUrl, thumbnail } = song;
 </div>
 
 <script>
-    const audio = document.getElementById('audio') as HTMLAudioElement;
-    const playPauseButton = document.getElementById('playPauseBtn') as HTMLButtonElement;
+  const audio = document.getElementById("audio") as HTMLAudioElement;
+  const playPauseButton = document.getElementById(
+    "playPauseBtn"
+  ) as HTMLButtonElement;
 
-    // Toggle play/pause functionality
-    playPauseButton.addEventListener('click', function() {
-      if (audio.paused) {
-        audio.play();
-        playPauseButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M17.276 5.47c.435.16.724.575.724 1.039V17.49c0 .464-.29.879-.724 1.039a3.7 3.7 0 0 1-2.552 0A1.11 1.11 0 0 1 14 17.491V6.51c0-.464.29-.879.724-1.04a3.7 3.7 0 0 1 2.552 0m-8 0c.435.16.724.575.724 1.039V17.49c0 .464-.29.879-.724 1.039a3.7 3.7 0 0 1-2.552 0A1.11 1.11 0 0 1 6 17.491V6.51c0-.464.29-.879.724-1.04a3.7 3.7 0 0 1 2.552 0"/></svg>';
-      } else {
-        audio.pause();
-        playPauseButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M19.266 13.516a1.917 1.917 0 0 0 0-3.032A35.8 35.8 0 0 0 9.35 5.068l-.653-.232c-1.248-.443-2.567.401-2.736 1.69a42.5 42.5 0 0 0 0 10.948c.17 1.289 1.488 2.133 2.736 1.69l.653-.232a35.8 35.8 0 0 0 9.916-5.416"/></svg>';
-      }
-    });
+  // Toggle play/pause functionality
+  playPauseButton.addEventListener("click", function () {
+    if (audio.paused) {
+      audio.play();
+      playPauseButton.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M17.276 5.47c.435.16.724.575.724 1.039V17.49c0 .464-.29.879-.724 1.039a3.7 3.7 0 0 1-2.552 0A1.11 1.11 0 0 1 14 17.491V6.51c0-.464.29-.879.724-1.04a3.7 3.7 0 0 1 2.552 0m-8 0c.435.16.724.575.724 1.039V17.49c0 .464-.29.879-.724 1.039a3.7 3.7 0 0 1-2.552 0A1.11 1.11 0 0 1 6 17.491V6.51c0-.464.29-.879.724-1.04a3.7 3.7 0 0 1 2.552 0"/></svg>';
+    } else {
+      audio.pause();
+      playPauseButton.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M19.266 13.516a1.917 1.917 0 0 0 0-3.032A35.8 35.8 0 0 0 9.35 5.068l-.653-.232c-1.248-.443-2.567.401-2.736 1.69a42.5 42.5 0 0 0 0 10.948c.17 1.289 1.488 2.133 2.736 1.69l.653-.232a35.8 35.8 0 0 0 9.916-5.416"/></svg>';
+    }
+  });
 
-    audio.addEventListener('ended', function() {
-      playPauseButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M6.545 8.163a.75.75 0 0 1-.487-1.044l1.66-3.535a.75.75 0 0 1 1.36.002l.732 1.569l.08-.027a8.15 8.15 0 1 1-5.8 5.903a.75.75 0 1 1 1.456.364a6.65 6.65 0 1 0 4.907-4.862l.74 1.583a.75.75 0 0 1-.872 1.043z"/></svg>'; // Reset to play when audio ends
-    });
+  audio.addEventListener("ended", function () {
+    playPauseButton.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M6.545 8.163a.75.75 0 0 1-.487-1.044l1.66-3.535a.75.75 0 0 1 1.36.002l.732 1.569l.08-.027a8.15 8.15 0 1 1-5.8 5.903a.75.75 0 1 1 1.456.364a6.65 6.65 0 1 0 4.907-4.862l.74 1.583a.75.75 0 0 1-.872 1.043z"/></svg>'; // Reset to play when audio ends
+  });
 </script>
