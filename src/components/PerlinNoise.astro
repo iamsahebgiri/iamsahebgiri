@@ -1,0 +1,72 @@
+<canvas class="h-full w-full cursor-pointer" id="perlin-noise"></canvas>
+
+<script>
+  import { perlin2, seed } from "../lib/perlin";
+  const canvas = document.getElementById("perlin-noise") as HTMLCanvasElement;
+  const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+
+  const canvasScale = 1.4;
+  const width = canvas.width * canvasScale;
+  const height = canvas.height * canvasScale;
+  let isDarkMode = document.documentElement.classList.contains("dark");
+
+  canvas.width = width;
+  canvas.height = height;
+
+  console.log(document.documentElement.classList);
+  // Particle setup
+  const noiseScale = 1 / 300;
+  const noOfParticles = 300;
+  const particles = Array.from({ length: noOfParticles }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+  }));
+
+  // Check if a particle is out of the screen
+  function isOutOfScreen(p: { x: any; y: any }) {
+    return p.x >= width || p.x <= 0 || p.y >= height || p.y <= 0;
+  }
+
+  // Animation loop
+  function draw() {
+    ctx.fillStyle = isDarkMode
+      ? "rgba(0, 0, 0, 0.1)"
+      : "rgba(255, 255, 255, 0.1)";
+    ctx.fillRect(0, 0, width, height);
+
+    particles.forEach((p) => {
+      const n = perlin2(p.x * noiseScale, p.y * noiseScale);
+      const hue = Math.floor(n * 300);
+
+      ctx.fillStyle = `hsla(${hue}, 95%, 20%, 5)`;
+      ctx.fillRect(p.x, p.y, 1, 1);
+
+      const angle = 2 * Math.PI * n;
+      p.x += Math.cos(angle);
+      p.y += Math.sin(angle);
+
+      if (isOutOfScreen(p)) {
+        p.x = Math.random() * width;
+        p.y = Math.random() * height;
+      }
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  // Reseed noise on mouse press
+  canvas.addEventListener("mousedown", () => {
+    seed(Math.random());
+  });
+
+  draw();
+
+  const observer = new MutationObserver(() => {
+    isDarkMode = document.documentElement.classList.contains("dark");
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+</script>

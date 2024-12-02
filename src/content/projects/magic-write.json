@@ -13,5 +13,6 @@
   ],
   "theme": "purple",
   "link": "https://github.com/iamsahebgiri/magic-write",
-  "status": "active"
+  "status": "active",
+  "featured": true
 }

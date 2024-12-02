@@ -1,6 +1,7 @@
 ---
-import "@fontsource-variable/inter";
+import "@fontsource/geist-sans";
 import "@fontsource/geist-mono";
+import "@fontsource/instrument-serif";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -41,12 +42,12 @@ const { title, description } = Astro.props;
   }
 
   // dynamically change favicon
-  let i = 0;
   setInterval(() => {
     const favicon = document.querySelector("link[rel=icon]");
-    favicon.href = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${emojis[i]}</text></svg>`;
-    i = (i + 1) % emojis.length;
-  }, 2000);
+    // set favicon to a random emoji
+    const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+    favicon.href = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${emoji}</text></svg>`;
+  }, 1500);
 </script>
 
 <html lang="en">
@@ -57,7 +58,7 @@ const { title, description } = Astro.props;
     />
   </head>
   <body
-    class="container max-w-5xl mx-auto py-6 px-4 bg-neutral-50/90 dark:bg-neutral-900"
+    class="container max-w-3xl mx-auto py-6 px-4 bg-neutral-50/90 dark:bg-neutral-900"
   >
     <Header />
     <main>

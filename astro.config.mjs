@@ -7,10 +7,18 @@ import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 export default defineConfig({
   site: "https://iamsahebgiri.pages.dev",
-  integrations: [mdx(), sitemap(), tailwind()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
   output: "server",
   adapter: cloudflare({
     imageService: "passthrough",
-    mode: "directory",
+    platformProxy: {
+      enabled: true,
+    },
   }),
 });

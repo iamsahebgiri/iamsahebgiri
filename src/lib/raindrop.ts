@@ -15,7 +15,7 @@ export async function getRaindrops(collectionId: string): Promise<Item[]> {
     });
 
     if (response.ok) {
-      const data = await response.json();
+      const data: { items: Item[] } = await response.json();
       return data.items;
     } else {
       console.error(`Error fetching raindrop: ${response.statusText}`);

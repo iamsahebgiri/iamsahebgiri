@@ -8,16 +8,15 @@ const posts = await getCollection('snippets');
 <BaseLayout>
   <header class="py-16 text-center">
     <h1
-      class="mb-4 text-3xl sm:text-4xl tracking-tight text-neutral-900 font-bold dark:text-neutral-200"
+      class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200"
     >
       Snippets
     </h1>
-    <p class="text-lg text-neutral-700 dark:text-neutral-400">
+    <p class="text-base text-neutral-500 dark:text-neutral-400">
       A collection of frequently used code snippets.
     </p>
   </header>
   <div class="prose dark:prose-invert mx-auto">
-    <>
       {
         posts?.map((post) => (
           <article class="mb-12">
@@ -31,6 +30,5 @@ const posts = await getCollection('snippets');
           </article>
         ))
       }
-    </>
   </div>
 </BaseLayout>
