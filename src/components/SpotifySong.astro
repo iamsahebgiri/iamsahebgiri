@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+import type { SpotifySong } from "../types";
+
+interface Props {
+  song: SpotifySong
+}
+
+const { song } = Astro.props;
+const { title, artist, previewUrl, thumbnail } = song;
+---
+<div
+  class="rounded-2xl h-32 p-6 bg-gradient-to-l from-green-200 to-white dark:from-green-700 dark:to-neutral-900 flex items-center gap-3.5 relative"
+>
+    <div class="relative">
+    <audio id="audio" src={previewUrl}></audio>
+    <Image
+        height={48}
+        width={48}
+        class="h-12 w-12 rounded-lg"
+        src={thumbnail}
+        alt="Move on up"
+    />
+    <button class="absolute top-3 left-3" id="playPauseBtn">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M19.266 13.516a1.917 1.917 0 0 0 0-3.032A35.8 35.8 0 0 0 9.35 5.068l-.653-.232c-1.248-.443-2.567.401-2.736 1.69a42.5 42.5 0 0 0 0 10.948c.17 1.289 1.488 2.133 2.736 1.69l.653-.232a35.8 35.8 0 0 0 9.916-5.416"/></svg>
+    </button>
+  </div>
+  <div class="overflow-hidden">
+    <p class="text-sm text-neutral-400 dark:text-neutral-400 truncate"
+      >{artist}</p
+    >
+    <p
+      class="text-base font-semibold text-neutral-600 dark:text-neutral-50 truncate"
+    >
+      {title}
+    </p>
+  </div>
+  <div class="absolute right-3 bottom-3">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6"
+      viewBox="0 0 256 256"
+      ><path
+        fill="#1ed760"
+        d="M128 0C57.308 0 0 57.309 0 128c0 70.696 57.309 128 128 128c70.697 0 128-57.304 128-128C256 57.314 198.697.007 127.998.007zm58.699 184.614c-2.293 3.76-7.215 4.952-10.975 2.644c-30.053-18.357-67.885-22.515-112.44-12.335a7.98 7.98 0 0 1-9.552-6.007a7.97 7.97 0 0 1 6-9.553c48.76-11.14 90.583-6.344 124.323 14.276c3.76 2.308 4.952 7.215 2.644 10.975m15.667-34.853c-2.89 4.695-9.034 6.178-13.726 3.289c-34.406-21.148-86.853-27.273-127.548-14.92c-5.278 1.594-10.852-1.38-12.454-6.649c-1.59-5.278 1.386-10.842 6.655-12.446c46.485-14.106 104.275-7.273 143.787 17.007c4.692 2.89 6.175 9.034 3.286 13.72zm1.345-36.293C162.457 88.964 94.394 86.71 55.007 98.666c-6.325 1.918-13.014-1.653-14.93-7.978c-1.917-6.328 1.65-13.012 7.98-14.935C93.27 62.027 168.434 64.68 215.929 92.876c5.702 3.376 7.566 10.724 4.188 16.405c-3.362 5.69-10.73 7.565-16.4 4.187z"
+      ></path></svg
+    >
+  </div>
+</div>
+
+<script>
+    const audio = document.getElementById('audio') as HTMLAudioElement;
+    const playPauseButton = document.getElementById('playPauseBtn') as HTMLButtonElement;
+
+    // Toggle play/pause functionality
+    playPauseButton.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        playPauseButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M17.276 5.47c.435.16.724.575.724 1.039V17.49c0 .464-.29.879-.724 1.039a3.7 3.7 0 0 1-2.552 0A1.11 1.11 0 0 1 14 17.491V6.51c0-.464.29-.879.724-1.04a3.7 3.7 0 0 1 2.552 0m-8 0c.435.16.724.575.724 1.039V17.49c0 .464-.29.879-.724 1.039a3.7 3.7 0 0 1-2.552 0A1.11 1.11 0 0 1 6 17.491V6.51c0-.464.29-.879.724-1.04a3.7 3.7 0 0 1 2.552 0"/></svg>';
+      } else {
+        audio.pause();
+        playPauseButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M19.266 13.516a1.917 1.917 0 0 0 0-3.032A35.8 35.8 0 0 0 9.35 5.068l-.653-.232c-1.248-.443-2.567.401-2.736 1.69a42.5 42.5 0 0 0 0 10.948c.17 1.289 1.488 2.133 2.736 1.69l.653-.232a35.8 35.8 0 0 0 9.916-5.416"/></svg>';
+      }
+    });
+
+    audio.addEventListener('ended', function() {
+      playPauseButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M6.545 8.163a.75.75 0 0 1-.487-1.044l1.66-3.535a.75.75 0 0 1 1.36.002l.732 1.569l.08-.027a8.15 8.15 0 1 1-5.8 5.903a.75.75 0 1 1 1.456.364a6.65 6.65 0 1 0 4.907-4.862l.74 1.583a.75.75 0 0 1-.872 1.043z"/></svg>'; // Reset to play when audio ends
+    });
+</script>

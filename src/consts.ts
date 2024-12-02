@@ -1,7 +1,7 @@
 export const SITE_TITLE =
   'Saheb Giri - Software Engineer, Tinkerer, and Developer.';
 export const SITE_DESCRIPTION =
-  'Seasoned Software Engineer with 5+ years of experience bringing web projects to life, from inception to deployment. Thinking out loud about design, development, and building excellent software.';
+  'Software Engineer with 5+ years of experience bringing web projects to life, from inception to deployment. Thinking out loud about design, development, and building excellent software.';
 
 export const SEO = {
   title: SITE_TITLE,

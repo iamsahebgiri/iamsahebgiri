@@ -1,5 +1,5 @@
 ---
-title: 'Mastering Scalability: Nginx and Docker Unleashed'
+title: 'Building high availability node app using nginx (as loadbalancer) and docker'
 description: 'We will explore the powerful combination of Nginx as a load balancer and Docker Compose for orchestrating multiple Express-based apps.'
 pubDate: 'July 06 2023'
 ---
@@ -100,7 +100,7 @@ Let's add start script in `package.json` to run the server.
 
 Now that our Express app is ready, let's dockerize it. Create a new file named `Dockerfile` in the root directory of your express app.
 
-```Dockerfile
+```docker
 # Use an official Node.js runtime as the base image
 FROM node:lts-alpine3.18
 
@@ -139,7 +139,7 @@ touch nginx.conf
 
 Open it in your text editor and add the following configuration:
 
-```conf
+```nginx
 upstream loadbalancer {
     server container1:3000;
     server container2:3000;

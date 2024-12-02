@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import type { Item } from "../types";
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+  bookmark: Item;
+}
+
+const { bookmark } = Astro.props;
+---
+
+<a href={bookmark.link} class="flex gap-4 group">
+  <Image
+    height={48}
+    width={48}
+    src={bookmark.cover || "/book.svg"}
+    alt={bookmark.title}
+    class="h-12 w-12 rounded-lg inline-block bg-cover dark:bg-neutral-800 ring-1 ring-neutral-900/5 dark:ring-white/10"
+  />
+  <div class="flex flex-col">
+    <span
+      class="font-semibold text-md text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-200 transition"
+    >
+      {bookmark.title}
+    </span>
+    <span class="text-sm text-neutral-500 dark:text-neutral-500">
+      <FormattedDate date={new Date(bookmark.created)} />
+    </span>
+  </div>
+</a>

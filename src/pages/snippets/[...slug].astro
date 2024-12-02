@@ -2,9 +2,11 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
 	const snippets = await getCollection('snippets');
-	
+
 	return snippets.map((snippet) => ({
 		params: { slug: snippet.slug },
 		props: snippet,

@@ -7,15 +7,15 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<BaseLayout title="Overthoughts" description="Sharing what I have learned with the world."> 
+<BaseLayout title="Articles" description="Sharing what I have learned as a developer">
   <header class="py-16 text-center">
     <h1
-      class="mb-4 text-3xl sm:text-4xl tracking-tight text-neutral-900 font-bold dark:text-neutral-200"
+      class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200"
     >
-      Overthoughts
+      Articles
     </h1>
-    <p class="text-lg text-neutral-700 dark:text-neutral-400">
-      Sharing what I have learned with the world.
+    <p class="text-base text-neutral-500 dark:text-neutral-400">
+      Sharing what I have learned as a developer
     </p>
   </header>
   <section class="mt-16">
@@ -23,17 +23,12 @@ const posts = (await getCollection('blog')).sort(
       {
         posts.map((post) => (
           <article class="group relative flex flex-col items-start">
-            <>
               <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-100">
-                <>
                   <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-neutral-100 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-neutral-800/50 sm:-inset-x-6 sm:rounded-2xl" />
                   <a href={`/blog/${post.slug}/`}>
-                    <>
                       <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
                       <span class="relative z-10">{post.data.title}</span>
-                    </>
                   </a>
-                </>
               </h2>
               <time
                 class="relative z-10 order-first mb-3 flex items-center text-sm text-neutral-500 dark:text-neutral-500 pl-3.5"
@@ -73,7 +68,6 @@ const posts = (await getCollection('blog')).sort(
                   />
                 </svg>
               </div>
-            </>
           </article>
         ))
       }
