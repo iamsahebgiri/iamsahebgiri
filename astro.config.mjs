@@ -16,14 +16,13 @@ export default defineConfig({
   ],
   output: "server",
   adapter: cloudflare({
-    imageService: "passthrough",
     platformProxy: {
       enabled: true,
     },
   }),
   vite: {
     ssr: {
-      external: ['node:buffer'],
+      external: ["node:buffer"],
     },
   },
 });

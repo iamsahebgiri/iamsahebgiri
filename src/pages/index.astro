@@ -6,6 +6,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Project from "../components/Project.astro";
 import Spotlight from "../components/Spotlight.astro";
 
+import groww from "../assets/logos/groww.webp";
+import mathongo from "../assets/logos/mathongo.png";
+import plane from "../assets/logos/plane.png";
+import vaizle from "../assets/logos/vaizle.jpeg";
+
 const featuredProjects = await getCollection("projects", ({ data }) => {
   return data.featured === true;
 });
@@ -16,16 +21,16 @@ const workExperience = [
     role: "SDE 1",
     description: "Contributing to react native (iOS) codebase",
     startDate: "Jul 2024",
-    endDate: "Now",
-    img: "/logos/groww.webp",
+    endDate: "Current",
+    img: groww,
   },
   {
     company: "Groww",
     role: "SDE Intern",
-    description: "Rebuilding CI infra and core tasks for the platform",
+    description: "Rebuilding CI infra and Core platform tasks for web",
     startDate: "Dec 2023",
     endDate: "Jun 2024",
-    img: "/logos/groww.webp",
+    img: groww,
   },
   {
     company: "Plane",
@@ -33,7 +38,7 @@ const workExperience = [
     description: "Crafting open source project management tool",
     startDate: "Mar 2023",
     endDate: "Apr 2023",
-    img: "/logos/plane.png",
+    img: plane,
   },
   {
     company: "MathonGo",
@@ -41,7 +46,7 @@ const workExperience = [
     description: "Building online learning platform",
     startDate: "Sep 2022",
     endDate: "Dec 2022",
-    img: "/logos/mathongo.png",
+    img: mathongo,
   },
   {
     company: "Vaizle",
@@ -49,7 +54,7 @@ const workExperience = [
     description: "Developing social media analytics tool",
     startDate: "Jul 2022",
     endDate: "Sep 2022",
-    img: "/logos/vaizle.jpeg",
+    img: vaizle,
   },
 ];
 ---
@@ -139,6 +144,7 @@ const workExperience = [
                         alt={experience.company}
                         height="40"
                         width="40"
+                        title={experience.description}
                       />
                     </div>
                     <div class="ml-4">

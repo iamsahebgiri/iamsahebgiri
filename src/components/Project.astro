@@ -1,26 +1,32 @@
 ---
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import { getColor } from '../utils/colors';
+import type { ImageMetadata } from 'astro';
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getColor } from "../utils/colors";
 
-type Props = CollectionEntry<'projects'>['data'];
+type Props = CollectionEntry<"projects">["data"];
 
 const { title, image, description, tags, theme, link } = Astro.props;
 
 const colorMap = {
-  'purple': 'bg-purple-100 dark:bg-purple-200',
-  'red': 'bg-red-100 dark:bg-red-200',
-  'cyan': 'bg-cyan-100 dark:bg-cyan-200',
-  'amber': 'bg-amber-100 dark:bg-amber-200',
-  'yellow': 'bg-yellow-100 dark:bg-yellow-200',
-  'green': 'bg-green-100 dark:bg-green-200',
-  'blue': 'bg-blue-100 dark:bg-blue-200',
-  'gray': 'bg-gray-100 dark:bg-gray-200',
-  'indigo': 'bg-indigo-100 dark:bg-indigo-200',
-  'orange': 'bg-orange-100 dark:bg-orange-200',
-}
-// @ts-ignore
-const color = colorMap[theme] ?? "bg-gray-100 dark:bg-gray-200";
+  purple: "bg-purple-100 dark:bg-purple-200",
+  red: "bg-red-100 dark:bg-red-200",
+  cyan: "bg-cyan-100 dark:bg-cyan-200",
+  amber: "bg-amber-100 dark:bg-amber-200",
+  yellow: "bg-yellow-100 dark:bg-yellow-200",
+  green: "bg-green-100 dark:bg-green-200",
+  blue: "bg-blue-100 dark:bg-blue-200",
+  gray: "bg-gray-100 dark:bg-gray-200",
+  indigo: "bg-indigo-100 dark:bg-indigo-200",
+  orange: "bg-orange-100 dark:bg-orange-200",
+};
+type Theme = keyof typeof colorMap;
+const color = colorMap[theme as Theme] ?? "bg-gray-100 dark:bg-gray-200";
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/logos/*.{jpeg,jpg,png,gif,svg}')
+const imageAbsolutePath = `/src/assets/logos/${image.url}`;
+console.log(images[imageAbsolutePath]);
+if (!images[imageAbsolutePath]) throw new Error(`"${image.url}" does not exist in glob: "src/assets/logos/*.{jpeg,jpg,png,gif,svg}"`);
 ---
 
 <a
@@ -30,11 +36,14 @@ const color = colorMap[theme] ?? "bg-gray-100 dark:bg-gray-200";
   style="filter: grayscale(0%); transform: none; opacity: 1;"
 >
   <div
-    class:list={["h-32 w-full flex justify-center items-center transition-all duration-200 transform", color]}
+    class:list={[
+      "h-32 w-full flex justify-center items-center transition-all duration-200 transform",
+      color,
+    ]}
   >
     <Image
       class="transition-transform duration-500 transform group-hover:scale-110"
-      src={`/logos/${image.url}`}
+      src={images[imageAbsolutePath]()}
       alt={title}
       height={image.height}
       width={image.width}
@@ -42,10 +51,22 @@ const color = colorMap[theme] ?? "bg-gray-100 dark:bg-gray-200";
   </div>
   <div class="p-4">
     <div class="flex items-center">
-      <h3 class="text-lg font-semibold text-neutral-800 dark:text-neutral-200">{title}</h3>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-neutral-800 dark:text-neutral-200 ml-auto opacity-0 transform duration-200 group-hover:opacity-100 h-3">
-        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-      </svg>  
+      <h3 class="text-lg font-semibold text-neutral-800 dark:text-neutral-200">
+        {title}
+      </h3>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="text-neutral-800 dark:text-neutral-200 ml-auto opacity-0 transform duration-200 group-hover:opacity-100 h-3"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"></path>
+      </svg>
     </div>
     <div class="mt-3 text-sm text-neutral-700 dark:text-neutral-300">
       {description}
@@ -53,7 +74,12 @@ const color = colorMap[theme] ?? "bg-gray-100 dark:bg-gray-200";
     <div class="mt-2">
       {
         tags.map((tag: string) => (
-          <span class:list={["inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 mr-2", getColor(tag)]}>
+          <span
+            class:list={[
+              "inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 mr-2",
+              getColor(tag),
+            ]}
+          >
             {tag}
           </span>
         ))
