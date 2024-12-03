@@ -67,11 +67,18 @@ const workExperience = [
         class="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0 text-center"
       >
         <video
-          src="https://www.alecbabala.com/avatar.mp4"
+          id="avatar"
           class="mx-auto h-28 w-28 rounded-full mb-6 border"
+          height="112"
+          width="112"
           autoplay
           muted
-          loop></video>
+          loop
+        >
+          <source src="/avatar.webm" type="video/webm" />
+          <source src="/avatar.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <h1 class="text-4xl font-serif md:text-6xl font-semibold text-center">
           <span
             class="bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-50 dark:to-neutral-400 from-neutral-400 to-neutral-800 bg-opacity-50"
