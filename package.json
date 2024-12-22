@@ -28,6 +28,7 @@
     "@cloudflare/workers-types": "^4.20241127.0",
     "@tailwindcss/typography": "^0.5.15",
     "prettier": "^3.4.1",
+    "sharp": "^0.33.5",
     "wrangler": "^3.91.0"
   }
 }

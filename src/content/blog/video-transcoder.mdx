@@ -3,9 +3,6 @@ title: 'Video Transcoding Service from Scratch'
 description: 'Designing a video transcoding service from scratch using TUSd, FFmpeg, RabbitMQ, AWS S3/Minio and HLS for early startups'
 pubDate: 'Dec 23 2024'
 ---
-import { Image } from 'astro:assets';
-import videoTranscoderHld from '../../assets/articles/video-transcoder.png';
-
 
 ## Understanding the problem and defining scope
 
@@ -22,8 +19,7 @@ This design should cater to the following needs:
 -Scalable, reliable, and low-cost infrastructure
 
 ## High Level Design
-<Image src={videoTranscoderHld} alt="HLD of Video Transcoder"/>
-
+![HLD of Video Transcoder](../../assets/articles/video-transcoder.png)
 
 ## Components
 - **TUSd** - TUSd is a protocol for resumable file uploads. It allows you to resume file uploads from where it left off. It is a simple protocol that allows you to upload files in chunks. TUSd is a server implementation of the TUS protocol. It is written in Go and is easy to deploy. This is used by supabase for uploading large files.
