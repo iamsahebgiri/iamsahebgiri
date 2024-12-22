@@ -1,5 +1,6 @@
 {
   "id": "ret8co1222",
+  "order": 2,
   "image": {
     "url": "betabuzz.svg",
     "height": "48",
@@ -10,10 +11,13 @@
   "tags": [
     "Express",
     "NextJS",
+    "ShadcnUI",
     "EC2",
     "S3",
     "Docker",
-    "Stripe"
+    "Stripe",
+    "Prometheus",
+    "Grafana"
   ],
   "theme": "red",
   "link": "https://github.com/iamsahebgiri/betabuzz",

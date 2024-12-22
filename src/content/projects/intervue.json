@@ -1,0 +1,24 @@
+{
+  "id": "72f439d453c747c0",
+  "order": 1,
+  "image": {
+    "url": "intervue.svg",
+    "height": "48",
+    "width": "48"
+  },
+  "title": "Intervue",
+  "description": "A platform for conducting technical interviews with a focus on real-time code collaboration.",
+  "tags": [
+    "Bun",
+    "WebSocket",
+    "WebRTC",
+    "YJS",
+    "RCE",
+    "RabbitMQ",
+    "Drizzle"
+  ],
+  "theme": "purple",
+  "link": "https://github.com/iamsahebgiri/intervue",
+  "status": "active",
+  "featured": true
+}

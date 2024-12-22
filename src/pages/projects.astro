@@ -14,6 +14,8 @@ projects.forEach((project) => {
     restProjects.push(project);
   }
 });
+
+featuredProjects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout>

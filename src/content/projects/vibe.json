@@ -1,5 +1,6 @@
 {
   "id": "ret8co1222",
+  "order": 4,
   "image": {
     "url": "vibe.png",
     "height": "48",
@@ -11,7 +12,9 @@
     "React Native",
     "Expo",
     "GraphQL",
-    "MongoDB"
+    "MongoDB",
+    "Apollo",
+    "OAuth"
   ],
   "theme": "green",
   "link": "https://github.com/iamsahebgiri/vibe",
