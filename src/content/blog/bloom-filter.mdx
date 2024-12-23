@@ -1,0 +1,51 @@
+---
+title: 'WTF is a Bloom Filter?'
+description: 'Bloom Filter is a probabilistic data structure that is used to test whether an element is a member of a set. False positive matches are possible, but false negatives are not.'
+pubDate: 'Dec 24 2024'
+---
+
+## WTF is a Bloom Filter?
+
+Bloom filter is a proablistic data strcture which is used to test whether an element exists in a set. 
+
+It is a space-efficient probabilistic data structure that is used to test whether an element is a member of a set. False positive (False alarm) matches are possible which means it can say item exists in set but in reality its not, but false negatives are not possible.
+
+## Usecases
+- Check if username is already taken
+- Check if a URL is spam or not from a large database
+- Check if a word is in a dictionary
+
+## Explain me, pleases
+
+- Bloom filter is a bit array of m bits, all set to 0 initially.
+- There are k different hash functions defined, each of which maps or hashes some set element to one of the m array positions.
+- To add an element, feed it to each of the k hash functions to get k array positions. Set the bits at all these positions to 1.
+- To check if an element is in the set, feed it to each of the k hash functions to get k array positions. If any of the bits at these positions is 0, the element is definitely not in the set – if it were, then all the bits would have been set to 1 when it was inserted. If all are 1, then the element might be in the set. In practice, the more bits that are set to 1, the more likely it is that the element is in the set.
+
+
+
+## Implementation
+```python
+from bitarray import bitarray
+import mmh3
+
+class BloomFilter:
+    def __init__(self, size, hash_count):
+        self.size = size
+        self.hash_count = hash_count
+        self.bit_array = bitarray(size)
+        self.bit_array.setall(0)
+
+    def add(self, string):
+        for seed in range(self.hash_count):
+            result = mmh3.hash(string, seed) % self.size
+            self.bit_array[result] = 1
+
+    def lookup(self, string):
+        for seed in range(self.hash_count):
+            result = mmh3.hash(string, seed) % self.size
+            if self.bit_array[result] == 0:
+                return "Nope"
+        return "Probably"
+```
+
