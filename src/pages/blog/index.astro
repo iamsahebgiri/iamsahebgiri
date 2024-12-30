@@ -25,7 +25,7 @@ const posts = (await getCollection('blog')).sort(
           <article class="group relative flex flex-col items-start">
               <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-100">
                   <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-neutral-100 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-neutral-800/50 sm:-inset-x-6 sm:rounded-2xl" />
-                  <a href={`/blog/${post.slug}/`}>
+                  <a href={`/blog/${post.id}/`}>
                       <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
                       <span class="relative z-10">{post.data.title}</span>
                   </a>

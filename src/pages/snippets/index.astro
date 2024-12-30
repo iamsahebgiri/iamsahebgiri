@@ -1,8 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const posts = await getCollection('snippets');
+const snippets = await getCollection("snippets");
 ---
 
 <BaseLayout>
@@ -17,18 +17,18 @@ const posts = await getCollection('snippets');
     </p>
   </header>
   <div class="prose dark:prose-invert mx-auto">
-      {
-        posts?.map((post) => (
-          <article class="mb-12">
-            <h3 class="title">
-              {post.data.title} ({post.data.type})
-            </h3>
-            {async () => {
-              const { Content } = await post.render();
-              return <Content />;
-            }}
-          </article>
-        ))
-      }
+    {
+      snippets?.map((snippet) => (
+        <article class="mb-12">
+          <h3 class="title">
+            {snippet.data.title} ({snippet.data.type})
+          </h3>
+          {async () => {
+            const { Content } = await render(snippet);
+            return <Content />;
+          }}
+        </article>
+      ))
+    }
   </div>
 </BaseLayout>

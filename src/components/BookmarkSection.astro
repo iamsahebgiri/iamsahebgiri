@@ -1,9 +1,9 @@
 ---
-import type { Item } from "../types";
-import Bookmark from "./Bookmark.astro";
+import type { CollectionEntry } from "astro:content";
+import Bookmark from "@/components/Bookmark.astro";
 
 interface Props {
-  bookmarks: Item[];
+  bookmarks: CollectionEntry<"books" | "papers" | "articles">[];
   title: string;
 }
 

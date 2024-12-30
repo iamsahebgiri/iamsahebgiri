@@ -1,13 +1,13 @@
 ---
 import { Image } from "astro:assets";
-import type { SpotifySong } from "../types";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  song: SpotifySong;
+  song: CollectionEntry<"spotifyLikedSong">;
 }
 
 const { song } = Astro.props;
-const { title, artist, previewUrl, thumbnail } = song;
+const { title, artist, previewUrl, thumbnail } = song.data;
 ---
 
 <div

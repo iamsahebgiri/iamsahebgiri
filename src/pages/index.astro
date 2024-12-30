@@ -14,7 +14,8 @@ import vaizle from "../assets/logos/vaizle.jpeg";
 const featuredProjects = await getCollection("projects", ({ data }) => {
   return data.featured === true;
 });
-featuredProjects.sort((a, b) => a.data.order - b.data.order);
+// FIXME: fix types
+featuredProjects.sort((a, b) => (a.data as any).order - (b.data as any).order);
 
 const workExperience = [
   {

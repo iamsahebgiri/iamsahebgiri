@@ -46,8 +46,8 @@ if (!images[imageAbsolutePath]) throw new Error(`"${image.url}" does not exist i
       class="transition-transform duration-500 transform group-hover:scale-110"
       src={images[imageAbsolutePath]()}
       alt={title}
-      height={image.height}
-      width={image.width}
+      height={Number(image.height)}
+      width={Number(image.width)}
     />
   </div>
   <div class="p-4">
