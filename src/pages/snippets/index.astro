@@ -1,34 +1,28 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const posts = await getCollection('snippets');
+const snippets = await getCollection("snippets");
 ---
 
 <BaseLayout>
   <header class="py-16 text-center">
-    <h1
-      class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200"
-    >
-      Snippets
-    </h1>
-    <p class="text-base text-neutral-500 dark:text-neutral-400">
-      A collection of frequently used code snippets.
-    </p>
+    <h1 class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200">Snippets</h1>
+    <p class="text-base text-neutral-500 dark:text-neutral-400">A collection of frequently used code snippets.</p>
   </header>
   <div class="prose dark:prose-invert mx-auto">
-      {
-        posts?.map((post) => (
-          <article class="mb-12">
-            <h3 class="title">
-              {post.data.title} ({post.data.type})
-            </h3>
-            {async () => {
-              const { Content } = await post.render();
-              return <Content />;
-            }}
-          </article>
-        ))
-      }
+    {
+      snippets?.map((snippet) => (
+        <article class="mb-12">
+          <h3 class="title">
+            {snippet.data.title} ({snippet.data.type})
+          </h3>
+          {async () => {
+            const { Content } = await render(snippet);
+            return <Content />;
+          }}
+        </article>
+      ))
+    }
   </div>
 </BaseLayout>

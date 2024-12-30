@@ -12,12 +12,12 @@ export default {
         serif: ["Instrument Serif", ...defaultTheme.fontFamily.serif],
       },
       animation: {
-        spotlight: "spotlight 2s ease .75s 1 forwards",
+        "spotlight": "spotlight 2s ease .75s 1 forwards",
         "background-shine": "background-shine 2s linear infinite",
-        float: "float 5s ease infinite",
+        "float": "float 5s ease infinite",
       },
       keyframes: {
-        spotlight: {
+        "spotlight": {
           "0%": {
             opacity: 0,
             transform: "translate(-72%, -62%) scale(0.5)",
@@ -35,7 +35,7 @@ export default {
             backgroundPosition: "-200% 0",
           },
         },
-        float: {
+        "float": {
           "0%, 100%": {
             transform: "translate(0) scale(1)",
           },

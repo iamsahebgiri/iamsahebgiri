@@ -1,26 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getRaindrops } from "../lib/raindrop";
-import { RAINDROP } from "../consts";
 import BookmarkSection from "../components/BookmarkSection.astro";
+import { getCollection } from "astro:content";
 
-const books = await getRaindrops(RAINDROP.BOOKS_COLLECTION_ID);
-const articles = await getRaindrops(RAINDROP.ARTICLES_COLLECTION_ID);
-const papers = await getRaindrops(RAINDROP.PAPERS_COLLECTION_ID);
-
-console.log(books, articles, papers);
+const books = await getCollection("books");
+const articles = await getCollection("articles");
+const papers = await getCollection("papers");
 ---
 
 <BaseLayout>
   <header class="py-16 text-center">
-    <h1
-      class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200"
-    >
-      Bookmarks
-    </h1>
-    <p class="text-base text-neutral-500 dark:text-neutral-400">
-      Things I have read and found interesting.
-    </p>
+    <h1 class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200">Bookmarks</h1>
+    <p class="text-base text-neutral-500 dark:text-neutral-400">Things I have read and found interesting.</p>
   </header>
   <BookmarkSection title="Papershelf" bookmarks={papers} />
   <BookmarkSection title="Bookshelf" bookmarks={books} />

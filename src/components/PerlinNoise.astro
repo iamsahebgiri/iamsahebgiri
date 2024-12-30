@@ -2,6 +2,7 @@
 
 <script>
   import { perlin2, seed } from "../lib/perlin";
+
   const canvas = document.getElementById("perlin-noise") as HTMLCanvasElement;
   const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
@@ -28,9 +29,7 @@
 
   // Animation loop
   function draw() {
-    ctx.fillStyle = isDarkMode
-      ? "rgba(32, 32, 32, 0.1)"
-      : "rgba(255, 255, 255, 0.1)";
+    ctx.fillStyle = isDarkMode ? "rgba(32, 32, 32, 0.1)" : "rgba(255, 255, 255, 0.1)";
     ctx.fillRect(0, 0, width, height);
 
     particles.forEach((p) => {

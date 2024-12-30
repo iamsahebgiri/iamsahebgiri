@@ -14,7 +14,8 @@ import vaizle from "../assets/logos/vaizle.jpeg";
 const featuredProjects = await getCollection("projects", ({ data }) => {
   return data.featured === true;
 });
-featuredProjects.sort((a, b) => a.data.order - b.data.order);
+// FIXME: fix types
+featuredProjects.sort((a, b) => (a.data as any).order - (b.data as any).order);
 
 const workExperience = [
   {
@@ -61,17 +62,12 @@ const workExperience = [
 ---
 
 <BaseLayout>
-  <Spotlight
-    classx="left-30 -top-20 md:left-60 lg:left-96 lg:-top-20"
-    fill="orange"
-  />
+  <Spotlight classx="left-30 -top-20 md:left-60 lg:left-96 lg:-top-20" fill="orange" />
   <section class="my-16">
     <div
       class="h-[28rem] md:h-[40rem] w-full rounded-md flex md:items-center md:justify-center antialiased bg-grid-white/[0.02] relative overflow-hidden"
     >
-      <div
-        class="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0 text-center"
-      >
+      <div class="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0 text-center">
         <video
           id="avatar"
           class="mx-auto h-28 w-28 rounded-full mb-6 border"
@@ -94,11 +90,9 @@ const workExperience = [
           👋
         </h1>
 
-        <p
-          class="mt-4 font-normal text-base text-neutral-500 dark:text-neutral-300 max-w-lg text-center mx-auto"
-        >
-          I help growing businesses, agencies, and studios execute their vision
-          with scalable apps, clean code, and fast delivery.
+        <p class="mt-4 font-normal text-base text-neutral-500 dark:text-neutral-300 max-w-lg text-center mx-auto">
+          I help growing businesses, agencies, and studios execute their vision with scalable apps, clean code, and fast
+          delivery.
         </p>
         <div class="mt-8">
           <a
@@ -123,11 +117,7 @@ const workExperience = [
     <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
       {featuredProjects.map(({ data }) => <Project {...data} />)}
     </div>
-    <h2
-      class="mt-12 mb-6 text-2xl font-serif font-bold text-neutral-900 dark:text-neutral-50"
-    >
-      Experience
-    </h2>
+    <h2 class="mt-12 mb-6 text-2xl font-serif font-bold text-neutral-900 dark:text-neutral-50">Experience</h2>
     <div
       class="inline-block w-full max-w-full overflow-hidden align-middle bg-white/90 backdrop-blur dark:bg-neutral-800 ring-1 ring-neutral-900/5 dark:ring-white/10 shadow rounded-lg"
     >
@@ -152,9 +142,7 @@ const workExperience = [
                       <div class="text-sm leading-5 font-medium text-neutral-900 dark:text-neutral-100">
                         {experience.role}
                       </div>
-                      <div class="text-sm leading-5 text-neutral-500 dark:text-neutral-400">
-                        {experience.company}
-                      </div>
+                      <div class="text-sm leading-5 text-neutral-500 dark:text-neutral-400">{experience.company}</div>
                     </div>
                   </div>
                 </td>
@@ -165,9 +153,7 @@ const workExperience = [
                   </td> */}
                 <td class="px-6 py-4 whitespace-no-wrap text-neutral-600 dark:text-neutral-500 text-sm text-right">
                   <span class="">{experience.startDate}</span> -
-                  <span class:list={[index === 0 && "font-bold"]}>
-                    {experience.endDate}
-                  </span>
+                  <span class:list={[index === 0 && "font-bold"]}>{experience.endDate}</span>
                 </td>
               </tr>
             ))

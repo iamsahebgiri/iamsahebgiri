@@ -1,37 +1,50 @@
 ---
-import { Image } from 'astro:assets';
-import { type CollectionEntry, getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from "astro:assets";
+import { type CollectionEntry, getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { render } from "astro:content";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
 }
-type Props = CollectionEntry<'blog'>;
+type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 const { pubDate, title, heroImage } = post.data;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <BaseLayout {...post.data}>
-	<article class="mx-auto">
-		<div class="mt-12 mx-auto prose prose-neutral dark:prose-invert">
-			<div class="text-center py-6">
-				<div class="date">
-					<time class="text-neutral-700 dark:text-neutral-400" datetime={pubDate.toISOString()}>{new Date(pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-				</div>
-				<h1 class="text-2xl font-serif text-neutral-900 dark:text-neutral-200 md:text-4xl ">{title}</h1>
-			</div>
-			<div class="hero-image">
-				{heroImage && <Image width={1020} height={510} src={heroImage} alt={title} class="rounded-2xl ring-1 ring-inset ring-slate-900/10 dark:ring-white/10" />}
-			</div>
-			<Content />
-		</div>
-	</article>
+  <article class="mx-auto">
+    <div class="mt-12 mx-auto prose prose-neutral dark:prose-invert">
+      <div class="text-center py-6">
+        <div class="date">
+          <time class="text-neutral-700 dark:text-neutral-400" datetime={pubDate.toISOString()}
+            >{new Date(pubDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time
+          >
+        </div>
+        <h1 class="text-2xl font-serif text-neutral-900 dark:text-neutral-200 md:text-4xl mt-4">{title}</h1>
+      </div>
+      <div class="hero-image">
+        {
+          heroImage && (
+            <Image
+              width={1020}
+              height={510}
+              src={heroImage}
+              alt={title}
+              class="rounded-2xl ring-1 ring-inset ring-slate-900/10 dark:ring-white/10"
+            />
+          )
+        }
+      </div>
+      <Content />
+    </div>
+  </article>
 </BaseLayout>

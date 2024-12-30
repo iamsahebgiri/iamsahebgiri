@@ -35,7 +35,7 @@ const { title, description } = Astro.props;
   ];
   const emojis = [];
   for (let i = 0; i < emojRange.length; i++) {
-    let range = emojRange[i];
+    const range = emojRange[i];
     for (let x = range[0]; x < range[1]; x++) {
       emojis.push(String.fromCodePoint(x));
     }
@@ -52,14 +52,9 @@ const { title, description } = Astro.props;
 
 <html lang="en">
   <head>
-    <BaseHead
-      title={title ? title : SITE_TITLE}
-      description={description ? description : SITE_DESCRIPTION}
-    />
+    <BaseHead title={title ? title : SITE_TITLE} description={description ? description : SITE_DESCRIPTION} />
   </head>
-  <body
-    class="container max-w-3xl mx-auto py-6 px-4 bg-neutral-50/90 dark:bg-neutral-900"
-  >
+  <body class="container max-w-3xl mx-auto py-6 px-4 bg-neutral-50/90 dark:bg-neutral-900">
     <Header />
     <main>
       <slot />

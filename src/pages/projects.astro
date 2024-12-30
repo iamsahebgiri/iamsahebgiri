@@ -14,30 +14,17 @@ projects.forEach((project) => {
     restProjects.push(project);
   }
 });
-
-featuredProjects.sort((a, b) => a.data.order - b.data.order);
+// FIXME: fix types
+featuredProjects.sort((a, b) => (a.data as any).order - (b.data as any).order);
 ---
 
 <BaseLayout>
   <header class="py-16 text-center">
-    <h1
-      class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200"
-    >
-      Work
-    </h1>
-    <p class="text-base text-neutral-500 dark:text-neutral-400">
-      A collection of projects I have worked on.
-    </p>
+    <h1 class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200">Work</h1>
+    <p class="text-base text-neutral-500 dark:text-neutral-400">A collection of projects I have worked on.</p>
   </header>
-  <div
-    class="grid grid-cols-1 gap-3 sm:grid-cols-2"
-    style="opacity:1;transform:none"
-  >
-    {
-      featuredProjects
-        .slice(0, projects.length)
-        .map((project) => <Project {...project.data} />)
-    }
+  <div class="grid grid-cols-1 gap-3 sm:grid-cols-2" style="opacity:1;transform:none">
+    {featuredProjects.slice(0, projects.length).map((project) => <Project {...project.data} />)}
   </div>
   <div class="py-6 text-center">
     <button
@@ -47,37 +34,27 @@ featuredProjects.sort((a, b) => a.data.order - b.data.order);
       Show more
     </button>
   </div>
-  <div
-    class="hidden grid-cols-1 gap-3 sm:grid-cols-2"
-    style="opacity:1;transform:none"
-    id="rest-projects"
-  >
-    {
-      restProjects
-        .slice(0, projects.length)
-        .map((project) => <Project {...project.data} />)
-    }
+  <div class="hidden grid-cols-1 gap-3 sm:grid-cols-2" style="opacity:1;transform:none" id="rest-projects">
+    {restProjects.slice(0, projects.length).map((project) => <Project {...project.data} />)}
   </div>
   <script>
-    const restProjects = document.querySelector(
-      "#rest-projects"
-    ) as HTMLDivElement;
+    const restProjects = document.querySelector("#rest-projects") as HTMLDivElement;
     const showBtn = document.querySelector("#showBtn") as HTMLButtonElement;
     let allVisible = false;
 
-    const showMore = () => {
+    function showMore() {
       allVisible = true;
       showBtn.textContent = "Show less";
       restProjects.classList.remove("hidden");
       restProjects.classList.add("grid");
-    };
+    }
 
-    const showLess = () => {
+    function showLess() {
       allVisible = false;
       showBtn.textContent = "Show more";
       restProjects.classList.remove("grid");
       restProjects.classList.add("hidden");
-    };
+    }
     showBtn.addEventListener("click", () => {
       if (allVisible) {
         showLess();
@@ -85,5 +62,5 @@ featuredProjects.sort((a, b) => a.data.order - b.data.order);
         showMore();
       }
     });
-  </script>
+ </script>
 </BaseLayout>
