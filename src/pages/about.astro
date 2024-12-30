@@ -1,9 +1,10 @@
 ---
-import { GET } from "./api/spotify";
+// import { GET } from "./api/spotify";
 import Layout from "../layouts/BaseLayout.astro";
 import PerlinNoise from "../components/PerlinNoise.astro";
 import SpotifySong from "../components/SpotifySong.astro";
 import Contact from "../components/Contact.astro";
+import { getLatestLikedSong } from "../lib/spotify";
 
 const contacts = [
   {
@@ -38,7 +39,7 @@ let spotifyLikedSong = {
 };
 
 try {
-  const spotifyLikedSongReq = await GET(Astro);
+  const spotifyLikedSongReq = await getLatestLikedSong();
   if (!spotifyLikedSongReq.ok) {
     throw new Error("Failed to fetch the Spotify song for some reason.");
   }
@@ -48,9 +49,9 @@ try {
 }
 ---
 
-<script is:inline define:vars={{spotifyLikedSong}}>
+<!-- <script is:inline define:vars={{spotifyLikedSong}}>
   console.log(spotifyLikedSong);
-</script>
+</script> -->
 <Layout
   title="About Me"
   description="Seasoned Software Engineer with 5+ years of experience bringing web projects to life, from inception to deployment."

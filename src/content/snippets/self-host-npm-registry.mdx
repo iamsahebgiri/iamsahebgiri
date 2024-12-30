@@ -1,0 +1,22 @@
+---
+title: 'Self host NPM registry - Verdaccio'
+publishedAt: '2024-12-25'
+type: 'web'
+---
+
+```bash title="Self host NPM registry - Verdaccio"
+# start the verdaccio local server in :4873
+npx verdaccio
+
+# add user to the registry
+npm adduser --registry http://localhost:4873
+
+# bump the version of your pakage
+npm version --new-version patch
+
+# publish it to local verdaccio
+npm publish --registry http://localhost:4873/
+
+# Note: Ensure that while publishing pkg no conflicts with .npmrc
+# better to change the namespace sth other than .npmrc like "@sahebg/"
+```
