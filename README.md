@@ -3,10 +3,10 @@
 #### I'm a Tinkerer and a Developer
 
 - 👨‍💻 I'm currently building [**LinkPilot**](https://linkpilot.in)
-- ⚙️ I use daily: `.js`, `.ts`, `.py`, `.c`, `.cpp`, `.java`, `.go`, `.sh`
+- ⚙️ I use daily: `.js`, `.ts`, `.py`, `.go`, `.c`, `.sh`
 - 🌍 I'm mostly active on [**Twitter**](https://twitter.com/iamsahebgiri)
-- 🌱 Learning all about **K8s, Helm, Jenkins, Argo**
-- 💬 Ping me about **React**, **Web**, **UI/UX**, **Node JS**, **System Design**, **App Development**
+- 🌱 Learning all about **System Design**
+- 💬 Ping me about **Web Dev**, **UI/UX**, **Startups**, **App Dev**
 - ⚡️ Hobbies: **Generative Art**, **Music**, **Photography**.
 
 ### Let's talk:
