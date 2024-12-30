@@ -1,7 +1,10 @@
-import type { SpotifySong } from "@/types";
+/* eslint-disable no-console */
 import type { Loader, LoaderContext } from "astro/loaders";
+
 import { z } from "astro:content";
 import { Buffer } from "node:buffer";
+
+import type { SpotifySong } from "@/types";
 
 export function spotifyLoader(options: {
   clientId: string;
@@ -24,7 +27,7 @@ export function spotifyLoader(options: {
       if (!likedSongReq.ok) {
         const likedSong = await likedSongReq.json() as { error: string };
         logger.error(
-          `Failed to load latest liked song from Spotify: ${likedSong?.error}`
+          `Failed to load latest liked song from Spotify: ${likedSong?.error}`,
         );
         return;
       }
@@ -75,10 +78,10 @@ async function getLatestLikedSong({
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Basic ${Buffer.from(SPOTIFY_CLIENT_ID + ":" + SPOTIFY_CLIENT_SECRET).toString("base64")}`,
+          "Authorization": `Basic ${Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString("base64")}`,
         },
         body: `grant_type=refresh_token&refresh_token=${SPOTIFY_REFRESH_TOKEN}`,
-      }
+      },
     );
 
     const tokenData = (await tokenResponse.json()) as any;
@@ -90,7 +93,7 @@ async function getLatestLikedSong({
         {
           status: tokenResponse.status,
           headers: { "Content-Type": "application/json" },
-        }
+        },
       );
     }
 
@@ -104,7 +107,7 @@ async function getLatestLikedSong({
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
-      }
+      },
     );
 
     const likedData = (await likedResponse.json()) as any;
@@ -118,7 +121,7 @@ async function getLatestLikedSong({
         {
           status: likedResponse.status,
           headers: { "Content-Type": "application/json" },
-        }
+        },
       );
     }
 
@@ -126,7 +129,8 @@ async function getLatestLikedSong({
     const latestTrack = likedData.items[0].track;
     const smallestThumbnail = [...latestTrack.album.images]
       .sort((a, b) => a.height * a.width - b.height * b.width)
-      .at(0)?.url;
+      .at(0)
+      ?.url;
 
     const result = {
       id: latestTrack.id,
@@ -159,7 +163,7 @@ async function getLatestLikedSong({
           {
             status: embedResponse.status,
             headers: { "Content-Type": "application/json" },
-          }
+          },
         );
       }
 
@@ -167,7 +171,7 @@ async function getLatestLikedSong({
 
       // Parse the HTML and extract the __NEXT_DATA__ JSON
       const nextDataMatch = html.match(
-        /<script id="__NEXT_DATA__" type="application\/json">(.+?)<\/script>/
+        /<script id="__NEXT_DATA__" type="application\/json">(.+?)<\/script>/,
       );
 
       if (!nextDataMatch || nextDataMatch.length < 2) {
@@ -176,14 +180,14 @@ async function getLatestLikedSong({
           JSON.stringify({
             error: "__NEXT_DATA__ not found in the embed HTML",
           }),
-          { status: 404, headers: { "Content-Type": "application/json" } }
+          { status: 404, headers: { "Content-Type": "application/json" } },
         );
       }
 
       const nextData = JSON.parse(nextDataMatch[1]);
       console.log("Next Data", nextData);
-      const previewUrl =
-        nextData?.props?.pageProps?.state?.data?.entity?.audioPreview?.url;
+      const previewUrl
+        = nextData?.props?.pageProps?.state?.data?.entity?.audioPreview?.url;
       result.previewUrl = previewUrl;
     }
 
@@ -191,7 +195,8 @@ async function getLatestLikedSong({
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
-  } catch (error) {
+  }
+  catch (error) {
     console.log("Error", error);
     return new Response(JSON.stringify({ error: (error as any).message }), {
       status: 500,

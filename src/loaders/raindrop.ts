@@ -1,5 +1,7 @@
 import type { Loader, LoaderContext } from "astro/loaders";
+
 import { z } from "astro:content";
+
 import type { Item } from "../types";
 
 export function raindropLoader(options: {
@@ -18,7 +20,7 @@ export function raindropLoader(options: {
         const data = await parseData({
           id: item._id.toString(),
           data: {
-            ...item
+            ...item,
           },
         });
         const digest = generateDigest(data);
@@ -54,7 +56,7 @@ export function raindropLoader(options: {
 }
 async function getRaindrops(
   collectionId: string,
-  accessToken: string
+  accessToken: string,
 ): Promise<Item[]> {
   const url = `https://api.raindrop.io/rest/v1/raindrops/${collectionId}`;
 
@@ -70,10 +72,12 @@ async function getRaindrops(
     if (response.ok) {
       const data: { items: Item[] } = await response.json();
       return data.items;
-    } else {
+    }
+    else {
       console.error(`Error fetching raindrop: ${response.statusText}`);
     }
-  } catch (error) {
+  }
+  catch (error) {
     console.error("Error fetching raindrop:", error);
   }
 

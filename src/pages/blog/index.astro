@@ -1,73 +1,52 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <BaseLayout title="Articles" description="Sharing what I have learned as a developer">
   <header class="py-16 text-center">
-    <h1
-      class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200"
-    >
-      Articles
-    </h1>
-    <p class="text-base text-neutral-500 dark:text-neutral-400">
-      Sharing what I have learned as a developer
-    </p>
+    <h1 class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200">Articles</h1>
+    <p class="text-base text-neutral-500 dark:text-neutral-400">Sharing what I have learned as a developer</p>
   </header>
   <section class="mt-16">
     <div class="grid grid-cols-1 max-w-2xl mx-auto gap-16">
       {
         posts.map((post) => (
           <article class="group relative flex flex-col items-start">
-              <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-100">
-                  <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-neutral-100 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-neutral-800/50 sm:-inset-x-6 sm:rounded-2xl" />
-                  <a href={`/blog/${post.id}/`}>
-                      <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-                      <span class="relative z-10">{post.data.title}</span>
-                  </a>
-              </h2>
-              <time
-                class="relative z-10 order-first mb-3 flex items-center text-sm text-neutral-500 dark:text-neutral-500 pl-3.5"
-                datetime={post.data.pubDate.toISOString()}
-              >
-                <span
-                  class="absolute inset-y-0 left-0 flex items-center"
-                  aria-hidden="true"
-                >
-                  <span class="h-4 w-0.5 rounded-full bg-neutral-200 dark:bg-neutral-500" />
-                </span>
-                {post.data.pubDate.toLocaleDateString('en-us', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric'
-                })}
-              </time>
-              <p class="relative z-10 mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-                {post.data.description}
-              </p>
-              <div
-                aria-hidden="true"
-                class="relative z-10 mt-4 flex items-center text-sm font-medium text-orange-500"
-              >
-                Read article
-                <svg
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  aria-hidden="true"
-                  class="ml-1 h-4 w-4 stroke-current"
-                >
-                  <path
-                    d="M6.75 5.75 9.25 8l-2.5 2.25"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-100">
+              <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-neutral-100 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-neutral-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+              <a href={`/blog/${post.id}/`}>
+                <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+                <span class="relative z-10">{post.data.title}</span>
+              </a>
+            </h2>
+            <time
+              class="relative z-10 order-first mb-3 flex items-center text-sm text-neutral-500 dark:text-neutral-500 pl-3.5"
+              datetime={post.data.pubDate.toISOString()}
+            >
+              <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
+                <span class="h-4 w-0.5 rounded-full bg-neutral-200 dark:bg-neutral-500" />
+              </span>
+              {post.data.pubDate.toLocaleDateString("en-us", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </time>
+            <p class="relative z-10 mt-2 text-sm text-neutral-600 dark:text-neutral-400">{post.data.description}</p>
+            <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-orange-500">
+              Read article
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="ml-1 h-4 w-4 stroke-current">
+                <path
+                  d="M6.75 5.75 9.25 8l-2.5 2.25"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
           </article>
         ))
       }

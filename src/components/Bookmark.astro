@@ -14,9 +14,7 @@ const { bookmark } = Astro.props;
   <Image
     height={48}
     width={48}
-    src={bookmark.data.cover
-      ? `//wsrv.nl/?url=${bookmark.data.cover}&w=64&h=64`
-      : "/book.svg"}
+    src={bookmark.data.cover ? `//wsrv.nl/?url=${bookmark.data.cover}&w=64&h=64` : "/book.svg"}
     alt={bookmark.data.title}
     class="h-12 w-12 rounded-lg inline-block bg-cover dark:bg-neutral-800 ring-1 ring-neutral-900/5 dark:ring-white/10"
   />

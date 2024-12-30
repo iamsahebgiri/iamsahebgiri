@@ -1,8 +1,9 @@
-import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 import { getSecret } from "astro:env/server";
-import { raindropLoader } from "@/loaders/raindrop";
+import { glob } from "astro/loaders";
+
 import { RAINDROP } from "@/consts";
+import { raindropLoader } from "@/loaders/raindrop";
 import { spotifyLoader } from "@/loaders/spotify";
 
 const blog = defineCollection({
@@ -82,5 +83,5 @@ export const collections = {
   books,
   articles,
   papers,
-  spotifyLikedSong
+  spotifyLikedSong,
 };

@@ -10,14 +10,8 @@ const papers = await getCollection("papers");
 
 <BaseLayout>
   <header class="py-16 text-center">
-    <h1
-      class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200"
-    >
-      Bookmarks
-    </h1>
-    <p class="text-base text-neutral-500 dark:text-neutral-400">
-      Things I have read and found interesting.
-    </p>
+    <h1 class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200">Bookmarks</h1>
+    <p class="text-base text-neutral-500 dark:text-neutral-400">Things I have read and found interesting.</p>
   </header>
   <BookmarkSection title="Papershelf" bookmarks={papers} />
   <BookmarkSection title="Bookshelf" bookmarks={books} />
