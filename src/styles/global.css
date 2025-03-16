@@ -6,4 +6,17 @@
   html {
     font-feature-settings: "ss02", "ss03", "ss05", "ss09";
   }
+
+  body::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 354px;
+    z-index: -1;
+    background: url("/bg-gradient.svg") no-repeat center center;
+    background-size: cover;
+  }
 }

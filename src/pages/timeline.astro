@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/BaseLayout.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import TimelineArticle from "@/components/TimelineArticle.astro";
+import { getCollection } from "astro:content";
+
+const timelineArticles = await getCollection("timelineArticle");
+---
+
+<Layout
+  title="Everything I've ever built"
+  description="well, not everything, but still a pretty good list of things I've built/done/published over the past few years"
+>
+  <PageHeader
+    title="Everything* I've ever built"
+    description="*well, not everything, but a solid list of things I've built, done, and published over the years"
+  />
+  <div class="relative">
+    <div class="absolute inset-y-0 left-0 pointer-events-none">
+      <svg class="h-full w-1.5" aria-hidden="true"
+        ><defs
+          ><pattern id=":r2R0:" width="6" height="8" patternUnits="userSpaceOnUse"
+            ><path d="M0 0H6M0 8H6" class="stroke-neutral-300 dark:stroke-white/10" fill="none"></path></pattern
+          ></defs
+        ><rect width="100%" height="100%" fill="url(#:r2R0:)"></rect></svg
+      >
+    </div>
+    <div>
+      {
+        timelineArticles.map((article) => (
+          <TimelineArticle
+            slug={article.id}
+            title={article.data.title}
+            body={article.rendered?.html}
+            cover={article.data.cover}
+            date={article.data.date}
+            link={article.data.link}
+          />
+        ))
+      }
+    </div>
+  </div>
+</Layout>

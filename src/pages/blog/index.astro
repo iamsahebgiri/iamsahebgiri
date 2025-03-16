@@ -1,21 +1,19 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "@/components/PageHeader.astro";
 
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <BaseLayout title="Articles" description="Sharing what I have learned as a developer">
-  <header class="py-16 text-center">
-    <h1 class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200">Articles</h1>
-    <p class="text-base text-neutral-500 dark:text-neutral-400">Sharing what I have learned as a developer</p>
-  </header>
+  <PageHeader title="Articles" description="Sharing what I have learned as a developer" />
   <section class="mt-16">
     <div class="grid grid-cols-1 max-w-2xl mx-auto gap-16">
       {
         posts.map((post) => (
           <article class="group relative flex flex-col items-start">
-            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-100">
+            <h2 class="text-xl font-serif font-semibold text-neutral-800 dark:text-neutral-100">
               <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-neutral-100 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-neutral-800/50 sm:-inset-x-6 sm:rounded-2xl" />
               <a href={`/blog/${post.id}/`}>
                 <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />

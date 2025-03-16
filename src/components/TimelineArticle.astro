@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  slug: string;
+  title: string;
+  body?: string;
+  cover?: string;
+  date: string;
+  link?: string;
+}
+
+const { title, body, cover, date, link, slug } = Astro.props;
+---
+
+<article class="scroll-mt-16 flex flex-col">
+  <header class="relative mb-10" id={slug}>
+    <div class="absolute left-0 top-0 flex items-center h-8 space-x-2 pointer-events-none">
+      <div class="h-[0.0625rem] w-3.5 bg-neutral-400 dark:bg-white/60"></div>
+      <a href={`#${slug}`} class="inline-flex">
+        <time datetime={date} class="pointer-events-auto text-xs/4 font-medium text-neutral-400 dark:text-white/50">
+          {
+            new Date(date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </time>
+      </a>
+    </div>
+  </header>
+  <div class="px-6 pb-4">
+    {
+      cover ? (
+        <div class="[&+*]:mt-8 mt-4 relative overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-900">
+          <Image src={cover} alt={title} height={1080} width={1920} class="object-cover w-full" />
+        </div>
+      ) : null
+    }
+
+    <div>
+      <h2 class="font-serif text-2xl text-neutral-900 font-semibold dark:text-neutral-200">
+        {title}
+      </h2>
+      <div class="prose dark:prose-invert prose-sm mt-3" set:html={body} />
+    </div>
+    <div>
+      {
+        link ? (
+          <a
+            target="_blank"
+            href={link}
+            class="inline-flex items-center gap-x-1 mt-4 group relative isolate flex-none rounded-md py-1.5 text-[0.8125rem]/6 font-semibold dark:text-white text-neutral-900 pl-2.5 pr-[calc(9/16*1rem)]"
+          >
+            <span class="absolute inset-0 rounded-md bg-linear-to-b bg-neutral-500 from-white/60 to-white opacity-10 transition-opacity group-hover:opacity-[0.15]" />
+            <span class="absolute inset-0 rounded-md opacity-[0.075] shadow-[inset_0_1px_1px_rgba(0,0,0)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255)] transition-opacity group-hover:opacity-10" />
+            <span>View on GitHub</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="w-3.5 h-3.5">
+              <path d="m224.49 136.49-72 72a12 12 0 0 1-17-17L187 140H40a12 12 0 0 1 0-24h147l-51.49-51.52a12 12 0 0 1 17-17l72 72a12 12 0 0 1-.02 17.01Z" />
+            </svg>
+          </a>
+        ) : null
+      }
+    </div>
+  </div>
+</article>

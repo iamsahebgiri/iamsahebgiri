@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Project from "../components/Project.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "@/components/PageHeader.astro";
 
 const projects = await getCollection("projects");
 const featuredProjects: any[] = [];
@@ -19,10 +20,7 @@ featuredProjects.sort((a, b) => (a.data as any).order - (b.data as any).order);
 ---
 
 <BaseLayout>
-  <header class="py-16 text-center">
-    <h1 class="mb-1 text-3xl font-serif sm:text-4xl text-neutral-900 font-semibold dark:text-neutral-200">Work</h1>
-    <p class="text-base text-neutral-500 dark:text-neutral-400">A collection of projects I have worked on.</p>
-  </header>
+  <PageHeader title="Featured Projects" description="A collection of projects I have worked on." />
   <div class="grid grid-cols-1 gap-3 sm:grid-cols-2" style="opacity:1;transform:none">
     {featuredProjects.slice(0, projects.length).map((project) => <Project {...project.data} />)}
   </div>

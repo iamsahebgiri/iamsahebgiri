@@ -26,6 +26,16 @@ const snippets = defineCollection({
   }),
 });
 
+const timelineArticle = defineCollection({
+  loader: glob({ base: "./src/content/timelines", pattern: "**/*.{md,mdx}" }),
+  schema: z.object({
+    title: z.string(),
+    cover: z.string().optional(),
+    date: z.string(),
+    link: z.string().optional(),
+  }),
+});
+
 const projects = defineCollection({
   loader: glob({ base: "./src/content/projects", pattern: "**/*.json" }),
   schema: z.object({
@@ -45,7 +55,7 @@ const projects = defineCollection({
   }),
 });
 
-const raindropAccessToken = getSecret("RAINDROP_ACCESS_TOKEN");
+const raindropAccessToken = getSecret("RAINDROP_CLIENT_SECRET");
 
 const books = defineCollection({
   loader: raindropLoader({
@@ -84,4 +94,5 @@ export const collections = {
   articles,
   papers,
   spotifyLikedSong,
+  timelineArticle,
 };

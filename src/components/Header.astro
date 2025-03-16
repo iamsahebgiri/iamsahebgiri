@@ -6,21 +6,91 @@ import ThemeToggle from "./ThemeToggle.astro";
 
 <header>
   <nav class="flex items-center justify-between gap-4">
-    <a href="/" class="hidden md:block" title={SITE_TITLE}>
+    <a href="/" class="hidden sm:block" title={SITE_TITLE}>
       <img src="/favicon.svg" alt={SITE_TITLE} class="h-8 w-auto" />
     </a>
     <ul
-      class="flex mx-auto rounded-full bg-white/90 px-3 text-sm font-medium text-neutral-800 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur dark:bg-neutral-800/90 dark:text-neutral-200 dark:ring-white/10"
+      class="flex mx-auto rounded-full bg-white/30 px-3 text-sm font-medium text-neutral-800 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur dark:bg-neutral-800/40 dark:text-neutral-200 dark:ring-white/10"
     >
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Articles</HeaderLink>
+      <HeaderLink href="/timeline">Timeline</HeaderLink>
       <!-- <HeaderLink href="/snippets">Snippets</HeaderLink> -->
-      <HeaderLink class="hidden md:flex" href="/bookmarks">Bookmarks</HeaderLink>
-      <HeaderLink href="/projects">Projects</HeaderLink>
+      <!-- <HeaderLink class="hidden md:flex" href="/bookmarks">Bookmarks</HeaderLink> -->
+      <HeaderLink href="/projects" class="hidden sm:block">Projects</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>
     </ul>
-    <div class="hidden md:block">
+    <div class="fixed bottom-4 right-4 sm:static z-50">
       <ThemeToggle />
     </div>
   </nav>
+  <div class="hidden fixed bottom-0 left-0 z-[1000] p-4 bg-neutral-50 dark:bg-neutral-900 w-full">
+    <div class="flex justify-around">
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          class="text-orange-500 dark:text-orange-400 h-6 w-6"
+          viewBox="0 0 20 20"
+          ><path
+            fill="currentColor"
+            d="M11.003 2.388a1.5 1.5 0 0 0-2.005 0l-5.5 4.942A1.5 1.5 0 0 0 3 8.445V15.5A1.5 1.5 0 0 0 4.5 17h2A1.5 1.5 0 0 0 8 15.5v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 0 1.5 1.5h2a1.5 1.5 0 0 0 1.5-1.5V8.445a1.5 1.5 0 0 0-.497-1.115z"
+          ></path></svg
+        >
+      </div>
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          class="text-neutral-400 h-6 w-6"
+          viewBox="0 0 20 20"
+          ><path
+            fill="currentColor"
+            d="M4 4.5A2.5 2.5 0 0 1 6.5 2h7A2.5 2.5 0 0 1 16 4.5v13a.5.5 0 0 1-.794.404L10 14.118l-5.206 3.786A.5.5 0 0 1 4 17.5z"
+          ></path></svg
+        >
+      </div>
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          class="text-neutral-400 h-6 w-6"
+          viewBox="0 0 20 20"
+          ><path
+            fill="currentColor"
+            d="m10 7.96l3.029-1.21l-7.5-3l-2.586 1.034a1.5 1.5 0 0 0-.364.208zM2.035 5.853A1.5 1.5 0 0 0 2 6.176v7.646a1.5 1.5 0 0 0 .943 1.393L8.7 17.518q.391.156.8.214V8.838zm8.465 11.88a3.5 3.5 0 0 0 .8-.214l5.757-2.303A1.5 1.5 0 0 0 18 13.822V6.176q0-.166-.035-.324L10.5 8.838zm6.921-12.74l-3.046 1.219l-7.5-3L8.7 2.48a3.5 3.5 0 0 1 2.6 0l5.757 2.303a1.5 1.5 0 0 1 .364.208"
+          ></path></svg
+        >
+      </div>
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          class="text-neutral-400 h-6 w-6"
+          viewBox="0 0 20 20"
+          ><path
+            fill="currentColor"
+            d="M3.5 3A1.5 1.5 0 0 0 2 4.5v4A1.5 1.5 0 0 0 3.5 10h9A1.5 1.5 0 0 0 14 8.5v-4A1.5 1.5 0 0 0 12.5 3zm0 8A1.5 1.5 0 0 0 2 12.5v4A1.5 1.5 0 0 0 3.5 18h9a1.5 1.5 0 0 0 1.5-1.5v-4a1.5 1.5 0 0 0-1.5-1.5zM17 12.437a2.003 2.003 0 0 1-2.5-1.937A2 2 0 0 1 16 8.563a2 2 0 0 1 1 0a2 2 0 0 1 0 3.874M16.5 3a.5.5 0 0 1 .5.5v4.041a3 3 0 0 0-1 0V3.5a.5.5 0 0 1 .5-.5m0 10.5q-.255 0-.5-.041V17.5a.5.5 0 0 0 1 0v-4.041q-.245.04-.5.041"
+          ></path></svg
+        >
+      </div>
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          class="text-neutral-400 h-6 w-6"
+          viewBox="0 0 20 20"
+          ><path
+            fill="currentColor"
+            d="M10 18a8 8 0 1 0 0-16a8 8 0 0 0 0 16M8 7a2 2 0 1 1 4 0a2 2 0 0 1-4 0m-.5 3h5a1.5 1.5 0 0 1 1.5 1.5c0 1.116-.459 2.01-1.212 2.615c-.741.595-1.735.885-2.788.885s-2.047-.29-2.788-.885C6.46 13.51 6 12.616 6 11.5A1.5 1.5 0 0 1 7.5 10"
+          ></path></svg
+        >
+      </div>
+    </div>
+  </div>
 </header>
