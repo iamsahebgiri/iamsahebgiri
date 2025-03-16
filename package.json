@@ -3,10 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "pnpm run start",
+    "dev": "infisical run --env=dev -- pnpm run start",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "deploy": "npm run build && wrangler pages deploy",
+    "deploy": "infisical run --env=prod -- npm run build && wrangler pages deploy",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint .",

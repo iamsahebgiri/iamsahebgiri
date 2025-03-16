@@ -55,7 +55,7 @@ const projects = defineCollection({
   }),
 });
 
-const raindropAccessToken = getSecret("RAINDROP_CLIENT_SECRET");
+const raindropAccessToken = getSecret("RAINDROP_TEST_TOKEN");
 
 const books = defineCollection({
   loader: raindropLoader({

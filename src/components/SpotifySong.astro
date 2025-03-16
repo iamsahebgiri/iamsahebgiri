@@ -3,7 +3,14 @@ import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  song: CollectionEntry<"spotifyLikedSong">;
+  song: {
+    data: {
+      title: string;
+      artist: string;
+      previewUrl: string;
+      thumbnail: string;
+    };
+  };
 }
 
 const { song } = Astro.props;
