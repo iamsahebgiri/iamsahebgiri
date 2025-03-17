@@ -28,9 +28,9 @@ const snippets = defineCollection({
 
 const timelineArticle = defineCollection({
   loader: glob({ base: "./src/content/timelines", pattern: "**/*.{md,mdx}" }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
-    cover: z.string().optional(),
+    cover: image().optional(),
     date: z.string(),
     link: z.string().optional(),
   }),

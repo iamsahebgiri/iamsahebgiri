@@ -5,7 +5,12 @@ interface Props {
   slug: string;
   title: string;
   body?: string;
-  cover?: string;
+  cover?: {
+    src: string;
+    height: number;
+    width: number;
+    format: "avif" | "png" | "webp" | "jpeg" | "jpg" | "svg" | "tiff" | "gif";
+  };
   date: string;
   link?: string;
 }

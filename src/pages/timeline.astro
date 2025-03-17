@@ -4,7 +4,9 @@ import PageHeader from "@/components/PageHeader.astro";
 import TimelineArticle from "@/components/TimelineArticle.astro";
 import { getCollection } from "astro:content";
 
-const timelineArticles = await getCollection("timelineArticle");
+const timelineArticles = (await getCollection("timelineArticle")).sort((a, b) => {
+  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+});
 ---
 
 <Layout
