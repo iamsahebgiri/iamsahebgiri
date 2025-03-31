@@ -31,6 +31,7 @@ const timelineArticle = defineCollection({
   schema: ({ image }) => z.object({
     title: z.string(),
     cover: image().optional(),
+    usePhoneMock: z.boolean().optional(),
     date: z.string(),
     link: z.string().optional(),
   }),

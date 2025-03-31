@@ -35,6 +35,7 @@ const timelineArticles = (await getCollection("timelineArticle")).sort((a, b) =>
             title={article.data.title}
             body={article.rendered?.html}
             cover={article.data.cover}
+            usePhoneMock={article.data.usePhoneMock}
             date={article.data.date}
             link={article.data.link}
           />

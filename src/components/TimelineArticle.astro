@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import appleIphonePortrait from "@/assets/timeline/apple-iphone13-blue-portrait.png";
 
 interface Props {
   slug: string;
@@ -11,11 +12,12 @@ interface Props {
     width: number;
     format: "avif" | "png" | "webp" | "jpeg" | "jpg" | "svg" | "tiff" | "gif";
   };
+  usePhoneMock?: boolean;
   date: string;
   link?: string;
 }
 
-const { title, body, cover, date, link, slug } = Astro.props;
+const { title, body, cover, date, link, slug, usePhoneMock } = Astro.props;
 ---
 
 <article class="scroll-mt-16 flex flex-col">
@@ -37,13 +39,28 @@ const { title, body, cover, date, link, slug } = Astro.props;
   </header>
   <div class="px-6 pb-4">
     {
-      cover ? (
-        <div class="[&+*]:mt-8 mt-4 relative overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-900">
+      cover && !usePhoneMock ? (
+        <div class="mb-4 relative overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-900">
           <Image src={cover} alt={title} height={1080} width={1920} class="object-cover w-full" />
         </div>
       ) : null
     }
-
+    {
+      cover && usePhoneMock ? (
+        <div class="my-2 relative flex items-center justify-center bg-gradient-to-tr from-neutral-950 to-neutral-800 rounded-xl">
+          <Image
+            src={appleIphonePortrait}
+            alt={title}
+            height={380}
+            width={675.5}
+            class="object-contain aspect-video z-20"
+          />
+          <div class="absolute inset-0 flex items-center justify-center scale-[0.86]">
+            <Image src={cover} alt={title} height={380} width={675.5} class="object-contain aspect-video" />
+          </div>
+        </div>
+      ) : null
+    }
     <div>
       <h2 class="font-serif text-2xl text-neutral-900 font-semibold dark:text-neutral-200">
         {title}

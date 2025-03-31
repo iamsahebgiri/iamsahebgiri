@@ -23,6 +23,7 @@ const workExperience = [
     description: "Contributing to react native (iOS) codebase",
     startDate: "Jul 2024",
     endDate: "Current",
+    href: "https://groww.in",
     img: groww,
   },
   {
@@ -31,6 +32,7 @@ const workExperience = [
     description: "Rebuilding CI infra and Core platform tasks for web",
     startDate: "Dec 2023",
     endDate: "Jun 2024",
+    href: "https://groww.in",
     img: groww,
   },
   {
@@ -39,6 +41,7 @@ const workExperience = [
     description: "Crafting open source project management tool",
     startDate: "Mar 2023",
     endDate: "Apr 2023",
+    href: "https://plane.so",
     img: plane,
   },
   {
@@ -47,6 +50,7 @@ const workExperience = [
     description: "Building online learning platform",
     startDate: "Sep 2022",
     endDate: "Dec 2022",
+    href: "https://www.mathongo.com",
     img: mathongo,
   },
   {
@@ -55,6 +59,7 @@ const workExperience = [
     description: "Developing social media analytics tool",
     startDate: "Jul 2022",
     endDate: "Sep 2022",
+    href: "https://vaizle.com",
     img: vaizle,
   },
 ];
@@ -115,49 +120,37 @@ const workExperience = [
     <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
       {featuredProjects.map(({ data }) => <Project {...data} />)}
     </div>
+  </section>
+  <section class="mt-28">
     <h2 class="mt-12 mb-6 text-2xl font-serif font-bold text-neutral-900 dark:text-neutral-50">Experience</h2>
-    <div
-      class="inline-block w-full max-w-full overflow-hidden align-middle bg-white/90 backdrop-blur dark:bg-neutral-800 ring-1 ring-neutral-900/5 dark:ring-white/10 shadow rounded-lg"
-    >
-      <table class="w-full">
-        <tbody class="bg-white/90 backdrop-blur dark:bg-neutral-800">
-          {
-            workExperience.map((experience, index) => (
-              <tr class="bg-white/90 backdrop-blur dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700/90 transform duration-150 border-b border-neutral-900 dark:border-neutral-900/10 last:border-0">
-                <td class="px-6 py-4 whitespace-no-wrap">
-                  <div class="flex items-center">
-                    <div class="flex-shrink-0 w-10">
-                      <Image
-                        class="w-10 h-10 rounded-md"
-                        src={experience.img}
-                        alt={experience.company}
-                        height="40"
-                        width="40"
-                        title={experience.description}
-                      />
-                    </div>
-                    <div class="ml-4">
-                      <div class="text-sm leading-5 font-medium text-neutral-900 dark:text-neutral-100">
-                        {experience.role}
-                      </div>
-                      <div class="text-sm leading-5 text-neutral-500 dark:text-neutral-400">{experience.company}</div>
-                    </div>
-                  </div>
-                </td>
-                {/* <td class="px-6 py-4 whitespace-no-wrap hidden lg:table-cell">
-                    <div class="text-sm leading-5 text-neutral-800 dark:text-neutral-300">
-                      {experience.description}
-                    </div>
-                  </td> */}
-                <td class="px-6 py-4 whitespace-no-wrap text-neutral-600 dark:text-neutral-500 text-sm text-right">
-                  <span class="">{experience.startDate}</span> -
-                  <span class:list={[index === 0 && "font-bold"]}>{experience.endDate}</span>
-                </td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
+    <div class="space-y-8">
+      {
+        workExperience.map((experience, index) => (
+          <div class="flex flex-col sm:flex-row">
+            <div class="text-neutral-500 text-sm w-40">
+              <span>{experience.startDate}</span> -
+              <span class:list={[index === 0 && "font-bold"]}>{experience.endDate}</span>
+            </div>
+            <div class="inline-flex items-center gap-2 mt-1.5 sm:mt-0">
+              <span class="text-sm text-neutral-900 dark:text-neutral-50">{experience.role}</span>
+              <span class="text-neutral-500 text-sm">at</span>
+              <a class="inline-flex gap-1 group" href={experience.href} rel="noreferrer nofollow" target="_blank">
+                <Image
+                  class="w-5 h-5 rounded-md inline-block neutralscale group-hover:neutralscale-0 transition-all duration-200"
+                  src={experience.img}
+                  alt={experience.company}
+                  height="28"
+                  width="28"
+                  title={experience.description}
+                />
+                <span class="text-sm text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-neutral-50 transition-all duration-200">
+                  {experience.company}
+                </span>
+              </a>
+            </div>
+          </div>
+        ))
+      }
     </div>
   </section>
 </BaseLayout>
