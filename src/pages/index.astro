@@ -10,6 +10,10 @@ import mathongo from "../assets/logos/mathongo.png";
 import plane from "../assets/logos/plane.png";
 import vaizle from "../assets/logos/vaizle.jpeg";
 
+import clouds from "../assets/clouds.png";
+import map from "../assets/map.png";
+import growwLeather from "../assets/frame_014.png";
+
 const featuredProjects = await getCollection("projects", ({ data }) => {
   return data.featured === true;
 });
@@ -66,14 +70,19 @@ const workExperience = [
 ---
 
 <BaseLayout>
-  <section class="my-16">
-    <div
-      class="h-[28rem] md:h-[40rem] w-full rounded-md flex md:items-center md:justify-center antialiased bg-grid-white/[0.02] relative overflow-hidden"
-    >
-      <div class="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0 text-center">
+  <section class="my-20">
+    <div class="font-serif text-5xl text-gray-800">
+      <span class="text-gray-500">Hey,</span>
+      I'm
+      <div
+        class="shadow-neutral border-gray-300/30align-text-top relative inline-block h-16 w-16 overflow-hidden rounded-2xl align-text-top"
+      >
         <video
           id="avatar"
-          class="mx-auto h-28 w-28 rounded-full mb-6 border"
+          autoplay
+          muted
+          loop
+          class="absolute top-0 left-0"
           height="112"
           width="112"
           autoplay
@@ -84,36 +93,34 @@ const workExperience = [
           <source src="/avatar.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <h1 class="text-4xl font-serif md:text-6xl font-semibold text-center">
-          <span
-            class="bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-50 dark:to-neutral-400 from-neutral-400 to-neutral-800 bg-opacity-50"
-          >
-            Hello, I'm Saheb
-          </span>
-          👋
-        </h1>
 
-        <p class="mt-4 font-normal text-base text-neutral-500 dark:text-neutral-300 max-w-lg text-center mx-auto">
-          I help growing businesses, agencies, and studios execute their vision with scalable apps, clean code, and fast
-          delivery.
-        </p>
-        <div class="mt-8">
-          <a
-            href="mailto:iamsahebgiri@gmail.com?subject=Hey Saheb, I have a project for you"
-            target="_blank"
-            class="mr-3 inline-flex py-2.5 items-center justify-center overflow-hidden rounded-full bg-orange-600/90 hover:bg-orange-600 text-sm active:bg-orange-700 px-6 font-semibold text-neutral-50"
-          >
-            Let's talk
-          </a>
-          <a
-            href="https://github.com/iamsahebgiri"
-            title="Shut up and show me code"
-            class="inline-flex py-2.5 px-6 items-center justify-center overflow-hidden rounded-full text-sm font-semibold ring-1 text-neutral-600 bg-neutral-100/80 hover:bg-neutral-100 active:bg-neutral-200 ring-neutral-200 backdrop-blur dark:bg-neutral-800/90 dark:text-neutral-200 dark:ring-white/10"
-          >
-            Github
-          </a>
+        <div
+          class="absolute top-[3px] left-[3px] z-20 h-[58px] w-[58px] rounded-[12px] border-[1.2px] border-gray-300/20 shadow-[0_.75px_.75px_#d1d5dc52_inset]"
+        >
         </div>
       </div>
+      Saheb <br />
+      <span class="hero-text-gradient">a developer</span>
+      <span class="text-gray-500">at</span>
+      <div class="shadow-neutral mx-1 inline-block h-16 w-16 rounded-2xl align-text-top">
+        <!-- <img src="https://oguzyagiz.com/images/hero/shopify.png" alt="" /> -->
+        <Image src={growwLeather} height={512} width={512} alt="Groww" class="h-16 w-16 rounded-xl" />
+      </div>
+      Groww <br />
+      <span class="text-gray-500">based in</span> Bangalore,
+      <div class="shadow-neutral relative inline-block overflow-hidden rounded-[14px] align-text-top">
+        <Image class="hero-cloud absolute -top-2" src={clouds} alt="map" height="51" width="83" />
+        <div
+          class="absolute top-[3px] left-[3px] z-20 h-[58px] w-[75px] rounded-[12px] border-[1.2px] border-gray-300/20 shadow-[0_.75px_.75px_#d1d5dc52_inset]"
+        >
+        </div>
+        <Image height="64" width="81" alt="India" src={map} />
+        <div class="absolute bottom-0 flex h-1/2 w-full flex-col justify-center bg-white/40 pl-2 font-sans text-[8px]">
+          <p>Office</p>
+          <p class="mt-0.5 text-gray-400">2 hours left</p>
+        </div>
+      </div>
+      IN
     </div>
   </section>
   <section class="my-16">
@@ -136,14 +143,14 @@ const workExperience = [
               <span class="text-neutral-500 text-sm">at</span>
               <a class="inline-flex gap-1 group" href={experience.href} rel="noreferrer nofollow" target="_blank">
                 <Image
-                  class="w-5 h-5 rounded-md inline-block neutralscale group-hover:neutralscale-0 transition-all duration-200"
+                  class="w-5 h-5 rounded-md inline-block grayscale group-hover:grayscale-0 transition-all duration-300"
                   src={experience.img}
                   alt={experience.company}
                   height="28"
                   width="28"
                   title={experience.description}
                 />
-                <span class="text-sm text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-neutral-50 transition-all duration-200">
+                <span class="text-sm text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-neutral-50 transition-all duration-500">
                   {experience.company}
                 </span>
               </a>
