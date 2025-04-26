@@ -9,12 +9,11 @@ import groww from "../assets/logos/groww.webp";
 import mathongo from "../assets/logos/mathongo.png";
 import plane from "../assets/logos/plane.png";
 import vaizle from "../assets/logos/vaizle.jpeg";
+import SectionHeading from "@/components/SectionHeading.astro";
 
-const featuredProjects = await getCollection("projects", ({ data }) => {
-  return data.featured === true;
-});
-// FIXME: fix types
-featuredProjects.sort((a, b) => (a.data as any).order - (b.data as any).order);
+const featuredProjects = (await getCollection("projects"))
+  .filter(({ data }) => data.featured != undefined && data.featured > -1)
+  .sort((a, b) => (b.data.featured ?? 0) - (a.data.featured ?? 0));
 
 const workExperience = [
   {
@@ -122,7 +121,8 @@ const workExperience = [
     </div>
   </section>
   <section class="mt-28">
-    <h2 class="mt-12 mb-6 text-2xl font-serif font-bold text-neutral-900 dark:text-neutral-50">Experience</h2>
+    <SectionHeading> Experience </SectionHeading>
+
     <div class="space-y-8">
       {
         workExperience.map((experience, index) => (

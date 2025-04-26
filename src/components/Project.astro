@@ -6,7 +6,7 @@ import { getColor } from "../utils/colors";
 
 type Props = CollectionEntry<"projects">["data"];
 
-const { title, image, description, tags, theme, link } = Astro.props;
+const { title, image, description, tags, theme, link, status } = Astro.props;
 
 const colorMap = {
   purple: "bg-purple-100 dark:bg-purple-200",
@@ -26,7 +26,6 @@ const color = colorMap[theme as Theme] ?? "bg-gray-100 dark:bg-gray-200";
 
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/logos/*.{jpeg,jpg,png,gif,svg}");
 const imageAbsolutePath = `/src/assets/logos/${image.url}`;
-console.log(images[imageAbsolutePath]);
 if (!images[imageAbsolutePath])
   throw new Error(`"${image.url}" does not exist in glob: "src/assets/logos/*.{jpeg,jpg,png,gif,svg}"`);
 ---
@@ -77,4 +76,13 @@ if (!images[imageAbsolutePath])
       }
     </div>
   </div>
+  {
+    status === "archived" && (
+      <div class="absolute right-0 top-0 h-16 w-16">
+        <div class="absolute text-xs tracking-wider uppercase transform shadow-sm rotate-45 bg-orange-200 text-center text-orange-700 font-semibold py-1.5 right-[-35px] top-[32px] w-[170px]">
+          Archived
+        </div>
+      </div>
+    )
+  }
 </a>

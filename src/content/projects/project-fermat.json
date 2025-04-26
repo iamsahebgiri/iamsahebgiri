@@ -19,5 +19,7 @@
   "theme": "blue",
   "link": "https://github.com/iamsahebgiri/project-fermat",
   "status": "active",
-  "featured": true
+  "featured": 600,
+  "created_at": "2022-07-10T21:24:24Z",
+  "updated_at": "2023-06-25T07:11:24Z"
 }

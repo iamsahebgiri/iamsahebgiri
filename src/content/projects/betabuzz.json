@@ -7,7 +7,7 @@
     "width": "48"
   },
   "title": "BetaBuzz",
-  "description": "Creating a buzz around the latest beta products with startup community.",
+  "description": "Open source alternative to Product Hunt. Discover and share new products, startups, and side projects.",
   "tags": [
     "Express",
     "NextJS",
@@ -22,5 +22,7 @@
   "theme": "red",
   "link": "https://github.com/iamsahebgiri/betabuzz",
   "status": "active",
-  "featured": true
+  "featured": 900,
+  "created_at": "2023-05-02T07:22:24Z",
+  "updated_at": "2025-04-26T16:26:32Z"
 }

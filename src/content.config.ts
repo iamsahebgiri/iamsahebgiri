@@ -52,7 +52,9 @@ const projects = defineCollection({
     tags: z.array(z.string()),
     status: z.string(),
     theme: z.string(),
-    featured: z.boolean().optional(),
+    created_at: z.optional(z.coerce.date()),
+    updated_at: z.optional(z.coerce.date()),
+    featured: z.number().optional(),
   }),
 });
 

@@ -1,0 +1,26 @@
+{
+  "id": "19d677fe-e3bd-4162-a0c9-275dc735ca7b",
+  "image": {
+    "url": "intervue.svg",
+    "height": "48",
+    "width": "48"
+  },
+  "title": "Veed",
+  "description": "Veed is video transcoding and streaming service. It allows you to upload videos and stream them in different formats.",
+  "tags": [
+    "nginx",
+    "ffmpeg",
+    "HLS",
+    "RabbitMQ",
+    "websocket",
+    "PostgreSQL",
+    "gRPC",
+    "TUSd"
+  ],
+  "theme": "purple",
+  "link": "https://github.com/iamsahebgiri/veed",
+  "status": "active",
+  "featured": 1000,
+  "created_at": "2024-12-13T18:52:57Z",
+  "updated_at": "2024-12-13T19:03:52Z"
+}

@@ -3,62 +3,26 @@ import { getCollection } from "astro:content";
 import Project from "../components/Project.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHeader from "@/components/PageHeader.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
 
 const projects = await getCollection("projects");
-const featuredProjects: any[] = [];
-const restProjects: any[] = [];
-
-projects.forEach((project) => {
-  if (project.data.featured) {
-    featuredProjects.push(project);
-  } else {
-    restProjects.push(project);
-  }
-});
-// FIXME: fix types
-featuredProjects.sort((a, b) => (a.data as any).order - (b.data as any).order);
+const featuredProjects = projects
+  .filter((project) => (project.data.featured ?? -1) > -1)
+  .sort((a, b) => (b.data.featured ?? 0) - (a.data.featured ?? 0));
+const archivedProjects = projects.filter((project) => project.data.status === "archived");
+const restProjects = projects
+  .filter((project) => project.data.status !== "archived" && (project.data.featured ?? -1) === -1)
+  .sort((a, b) => (Number(b.data.updated_at) ?? 0) - (Number(a.data.updated_at) ?? 0));
 ---
 
 <BaseLayout>
   <PageHeader title="Featured Projects" description="A collection of projects I have worked on." />
-  <div class="grid grid-cols-1 gap-3 sm:grid-cols-2" style="opacity:1;transform:none">
-    {featuredProjects.slice(0, projects.length).map((project) => <Project {...project.data} />)}
+  <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+    {featuredProjects.map((project) => <Project {...project.data} />)}
+    {restProjects.map((project) => <Project {...project.data} />)}
   </div>
-  <div class="py-6 text-center">
-    <button
-      id="showBtn"
-      class="inline-flex py-2 px-6 items-center justify-center overflow-hidden rounded-full font-medium ring-1 ring-neutral-200 backdrop-blur dark:bg-neutral-800/90 dark:text-neutral-200 dark:ring-white/10"
-    >
-      Show more
-    </button>
+  <SectionHeading> Graveyard </SectionHeading>
+  <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+    {archivedProjects.map((project) => <Project {...project.data} />)}
   </div>
-  <div class="hidden grid-cols-1 gap-3 sm:grid-cols-2" style="opacity:1;transform:none" id="rest-projects">
-    {restProjects.slice(0, projects.length).map((project) => <Project {...project.data} />)}
-  </div>
-  <script>
-    const restProjects = document.querySelector("#rest-projects") as HTMLDivElement;
-    const showBtn = document.querySelector("#showBtn") as HTMLButtonElement;
-    let allVisible = false;
-
-    function showMore() {
-      allVisible = true;
-      showBtn.textContent = "Show less";
-      restProjects.classList.remove("hidden");
-      restProjects.classList.add("grid");
-    }
-
-    function showLess() {
-      allVisible = false;
-      showBtn.textContent = "Show more";
-      restProjects.classList.remove("grid");
-      restProjects.classList.add("hidden");
-    }
-    showBtn.addEventListener("click", () => {
-      if (allVisible) {
-        showLess();
-      } else {
-        showMore();
-      }
-    });
- </script>
 </BaseLayout>
