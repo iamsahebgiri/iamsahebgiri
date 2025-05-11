@@ -5,7 +5,7 @@ import TimelineArticle from "@/components/TimelineArticle.astro";
 import { getCollection } from "astro:content";
 
 const timelineArticles = (await getCollection("timelineArticle")).sort((a, b) => {
-  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
 });
 ---
 
@@ -36,7 +36,7 @@ const timelineArticles = (await getCollection("timelineArticle")).sort((a, b) =>
             body={article.rendered?.html}
             cover={article.data.cover}
             usePhoneMock={article.data.usePhoneMock}
-            date={article.data.date}
+            date={article.data.pubDate}
             link={article.data.link}
           />
         ))
