@@ -1,6 +1,6 @@
 ---
 title: 'Using ThumbHash instead of blurhash for Image Placeholders'
-date: '2025-03-20'
+pubDate: '2025-03-20'
 link: 'https://gist.github.com/iamsahebgiri/9cc6ee1b7b6450160e306954e5304d29'
 
 ---

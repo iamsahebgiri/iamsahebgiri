@@ -21,7 +21,7 @@ const snippets = defineCollection({
   loader: glob({ base: "./src/content/snippets", pattern: "**/*.{md,mdx}" }),
   schema: z.object({
     title: z.string(),
-    publishedAt: z.string(),
+    pubDate: z.string(),
     type: z.string(),
   }),
 });
@@ -32,7 +32,7 @@ const timelineArticle = defineCollection({
     title: z.string(),
     cover: image().optional(),
     usePhoneMock: z.boolean().optional(),
-    date: z.string(),
+    pubDate: z.string(),
     link: z.string().optional(),
   }),
 });

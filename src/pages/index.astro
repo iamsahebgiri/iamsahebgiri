@@ -10,6 +10,7 @@ import mathongo from "../assets/logos/mathongo.png";
 import plane from "../assets/logos/plane.png";
 import vaizle from "../assets/logos/vaizle.jpeg";
 import SectionHeading from "@/components/SectionHeading.astro";
+import { SITE_DESCRIPTION } from "@/consts";
 
 const featuredProjects = (await getCollection("projects"))
   .filter(({ data }) => data.featured != undefined && data.featured > -1)
@@ -93,8 +94,7 @@ const workExperience = [
         </h1>
 
         <p class="mt-4 font-normal text-base text-neutral-500 dark:text-neutral-300 max-w-lg text-center mx-auto">
-          I help growing businesses, agencies, and studios execute their vision with scalable apps, clean code, and fast
-          delivery.
+          {SITE_DESCRIPTION}
         </p>
         <div class="mt-8">
           <a

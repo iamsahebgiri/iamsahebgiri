@@ -1,6 +1,6 @@
 ---
 title: 'A Chrome extension to unlock Pro feature of Mobbin.com'
-date: '2025-03-17'
+pubDate: '2025-03-17'
 link: 'https://github.com/iamsahebgiri/mobbin-unlocked'
 ---
 

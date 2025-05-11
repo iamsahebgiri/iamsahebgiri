@@ -1,14 +1,14 @@
 export const SITE_TITLE
   = "Saheb Giri - Software Engineer, Tinkerer, and Developer.";
 export const SITE_DESCRIPTION
-  = "Software Engineer with 5+ years of experience bringing web projects to life, from inception to deployment. Thinking out loud about design, development, and building excellent software.";
+  = "I help teams ship high-quality software, fast—5+ years of doing just that, clean code, fast delivery, zero drama.";
 
 export const SEO = {
   title: SITE_TITLE,
   author: "Saheb Giri",
   description: SITE_DESCRIPTION,
   language: "en-us",
-  siteUrl: "https://iamsahebgiri.vercel.app",
+  siteUrl: "https://sahebg.dev",
   siteRepo: "https://github.com/iamsahebgiri/iamsahebgiri",
   image: "/static/images/avatar.png",
   socialBanner: "/static/images/twitter-card.png",
