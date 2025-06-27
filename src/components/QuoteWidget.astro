@@ -1,0 +1,25 @@
+---
+import quotes from "./quotes.json" assert { type: "json" };
+
+const randomIndex = Math.floor(Math.random() * quotes.length);
+const randomQuote = quotes[randomIndex];
+---
+
+<div
+  class="rounded-2xl h-full flex flex-col justify-center dark:bg-neutral-800 ring-1 ring-neutral-900/5 dark:ring-white/10 overflow-hidden p-4 relative"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="34"
+    height="24"
+    viewBox="0 0 34 24"
+    class="text-neutral-200 dark:text-neutral-700 absolute top-4 left-4"
+    ><path fill="currentColor" d="M31.2 0H24l-4.8 9.6V24h14.4V9.6h-7.2zM12 0H4.8L0 9.6V24h14.4V9.6H7.2z"></path></svg
+  >
+  <p class="font-serif font-semibold dark:text-neutral-50 text-neutral-800 text-center z-10">
+    {randomQuote.text}
+  </p>
+  <p class="mt-3 text-xs tracking-wide dark:text-neutral-400 text-neutral-400 text-center uppercase">
+    {randomQuote.author}
+  </p>
+</div>

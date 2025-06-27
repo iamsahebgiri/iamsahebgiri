@@ -1,22 +1,30 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-@layer base {
-  html {
-    font-feature-settings: "ss02", "ss03", "ss05", "ss09";
-  }
+@custom-variant dark (&:where(.dark, .dark *));
 
-  body::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 354px;
-    z-index: -1;
-    background: url("/bg-gradient.svg") no-repeat center center;
-    background-size: cover;
-  }
+@theme {
+  --font-sans:
+    "Geist Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-serif: "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono:
+    "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+html {
+  font-feature-settings: "ss02", "ss03", "ss05", "ss09";
+}
+
+html::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 354px;
+  z-index: -1;
+  background: url("/bg-gradient.svg") no-repeat center center;
+  background-size: cover;
 }

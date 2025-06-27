@@ -1,9 +1,8 @@
 ---
-import Layout from "../layouts/BaseLayout.astro";
-import PerlinNoise from "../components/PerlinNoise.astro";
-import SpotifySong from "../components/SpotifySong.astro";
-import Contact from "../components/Contact.astro";
-import { getCollection } from "astro:content";
+import Layout from "@/layouts/BaseLayout.astro";
+import LofiWidget from "@/components/LofiWidget.svelte";
+import Contact from "@/components/Contact.astro";
+import QuoteWidget from "@/components/QuoteWidget.astro";
 
 const contacts = [
   {
@@ -27,20 +26,6 @@ const contacts = [
     icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="m13.736 5.853l4.005-4.117l2.325 2.38l-4.2 4.005h5.908v3.305h-5.937l4.229 4.108l-2.325 2.334l-5.74-5.769l-5.741 5.769l-2.325-2.325l4.229-4.108H2.226V8.121h5.909l-4.2-4.004l2.324-2.381l4.005 4.117V0h3.472zm-3.472 10.306h3.472V24h-3.472z"/></svg>',
   },
 ];
-
-const DEFAULT_SONG = {
-  id: "9iy8lQ8EFndbHlXF",
-  collection: "spotifyLikedSong",
-  data: {
-    id: "0VpEX8ib3wE7u8NOw4szU6",
-    title: "Eyes Off You",
-    artist: "PRETTYMUCH",
-    thumbnail: "https://i.scdn.co/image/ab67616d00004851d46d93ee7fb0589ef6973c5d",
-    previewUrl: "https://p.scdn.co/mp3-preview/66056f42a4360b94ba012b31918dc538d8c791f9",
-  },
-};
-const spotifyLikedSong = await getCollection("spotifyLikedSong");
-const latestLikedSong = spotifyLikedSong.at(0) ?? DEFAULT_SONG;
 ---
 
 <Layout
@@ -51,14 +36,16 @@ const latestLikedSong = spotifyLikedSong.at(0) ?? DEFAULT_SONG;
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-12">
       <Contact contacts={contacts} />
       <div class="col-span-12 sm:col-span-6 gap-6 flex flex-col">
+        <QuoteWidget />
+        <LofiWidget client:load />
+      </div>
+      <!-- <div class="col-span-12 h-64 flex flex-col gap-6">
         <div
-          class="rounded-2xl h-full dark:bg-neutral-800 ring-1 ring-neutral-900/5 dark:ring-white/10 overflow-hidden"
+          class="rounded-2xl h-full flex flex-col justify-center dark:bg-neutral-800 ring-1 ring-neutral-900/5 dark:ring-white/10 overflow-hidden"
         >
           <PerlinNoise />
         </div>
-
-        <SpotifySong song={latestLikedSong} />
-      </div>
+      </div> -->
     </div>
   </section>
 </Layout>

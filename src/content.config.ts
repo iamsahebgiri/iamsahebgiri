@@ -4,7 +4,6 @@ import { glob } from "astro/loaders";
 
 import { RAINDROP } from "@/consts";
 import { raindropLoader } from "@/loaders/raindrop";
-import { spotifyLoader } from "@/loaders/spotify";
 
 const blog = defineCollection({
   loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
@@ -81,14 +80,6 @@ const papers = defineCollection({
   }),
 });
 
-const spotifyLikedSong = defineCollection({
-  loader: spotifyLoader({
-    clientId: getSecret("SPOTIFY_CLIENT_ID") as string,
-    clientSecret: getSecret("SPOTIFY_CLIENT_SECRET") as string,
-    refreshToken: getSecret("SPOTIFY_REFRESH_TOKEN") as string,
-  }),
-});
-
 export const collections = {
   blog,
   snippets,
@@ -96,6 +87,5 @@ export const collections = {
   books,
   articles,
   papers,
-  spotifyLikedSong,
   timelineArticle,
 };
