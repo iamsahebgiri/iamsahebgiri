@@ -1,0 +1,46 @@
+---
+title: 'Postgres 18'
+description: 'Explained about UUIDv7, Asynchronous IO using worker pool and io_uring'
+pubDate: 'Oct 7 2025'
+---
+
+There are few features which is coming to pg 18 which I came across,
+
+## UUID v7
+
+UUID is an unique id that you can generate directly in pg (`SELECT uuidv7()`). 
+
+It is different from uuid v4 in the sense that it is **time-based** and it is **ordered**, which means first 48bits of the id based on unix timestamp and rest bytes are randomly generated. It sorted and it will behave like auto-increment int column in a table. It contains 128 bit in total
+
+- 48 - timestamp in ms
+- 12 - sub milliseconds
+- 68 - random number and version
+
+Prior to v18 we had to use a different pg extension called `pg_uuidv7` to access it, but it will be available natively starting from v18.
+
+```sql
+-- in v17
+CREATE EXTENSION IF NOT EXISTS "pg_uuidv7";
+SELECT uuid_generate_v7();
+-- in v18
+SELECT uuidv7();
+SELECT uuid_extract_version(uuidv7());
+```
+
+## pg_overexplain
+
+This modules adds more info to explain sql command. It tells you more about the query plan.
+
+```sql
+LOAD 'pg_overexplain';
+```
+
+## Asynchronous IO
+
+Every time a SQL request comes from the user, a new backend (kind of like process) spins up and it parses the sql statement and creates an execution plan and then do a synchronous IO to read the data from the disk. Now this takes time and in the mean time it can’t do anything else (CPU is idle). The process changes from user mode to kernel mode and do the read syscall to read from the disk and then keep the data in the page and then sends it back to the process.
+
+But Asynchronous IO is different in the sense you/process sends a request to the worker pool and one of the worker waits for you to get the read data, while you as a process are free to do any tasks. This is how NodeJS Async FileIO works using libUV.
+
+Other way to implement Async IO is to use something called io_uring, which creates a shared memeory between the user and kernel space (submission queue and completion queue). You put in the submission queue and kernels picks up the task and once finishes it puts the result in the completion queue for process to take the result. There is very few syscall involved in the process, which is faster then polling using such as `epoll`. io_uring is introduced in linux 5.1.
+
+Now you can enable all these three methods of io in the v18 i.e. sync, worker, io_uring. This only impacts the read, write is still blocking IO i.e sync.
