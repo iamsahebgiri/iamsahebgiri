@@ -1,8 +1,8 @@
 ---
 title: 'Pulsating Grid in Skia'
 pubDate: '2025-03-31'
-cover: '../../assets/timeline/pulsating-grid.webp'
-usePhoneMock: true
+# cover: '../../assets/timeline/pulsating-grid.webp'
+# usePhoneMock: true
 link: 'https://github.com/iamsahebgiri/text-os/blob/main/app/pulsating-grid.tsx'
 ---
 
