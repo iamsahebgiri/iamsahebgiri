@@ -1,15 +1,16 @@
-### Hi there 👋
+# Hi, I'm Saheb 👋
 
-#### I'm a Tinkerer and a Developer
+📍 **Bangalore** | 🚀 **Tinkerer and Builder**
 
-- 👨‍💻 I'm currently building [**LinkPilot**](https://linkpilot.in)
-- ⚙️ I use daily: `.js`, `.ts`, `.py`, `.go`, `.c`, `.sh`
-- 🌍 I'm mostly active on [**Twitter**](https://twitter.com/iamsahebgiri)
+
+- 👨‍💻 I'm currently building [**Velocity**](https://velocity.quantumstudio.in/)
+- ⚙️ I use daily: `.ts`, `.py`, `.go`, `.java`, `.c`, `.sh`
+- 🌍 I'm mostly active on [**X**](https://x.com/iamsahebgiri)
 - 🌱 Learning all about **System Design**
-- 💬 Ping me about **Web Dev**, **UI/UX**, **Startups**, **App Dev**
+- 💬 Ping me about **Web Dev**, **UI/UX**, **App Dev**
 - ⚡️ Hobbies: **Generative Art**, **Music**, **Photography**.
 
-### Let's talk:
+## Connect:
 
 [![Twitter Saheb Giri](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/iamsahebgiri)
 [![LinkedIn Saheb Giri](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/iamsahebgiri/)
