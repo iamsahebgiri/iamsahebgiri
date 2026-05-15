@@ -1,7 +1,7 @@
 ---
 title: 'Text OS and Bayer Dithering in Skia Shader'
 pubDate: '2025-03-18'
-cover: '../../assets/timeline/text-os-bayer-dithering.png'
+cover: '../../assets/timeline/text-os-bayer-dithering.webp'
 link: 'https://github.com/iamsahebgiri/text-os'
 ---
 
