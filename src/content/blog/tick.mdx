@@ -1,0 +1,127 @@
+---
+title: 'Tick: A Plain-Text Task DSL'
+description: 'Tick is a line-oriented task format that stays grep-friendly and readable. No UI, no database — just a text file.'
+pubDate: 'May 17 2026'
+---
+
+I’ve been pretty bad at tracking tasks across work and personal stuff.
+
+Work lives in Jira, but a lot still slips through - things like:
+
+* posting improvements on Slack for visibility
+* writing a blog about a package I built
+* random follow-ups that never make it into tickets
+
+I don’t want all of this in Jira either since some of it is just personal or informal.
+Personal projects sit in Linear.
+Obsidian started as a scratchpad todo list, but it slowly turned into a huge markdown dump that’s hard to scan, hard to prioritize, and mentally noisy.
+
+I tried the usual tools too - Google Tasks, Microsoft To Do, Todoist. They all work, but I kept coming back to the same idea: I just want something simpler and more under my control.
+
+At some point I realized I don’t even want another “app”. I want a single text file that:
+
+* is easy to write into
+* is grep-friendly
+* stays human-readable first
+* doesn’t need UI overhead to be useful
+
+So I ended up defining a tiny “tick file” format and a CLI around it.
+
+---
+
+### Tick file idea
+
+It’s line-based, similar to CSV/TSV, but optimized for tasks.
+
+```
+<status> [p1|p2|p3] [=<duration>] [+<project>] [#tags...] :: <title> [; <note>]
+```
+
+Each line starts with a status:
+
+* `-` todo
+* `/` active
+* `x` done
+* `~` blocked or dropped
+
+Optional fields:
+
+* priority (`p1`, `p2`, `p3`)
+* duration (`=2h`, `=1d`, etc.)
+* project bucket (`+groww`, `+blog`)
+* tags (`#backend`, `#infra`, etc.)
+* title + optional note after `;`
+
+Comments use `;` at line start.
+
+---
+
+### Sample file
+
+```
+- p1 =2h +groww #backend :: Fix checkout race condition
+/ p2 =45m +blog #writing :: Draft tick format post outline
+- =30m +personal #admin :: Renew insurance policy
+x =1h +groww #android :: Migrate logging to structured format
+~ +sideproject #ideas :: Build AI task prioritizer ; dropped due to scope
+```
+
+---
+
+### CLI
+
+There’s a small Go CLI to parse and render it:
+
+```sh
+go install github.com/iamsahebgiri/tick/cmd/tick@latest
+```
+
+But you don’t actually need it. Plain grep works fine.
+
+---
+
+### Examples with grep
+
+All todos:
+
+```sh
+grep "-" sample.tick
+```
+
+Filter by project:
+
+```sh
+grep "-" sample.tick | grep "+groww"
+```
+
+Or in one pass:
+
+```sh
+grep "^-.*+groww" sample.tick
+```
+
+With tags:
+
+```sh
+grep -P '^-.*(?=.*\+groww\b)(?=.*#android\b)' sample.tick
+```
+
+---
+
+### Why this works
+
+The whole idea is:
+
+* keep tasks as text
+* avoid UI dependency
+* make filtering trivial with tools you already have
+* let structure emerge from a simple grammar instead of forcing a system
+
+It’s basically a lightweight task DSL sitting on top of a plain file.
+
+For anyone who wants to dive in or extend it:
+
+[tick - task format + CLI](https://github.com/iamsahebgiri/tick)
+
+
+That’s it.
